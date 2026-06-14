@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Promos Tres Arroyos</title>
+<style>
+:root{
+  --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --sub:#94a3b8;
+  --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --border:#334155
+}
+body.light{
+  --bg:#f8fafc; --card:#ffffff; --text:#1e293b; --sub:#64748b;
+  --accent:#0284c7; --green:#16a34a; --yellow:#ca8a04; --border:#e2e8f0
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  padding:20px;
+  max-width:600px;
+  margin:0 auto;
+  transition:0.3s
+}
+.header{text-align:center;margin-bottom:25px}
+.logo{
+  width:80px;height:80px;border-radius:50%;
+  background:var(--accent);display:flex;align-items:center;
+  justify-content:center;font-size:40px;margin:0 auto 10px;
+  border:3px solid var(--border)
+}
+h1{color:var(--accent);font-size:24px;margin-bottom:5px}
+.sub{color:var(--sub);font-size:13px;margin-bottom:10px}
+.toggle{
+  position:absolute;top:20px;right:20px;
+  background:var(--card);border:1px solid var(--border);
+  padding:8px 12px;border-radius:8px;cursor:pointer;
+  color:var(--text);font-size:13px
+}
+
+.seccion{display:none;margin-bottom:35px}
+.seccion.active{display:block}
+.seccion h2{
+  color:var(--yellow);margin-bottom:15px;font-size:18px;
+  border-bottom:2px solid var(--border);padding-bottom:8px
+}
+
+.bar{
+  margin-bottom:20px;border:1px solid var(--border);
+  border-radius:16px;background:var(--card);overflow:hidden
+}
+.bar-img{
+  width:100%;height:160px;object-fit:cover;
+  background:#000;display:block
+}
+.bar-body{padding:18px}
+.bar h3{
+  color:var(--text);margin-bottom:12px;font-size:16px;
+  display:flex;align-items:center;gap:8px
+}
+.tag{
+  background:var(--accent);color:var(--bg);
+  padding:2px 8px;border-radius:6px;font-size:11px;font-weight:bold
+}
+.promo{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px;margin:10px 0;background:var(--bg);
+  border-radius:10px;gap:10px
+}
+.promo span{font-size:15px;flex:1}
+.promo b{color:var(--green);font-size:17px}
+.btn{
+  background:#25D366;color:white;border:none;
+  padding:10px 16px;border-radius:8px;cursor:pointer;
+  font-weight:bold;font-size:14px
+}
+.btn:hover{opacity:0.9}
+
+/* MODAL */
+.modal{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;
+  padding:20px
+}
+.modal.active{display:flex}
+.modal-content{
+  background:var(--card);padding:25px;border-radius:16px;
+  max-width:420px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto
+}
+.modal h3{color:var(--accent);margin-bottom:15px;font-size:18px}
+.modal input, .modal select, .modal textarea{
+  width:100%;padding:12px;margin-bottom:12px;
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:8px;color:var(--text);font-size:15px;font-family:inherit
+}
+.modal label{font-size:13px;color:var(--sub);margin-bottom:5px;display:block}
+.modal .total{
+  background:var(--bg);padding:12px;border-radius:8px;
+  margin:15px 0;font-size:16px;text-align:center;border:1px solid var(--border)
+}
+.modal .total b{color:var(--green);font-size:20px}
+.modal-btns{display:flex;gap:10px}
+.modal-btns button{flex:1;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}
+.btn-enviar{background:#25D366;color:white}
+.btn-cancelar{background:var(--border);color:var(--text)}
+
+.footer{
+  text-align:center;margin-top:40px;padding-top:20px;
+  border-top:1px solid var(--border);font-size:12px;color:var(--sub);line-height:1.6
+}
+.urgente{background:#dc2626;color:white;padding:2px 8px;border-radius:6px;font-size:10px}
+.horario-badge{
+  display:inline-block;background:var(--accent);color:var(--bg);
+  padding:4px 10px;border-radius:6px;font-size:11px;font-weight:bold;margin-top:5px
+}
+</style>
+</head>
+<body>
+<button class="toggle" onclick="toggleTheme()">🌓</button>
+
+<div class="header">
+  <div class="logo">🚀</div>
+  <h1>Promos Tres Arroyos</h1>
+  <p class="sub" id="subtitulo">Delivery 21hs a 06hs</p>
+  <span class="horario-badge" id="horario-badge">Abierto ahora</span>
+</div>
+
+<!-- BARES -->
+<div id="sec-bares" class="seccion active">
+<h2>🍺 Bares y Pubs</h2>
+  <div class="bar">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0" alt="Ogham">
+    <div class="bar-body">
+      <h3>Ogham 2.0 <span class="tag">Hipólito Yrigoyen 76</span></h3>
+      <div class="promo"><span>2x Pintas + Papas</span><b>$5500</b>
+        <button class="btn" onclick="abrirForm('Ogham 2.0','2x Pintas + Papas',5500)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- BEBIDAS -->
+<div id="sec-bebidas" class="seccion active">
+<h2>🍺 Bebidas</h2>
+  <div class="bar">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/4ade80?text=Distribuidora+El+10" alt="El 10">
+    <div class="bar-body">
+      <h3>Distribuidora El 10 <span class="tag">Av. Libertad 890</span></h3>
+      <div class="promo"><span>Pack 24 Quilmes 1L</span><b>$18500</b>
+        <button class="btn" onclick="abrirForm('El 10','Pack 24 Quilmes 1L',18500)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- FARMACIAS -->
+<div id="sec-farmacias" class="seccion active">
+<h2>💊 Farmacias de Turno</h2>
+  <div class="bar">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central" alt="Farmacia">
+    <div class="bar-body">
+      <h3>Farmacia Central <span class="tag">25 de Mayo 280 <span class="urgente">TURNO</span></span></h3>
+      <div class="promo"><span>Ibuprofeno 600mg x20</span><b>$1800</b>
+        <button class="btn" onclick="abrirForm('Farmacia Central','Ibuprofeno 600mg',1800)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- CARNICERIAS - solo dia -->
+<div id="sec-carnicerias" class="seccion">
+<h2>🥩 Carnicerías</h2>
+  <div class="bar">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/1e293b?text=Don+Carlos" alt="Don Carlos">
+    <div class="bar-body">
+      <h3>Don Carlos <span class="tag">Av. Libertad 450</span></h3>
+      <div class="promo"><span>Asado 2kg + Vacío 1kg</span><b>$8900</b>
+        <button class="btn" onclick="abrirForm('Don Carlos','Asado 2kg + Vacío 1kg',8900)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- VERDULERIAS - solo dia -->
+<div id="sec-verdulerias" class="seccion">
+<h2>🥬 Verdulerías</h2>
+  <div class="bar">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/16a34a?text=El+Mercado" alt="El Mercado">
+    <div class="bar-body">
+      <h3>El Mercado <span class="tag">Colón 299</span></h3>
+      <div class="promo"><span>Bolsón Mixto 5kg</span><b>$3200</b>
+        <button class="btn" onclick="abrirForm('El Mercado','Bolsón Mixto 5kg',3200)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- PANADERIAS - solo dia -->
+<div id="sec-panaderias" class="seccion">
+<h2>🥐 Panaderías</h2>
+  <div class="bar">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla" alt="La Perla">
+    <div class="bar-body">
+      <h3>La Perla <span class="tag">Av. Moreno 171</span></h3>
+      <div class="promo"><span>Docena Facturas</span><b>$2400</b>
+        <button class="btn" onclick="abrirForm('La Perla Panadería','Docena Facturas',2400)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+<strong>¿Cómo funciona?</strong><br>
+1. Tocá "Pedir" y completá tus datos<br>
+2. Te llega WhatsApp con el total<br>
+3. Pagás cuando llega tu pedido<br><br>
+<span id="horario-text">Horario: 21hs a 06hs | Tres Arroyos zona céntrica</span><br>
+Envío fijo: $1500
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="modal-titulo">Confirmar pedido</h3>
+    <label>Tu nombre *</label>
+    <input type="text" id="nombre" placeholder="Juan Pérez">
+    <label>Dirección completa *</label>
+    <input type="text" id="direccion" placeholder="Av. Moreno 123">
+    <label>Info de la casa / Delivery *</label>
+    <textarea id="infoCasa" rows="2" placeholder="Piso 2 Depto B, portón azul, timbre roto..."></textarea>
+    <label>Teléfono *</label>
+    <input type="tel" id="telefono" placeholder="2284-123456">
+    <label>Forma de pago</label>
+    <select id="pago">
+      <option>Efectivo</option>
+      <option>Transferencia</option>
+      <option>Débito/Crédito</option>
+    </select>
+    <label>Aclaraciones del pedido</label>
+    <textarea id="aclaraciones" rows="2" placeholder="Sin mayonesa, cambio de $1000, etc"></textarea>
+    <div class="total" id="modal-total"></div>
+    <div class="modal-btns">
+      <button class="btn-cancelar" onclick="cerrarForm()">Cancelar</button>
+      <button class="btn-enviar" onclick="enviarWhatsApp()">Enviar pedido</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// TU NÚMERO DE WHATSAPP
+const num="5492983389710";
+
+let pedidoActual = {};
+
+function abrirForm(local, promo, precio){
+  pedidoActual = {local, promo, precio};
+  const envio = 1500;
+  const totalCliente = precio + envio;
+  
+  document.getElementById('modal-titulo').textContent = promo;
+  document.getElementById('modal-total').innerHTML = `
+    Subtotal: $${precio.toLocaleString()}<br>
+    Envío: $1.500<br>
+    <b>TOTAL A PAGAR: $${totalCliente.toLocaleString()}</b>
+  `;
+  
+  document.getElementById('modal').classList.add('active');
+}
+
+function cerrarForm(){
+  document.getElementById('modal').classList.remove('active');
+  ['nombre','direccion','infoCasa','telefono','aclaraciones'].forEach(id=>document.getElementById(id).value='');
+}
+
+function enviarWhatsApp(){
+  const nombre = document.getElementById('nombre').value;
+  const direccion = document.getElementById('direccion').value;
+  const infoCasa = document.getElementById('infoCasa').value;
+  const telefono = document.getElementById('telefono').value;
+  const pago = document.getElementById('pago').value;
+  const aclaraciones = document.getElementById('aclaraciones').value;
+  
+  if(!nombre || !direccion || !infoCasa || !telefono){
+    alert('Completá nombre, dirección, info de la casa y teléfono');
+    return;
+  }
+  
+  const envio = 1500;
+  const totalCliente = pedidoActual.precio + envio;
+  
+  let msg = `*NUEVO PEDIDO*\n\n` +
+    `Local: ${pedidoActual.local}\n` +
+    `Promo: ${pedidoActual.promo}\n` +
+    `Subtotal: $${pedidoActual.precio}\n` +
+    `Envío: $1500\n` +
+    `*TOTAL CLIENTE: $${totalCliente}*\n\n` +
+    `*DATOS DELIVERY*\n` +
+    `Nombre: ${nombre}\n` +
+    `Dirección: ${direccion}\n` +
+    `Info casa: ${infoCasa}\n` +
+    `Tel: ${telefono}\n` +
+    `Pago: ${pago}`;
+  
+  if(aclaraciones) msg += `\nAclaraciones: ${aclaraciones}`;
+  
+  const url = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+  
+  cerrarForm();
+}
+
+function actualizarVista(){
+  const esLight = document.body.classList.contains('light');
+  const hora = new Date().getHours();
+  const seccionesDia = ['sec-carnicerias','sec-verdulerias','sec-panaderias'];
+  
+  seccionesDia.forEach(id=>{
+    const sec = document.getElementById(id);
+    if(esLight) sec.classList.add('active');
+    else sec.classList.remove('active');
+  });
+  
+  const horarioText = document.getElementById('horario-text');
+  const subtitulo = document.getElementById('subtitulo');
+  const badge = document.getElementById('horario-badge');
+  
+  if(esLight){
+    horarioText.textContent = 'Horario: 8hs a 22hs | Tres Arroyos';
+    subtitulo.textContent = 'Delivery 8hs a 22hs';
+    badge.textContent = hora >= 8 && hora < 22 ? 'Abierto ahora' : 'Cerrado';
+  } else {
+    horarioText.textContent = 'Horario: 21hs a 06hs | Tres Arroyos zona céntrica';
+    subtitulo.textContent = 'Delivery 21hs a 06hs';
+    badge.textContent = hora >= 21 || hora < 6 ? 'Abierto ahora' : 'Cerrado';
+  }
+}
+
+function toggleTheme(){
+  document.body.classList.toggle('light');
+  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  actualizarVista();
+}
+
+if(localStorage.getItem('theme')==='light') document.body.classList.add('light');
+actualizarVista();
+setInterval(actualizarVista, 60000);
+
+document.getElementById('modal').addEventListener('click', e=>{
+  if(e.target.id === 'modal') cerrarForm();
+});
+</script>
+</body>
+</html>
