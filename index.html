@@ -10,8 +10,8 @@
   --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --border:#334155
 }
 body.light{
-  --bg:#f8fafc; --card:#ffffff; --text:#1e293b; --sub:#64748b;
-  --accent:#0284c7; --green:#16a34a; --yellow:#ca8a04; --border:#e2e8f0
+  --bg:#e2e8f0; --card:#ffffff; --text:#1e293b; --sub:#475569;
+  --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --border:#94a3b8
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -39,6 +39,22 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   color:var(--text);font-size:13px
 }
 
+/* FILTROS ARRIBA */
+.filter-bar{
+  display:flex;gap:8px;margin-bottom:25px;
+  flex-wrap:wrap;justify-content:center
+}
+.filter-btn{
+  padding:9px 14px;background:var(--card);
+  border:2px solid var(--border);color:var(--text);
+  border-radius:50px;cursor:pointer;font-weight:bold;
+  font-size:13px;transition:0.3s
+}
+.filter-btn.active,.filter-btn:hover{
+  background:var(--accent);color:var(--bg);
+  border-color:var(--accent)
+}
+
 .seccion{display:none;margin-bottom:35px}
 .seccion.active{display:block}
 .seccion h2{
@@ -48,17 +64,20 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 .bar{
   margin-bottom:20px;border:1px solid var(--border);
-  border-radius:16px;background:var(--card);overflow:hidden
+  border-radius:16px;background:var(--card);overflow:hidden;
+  cursor:pointer;transition:transform 0.2s
 }
+.bar:hover{transform:translateY(-3px);border-color:var(--accent)}
 .bar-img{
   width:100%;height:160px;object-fit:cover;
   background:#000;display:block
 }
 .bar-body{padding:18px}
 .bar h3{
-  color:var(--text);margin-bottom:12px;font-size:16px;
+  color:var(--text);margin-bottom:8px;font-size:16px;
   display:flex;align-items:center;gap:8px
 }
+.bar-desc{color:var(--sub);font-size:13px;margin-bottom:12px}
 .tag{
   background:var(--accent);color:var(--bg);
   padding:2px 8px;border-radius:6px;font-size:11px;font-weight:bold
@@ -77,7 +96,33 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 }
 .btn:hover{opacity:0.9}
 
-/* MODAL */
+/* MODAL PROMO DETALLE */
+.modal-promo{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;
+  padding:20px
+}
+.modal-promo.active{display:flex}
+.modal-promo-content{
+  background:var(--card);padding:0;border-radius:16px;
+  max-width:450px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto
+}
+.modal-promo-img{width:100%;height:250px;object-fit:cover;border-radius:16px 16px 0 0}
+.modal-promo-body{padding:25px}
+.modal-promo h3{color:var(--accent);margin-bottom:10px;font-size:20px}
+.modal-promo.dir{color:var(--sub);font-size:13px;margin-bottom:15px}
+.modal-promo.desc{color:var(--text);font-size:15px;line-height:1.6;margin-bottom:20px}
+.modal-promo.promo-box{
+  background:var(--bg);padding:15px;border-radius:10px;margin-bottom:12px;
+  border:1px solid var(--border)
+}
+.modal-promo.promo-box b{color:var(--green);font-size:22px}
+.close-x{
+  position:absolute;top:15px;right:20px;font-size:35px;
+  color:white;cursor:pointer;font-weight:bold;z-index:1001
+}
+
+/* MODAL PEDIDO - TU FORMATO ORIGINAL */
 .modal{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
   background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;
@@ -89,17 +134,17 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   max-width:420px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto
 }
 .modal h3{color:var(--accent);margin-bottom:15px;font-size:18px}
-.modal input, .modal select, .modal textarea{
+.modal input,.modal select,.modal textarea{
   width:100%;padding:12px;margin-bottom:12px;
   background:var(--bg);border:1px solid var(--border);
   border-radius:8px;color:var(--text);font-size:15px;font-family:inherit
 }
 .modal label{font-size:13px;color:var(--sub);margin-bottom:5px;display:block}
-.modal .total{
+.modal.total{
   background:var(--bg);padding:12px;border-radius:8px;
   margin:15px 0;font-size:16px;text-align:center;border:1px solid var(--border)
 }
-.modal .total b{color:var(--green);font-size:20px}
+.modal.total b{color:var(--green);font-size:20px}
 .modal-btns{display:flex;gap:10px}
 .modal-btns button{flex:1;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}
 .btn-enviar{background:#25D366;color:white}
@@ -126,107 +171,163 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <span class="horario-badge" id="horario-badge">Abierto ahora</span>
 </div>
 
-<!-- BARES -->
-<div id="sec-bares" class="seccion active">
-<h2>🍺 Bares y Pubs</h2>
-  <div class="bar">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0" alt="Ogham">
+<!-- FILTROS ARRIBA - 9 CATEGORÍAS -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filtrar('all')">Todas</button>
+  <button class="filter-btn" onclick="filtrar('almacen')">🏪 Almacén</button>
+  <button class="filter-btn" onclick="filtrar('farmacia')">💊 Farmacia</button>
+  <button class="filter-btn" onclick="filtrar('heladeria')">🍦 Heladería</button>
+  <button class="filter-btn" onclick="filtrar('confiteria')">🥐 Confitería</button>
+  <button class="filter-btn" onclick="filtrar('carniceria')">🥩 Carnicería</button>
+  <button class="filter-btn" onclick="filtrar('verduleria')">🥬 Verdulería</button>
+  <button class="filter-btn" onclick="filtrar('bares')">🍺 Bares</button>
+  <button class="filter-btn" onclick="filtrar('restaurantes')">🍔 Restaurantes</button>
+  <button class="filter-btn" onclick="filtrar('online')">💻 Online</button>
+</div>
+
+<!-- EJEMPLO CADA CATEGORÍA - TU MISMO FORMATO -->
+<div id="sec-almacen" class="seccion active">
+<h2>🏪 Almacén</h2>
+  <div class="bar" onclick="abrirPromo('Almacén El Centro','Av. Moreno 234','Mercadería, bebidas, limpieza, kiosco. Precios mayoristas. Abierto 24hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Almacen+El+Centro',[{nombre:'Combo fideos + salsa x3',precio:3200},{nombre:'Pack gaseosa 2.25L x2',precio:2800}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Almacen+El+Centro" alt="Almacen">
     <div class="bar-body">
-      <h3>Ogham 2.0 <span class="tag">Hipólito Yrigoyen 76</span></h3>
-      <div class="promo"><span>2x Pintas + Papas</span><b>$5500</b>
-        <button class="btn" onclick="abrirForm('Ogham 2.0','2x Pintas + Papas',5500)">Pedir</button></div>
+      <h3>Almacén El Centro <span class="tag">Av. Moreno 234</span></h3>
+      <p class="bar-desc">Mercadería, bebidas, limpieza. 24hs</p>
+      <div class="promo"><span>Combo fideos + salsa x3</span><b>$3200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Almacén El Centro','Combo fideos + salsa x3',3200)">Pedir</button></div>
     </div>
   </div>
 </div>
 
-<!-- COMIDAS - NUEVO -->
-<div id="sec-comidas" class="seccion active">
-<h2>🍔 Comidas Caseras</h2>
-  <div class="bar">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/fbbf24?text=Milanesa+Gigante" alt="Milanesa">
-    <div class="bar-body">
-      <h3>Sanguche Casero <span class="tag">casero</span></h3>
-      <div class="promo"><span>Sanguche de milanesa gigante completo con aderezo</span><b>$13000</b>
-        <button class="btn" onclick="abrirForm('Sanguche Casero','Sanguche de milanesa gigante completo con aderezo',13000)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- BEBIDAS -->
-<div id="sec-bebidas" class="seccion active">
-<h2>🍺 Bebidas</h2>
-  <div class="bar">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/4ade80?text=Distribuidora+El+10" alt="El 10">
-    <div class="bar-body">
-      <h3>Distribuidora El 10 <span class="tag">Av. Libertad 890</span></h3>
-      <div class="promo"><span>Pack 24 Quilmes 1L</span><b>$18500</b>
-        <button class="btn" onclick="abrirForm('El 10','Pack 24 Quilmes 1L',18500)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- FARMACIAS -->
-<div id="sec-farmacias" class="seccion active">
-<h2>💊 Farmacias de Turno</h2>
-  <div class="bar">
+<div id="sec-farmacia" class="seccion">
+<h2>💊 Farmacia</h2>
+  <div class="bar" onclick="abrirPromo('Farmacia Central','25 de Mayo 280','Farmacia de turno 24hs. Perfumería, medicamentos, dermocosmética. https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central',[{nombre:'Ibuprofeno 600mg x20',precio:1800},{nombre:'Paracetamol 1g x10',precio:1200}])">
     <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central" alt="Farmacia">
     <div class="bar-body">
       <h3>Farmacia Central <span class="tag">25 de Mayo 280 <span class="urgente">TURNO</span></span></h3>
+      <p class="bar-desc">Farmacia de turno 24hs</p>
       <div class="promo"><span>Ibuprofeno 600mg x20</span><b>$1800</b>
-        <button class="btn" onclick="abrirForm('Farmacia Central','Ibuprofeno 600mg',1800)">Pedir</button></div>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Farmacia Central','Ibuprofeno 600mg',1800)">Pedir</button></div>
     </div>
   </div>
 </div>
 
-<!-- CARNICERIAS - solo dia -->
-<div id="sec-carnicerias" class="seccion">
-<h2>🥩 Carnicerías</h2>
-  <div class="bar">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/1e293b?text=Don+Carlos" alt="Don Carlos">
+<div id="sec-heladeria" class="seccion">
+<h2>🍦 Heladería</h2>
+  <div class="bar" onclick="abrirPromo('Freddo','Belgrano 456','Helados artesanales premium. Cremas, paletas, postres helados. https://via.placeholder.com/600x400/1e293b/4ade80?text=Freddo+Helados',[{nombre:'1/4kg 3 gustos',precio:2800},{nombre:'Bombón escocés x6',precio:1500}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/4ade80?text=Freddo+Helados" alt="Heladeria">
     <div class="bar-body">
-      <h3>Don Carlos <span class="tag">Av. Libertad 450</span></h3>
-      <div class="promo"><span>Asado 2kg + Vacío 1kg</span><b>$8900</b>
-        <button class="btn" onclick="abrirForm('Don Carlos','Asado 2kg + Vacío 1kg',8900)">Pedir</button></div>
+      <h3>Freddo <span class="tag">Belgrano 456</span></h3>
+      <p class="bar-desc">Helados artesanales premium</p>
+      <div class="promo"><span>1/4kg 3 gustos</span><b>$2800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Freddo','1/4kg 3 gustos',2800)">Pedir</button></div>
     </div>
   </div>
 </div>
 
-<!-- VERDULERIAS - solo dia -->
-<div id="sec-verdulerias" class="seccion">
-<h2>🥬 Verdulerías</h2>
-  <div class="bar">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/16a34a?text=El+Mercado" alt="El Mercado">
-    <div class="bar-body">
-      <h3>El Mercado <span class="tag">Colón 299</span></h3>
-      <div class="promo"><span>Bolsón Mixto 5kg</span><b>$3200</b>
-        <button class="btn" onclick="abrirForm('El Mercado','Bolsón Mixto 5kg',3200)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<!-- PANADERIAS - solo dia -->
-<div id="sec-panaderias" class="seccion">
-<h2>🥐 Panaderías</h2>
-  <div class="bar">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla" alt="La Perla">
+<div id="sec-confiteria" class="seccion">
+<h2>🥐 Confitería y Panadería</h2>
+  <div class="bar" onclick="abrirPromo('La Perla','Av. Moreno 171','Pan casero, facturas, tortas, masas finas. Horneado diario desde las 6am. https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla',[{nombre:'Docena Facturas',precio:2400},{nombre:'Torta porción',precio:900}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla" alt="Confiteria">
     <div class="bar-body">
       <h3>La Perla <span class="tag">Av. Moreno 171</span></h3>
+      <p class="bar-desc">Pan casero y facturas recién horneadas</p>
       <div class="promo"><span>Docena Facturas</span><b>$2400</b>
-        <button class="btn" onclick="abrirForm('La Perla Panadería','Docena Facturas',2400)">Pedir</button></div>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('La Perla','Docena Facturas',2400)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-carniceria" class="seccion">
+<h2>🥩 Carnicería</h2>
+  <div class="bar" onclick="abrirPromo('Don Carlos','Av. Libertad 450','Cortes de carne vacuna, pollo, cerdo. Milanesas, achuras. https://via.placeholder.com/600x400/ffffff/1e293b?text=Don+Carlos',[{nombre:'Asado 2kg + Vacío 1kg',precio:8900}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/1e293b?text=Don+Carlos" alt="Carniceria">
+    <div class="bar-body">
+      <h3>Don Carlos <span class="tag">Av. Libertad 450</span></h3>
+      <p class="bar-desc">Carne vacuna de primera calidad</p>
+      <div class="promo"><span>Asado 2kg + Vacío 1kg</span><b>$8900</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Don Carlos','Asado 2kg + Vacío 1kg',8900)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-verduleria" class="seccion">
+<h2>🥬 Verdulería</h2>
+  <div class="bar" onclick="abrirPromo('El Mercado','Colón 299','Frutas y verduras frescas diarias. Bolsón orgánico, legumbres. https://via.placeholder.com/600x400/ffffff/16a34a?text=El+Mercado',[{nombre:'Bolsón Mixto 5kg',precio:3200}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/16a34a?text=El+Mercado" alt="Verduleria">
+    <div class="bar-body">
+      <h3>El Mercado <span class="tag">Colón 299</span></h3>
+      <p class="bar-desc">Frutas y verduras frescas diarias</p>
+      <div class="promo"><span>Bolsón Mixto 5kg</span><b>$3200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('El Mercado','Bolsón Mixto 5kg',3200)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-bares" class="seccion">
+<h2>🍺 Bares</h2>
+  <div class="bar" onclick="abrirPromo('Ogham 2.0','Hipólito Yrigoyen 76','Birra artesanal, tragos, música en vivo. Happy hour hasta 23hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0',[{nombre:'2x Pintas + Papas',precio:5500},{nombre:'Fernet + Coca 1L',precio:4200}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0" alt="Ogham">
+    <div class="bar-body">
+      <h3>Ogham 2.0 <span class="tag">Hipólito Yrigoyen 76</span></h3>
+      <p class="bar-desc">Birra artesanal y tragos</p>
+      <div class="promo"><span>2x Pintas + Papas</span><b>$5500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Ogham 2.0','2x Pintas + Papas',5500)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-restaurantes" class="seccion">
+<h2>🍔 Restaurantes</h2>
+  <div class="bar" onclick="abrirPromo('Sanguche Casero','casero','Milanesas gigantes, hamburguesas caseras, papas. Delivery 24hs. https://via.placeholder.com/600x400/1e293b/fbbf24?text=Milanesa+Gigante',[{nombre:'Milanesa gigante completa',precio:13000}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/fbbf24?text=Milanesa+Gigante" alt="Restaurante">
+    <div class="bar-body">
+      <h3>Sanguche Casero <span class="tag">casero</span></h3>
+      <p class="bar-desc">Milanesas gigantes y hamburguesas</p>
+      <div class="promo"><span>Milanesa gigante completa</span><b>$13000</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Sanguche Casero','Milanesa gigante completa',13000)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-online" class="seccion">
+<h2>💻 Ventas Online</h2>
+  <div class="bar" onclick="abrirPromo('Tecno 3A','Online','Celulares, auriculares, cargadores, fundas. Entrega a domicilio en el día. https://via.placeholder.com/600x400/1e293b/8b5cf6?text=Tecno+3A',[{nombre:'Auriculares Bluetooth',precio:8500}])">
+    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/8b5cf6?text=Tecno+3A" alt="Online">
+    <div class="bar-body">
+      <h3>Tecno 3A <span class="tag">Online</span></h3>
+      <p class="bar-desc">Accesorios y celulares. Envío gratis</p>
+      <div class="promo"><span>Auriculares Bluetooth</span><b>$8500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Tecno 3A','Auriculares Bluetooth',8500)">Pedir</button></div>
     </div>
   </div>
 </div>
 
 <div class="footer">
 <strong>¿Cómo funciona?</strong><br>
-1. Tocá "Pedir" y completá tus datos<br>
-2. Te llega WhatsApp con el total<br>
-3. Pagás cuando llega tu pedido<br><br>
+1. Tocá la promo para ver detalles<br>
+2. Tocá "Pedir" y completá tus datos<br>
+3. Te llega WhatsApp con el total<br>
+4. Pagás cuando llega tu pedido<br><br>
 <span id="horario-text">Horario: 21hs a 06hs | Tres Arroyos zona céntrica</span><br>
 Envío fijo: $1500
 </div>
 
-<!-- MODAL -->
+<!-- MODAL DETALLE PROMO NUEVO -->
+<div class="modal-promo" id="modalPromo">
+  <span class="close-x" onclick="cerrarPromo()">&times;</span>
+  <div class="modal-promo-content">
+    <img id="promoImg" class="modal-promo-img" src="">
+    <div class="modal-promo-body">
+      <h3 id="promoNombre"></h3>
+      <div class="dir" id="promoDir"></div>
+      <p class="desc" id="promoDesc"></p>
+      <div id="promoList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TU MODAL PEDIDO ORIGINAL -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <h3 id="modal-titulo">Confirmar pedido</h3>
@@ -235,7 +336,7 @@ Envío fijo: $1500
     <label>Dirección completa *</label>
     <input type="text" id="direccion" placeholder="Av. Moreno 123">
     <label>Info de la casa / Delivery *</label>
-    <textarea id="infoCasa" rows="2" placeholder="Piso 2 Depto B, portón azul, timbre roto..."></textarea>
+    <textarea id="infoCasa" rows="2" placeholder="Piso 2 Depto B, portón azul..."></textarea>
     <label>Teléfono *</label>
     <input type="tel" id="telefono" placeholder="2284-123456">
     <label>Forma de pago</label>
@@ -245,7 +346,7 @@ Envío fijo: $1500
       <option>Débito/Crédito</option>
     </select>
     <label>Aclaraciones del pedido</label>
-    <textarea id="aclaraciones" rows="2" placeholder="Sin mayonesa, cambio de $1000, etc"></textarea>
+    <textarea id="aclaraciones" rows="2" placeholder="Sin mayonesa, etc"></textarea>
     <div class="total" id="modal-total"></div>
     <div class="modal-btns">
       <button class="btn-cancelar" onclick="cerrarForm()">Cancelar</button>
@@ -255,23 +356,59 @@ Envío fijo: $1500
 </div>
 
 <script>
-// TU NÚMERO DE WHATSAPP
 const num="5492983389710";
-
 let pedidoActual = {};
 
+function filtrar(cat){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  if(cat==='all'){
+    document.querySelectorAll('.seccion').forEach(s=>s.classList.add('active'));
+  } else {
+    document.querySelectorAll('.seccion').forEach(s=>s.classList.remove('active'));
+    document.getElementById('sec-'+cat).classList.add('active');
+  }
+}
+
+function abrirPromo(nombre, dir, descImg, promos){
+  const partes = descImg.split(' https://');
+  document.getElementById('promoNombre').textContent = nombre;
+  document.getElementById('promoDir').textContent = dir;
+  document.getElementById('promoDesc').textContent = partes[0];
+  document.getElementById('promoImg').src = 'https://' + partes[1];
+
+  let html = '';
+  promos.forEach(p=>{
+    html += `<div class="promo-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span>${p.nombre}</span>
+        <b>$${p.precio.toLocaleString()}</b>
+      </div>
+      <button class="btn" style="width:100%" onclick="abrirForm('${nombre}','${p.nombre}',${p.precio})">Pedir esta promo</button>
+    </div>`;
+  });
+  document.getElementById('promoList').innerHTML = html;
+  document.getElementById('modalPromo').classList.add('active');
+}
+
+function cerrarPromo(){
+  document.getElementById('modalPromo').classList.remove('active');
+}
+
 function abrirForm(local, promo, precio){
+  cerrarPromo();
   pedidoActual = {local, promo, precio};
   const envio = 1500;
   const totalCliente = precio + envio;
-  
+
   document.getElementById('modal-titulo').textContent = promo;
   document.getElementById('modal-total').innerHTML = `
     Subtotal: $${precio.toLocaleString()}<br>
     Envío: $1.500<br>
     <b>TOTAL A PAGAR: $${totalCliente.toLocaleString()}</b>
   `;
-  
+
   document.getElementById('modal').classList.add('active');
 }
 
@@ -287,15 +424,15 @@ function enviarWhatsApp(){
   const telefono = document.getElementById('telefono').value;
   const pago = document.getElementById('pago').value;
   const aclaraciones = document.getElementById('aclaraciones').value;
-  
-  if(!nombre || !direccion || !infoCasa || !telefono){
+
+  if(!nombre ||!direccion ||!infoCasa ||!telefono){
     alert('Completá nombre, dirección, info de la casa y teléfono');
     return;
   }
-  
+
   const envio = 1500;
   const totalCliente = pedidoActual.precio + envio;
-  
+
   let msg = `*NUEVO PEDIDO*\n\n` +
     `Local: ${pedidoActual.local}\n` +
     `Promo: ${pedidoActual.promo}\n` +
@@ -308,44 +445,44 @@ function enviarWhatsApp(){
     `Info casa: ${infoCasa}\n` +
     `Tel: ${telefono}\n` +
     `Pago: ${pago}`;
-  
+
   if(aclaraciones) msg += `\nAclaraciones: ${aclaraciones}`;
-  
+
   const url = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
-  
+
   cerrarForm();
 }
 
 function actualizarVista(){
   const esLight = document.body.classList.contains('light');
   const hora = new Date().getHours();
-  const seccionesDia = ['sec-carnicerias','sec-verdulerias','sec-panaderias'];
-  
+  const seccionesDia = ['sec-carniceria','sec-verduleria','sec-confiteria'];
+
   seccionesDia.forEach(id=>{
     const sec = document.getElementById(id);
-    if(esLight) sec.classList.add('active');
-    else sec.classList.remove('active');
+    if(esLight) sec.style.display = 'block';
+    else sec.style.display = 'none';
   });
-  
+
   const horarioText = document.getElementById('horario-text');
   const subtitulo = document.getElementById('subtitulo');
   const badge = document.getElementById('horario-badge');
-  
+
   if(esLight){
     horarioText.textContent = 'Horario: 8hs a 22hs | Tres Arroyos';
     subtitulo.textContent = 'Delivery 8hs a 22hs';
-    badge.textContent = hora >= 8 && hora < 22 ? 'Abierto ahora' : 'Cerrado';
+    badge.textContent = hora >= 8 && hora < 22? 'Abierto ahora' : 'Cerrado';
   } else {
     horarioText.textContent = 'Horario: 21hs a 06hs | Tres Arroyos zona céntrica';
     subtitulo.textContent = 'Delivery 21hs a 06hs';
-    badge.textContent = hora >= 21 || hora < 6 ? 'Abierto ahora' : 'Cerrado';
+    badge.textContent = hora >= 21 || hora < 6? 'Abierto ahora' : 'Cerrado';
   }
 }
 
 function toggleTheme(){
   document.body.classList.toggle('light');
-  localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+  localStorage.setItem('theme', document.body.classList.contains('light')? 'light' : 'dark');
   actualizarVista();
 }
 
@@ -355,6 +492,9 @@ setInterval(actualizarVista, 60000);
 
 document.getElementById('modal').addEventListener('click', e=>{
   if(e.target.id === 'modal') cerrarForm();
+});
+document.getElementById('modalPromo').addEventListener('click', e=>{
+  if(e.target.id === 'modalPromo') cerrarPromo();
 });
 </script>
 </body>
