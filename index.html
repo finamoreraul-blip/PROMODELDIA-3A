@@ -6,47 +6,39 @@
 <title>Promos 3A - Tres Arroyos</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
+:root {
+--bg: #0f172a; --card: #1e293b; --text: #f8fafc; --muted: #94a3b8; --accent: #fbbf24; --border: #334155;
+}
+body.light {
+--bg: #f8fafc; --card: #ffffff; --text: #0f172a; --muted: #64748b; --accent: #f59e0b; --border: #e2e8f0;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-font-family: 'Montserrat', sans-serif; 
-background: #050810; /* Azul negro súper oscuro */
-color: #f8fafc; 
-padding: 20px;
-background-image: radial-gradient(circle at 20% 20%, #0a1430 0%, transparent 50%), radial-gradient(circle at 80% 80%, #1a0a30 0%, transparent 50%);
-min-height: 100vh;
-}
-.header { text-align: center; margin-bottom: 30px; }
-.header h1 { font-size: 2.5rem; font-weight: 900; color: #fbbf24; margin-bottom: 5px; text-shadow: 0 0 20px rgba(251,191,36,0.3); }
-.header p { color: #94a3b8; }
+body { font-family: 'Montserrat', sans-serif; background: var(--bg); color: var(--text); padding: 20px; transition: all 0.3s; }
+.header { text-align: center; margin-bottom: 30px; position: relative; }
+.header h1 { font-size: 2.5rem; font-weight: 900; color: var(--accent); margin-bottom: 5px; }
+.header p { color: var(--muted); }
+.theme-btn { position: absolute; right: 0; top: 0; padding: 8px 15px; background: var(--card); border: 1px solid var(--border); color: var(--text); border-radius: 8px; cursor: pointer; font-weight: 700; }
 .filter-bar { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
-.filter-btn { padding: 10px 20px; border: 2px solid #1e293b; background: #0f172a; color: #f8fafc; border-radius: 50px; cursor: pointer; font-weight: 700; transition: all 0.3s; }
-.filter-btn.active, .filter-btn:hover { background: #fbbf24; color: #050810; border-color: #fbbf24; box-shadow: 0 0 15px rgba(251,191,36,0.4); }
-.category-title { font-size: 1.5rem; font-weight: 900; color: #fbbf24; margin: 40px 0 20px 0; border-left: 4px solid #fbbf24; padding-left: 15px; text-shadow: 0 0 10px rgba(251,191,36,0.2); }
+.filter-btn { padding: 10px 20px; border: 2px solid var(--border); background: var(--card); color: var(--text); border-radius: 50px; cursor: pointer; font-weight: 700; transition: all 0.3s; }
+.filter-btn.active, .filter-btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.category-title { font-size: 1.5rem; font-weight: 900; color: var(--accent); margin: 40px 0 20px 0; border-left: 4px solid var(--accent); padding-left: 15px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-.card { 
-background: #0a0f1e; /* Card más oscura que el fondo */
-border-radius: 16px; 
-overflow: hidden; 
-border: 1px solid #1e293b; 
-transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s; 
-cursor: pointer; 
-box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-.card:hover { transform: translateY(-5px); border-color: #fbbf24; box-shadow: 0 8px 30px rgba(251,191,36,0.2); }
-.bar-img { width: 100%; height: 200px; object-fit: cover; cursor: zoom-in; border-bottom: 2px solid #1e293b; }
+.card { background: var(--card); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); transition: transform 0.3s, border-color 0.3s; cursor: pointer; }
+.card:hover { transform: translateY(-5px); border-color: var(--accent); }
+.bar-img { width: 100%; height: 200px; object-fit: cover; cursor: zoom-in; }
 .card-content { padding: 20px; }
-.bar-name { font-size: 1.3rem; font-weight: 900; color: #fbbf24; margin-bottom: 5px; }
-.bar-address { color: #64748b; font-size: 0.9rem; margin-bottom: 15px; }
-.promo-title { font-weight: 700; margin-bottom: 5px; color: #f8fafc; }
-.promo-desc { color: #cbd5e1; font-size: 0.9rem; margin-bottom: 10px; }
-.promo-details { color: #94a3b8; font-size: 0.85rem; margin-bottom: 10px; line-height: 1.4; }
-.promo-price { font-size: 1.5rem; font-weight: 900; color: #22c55e; margin: 10px 0; text-shadow: 0 0 10px rgba(34,197,94,0.3); }
-.btn-whatsapp { width: 100%; padding: 12px; background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%); color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(37,211,102,0.3); }
-.btn-whatsapp:hover { transform: scale(1.02); box-shadow: 0 6px 20px rgba(37,211,102,0.5); }
+.bar-name { font-size: 1.3rem; font-weight: 900; color: var(--accent); margin-bottom: 5px; }
+.bar-address { color: var(--muted); font-size: 0.9rem; margin-bottom: 15px; }
+.promo-title { font-weight: 700; margin-bottom: 5px; color: var(--text); }
+.promo-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 10px; }
+.promo-details { color: var(--muted); font-size: 0.85rem; margin-bottom: 10px; line-height: 1.4; }
+.promo-price { font-size: 1.5rem; font-weight: 900; color: #22c55e; margin: 10px 0; }
+.btn-whatsapp { width: 100%; padding: 12px; background: #25d366; color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
+.btn-whatsapp:hover { background: #20ba5a; }
 
 /* MODAL FOTO GRANDE */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; backdrop-filter: blur(5px); }
-.modal img { max-width: 90%; max-height: 80%; border-radius: 12px; box-shadow: 0 0 40px rgba(251,191,36,0.3); }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); justify-content: center; align-items: center; }
+.modal img { max-width: 90%; max-height: 80%; border-radius: 12px; }
 .modal-close { position: absolute; top: 20px; right: 40px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
 </style>
 </head>
@@ -55,27 +47,84 @@ box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 <div class="header">
 <h1>🍻 PROMOS 3A</h1>
 <p>Todas las promos de Tres Arroyos en un solo lugar</p>
+<button class="theme-btn" onclick="toggleTheme()">🌓 Modo</button>
 </div>
 
 <div class="filter-bar">
 <button class="filter-btn active" onclick="filterCat('all')">Todas</button>
-<button class="filter-btn" onclick="filterCat('bar')">Bares</button>
-<button class="filter-btn" onclick="filterCat('comida')">Comidas</button>
+<button class="filter-btn" onclick="filterCat('comida')">🍔 Comidas</button>
+<button class="filter-btn" onclick="filterCat('bar')">🍻 Bares</button>
+<button class="filter-btn" onclick="filterCat('delivery')">🚚 Delivery</button>
+<button class="filter-btn" onclick="filterCat('descuento')">🏷️ Descuentos</button>
 </div>
 
 <h2 class="category-title">🍔 Comidas Caseras</h2>
 <div class="grid">
 
 <div class="card" data-cat="comida">
-<img class="bar-img" src="milanesa.jpg" alt="Sanguche de milanesa gigante" onclick="openModal('ogham.jpg')">
+<img class="bar-img" src="milanesa.jpg" alt="Sanguche de milanesa" onclick="openModal('ogham.jpg')">
 <div class="card-content">
 <div class="bar-name">Sanguche Casero</div>
 <div class="bar-address">casero</div>
-<div class="promo-title">Sanguche de milanesa gigante completo con aderezo</div>
-<div class="promo-desc">Pan casero, milanesa napolitana, jamón, queso, tomate, lechuga, huevo y aderezo de la casa</div>
-<div class="promo-details">⏰ Horario: 19:00 a 02:00 hs | 🚚 Envío en 30 min | 🔥 Quedan 8 unidades</div>
+<div class="promo-title">Milanesa gigante completa con aderezo</div>
+<div class="promo-desc">Pan casero, milanesa napo, jamón, queso, tomate, lechuga, huevo</div>
+<div class="promo-details">⏰ 19:00 a 02:00 hs | 🚚 30 min | 🔥 Quedan 8</div>
 <div class="promo-price" data-price="13000">$13.000</div>
-<button class="btn-whatsapp" onclick="pedir('Sanguche Casero', 13000)">Pedir por WhatsApp</button>
+<button class="btn-whatsapp" onclick="pedir('Milanesa gigante', 13000)">Pedir por WhatsApp</button>
+</div>
+</div>
+
+</div>
+
+<h2 class="category-title">🍻 Bares y Birra</h2>
+<div class="grid">
+
+<div class="card" data-cat="bar">
+<img class="bar-img" src="ogham.jpg" alt="Birra y hamburguesa" onclick="openModal('foto-bar.jpg')">
+<div class="card-content">
+<div class="bar-name">Bar La Esquina</div>
+<div class="bar-address">Belgrano 890</div>
+<div class="promo-title">Jarros 1L artesanal 2x1</div>
+<div class="promo-desc">IPA, Golden, Stout. Jarros de litro bien fríos</div>
+<div class="promo-details">⏰ 21:00 a 05:00 hs | 📍 Centro | 🔥 Happy hour hasta 23hs</div>
+<div class="promo-price" data-price="4200">$4.200</div>
+<button class="btn-whatsapp" onclick="pedir('Jarros 1L 2x1', 4200)">Pedir por WhatsApp</button>
+</div>
+</div>
+
+</div>
+
+<h2 class="category-title">🚚 Delivery 24hs</h2>
+<div class="grid">
+
+<div class="card" data-cat="delivery">
+<img class="bar-img" src="foto-delivery.jpg" alt="Delivery" onclick="openModal('foto-delivery.jpg')">
+<div class="card-content">
+<div class="bar-name">Moto Envíos 3A</div>
+<div class="bar-address">Toda la ciudad</div>
+<div class="promo-title">Envío gratis después de las 00:00</div>
+<div class="promo-desc">Te llevamos lo que quieras. Comida, bebidas, lo que necesites</div>
+<div class="promo-details">⏰ 00:00 a 06:00 hs | 📍 Zona centro | 🔥 Mínimo $5000</div>
+<div class="promo-price" data-price="0">$0 Envío</div>
+<button class="btn-whatsapp" onclick="pedir('Envío gratis nocturno', 0)">Pedir por WhatsApp</button>
+</div>
+</div>
+
+</div>
+
+<h2 class="category-title">🏷️ Descuentos y 2x1</h2>
+<div class="grid">
+
+<div class="card" data-cat="descuento">
+<img class="bar-img" src="foto-descuento.jpg" alt="Descuento" onclick="openModal('foto-descuento.jpg')">
+<div class="card-content">
+<div class="bar-name">Carnicería El Centro</div>
+<div class="bar-address">Rivadavia 234</div>
+<div class="promo-title">20% OFF pagando en efectivo</div>
+<div class="promo-desc">En cortes de carne vacuna y pollo. No aplica con promos</div>
+<div class="promo-details">⏰ 08:00 a 13:00 / 17:00 a 21:00 | 📍 Centro | 🔥 Solo lunes y martes</div>
+<div class="promo-price" data-price="0">-20%</div>
+<button class="btn-whatsapp" onclick="pedir('20% OFF efectivo', 0)">Consultar por WhatsApp</button>
 </div>
 </div>
 
@@ -87,8 +136,17 @@ box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 </div>
 
 <script>
-const WHATSAPP_NUMBER = "5492983XXXXXX";
+const WHATSAPP_NUMBER = "5492983389710";
 const SHIPPING = 1500;
+
+function toggleTheme() {
+document.body.classList.toggle('light');
+localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+
+if(localStorage.getItem('theme') === 'light') {
+document.body.classList.add('light');
+}
 
 function openModal(src) {
 document.getElementById('photoModal').style.display = 'flex';
@@ -101,6 +159,7 @@ document.getElementById('photoModal').style.display = 'none';
 
 function pedir(nombre, precio) {
 let total = precio + SHIPPING;
+if(precio === 0) total = 0;
 let msg = `Hola! Quiero pedir:\n\n${nombre}\nPrecio: $${precio.toLocaleString('es-AR')}\nEnvío: $${SHIPPING.toLocaleString('es-AR')}\nTOTAL CLIENTE: $${total.toLocaleString('es-AR')}\n\nDirección de entrega:`;
 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
 }
