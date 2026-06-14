@@ -56,7 +56,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 }
 
 .seccion{display:none;margin-bottom:35px}
-.seccion.active{display:block}
+.seccion.active{display:block!important}
 .seccion h2{
   color:var(--yellow);margin-bottom:15px;font-size:18px;
   border-bottom:2px solid var(--border);padding-bottom:8px
@@ -122,7 +122,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
 
-/* MODAL PEDIDO - TU FORMATO ORIGINAL */
+/* MODAL PEDIDO */
 .modal{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
   background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;
@@ -185,10 +185,10 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('online')">💻 Online</button>
 </div>
 
-<!-- EJEMPLO CADA CATEGORÍA - TU MISMO FORMATO -->
-<div id="sec-almacen" class="seccion active">
+<!-- SECCIONES - SOLO SE MUESTRA LA ACTIVA -->
+<div id="sec-almacen" class="seccion">
 <h2>🏪 Almacén</h2>
-  <div class="bar" onclick="abrirPromo('Almacén El Centro','Av. Moreno 234','Mercadería, bebidas, limpieza, kiosco. Precios mayoristas. Abierto 24hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Almacen+El+Centro',[{nombre:'Combo fideos + salsa x3',precio:3200},{nombre:'Pack gaseosa 2.25L x2',precio:2800}])">
+  <div class="bar" onclick="abrirPromo('Almacén El Centro','Av. Moreno 234','Mercadería, bebidas, limpieza, kiosco. Precios mayoristas. Abierto 24hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Almacen+El+Centro',[{nombre:'Combo fideos + salsa x3',precio:3200}])">
     <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Almacen+El+Centro" alt="Almacen">
     <div class="bar-body">
       <h3>Almacén El Centro <span class="tag">Av. Moreno 234</span></h3>
@@ -201,7 +201,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 <div id="sec-farmacia" class="seccion">
 <h2>💊 Farmacia</h2>
-  <div class="bar" onclick="abrirPromo('Farmacia Central','25 de Mayo 280','Farmacia de turno 24hs. Perfumería, medicamentos, dermocosmética. https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central',[{nombre:'Ibuprofeno 600mg x20',precio:1800},{nombre:'Paracetamol 1g x10',precio:1200}])">
+  <div class="bar" onclick="abrirPromo('Farmacia Central','25 de Mayo 280','Farmacia de turno 24hs. Perfumería, medicamentos, dermocosmética. https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central',[{nombre:'Ibuprofeno 600mg x20',precio:1800}])">
     <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central" alt="Farmacia">
     <div class="bar-body">
       <h3>Farmacia Central <span class="tag">25 de Mayo 280 <span class="urgente">TURNO</span></span></h3>
@@ -214,7 +214,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 <div id="sec-heladeria" class="seccion">
 <h2>🍦 Heladería</h2>
-  <div class="bar" onclick="abrirPromo('Freddo','Belgrano 456','Helados artesanales premium. Cremas, paletas, postres helados. https://via.placeholder.com/600x400/1e293b/4ade80?text=Freddo+Helados',[{nombre:'1/4kg 3 gustos',precio:2800},{nombre:'Bombón escocés x6',precio:1500}])">
+  <div class="bar" onclick="abrirPromo('Freddo','Belgrano 456','Helados artesanales premium. Cremas, paletas, postres helados. https://via.placeholder.com/600x400/1e293b/4ade80?text=Freddo+Helados',[{nombre:'1/4kg 3 gustos',precio:2800}])">
     <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/4ade80?text=Freddo+Helados" alt="Heladeria">
     <div class="bar-body">
       <h3>Freddo <span class="tag">Belgrano 456</span></h3>
@@ -227,7 +227,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 <div id="sec-confiteria" class="seccion">
 <h2>🥐 Confitería y Panadería</h2>
-  <div class="bar" onclick="abrirPromo('La Perla','Av. Moreno 171','Pan casero, facturas, tortas, masas finas. Horneado diario desde las 6am. https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla',[{nombre:'Docena Facturas',precio:2400},{nombre:'Torta porción',precio:900}])">
+  <div class="bar" onclick="abrirPromo('La Perla','Av. Moreno 171','Pan casero, facturas, tortas, masas finas. Horneado diario desde las 6am. https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla',[{nombre:'Docena Facturas',precio:2400}])">
     <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla" alt="Confiteria">
     <div class="bar-body">
       <h3>La Perla <span class="tag">Av. Moreno 171</span></h3>
@@ -266,7 +266,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 <div id="sec-bares" class="seccion">
 <h2>🍺 Bares</h2>
-  <div class="bar" onclick="abrirPromo('Ogham 2.0','Hipólito Yrigoyen 76','Birra artesanal, tragos, música en vivo. Happy hour hasta 23hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0',[{nombre:'2x Pintas + Papas',precio:5500},{nombre:'Fernet + Coca 1L',precio:4200}])">
+  <div class="bar" onclick="abrirPromo('Ogham 2.0','Hipólito Yrigoyen 76','Birra artesanal, tragos, música en vivo. Happy hour hasta 23hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0',[{nombre:'2x Pintas + Papas',precio:5500}])">
     <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0" alt="Ogham">
     <div class="bar-body">
       <h3>Ogham 2.0 <span class="tag">Hipólito Yrigoyen 76</span></h3>
@@ -313,7 +313,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 Envío fijo: $1500
 </div>
 
-<!-- MODAL DETALLE PROMO NUEVO -->
+<!-- MODAL DETALLE PROMO -->
 <div class="modal-promo" id="modalPromo">
   <span class="close-x" onclick="cerrarPromo()">&times;</span>
   <div class="modal-promo-content">
@@ -327,7 +327,7 @@ Envío fijo: $1500
   </div>
 </div>
 
-<!-- TU MODAL PEDIDO ORIGINAL -->
+<!-- MODAL PEDIDO -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <h3 id="modal-titulo">Confirmar pedido</h3>
@@ -363,11 +363,22 @@ function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
 
+  // Ocultar todas las secciones
+  document.querySelectorAll('.seccion').forEach(s=>{
+    s.classList.remove('active');
+    s.style.display = 'none';
+  });
+
+  // Mostrar solo la seleccionada
   if(cat==='all'){
-    document.querySelectorAll('.seccion').forEach(s=>s.classList.add('active'));
+    document.querySelectorAll('.seccion').forEach(s=>{
+      s.classList.add('active');
+      s.style.display = 'block';
+    });
   } else {
-    document.querySelectorAll('.seccion').forEach(s=>s.classList.remove('active'));
-    document.getElementById('sec-'+cat).classList.add('active');
+    const sec = document.getElementById('sec-'+cat);
+    sec.classList.add('active');
+    sec.style.display = 'block';
   }
 }
 
@@ -461,7 +472,7 @@ function actualizarVista(){
 
   seccionesDia.forEach(id=>{
     const sec = document.getElementById(id);
-    if(esLight) sec.style.display = 'block';
+    if(esLight) sec.style.display = sec.classList.contains('active')? 'block' : 'none';
     else sec.style.display = 'none';
   });
 
@@ -496,6 +507,9 @@ document.getElementById('modal').addEventListener('click', e=>{
 document.getElementById('modalPromo').addEventListener('click', e=>{
   if(e.target.id === 'modalPromo') cerrarPromo();
 });
+
+// Mostrar todas al inicio
+filtrar('all');
 </script>
 </body>
 </html>
