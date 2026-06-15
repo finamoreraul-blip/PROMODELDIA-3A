@@ -38,7 +38,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   padding:8px 12px;border-radius:8px;cursor:pointer;
   color:var(--text);font-size:13px
 }
-
 .filter-bar{
   display:flex;gap:8px;margin-bottom:25px;
   flex-wrap:wrap;justify-content:center
@@ -53,14 +52,12 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   background:var(--accent);color:var(--bg);
   border-color:var(--accent)
 }
-
 .seccion{display:none;margin-bottom:35px}
 .seccion.active{display:block!important}
 .seccion h2{
   color:var(--yellow);margin-bottom:15px;font-size:18px;
   border-bottom:2px solid var(--border);padding-bottom:8px
 }
-
 .bar{
   margin-bottom:20px;border:1px solid var(--border);
   border-radius:16px;background:var(--card);overflow:hidden;
@@ -148,7 +145,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 .modal-btns button{flex:1;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}
 .btn-enviar{background:#25D366;color:white}
 .btn-cancelar{background:var(--border);color:var(--text)}
-
 .footer{
   text-align:center;margin-top:40px;padding-top:20px;
   border-top:1px solid var(--border);font-size:12px;color:var(--sub);line-height:1.6
@@ -192,7 +188,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 <div id="sec-restaurantes" class="seccion">
 <h2>🍔 Restaurantes</h2>
-  <div class="bar" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000}])">
+  <div class="bar" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000},{nombre:'Milanesa napolitana completa',precio:13500},{nombre:'Mila común con fritas',precio:11000}])">
     <img class="bar-img" src="milanesa.jpg" alt="Sanguche Milanesa">
     <div class="bar-body">
       <h3>Sanguche Casero <span class="tag">casero</span></h3>
@@ -264,12 +260,10 @@ let pedidoActual = {};
 function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
-
   document.querySelectorAll('.seccion').forEach(s=>{
     s.classList.remove('active');
     s.style.display = 'none';
   });
-
   if(cat==='all'){
     document.querySelectorAll('.seccion').forEach(s=>{
       s.classList.add('active');
@@ -288,7 +282,6 @@ function abrirPromo(nombre, dir, descImg, promos){
   document.getElementById('promoDir').textContent = dir;
   document.getElementById('promoDesc').textContent = partes[0];
   document.getElementById('promoImg').src = partes[1];
-
   let html = '';
   promos.forEach(p=>{
     html += `<div class="promo-box">
@@ -312,14 +305,12 @@ function abrirForm(local, promo, precio){
   pedidoActual = {local, promo, precio};
   const envio = 1500;
   const totalCliente = precio + envio;
-
   document.getElementById('modal-titulo').textContent = promo;
   document.getElementById('modal-total').innerHTML = `
     Subtotal: $${precio.toLocaleString()}<br>
     Envío: $1.500<br>
     <b>TOTAL A PAGAR: $${totalCliente.toLocaleString()}</b>
   `;
-
   document.getElementById('modal').classList.add('active');
 }
 
@@ -335,15 +326,12 @@ function enviarWhatsApp(){
   const telefono = document.getElementById('telefono').value;
   const pago = document.getElementById('pago').value;
   const aclaraciones = document.getElementById('aclaraciones').value;
-
   if(!nombre ||!direccion ||!infoCasa ||!telefono){
     alert('Completá nombre, dirección, info de la casa y teléfono');
     return;
   }
-
   const envio = 1500;
   const totalCliente = pedidoActual.precio + envio;
-
   let msg = `*NUEVO PEDIDO*\n\n` +
     `Local: ${pedidoActual.local}\n` +
     `Promo: ${pedidoActual.promo}\n` +
@@ -356,12 +344,9 @@ function enviarWhatsApp(){
     `Info casa: ${infoCasa}\n` +
     `Tel: ${telefono}\n` +
     `Pago: ${pago}`;
-
   if(aclaraciones) msg += `\nAclaraciones: ${aclaraciones}`;
-
   const url = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
-
   cerrarForm();
 }
 
@@ -369,17 +354,14 @@ function actualizarVista(){
   const esLight = document.body.classList.contains('light');
   const hora = new Date().getHours();
   const seccionesDia = ['sec-carniceria','sec-verduleria','sec-confiteria'];
-
   seccionesDia.forEach(id=>{
     const sec = document.getElementById(id);
     if(esLight) sec.style.display = sec.classList.contains('active')? 'block' : 'none';
     else sec.style.display = 'none';
   });
-
   const horarioText = document.getElementById('horario-text');
   const subtitulo = document.getElementById('subtitulo');
   const badge = document.getElementById('horario-badge');
-
   if(esLight){
     horarioText.textContent = 'Horario: 8hs a 22hs | Tres Arroyos';
     subtitulo.textContent = 'Delivery 8hs a 22hs';
