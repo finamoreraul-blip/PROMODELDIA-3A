@@ -178,17 +178,100 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('online')">💻 Online</button>
 </div>
 
-<div id="sec-almacen" class="seccion"></div>
-<div id="sec-farmacia" class="seccion"></div>
-<div id="sec-heladeria" class="seccion"></div>
-<div id="sec-confiteria" class="seccion"></div>
-<div id="sec-carniceria" class="seccion"></div>
-<div id="sec-verduleria" class="seccion"></div>
-<div id="sec-bares" class="seccion"></div>
+<div id="sec-almacen" class="seccion">
+<h2>🏪 Almacén 24hs</h2>
+  <div class="bar" onclick="abrirPromo('Almacén El Centro','centro','Todo para el kiosco y almacén. Gaseosas, snacks, golosinas, cigarrillos. Abierto 24hs.|almacen.jpg',[{nombre:'Pack gaseosa 2.25L + snacks',precio:3500},{nombre:'Combo cigarrillos + encendedor',precio:2800}])">
+    <img class="bar-img" src="almacen.jpg" alt="Almacén">
+    <div class="bar-body">
+      <h3>Almacén El Centro <span class="tag">24hs</span></h3>
+      <p class="bar-desc">Todo para tu kiosco</p>
+      <div class="promo"><span>Pack gaseosa 2.25L + snacks</span><b>$3500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Almacén El Centro','Pack gaseosa 2.25L + snacks',3500)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-farmacia" class="seccion">
+<h2>💊 Farmacia de turno</h2>
+  <div class="bar" onclick="abrirPromo('Farmacia San Martín','sanmartin','Farmacia de turno nocturno. Medicamentos, perfumería, dermocosmética. Entrega en domicilio.|farmacia.jpg',[{nombre:'Analgésico + antigripal',precio:4200},{nombre:'Alcohol + gasas + curitas',precio:1800}])">
+    <img class="bar-img" src="farmacia.jpg" alt="Farmacia">
+    <div class="bar-body">
+      <h3>Farmacia San Martín <span class="tag">turno</span></h3>
+      <p class="bar-desc">Farmacia de turno nocturno</p>
+      <div class="promo"><span>Analgésico + antigripal</span><b>$4200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Farmacia San Martín','Analgésico + antigripal',4200)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-heladeria" class="seccion">
+<h2>🍦 Heladería</h2>
+  <div class="bar" onclick="abrirPromo('Heladería Polar','polar','Helados artesanales 24hs. 40 gustos, bombones, postres. Delivery directo.|heladeria.jpg',[{nombre:'1/4 kg 3 gustos',precio:3800},{nombre:'Bombones x12 unidades',precio:5200}])">
+    <img class="bar-img" src="heladeria.jpg" alt="Heladería">
+    <div class="bar-body">
+      <h3>Heladería Polar <span class="tag">artesanal</span></h3>
+      <p class="bar-desc">Helados 24hs</p>
+      <div class="promo"><span>1/4 kg 3 gustos</span><b>$3800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Heladería Polar','1/4 kg 3 gustos',3800)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-confiteria" class="seccion">
+<h2>🥐 Confitería</h2>
+  <div class="bar" onclick="abrirPromo('Confitería La Ideal','ideal','Facturas, masas finas, tortas, sandwiches de miga. Fresco todos los días 8 a 22hs.|confiteria.jpg',[{nombre:'Docena de facturas',precio:3200},{nombre:'Sandwich de miga x4',precio:2800}])">
+    <img class="bar-img" src="confiteria.jpg" alt="Confitería">
+    <div class="bar-body">
+      <h3>Confitería La Ideal <span class="tag">fresco</span></h3>
+      <p class="bar-desc">Facturas y masas 8 a 22hs</p>
+      <div class="promo"><span>Docena de facturas</span><b>$3200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Confitería La Ideal','Docena de facturas',3200)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-carniceria" class="seccion">
+<h2>🥩 Carnicería</h2>
+  <div class="bar" onclick="abrirPromo('Carnicería La Estancia','estancia','Cortes premium, carne de ternera, achuras, chorizos. Solo turno día 8 a 22hs.|carniceria.jpg',[{nombre:'Asado 2kg + chorizos',precio:18500},{nombre:'Milanesas de ternera 1kg',precio:9800}])">
+    <img class="bar-img" src="carniceria.jpg" alt="Carnicería">
+    <div class="bar-body">
+      <h3>Carnicería La Estancia <span class="tag">premium</span></h3>
+      <p class="bar-desc">Cortes de ternera 8 a 22hs</p>
+      <div class="promo"><span>Asado 2kg + chorizos</span><b>$18500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Carnicería La Estancia','Asado 2kg + chorizos',18500)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-verduleria" class="seccion">
+<h2>🥬 Verdulería</h2>
+  <div class="bar" onclick="abrirPromo('Verdulería Verde','verde','Frutas y verduras frescas seleccionadas. Bolsones económicos. Solo turno día 8 a 22hs.|verduleria.jpg',[{nombre:'Bolson frutas 5kg',precio:6500},{nombre:'Ensalada completa x3',precio:4200}])">
+    <img class="bar-img" src="verduleria.jpg" alt="Verdulería">
+    <div class="bar-body">
+      <h3>Verdulería Verde <span class="tag">fresco</span></h3>
+      <p class="bar-desc">Frutas y verduras 8 a 22hs</p>
+      <div class="promo"><span>Bolson frutas 5kg</span><b>$6500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Verdulería Verde','Bolson frutas 5kg',6500)">Pedir</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-bares" class="seccion">
+<h2>🍺 Bares y Pubs</h2>
+  <div class="bar" onclick="abrirPromo('Bar Central','central','Bar nocturno, tragos, cervezas artesanales, picadas. Ambiente música 21 a 06hs.|bar.jpg',[{nombre:'2 cervezas artesanales + papas',precio:6500},{nombre:'Picada para 2 personas',precio:12000}])">
+    <img class="bar-img" src="bar.jpg" alt="Bar">
+    <div class="bar-body">
+      <h3>Bar Central <span class="tag">nocturno</span></h3>
+      <p class="bar-desc">Tragos y cervezas 21 a 06hs</p>
+      <div class="promo"><span>2 cervezas artesanales + papas</span><b>$6500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Bar Central','2 cervezas artesanales + papas',6500)">Pedir</button></div>
+    </div>
+  </div>
+</div>
 
 <div id="sec-restaurantes" class="seccion">
 <h2>🍔 Restaurantes</h2>
-  <div class="bar" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000},{nombre:'Milanesa napolitana completa',precio:13500},{nombre:'Mila común con fritas',precio:11000}])">
+  <div class="bar" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000},{nombre:'Milanesa napolitana completa',precio:13500}])">
     <img class="bar-img" src="milanesa.jpg" alt="Sanguche Milanesa">
     <div class="bar-body">
       <h3>Sanguche Casero <span class="tag">casero</span></h3>
@@ -199,7 +282,18 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   </div>
 </div>
 
-<div id="sec-online" class="seccion"></div>
+<div id="sec-online" class="seccion">
+<h2>💻 Servicios Online</h2>
+  <div class="bar" onclick="abrirPromo('Recargas Virtual','virtual','Carga de celular, SUBE, DirecTV, Netflix, Spotify. Acreditación inmediata 24hs.|online.jpg',[{nombre:'Recarga celular $5000',precio:5000},{nombre:'Carga SUBE $3000',precio:3000}])">
+    <img class="bar-img" src="online.jpg" alt="Online">
+    <div class="bar-body">
+      <h3>Recargas Virtual <span class="tag">24hs</span></h3>
+      <p class="bar-desc">Cargas inmediatas</p>
+      <div class="promo"><span>Recarga celular $5000</span><b>$5000</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Recargas Virtual','Recarga celular $5000',5000)">Pedir</button></div>
+    </div>
+  </div>
+</div>
 
 <div class="footer">
 <strong>¿Cómo funciona?</strong><br>
