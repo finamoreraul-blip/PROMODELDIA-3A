@@ -39,7 +39,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   color:var(--text);font-size:13px
 }
 
-/* FILTROS ARRIBA */
 .filter-bar{
   display:flex;gap:8px;margin-bottom:25px;
   flex-wrap:wrap;justify-content:center
@@ -96,18 +95,18 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 }
 .btn:hover{opacity:0.9}
 
-/* MODAL PROMO DETALLE */
+/* MODAL PARA AMPLIAR FOTO */
 .modal-promo{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;
   padding:20px
 }
 .modal-promo.active{display:flex}
 .modal-promo-content{
   background:var(--card);padding:0;border-radius:16px;
-  max-width:450px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto
+  max-width:500px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto
 }
-.modal-promo-img{width:100%;height:250px;object-fit:cover;border-radius:16px 16px 0 0}
+.modal-promo-img{width:100%;height:300px;object-fit:cover;border-radius:16px 16px 0 0}
 .modal-promo-body{padding:25px}
 .modal-promo h3{color:var(--accent);margin-bottom:10px;font-size:20px}
 .modal-promo.dir{color:var(--sub);font-size:13px;margin-bottom:15px}
@@ -118,7 +117,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 }
 .modal-promo.promo-box b{color:var(--green);font-size:22px}
 .close-x{
-  position:absolute;top:15px;right:20px;font-size:35px;
+  position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
 
@@ -154,7 +153,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   text-align:center;margin-top:40px;padding-top:20px;
   border-top:1px solid var(--border);font-size:12px;color:var(--sub);line-height:1.6
 }
-.urgente{background:#dc2626;color:white;padding:2px 8px;border-radius:6px;font-size:10px}
 .horario-badge{
   display:inline-block;background:var(--accent);color:var(--bg);
   padding:4px 10px;border-radius:6px;font-size:11px;font-weight:bold;margin-top:5px
@@ -171,7 +169,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <span class="horario-badge" id="horario-badge">Abierto ahora</span>
 </div>
 
-<!-- FILTROS ARRIBA - 9 CATEGORÍAS -->
 <div class="filter-bar">
   <button class="filter-btn active" onclick="filtrar('all')">Todas</button>
   <button class="filter-btn" onclick="filtrar('almacen')">🏪 Almacén</button>
@@ -185,99 +182,15 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('online')">💻 Online</button>
 </div>
 
-<!-- SECCIONES - SOLO SE MUESTRA LA ACTIVA -->
-<div id="sec-almacen" class="seccion">
-<h2>🏪 Almacén</h2>
-  <div class="bar" onclick="abrirPromo('Almacén El Centro','Av. Moreno 234','Mercadería, bebidas, limpieza, kiosco. Precios mayoristas. Abierto 24hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Almacen+El+Centro',[{nombre:'Combo fideos + salsa x3',precio:3200}])">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Almacen+El+Centro" alt="Almacen">
-    <div class="bar-body">
-      <h3>Almacén El Centro <span class="tag">Av. Moreno 234</span></h3>
-      <p class="bar-desc">Mercadería, bebidas, limpieza. 24hs</p>
-      <div class="promo"><span>Combo fideos + salsa x3</span><b>$3200</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Almacén El Centro','Combo fideos + salsa x3',3200)">Pedir</button></div>
-    </div>
-  </div>
-</div>
+<div id="sec-almacen" class="seccion"></div>
+<div id="sec-farmacia" class="seccion"></div>
+<div id="sec-heladeria" class="seccion"></div>
+<div id="sec-confiteria" class="seccion"></div>
+<div id="sec-carniceria" class="seccion"></div>
+<div id="sec-verduleria" class="seccion"></div>
+<div id="sec-bares" class="seccion"></div>
 
-<div id="sec-farmacia" class="seccion">
-<h2>💊 Farmacia</h2>
-  <div class="bar" onclick="abrirPromo('Farmacia Central','25 de Mayo 280','Farmacia de turno 24hs. Perfumería, medicamentos, dermocosmética. https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central',[{nombre:'Ibuprofeno 600mg x20',precio:1800}])">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/dc2626?text=Farmacia+Central" alt="Farmacia">
-    <div class="bar-body">
-      <h3>Farmacia Central <span class="tag">25 de Mayo 280 <span class="urgente">TURNO</span></span></h3>
-      <p class="bar-desc">Farmacia de turno 24hs</p>
-      <div class="promo"><span>Ibuprofeno 600mg x20</span><b>$1800</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Farmacia Central','Ibuprofeno 600mg',1800)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<div id="sec-heladeria" class="seccion">
-<h2>🍦 Heladería</h2>
-  <div class="bar" onclick="abrirPromo('Freddo','Belgrano 456','Helados artesanales premium. Cremas, paletas, postres helados. https://via.placeholder.com/600x400/1e293b/4ade80?text=Freddo+Helados',[{nombre:'1/4kg 3 gustos',precio:2800}])">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/4ade80?text=Freddo+Helados" alt="Heladeria">
-    <div class="bar-body">
-      <h3>Freddo <span class="tag">Belgrano 456</span></h3>
-      <p class="bar-desc">Helados artesanales premium</p>
-      <div class="promo"><span>1/4kg 3 gustos</span><b>$2800</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Freddo','1/4kg 3 gustos',2800)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<div id="sec-confiteria" class="seccion">
-<h2>🥐 Confitería y Panadería</h2>
-  <div class="bar" onclick="abrirPromo('La Perla','Av. Moreno 171','Pan casero, facturas, tortas, masas finas. Horneado diario desde las 6am. https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla',[{nombre:'Docena Facturas',precio:2400}])">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/ca8a04?text=La+Perla" alt="Confiteria">
-    <div class="bar-body">
-      <h3>La Perla <span class="tag">Av. Moreno 171</span></h3>
-      <p class="bar-desc">Pan casero y facturas recién horneadas</p>
-      <div class="promo"><span>Docena Facturas</span><b>$2400</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('La Perla','Docena Facturas',2400)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<div id="sec-carniceria" class="seccion">
-<h2>🥩 Carnicería</h2>
-  <div class="bar" onclick="abrirPromo('Don Carlos','Av. Libertad 450','Cortes de carne vacuna, pollo, cerdo. Milanesas, achuras. https://via.placeholder.com/600x400/ffffff/1e293b?text=Don+Carlos',[{nombre:'Asado 2kg + Vacío 1kg',precio:8900}])">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/1e293b?text=Don+Carlos" alt="Carniceria">
-    <div class="bar-body">
-      <h3>Don Carlos <span class="tag">Av. Libertad 450</span></h3>
-      <p class="bar-desc">Carne vacuna de primera calidad</p>
-      <div class="promo"><span>Asado 2kg + Vacío 1kg</span><b>$8900</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Don Carlos','Asado 2kg + Vacío 1kg',8900)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<div id="sec-verduleria" class="seccion">
-<h2>🥬 Verdulería</h2>
-  <div class="bar" onclick="abrirPromo('El Mercado','Colón 299','Frutas y verduras frescas diarias. Bolsón orgánico, legumbres. https://via.placeholder.com/600x400/ffffff/16a34a?text=El+Mercado',[{nombre:'Bolsón Mixto 5kg',precio:3200}])">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/ffffff/16a34a?text=El+Mercado" alt="Verduleria">
-    <div class="bar-body">
-      <h3>El Mercado <span class="tag">Colón 299</span></h3>
-      <p class="bar-desc">Frutas y verduras frescas diarias</p>
-      <div class="promo"><span>Bolsón Mixto 5kg</span><b>$3200</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('El Mercado','Bolsón Mixto 5kg',3200)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-<div id="sec-bares" class="seccion">
-<h2>🍺 Bares</h2>
-  <div class="bar" onclick="abrirPromo('Ogham 2.0','Hipólito Yrigoyen 76','Birra artesanal, tragos, música en vivo. Happy hour hasta 23hs. https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0',[{nombre:'2x Pintas + Papas',precio:5500}])">
-    <img class="bar-img" src="https://via.placeholder.com/600x400/1e293b/38bdf8?text=Ogham+2.0" alt="Ogham">
-    <div class="bar-body">
-      <h3>Ogham 2.0 <span class="tag">Hipólito Yrigoyen 76</span></h3>
-      <p class="bar-desc">Birra artesanal y tragos</p>
-      <div class="promo"><span>2x Pintas + Papas</span><b>$5500</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Ogham 2.0','2x Pintas + Papas',5500)">Pedir</button></div>
-    </div>
-  </div>
-</div>
-
-  <div id="sec-restaurantes" class="seccion">
+<div id="sec-restaurantes" class="seccion">
 <h2>🍔 Restaurantes</h2>
   <div class="bar" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000}])">
     <img class="bar-img" src="milanesa.jpg" alt="Sanguche Milanesa">
@@ -290,18 +203,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   </div>
 </div>
 
-  <div id="sec-online" class="seccion">
-<h2>💻 Ventas Online</h2>
-  <div class="bar" onclick="abrirPromo('Tecno 3A','Online','Celulares, auriculares, cargadores, fundas. Entrega a domicilio en el día. https://via.placeholder.com/600x400/1e293b/8b5cf6?text=Tecno+3A',[{nombre:'Auriculares Bluetooth',precio:8500}])">
-    <img class="bar-img" src=milanesa.jpg alt="Online">
-    <div class="bar-body">
-      <h3>Tecno 3A <span class="tag">Online</span></h3>
-      <p class="bar-desc">Accesorios y celulares. Envío gratis</p>
-      <div class="promo"><span>Auriculares Bluetooth</span><b>$8500</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Tecno 3A','Auriculares Bluetooth',8500)">Pedir</button></div>
-    </div>
-  </div>
-</div>
+<div id="sec-online" class="seccion"></div>
 
 <div class="footer">
 <strong>¿Cómo funciona?</strong><br>
@@ -313,7 +215,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 Envío fijo: $1500
 </div>
 
-<!-- MODAL DETALLE PROMO -->
+<!-- MODAL AMPLIAR FOTO -->
 <div class="modal-promo" id="modalPromo">
   <span class="close-x" onclick="cerrarPromo()">&times;</span>
   <div class="modal-promo-content">
@@ -363,13 +265,11 @@ function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
 
-  // Ocultar todas las secciones
   document.querySelectorAll('.seccion').forEach(s=>{
     s.classList.remove('active');
     s.style.display = 'none';
   });
 
-  // Mostrar solo la seleccionada
   if(cat==='all'){
     document.querySelectorAll('.seccion').forEach(s=>{
       s.classList.add('active');
@@ -383,11 +283,11 @@ function filtrar(cat){
 }
 
 function abrirPromo(nombre, dir, descImg, promos){
-  const partes = descImg.split(' https://');
+  const partes = descImg.split('|');
   document.getElementById('promoNombre').textContent = nombre;
   document.getElementById('promoDir').textContent = dir;
   document.getElementById('promoDesc').textContent = partes[0];
-  document.getElementById('promoImg').src = 'https://' + partes[1];
+  document.getElementById('promoImg').src = partes[1];
 
   let html = '';
   promos.forEach(p=>{
@@ -508,7 +408,6 @@ document.getElementById('modalPromo').addEventListener('click', e=>{
   if(e.target.id === 'modalPromo') cerrarPromo();
 });
 
-// Mostrar todas al inicio
 filtrar('all');
 </script>
 </body>
