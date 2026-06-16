@@ -172,32 +172,42 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
-/* === IGUALAR HELADERÍAS A LAS DEMÁS === */
-#sec-heladerias .bar {
-  height: auto !important;
-  max-height: 420px !important;
+/* === RESET MARGIN Y FORZAR MISMO ALTO === */
+.bar {
   margin-bottom: 0 !important;
+  height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
 }
 
-#sec-heladerias .bar-body {
-  flex: 1 1 auto !important;
+.bares-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+}
+
+.bar-img {
+  height: 160px !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.bar-body {
+  flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
-  overflow: hidden !important;
+  padding: 18px !important;
 }
 
-#sec-heladerias .bar-desc {
-  flex: 1 1 auto !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
+.bar-desc {
+  flex: 1 !important;
 }
 
-#sec-heladerias .promo {
+.promo {
   margin-top: auto !important;
-  flex-shrink: 0 !important;
 }
+
 /* MODAL PEDIDO */
 .modal{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
