@@ -423,15 +423,22 @@ let pedidoActual = {};
 function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
+  
+  // Mostrá todas las secciones primero
   document.querySelectorAll('.seccion').forEach(s=>{
-    s.classList.remove('active');
-    s.style.display = 'none';
+    s.classList.add('active');
+    s.style.display = 'block';
   });
-  if(cat==='all'){
-    document.querySelectorAll('.seccion').forEach(s=>{
-      s.classList.add('active');
-      s.style.display = 'block';
-    });
+  
+  // Ahora filtrá los comercios adentro del grid
+  document.querySelectorAll('.bares-grid .bar').forEach(bar=>{
+    if(cat==='all' || bar.dataset.categoria===cat){
+      bar.style.display = 'block';
+    } else {
+      bar.style.display = 'none';
+    }
+  });
+}
   } else {
     const sec = document.getElementById('sec-'+cat);
     sec.classList.add('active');
