@@ -172,25 +172,24 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
-/* === TODOS IGUAL A HELADERÍAS: ALTO + ANCHO === */
+/* === UN POQUITO MÁS ANCHO === */
 .seccion .bares-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important; /* ancho fijo como heladerías */
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)) !important; /* antes 320px, ahora 340px */
   gap: 20px !important;
   align-items: stretch !important;
-  justify-items: stretch !important;
 }
 
 .seccion .bar {
   margin: 0 !important;
-  width: 100% !important; /* ocupa todo el ancho de la columna */
+  width: 100% !important;
   height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
 }
 
 .seccion .bar-img {
-  height: 160px !important; /* mismo alto de foto que heladerías */
+  height: 160px !important;
   width: 100% !important;
   object-fit: cover !important;
 }
@@ -209,8 +208,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 .seccion .promo {
   margin-top: auto !important;
 }
-
-
 /* MODAL PEDIDO */
 .modal{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
