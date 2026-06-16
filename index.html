@@ -91,13 +91,12 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   font-weight:bold;font-size:14px
 }
 .btn:hover{opacity:0.9}
-  .promos-grid{
+.promos-grid{
   display:grid;
   grid-template-columns:repeat(3, 1fr);
   gap:8px;
   margin:10px 0;
 }
-
 .promo-card{
   background:var(--bg);
   border-radius:10px;
@@ -109,34 +108,28 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   text-align:center;
   transition:0.2s
 }
-
 .promo-card:hover{
   border-color:var(--accent);
   transform:translateY(-2px)
 }
-
 .promo-card span{
   font-size:12px;
   color:var(--text);
   line-height:1.3;
   min-height:32px
 }
-
 .promo-card b{
   color:var(--green);
   font-size:15px
 }
-
 .promo-card .btn{
   padding:6px 8px;
   font-size:12px;
   width:100%
 }
-
 @media(max-width:480px){
   .promos-grid{grid-template-columns:repeat(2, 1fr)}
 }
-
 /* MODAL PARA AMPLIAR FOTO */
 .modal-promo{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
@@ -162,7 +155,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
-
 /* MODAL PEDIDO */
 .modal{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
@@ -198,7 +190,8 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   display:inline-block;background:var(--accent);color:var(--bg);
   padding:4px 10px;border-radius:6px;font-size:11px;font-weight:bold;margin-top:5px
 }
-  .bares-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 12px}
+/* GRID 3x3 NUEVO */
+.bares-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:0 12px}
 @media(max-width:900px){.bares-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.bares-grid{grid-template-columns:1fr}}
 </style>
@@ -226,15 +219,16 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('online')">💻 Online</button>
 </div>
 
+<!-- WRAPPER GRID ABRE -->
+<div class="bares-grid">
+
 <div id="sec-almacen" class="seccion">
 <h2>🏪 Almacén 24hs</h2>
-  <div class="bares-grid">
-<div class="bar" data-horario="21:00-06:00" onclick="abrirPromo('Almacén El Centro','centro','Todo para el kiosco y almacén. Gaseosas, snacks, golosinas, cigarrillos. Abierto 24hs.|almacen.jpg',[{nombre:'Pack gaseosa 2.25L + snacks',precio:3500},{nombre:'Combo cigarrillos + encendedor',precio:2800},{nombre:'Chocolate + alfajor x6',precio:4200},{nombre:'Energética + papas grandes',precio:3900}])">
+<div class="bar" data-categoria="almacen" data-horario="21:00-06:00" onclick="abrirPromo('Almacén El Centro','centro','Todo para el kiosco y almacén. Gaseosas, snacks, golosinas, cigarrillos. Abierto 24hs.|almacen.jpg',[{nombre:'Pack gaseosa 2.25L + snacks',precio:3500},{nombre:'Combo cigarrillos + encendedor',precio:2800},{nombre:'Chocolate + alfajor x6',precio:4200},{nombre:'Energética + papas grandes',precio:3900}])">
   <img class="bar-img" src="almacen.jpg" alt="Almacén">
   <div class="bar-body">
     <h3>Almacén El Centro <span class="tag">24hs</span></h3>
     <p class="bar-desc">Todo para tu kiosco</p>
-    
     <div class="promos-grid">
       <div class="promo-card">
         <span>Pack gaseosa 2.25L + snacks</span>
@@ -259,110 +253,114 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
     </div>
   </div>
 </div>
+</div>
+
 <div id="sec-farmacia" class="seccion">
 <h2>💊 Farmacia de turno</h2>
-  <div class="bar" onclick="abrirPromo('Farmacia San Martín','sanmartin','Farmacia de turno nocturno. Medicamentos, perfumería, dermocosmética. Entrega en domicilio.|Farmaciasanmar.jpg',[{nombre:'Analgésico + antigripal',precio:4200},{nombre:'Alcohol + gasas + curitas',precio:1800}])">
-    <img class="bar-img" src="Farmaciasanmar.jpg" alt="Farmacia">
-    <div class="bar-body">
-      <h3>Farmacia San Martín <span class="tag">turno</span></h3>
-      <p class="bar-desc">Farmacia de turno nocturno</p>
-      <div class="promo"><span>Analgésico + antigripal</span><b>$4200</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Farmacia San Martín','Analgésico + antigripal',4200)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="farmacia" onclick="abrirPromo('Farmacia San Martín','sanmartin','Farmacia de turno nocturno. Medicamentos, perfumería, dermocosmética. Entrega en domicilio.|Farmaciasanmar.jpg',[{nombre:'Analgésico + antigripal',precio:4200},{nombre:'Alcohol + gasas + curitas',precio:1800}])">
+  <img class="bar-img" src="Farmaciasanmar.jpg" alt="Farmacia">
+  <div class="bar-body">
+    <h3>Farmacia San Martín <span class="tag">turno</span></h3>
+    <p class="bar-desc">Farmacia de turno nocturno</p>
+    <div class="promo"><span>Analgésico + antigripal</span><b>$4200</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Farmacia San Martín','Analgésico + antigripal',4200)">Pedir</button></div>
   </div>
+</div>
 </div>
 
 <div id="sec-heladeria" class="seccion">
 <h2>🍦 Heladería</h2>
-  <div class="bar" onclick="abrirPromo('Heladería Polar','polar','Helados artesanales 24hs. 40 gustos, bombones, postres. Delivery directo.|heladeria.jpg',[{nombre:'1/4 kg 3 gustos',precio:3800},{nombre:'Bombones x12 unidades',precio:5200}])">
-    <img class="bar-img" src="heladeria.jpg" alt="Heladería">
-    <div class="bar-body">
-      <h3>Heladería Polar <span class="tag">artesanal</span></h3>
-      <p class="bar-desc">Helados 24hs</p>
-      <div class="promo"><span>1/4 kg 3 gustos</span><b>$3800</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Heladería Polar','1/4 kg 3 gustos',3800)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="heladeria" onclick="abrirPromo('Heladería Polar','polar','Helados artesanales 24hs. 40 gustos, bombones, postres. Delivery directo.|heladeria.jpg',[{nombre:'1/4 kg 3 gustos',precio:3800},{nombre:'Bombones x12 unidades',precio:5200}])">
+  <img class="bar-img" src="heladeria.jpg" alt="Heladería">
+  <div class="bar-body">
+    <h3>Heladería Polar <span class="tag">artesanal</span></h3>
+    <p class="bar-desc">Helados 24hs</p>
+    <div class="promo"><span>1/4 kg 3 gustos</span><b>$3800</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Heladería Polar','1/4 kg 3 gustos',3800)">Pedir</button></div>
   </div>
+</div>
 </div>
 
 <div id="sec-confiteria" class="seccion">
 <h2>🥐 Confitería</h2>
-  <div class="bar" onclick="abrirPromo('Confitería La Ideal','ideal','Facturas, masas finas, tortas, sandwiches de miga. Fresco todos los días 8 a 22hs.|confiteria.jpg',[{nombre:'Docena de facturas',precio:3200},{nombre:'Sandwich de miga x4',precio:2800}])">
-    <img class="bar-img" src="confiteria.jpg" alt="Confitería">
-    <div class="bar-body">
-      <h3>Confitería La Ideal <span class="tag">fresco</span></h3>
-      <p class="bar-desc">Facturas y masas 8 a 22hs</p>
-      <div class="promo"><span>Docena de facturas</span><b>$3200</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Confitería La Ideal','Docena de facturas',3200)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="confiteria" onclick="abrirPromo('Confitería La Ideal','ideal','Facturas, masas finas, tortas, sandwiches de miga. Fresco todos los días 8 a 22hs.|confiteria.jpg',[{nombre:'Docena de facturas',precio:3200},{nombre:'Sandwich de miga x4',precio:2800}])">
+  <img class="bar-img" src="confiteria.jpg" alt="Confitería">
+  <div class="bar-body">
+    <h3>Confitería La Ideal <span class="tag">fresco</span></h3>
+    <p class="bar-desc">Facturas y masas 8 a 22hs</p>
+    <div class="promo"><span>Docena de facturas</span><b>$3200</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Confitería La Ideal','Docena de facturas',3200)">Pedir</button></div>
   </div>
+</div>
 </div>
 
 <div id="sec-carniceria" class="seccion">
 <h2>🥩 Carnicería</h2>
-  <div class="bar" onclick="abrirPromo('Carnicería La Estancia','estancia','Cortes premium, carne de ternera, achuras, chorizos. Solo turno día 8 a 22hs.|carniceria.jpg',[{nombre:'Asado 2kg + chorizos',precio:18500},{nombre:'Milanesas de ternera 1kg',precio:9800}])">
-    <img class="bar-img" src="carniceria.jpg" alt="Carnicería">
-    <div class="bar-body">
-      <h3>Carnicería La Estancia <span class="tag">premium</span></h3>
-      <p class="bar-desc">Cortes de ternera 8 a 22hs</p>
-      <div class="promo"><span>Asado 2kg + chorizos</span><b>$18500</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Carnicería La Estancia','Asado 2kg + chorizos',18500)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="carniceria" onclick="abrirPromo('Carnicería La Estancia','estancia','Cortes premium, carne de ternera, achuras, chorizos. Solo turno día 8 a 22hs.|carniceria.jpg',[{nombre:'Asado 2kg + chorizos',precio:18500},{nombre:'Milanesas de ternera 1kg',precio:9800}])">
+  <img class="bar-img" src="carniceria.jpg" alt="Carnicería">
+  <div class="bar-body">
+    <h3>Carnicería La Estancia <span class="tag">premium</span></h3>
+    <p class="bar-desc">Cortes de ternera 8 a 22hs</p>
+    <div class="promo"><span>Asado 2kg + chorizos</span><b>$18500</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Carnicería La Estancia','Asado 2kg + chorizos',18500)">Pedir</button></div>
   </div>
+</div>
 </div>
 
 <div id="sec-verduleria" class="seccion">
 <h2>🥬 Verdulería</h2>
-  <div class="bar" onclick="abrirPromo('Verdulería Verde','verde','Frutas y verduras frescas seleccionadas. Bolsones económicos. Solo turno día 8 a 22hs.|verduleria.jpg',[{nombre:'Bolson frutas 5kg',precio:6500},{nombre:'Ensalada completa x3',precio:4200}])">
-    <img class="bar-img" src="verduleria.jpg" alt="Verdulería">
-    <div class="bar-body">
-      <h3>Verdulería Verde <span class="tag">fresco</span></h3>
-      <p class="bar-desc">Frutas y verduras 8 a 22hs</p>
-      <div class="promo"><span>Bolson frutas 5kg</span><b>$6500</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Verdulería Verde','Bolson frutas 5kg',6500)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="verduleria" onclick="abrirPromo('Verdulería Verde','verde','Frutas y verduras frescas seleccionadas. Bolsones económicos. Solo turno día 8 a 22hs.|verduleria.jpg',[{nombre:'Bolson frutas 5kg',precio:6500},{nombre:'Ensalada completa x3',precio:4200}])">
+  <img class="bar-img" src="verduleria.jpg" alt="Verdulería">
+  <div class="bar-body">
+    <h3>Verdulería Verde <span class="tag">fresco</span></h3>
+    <p class="bar-desc">Frutas y verduras 8 a 22hs</p>
+    <div class="promo"><span>Bolson frutas 5kg</span><b>$6500</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Verdulería Verde','Bolson frutas 5kg',6500)">Pedir</button></div>
   </div>
+</div>
 </div>
 
 <div id="sec-bares" class="seccion">
 <h2>🍺 Bares y Pubs</h2>
-  <div class="bar" onclick="abrirPromo('Bar Central','central','Bar nocturno, tragos, cervezas artesanales, picadas. Ambiente música 21 a 06hs.|bar.jpg',[{nombre:'2 cervezas artesanales + papas',precio:6500},{nombre:'Picada para 2 personas',precio:12000}])">
-    <img class="bar-img" src="bar.jpg" alt="Bar">
-    <div class="bar-body">
-      <h3>Bar Central <span class="tag">nocturno</span></h3>
-      <p class="bar-desc">Tragos y cervezas 21 a 06hs</p>
-      <div class="promo"><span>2 cervezas artesanales + papas</span><b>$6500</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Bar Central','2 cervezas artesanales + papas',6500)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="bares" onclick="abrirPromo('Bar Central','central','Bar nocturno, tragos, cervezas artesanales, picadas. Ambiente música 21 a 06hs.|bar.jpg',[{nombre:'2 cervezas artesanales + papas',precio:6500},{nombre:'Picada para 2 personas',precio:12000}])">
+  <img class="bar-img" src="bar.jpg" alt="Bar">
+  <div class="bar-body">
+    <h3>Bar Central <span class="tag">nocturno</span></h3>
+    <p class="bar-desc">Tragos y cervezas 21 a 06hs</p>
+    <div class="promo"><span>2 cervezas artesanales + papas</span><b>$6500</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Bar Central','2 cervezas artesanales + papas',6500)">Pedir</button></div>
   </div>
+</div>
 </div>
 
 <div id="sec-restaurantes" class="seccion">
 <h2>🍔 Restaurantes</h2>
-  <div class="bar" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000},{nombre:'Milanesa napolitana completa',precio:13500}])">
-    <img class="bar-img" src="milanesa.jpg" alt="Sanguche Milanesa">
-    <div class="bar-body">
-      <h3>Sanguche Casero <span class="tag">casero</span></h3>
-      <p class="bar-desc">Milanesas gigantes caseras 24hs</p>
-      <div class="promo"><span>Milanesa gigante completa con aderezo</span><b>$13000</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Sanguche Casero','Milanesa gigante completa con aderezo',13000)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="restaurantes" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000},{nombre:'Milanesa napolitana completa',precio:13500}])">
+  <img class="bar-img" src="milanesa.jpg" alt="Sanguche Milanesa">
+  <div class="bar-body">
+    <h3>Sanguche Casero <span class="tag">casero</span></h3>
+    <p class="bar-desc">Milanesas gigantes caseras 24hs</p>
+    <div class="promo"><span>Milanesa gigante completa con aderezo</span><b>$13000</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Sanguche Casero','Milanesa gigante completa con aderezo',13000)">Pedir</button></div>
   </div>
+</div>
 </div>
 
 <div id="sec-online" class="seccion">
 <h2>💻 Servicios Online</h2>
-  <div class="bar" onclick="abrirPromo('Recargas Virtual','virtual','Carga de celular, SUBE, DirecTV, Netflix, Spotify. Acreditación inmediata 24hs.|online.jpg',[{nombre:'Recarga celular $5000',precio:5000},{nombre:'Carga SUBE $3000',precio:3000}])">
-    <img class="bar-img" src="online.jpg" alt="Online">
-    <div class="bar-body">
-      <h3>Recargas Virtual <span class="tag">24hs</span></h3>
-      <p class="bar-desc">Cargas inmediatas</p>
-      <div class="promo"><span>Recarga celular $5000</span><b>$5000</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Recargas Virtual','Recarga celular $5000',5000)">Pedir</button></div>
-    </div>
+<div class="bar" data-categoria="online" onclick="abrirPromo('Recargas Virtual','virtual','Carga de celular, SUBE, DirecTV, Netflix, Spotify. Acreditación inmediata 24hs.|online.jpg',[{nombre:'Recarga celular $5000',precio:5000},{nombre:'Carga SUBE $3000',precio:3000}])">
+  <img class="bar-img" src="online.jpg" alt="Online">
+  <div class="bar-body">
+    <h3>Recargas Virtual <span class="tag">24hs</span></h3>
+    <p class="bar-desc">Cargas inmediatas</p>
+    <div class="promo"><span>Recarga celular $5000</span><b>$5000</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Recargas Virtual','Recarga celular $5000',5000)">Pedir</button></div>
   </div>
 </div>
-    </div>
+</div>
+
+</div>
+<!-- WRAPPER GRID CIERRA -->
 
 <div class="footer">
 <strong>¿Cómo funciona?</strong><br>
@@ -388,6 +386,7 @@ Envío fijo: $2000
   </div>
 </div>
 <p style="font-size:12px;color:var(--sub);margin-bottom:10px">4 promos gratis para comercios nuevos</p>
+
 <!-- MODAL PEDIDO -->
 <div class="modal" id="modal">
   <div class="modal-content">
@@ -424,13 +423,12 @@ function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
   
-  // Mostrá todas las secciones primero
+  // Mostrar todas las secciones
   document.querySelectorAll('.seccion').forEach(s=>{
-    s.classList.add('active');
     s.style.display = 'block';
   });
   
-  // Ahora filtrá los comercios adentro del grid
+  // Filtrar comercios adentro del grid
   document.querySelectorAll('.bares-grid .bar').forEach(bar=>{
     if(cat==='all' || bar.dataset.categoria===cat){
       bar.style.display = 'block';
@@ -438,12 +436,6 @@ function filtrar(cat){
       bar.style.display = 'none';
     }
   });
-}
-  } else {
-    const sec = document.getElementById('sec-'+cat);
-    sec.classList.add('active');
-    sec.style.display = 'block';
-  }
 }
 
 function abrirPromo(nombre, dir, descImg, promos){
@@ -562,7 +554,8 @@ document.getElementById('modalPromo').addEventListener('click', e=>{
 
 filtrar('all');
 </script>
-  <!-- PANEL ADMIN -->
+
+<!-- PANEL ADMIN -->
 <div id="panel-admin" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999">
   <button onclick="togglePanel()" style="background:var(--accent);color:var(--bg);border:none;padding:12px 16px;border-radius:50px;font-weight:bold;cursor:pointer">📊 Panel</button>
   <div id="panel-content" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px;margin-top:10px;max-width:280px">
@@ -622,7 +615,8 @@ function resetearPromos(){
   }
 }
 </script>
-  <div class="modal-promo" id="modal" onclick="cerrarModal()">
+
+<div class="modal-promo" id="modal" onclick="cerrarModal()">
   <div class="modal-content" onclick="event.stopPropagation()">
     <span class="close" onclick="cerrarModal()">×</span>
     <img id="modalImg" src="" alt="">
@@ -631,7 +625,8 @@ function resetearPromos(){
     <div id="promoList"></div>
   </div>
 </div>
-  <script>
+
+<script>
 function abrirForm(bar, promo, precio){
   document.getElementById('formBar').value = bar;
   document.getElementById('formPromo').value = promo;
@@ -645,7 +640,7 @@ function abrirPromo(nombre, tipo, desc, promos){
   document.getElementById('modalImg').src = desc.split('|')[1];
   let html = '<div class="promos-grid">';
   promos.forEach(p=>{
-    html += `<div class="promo-card"><span>${p.nombre}</span><b>$${p.precio.toLocaleString()}</b><button class="btn" onclick="event.stopPropagation();abrirForm('${nombre}','${p.nombre}',${p.precio})">Pedir</button></div>`;
+    html += `<div class="promo-card"><span>${p.nombre}</span><b>$${p.precio.toLocaleString()}</b><button class="btn" onclick="event.stopPropagation();abrirFormhtml += `<div class="promo-card"><span>${p.nombre}</span><b>$${p.precio.toLocaleString()}</b><button class="btn" onclick="event.stopPropagation();abrirForm('${nombre}','${p.nombre}',${p.precio})">Pedir</button></div>`;
   });
   html += '</div>';
   document.getElementById('promoList').innerHTML = html;
