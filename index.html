@@ -423,20 +423,22 @@ function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
   
-  // Mostrar todas las secciones primero
-  document.querySelectorAll('.seccion').forEach(s=>{
-    s.style.display = 'block';
-  });
-  
-  // Ahora filtrá los comercios adentro del grid
-  document.querySelectorAll('.bares-grid .bar').forEach(bar=>{
+  document.querySelectorAll('.seccion').forEach(seccion=>{
+    const bar = seccion.querySelector('.bar');
+    const subtitulo = seccion.querySelector('.subtitulo');
+    
     if(cat==='all' || bar.dataset.categoria===cat){
+      seccion.style.display = 'block';
       bar.style.display = 'block';
+      if(subtitulo) subtitulo.style.display = 'block';
     } else {
+      seccion.style.display = 'none';
       bar.style.display = 'none';
+      if(subtitulo) subtitulo.style.display = 'none';
     }
   });
 }
+
 
 function abrirPromo(nombre, dir, descImg, promos){
   const partes = descImg.split('|');
