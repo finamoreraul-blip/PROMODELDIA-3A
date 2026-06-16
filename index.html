@@ -241,33 +241,45 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 <!-- WRAPPER GRID ABRE -->
 <div class="bares-grid">
 
-<!-- ALMACENES - 4 LOCALES -->
-<div class="bar" data-categoria="almacen">
-  <img src="img/almacen-1.jpg" alt="24 Horas">
-  <h3>Almacén 24 Horas</h3>
-  <p>Abierto hasta las 3am, fiado para vecinos</p>
-  <a href="https://wa.me/5492983000100" target="_blank" class="btn-pedir">Pedir</a>
+<!-- ALMACENES - 4 LOCALES CON ESTILO -->
+<div class="bar" data-categoria="almacen" onclick="abrirPromo('Almacén 24 Horas','almacen1','Abierto hasta las 3am, fiado para vecinos. Entrega en domicilio.|almacen-1.jpg',[{nombre:'Pack básico',precio:3500},{nombre:'Combo gaseosa + snacks',precio:2800}])">
+  <img class="bar-img" src="img/almacen-1.jpg" alt="24 Horas">
+  <div class="bar-body">
+    <h3>Almacén 24 Horas</h3>
+    <p class="bar-desc">Abierto hasta las 3am, fiado para vecinos</p>
+    <div class="promo"><span>Pack básico</span><b>$3500</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Almacén 24 Horas','Pack básico',3500)">Pedir</button></div>
+  </div>
 </div>
 
-<div class="bar" data-categoria="almacen">
-  <img src="img/almacen-2.jpg" alt="El Rincón">
-  <h3>El Rincón del Barrio</h3>
-  <p>Todo suelto + delivery en 20 min</p>
-  <a href="https://wa.me/5492983000101" target="_blank" class="btn-pedir">Pedir</a>
+<div class="bar" data-categoria="almacen" onclick="abrirPromo('El Rincón del Barrio','almacen2','Todo suelto + delivery en 20 min|almacen-2.jpg',[{nombre:'Fideos + tuco',precio:2200},{nombre:'Leche + pan + dulce',precio:1900}])">
+  <img class="bar-img" src="img/almacen-2.jpg" alt="El Rincón">
+  <div class="bar-body">
+    <h3>El Rincón del Barrio</h3>
+    <p class="bar-desc">Todo suelto + delivery en 20 min</p>
+    <div class="promo"><span>Fideos + tuco</span><b>$2200</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('El Rincón del Barrio','Fideos + tuco',2200)">Pedir</button></div>
+  </div>
 </div>
 
-<div class="bar" data-categoria="almacen">
-  <img src="img/almacen-3.jpg" alt="Don Tito">
-  <h3>Don Tito Almacén</h3>
-  <p>Precios de barrio, sin vueltas</p>
-  <a href="https://wa.me/5492983000102" target="_blank" class="btn-pedir">Pedir</a>
+<div class="bar" data-categoria="almacen" onclick="abrirPromo('Don Tito Almacén','almacen3','Precios de barrio, sin vueltas|almacen-3.jpg',[{nombre:'Yerba + azúcar',precio:3100},{nombre:'Aceite + arroz',precio:2600}])">
+  <img class="bar-img" src="img/almacen-3.jpg" alt="Don Tito">
+  <div class="bar-body">
+    <h3>Don Tito Almacén</h3>
+    <p class="bar-desc">Precios de barrio, sin vueltas</p>
+    <div class="promo"><span>Yerba + azúcar</span><b>$3100</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('Don Tito Almacén','Yerba + azúcar',3100)">Pedir</button></div>
+  </div>
 </div>
 
-<div class="bar" data-categoria="almacen">
-  <img src="img/almacen-4.jpg" alt="El Stock">
-  <h3>El Stock Almacén</h3>
-  <p>Todo en uno, precios mayoristas</p>
-  <a href="https://wa.me/5492983000103" target="_blank" class="btn-pedir">Pedir</a>
+<div class="bar" data-categoria="almacen" onclick="abrirPromo('El Stock Almacén','almacen4','Todo en uno, precios mayoristas|almacen-4.jpg',[{nombre:'Combo limpieza',precio:4200},{nombre:'Gaseosa 2.25lt',precio:1800}])">
+  <img class="bar-img" src="img/almacen-4.jpg" alt="El Stock">
+  <div class="bar-body">
+    <h3>El Stock Almacén</h3>
+    <p class="bar-desc">Todo en uno, precios mayoristas</p>
+    <div class="promo"><span>Combo limpieza</span><b>$4200</b>
+      <button class="btn" onclick="event.stopPropagation();abrirForm('El Stock Almacén','Combo limpieza',4200)">Pedir</button></div>
+  </div>
 </div>
 
 </div>  <!-- CIERRA bares-grid -->
