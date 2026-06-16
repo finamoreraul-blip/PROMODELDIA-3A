@@ -172,42 +172,41 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
-  /* === FORZAR MISMO ALTO QUE HELADERÍAS === */
-.bares-grid {
+  /* === TODAS LAS SECCIONES EN GRILLA === */
+.seccion .bares-grid,
+.seccion {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
   gap: 20px !important;
   align-items: stretch !important;
 }
 
-.bares-grid .bar {
-  margin-bottom: 0 !important;
+.seccion .bar {
+  margin: 0 !important;
   height: 100% !important;
   display: flex !important;
   flex-direction: column !important;
 }
 
-.bares-grid .bar-img {
+.seccion .bar-img {
   height: 160px !important;
   width: 100% !important;
   object-fit: cover !important;
 }
 
-.bares-grid .bar-body {
-  flex: 1 1 auto !important;
+.seccion .bar-body {
+  flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
   padding: 18px !important;
 }
 
-.bares-grid .bar-desc {
-  flex: 1 1 auto !important;
-  margin-bottom: 12px !important;
+.seccion .bar-desc {
+  flex: 1 !important;
 }
 
-.bares-grid .promo {
+.seccion .promo {
   margin-top: auto !important;
-  margin-bottom: 0 !important;
 }
 /* MODAL PEDIDO */
 .modal{
