@@ -226,7 +226,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 <div class="filter-bar">
   <button class="filter-btn active" onclick="filtrar('all')">Todas</button>
   <button class="filter-btn" onclick="filtrar('almacen')">🏪 Almacén</button>
-  <button class="filter-btn" onclick="filtrar('farmacia')">💊 Farmacia</button>
   <button class="filter-btn" onclick="filtrar('heladeria')">🍦 Heladería</button>
   <button class="filter-btn" onclick="filtrar('confiteria')">🥐 Confitería</button>
   <button class="filter-btn" onclick="filtrar('carniceria')">🥩 Carnicería</button>
@@ -590,7 +589,6 @@ function togglePanel(){
 function cargarPanel(){
   const comercios = [
     'almacen-el-centro',
-    'farmacia-san-martin', 
     'heladeria-polar',
     'confiteria-la-ideal',
     'carniceria-la-estancia',
@@ -618,7 +616,7 @@ function cargarPanel(){
 
 function resetearPromos(){
   if(confirm('¿Resetear todas las promos? Esto inicia el mes nuevo para todos')){
-    const comercios = ['almacen-el-centro','farmacia-san-martin','heladeria-polar','confiteria-la-ideal','carniceria-la-estancia','verduleria-verde','bar-central','sanguche-casero','recargas-virtual'];
+    const comercios = ['almacen-el-centro','heladeria-polar','confiteria-la-ideal','carniceria-la-estancia','verduleria-verde','bar-central','sanguche-casero','recargas-virtual'];
     comercios.forEach(id => localStorage.removeItem('promos_'+id));
     cargarPanel();
     alert('Mes reseteado ✅');
