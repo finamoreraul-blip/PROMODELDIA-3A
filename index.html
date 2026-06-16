@@ -172,41 +172,41 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
-  /* === TODAS LAS SECCIONES EN GRILLA === */
-.seccion .bares-grid,
-.seccion {
+/* === HELADERÍAS IGUAL QUE LAS DEMÁS === */
+#sec-heladerias .bar {
+  margin-bottom: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#sec-heladerias .bares-grid {
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
   gap: 20px !important;
   align-items: stretch !important;
 }
 
-.seccion .bar {
-  margin: 0 !important;
-  height: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-}
-
-.seccion .bar-img {
+#sec-heladerias .bar-img {
   height: 160px !important;
   width: 100% !important;
   object-fit: cover !important;
 }
 
-.seccion .bar-body {
+#sec-heladerias .bar-body {
   flex: 1 !important;
   display: flex !important;
   flex-direction: column !important;
   padding: 18px !important;
 }
 
-.seccion .bar-desc {
+#sec-heladerias .bar-desc {
   flex: 1 !important;
 }
 
-.seccion .promo {
+#sec-heladerias .promo {
   margin-top: auto !important;
+  margin-bottom: 0 !important;
 }
 /* MODAL PEDIDO */
 .modal{
