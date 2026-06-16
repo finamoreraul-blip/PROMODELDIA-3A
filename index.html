@@ -775,8 +775,9 @@ function abrirForm(local, promo, precio) {
   
   document.getElementById('formLocal').textContent = local;
   document.getElementById('formPromo').textContent = promo;
-  document.getElementById('formPrecio').textContent = '$' + subtotal.toLocaleString('es-AR');
-  document.getElementById('formEnvio').textContent = '$' + envioActual.toLocaleString('es-AR');
+ document.getElementById('formPrecio').textContent = '$' + subtotal.toLocaleString('es-AR');
+document.getElementById('formEnvio').textContent = '$' + envioActual.toLocaleString('es-AR');
+document.getElementById('formPrecio').innerHTML += `<br><b>Total: $${(subtotal + envioActual).toLocaleString('es-AR')}</b>`;
   
   // PINTAR EL TOTAL EN formPrecio si no existe #total
   const totalEl = document.getElementById('total');
