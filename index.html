@@ -338,19 +338,57 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 </div>
 </div>
 
+<!-- SECCION CONFITERIA ABRE -->
 <div id="sec-confiteria" class="seccion">
-<h2>🥐 Confitería</h2>
-<div class="bar" data-categoria="confiteria" onclick="abrirPromo('Confitería La Ideal','ideal','Facturas, masas finas, tortas, sandwiches de miga. Fresco todos los días 8 a 22hs.|confiteria.jpg',[{nombre:'Docena de facturas',precio:3200},{nombre:'Sandwich de miga x4',precio:2800}])">
-  <img class="bar-img" src="confiteria.jpg" alt="Confitería">
-  <div class="bar-body">
-    <h3>Confitería La Ideal <span class="tag">fresco</span></h3>
-    <p class="bar-desc">Facturas y masas 8 a 22hs</p>
-    <div class="promo"><span>Docena de facturas</span><b>$3200</b>
-      <button class="btn" onclick="event.stopPropagation();abrirForm('Confitería La Ideal','Docena de facturas',3200)">Pedir</button></div>
-  </div>
-</div>
-</div>
+  <h2>☕ Confiterías</h2>
+  
+  <!-- WRAPPER GRID CONFITERIA ABRE -->
+  <div class="bares-grid">
 
+  <!-- CONFITERIAS - 4 LOCALES -->
+  <div class="bar" data-categoria="confiteria" onclick="abrirPromo('La Central','confiteria1','Desayunos y meriendas caseras. Tortas de la abuela.|confiteria-1.jpg',[{nombre:'Desayuno completo',precio:2800},{nombre:'Porción torta + café',precio:2200}])">
+    <img class="bar-img" src="img/confiteria-1.jpg" alt="La Central">
+    <div class="bar-body">
+      <h3>La Central</h3>
+      <p class="bar-desc">Desayunos caseros</p>
+      <div class="promo"><span>Desayuno completo</span><b>$2800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('La Central','Desayuno completo',2800)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="confiteria" onclick="abrirPromo('Confitería Paris','confiteria2','Facturas recién hechas. Salón climatizado.|confiteria-2.jpg',[{nombre:'Docena de facturas',precio:3500},{nombre:'Merienda 2 personas',precio:4200}])">
+    <img class="bar-img" src="img/confiteria-2.jpg" alt="Paris">
+    <div class="bar-body">
+      <h3>Confitería Paris</h3>
+      <p class="bar-desc">Facturas recién hechas</p>
+      <div class="promo"><span>Docena de facturas</span><b>$3500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Confitería Paris','Docena de facturas',3500)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="confiteria" onclick="abrirPromo('El Colonial','confiteria3','Té, café y masas finas. Delivery en bandeja.|confiteria-3.jpg',[{nombre:'Bandeja masas finas',precio:4800},{nombre:'Té para 4',precio:3600}])">
+    <img class="bar-img" src="img/confiteria-3.jpg" alt="El Colonial">
+    <div class="bar-body">
+      <h3>El Colonial</h3>
+      <p class="bar-desc">Masas finas premium</p>
+      <div class="promo"><span>Bandeja masas finas</span><b>$4800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('El Colonial','Bandeja masas finas',4800)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="confiteria" onclick="abrirPromo('Dulce Momento','confiteria4','Tortas por encargo + café de especialidad|confiteria-4.jpg',[{nombre:'Torta cumpleaños 12 porciones',precio:9500},{nombre:'Cheesecake porción',precio:2600}])">
+    <img class="bar-img" src="img/confiteria-4.jpg" alt="Dulce Momento">
+    <div class="bar-body">
+      <h3>Dulce Momento</h3>
+      <p class="bar-desc">Tortas por encargo</p>
+      <div class="promo"><span>Cheesecake porción</span><b>$2600</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Dulce Momento','Cheesecake porción',2600)">Pedir</button></div>
+    </div>
+  </div>
+
+  </div>  <!-- CIERRA bares-grid confiteria -->
+</div>  <!-- CIERRA seccion confiteria -->
+  
 <div id="sec-carniceria" class="seccion">
 <h2>🥩 Carnicería</h2>
 <div class="bar" data-categoria="carniceria" onclick="abrirPromo('Carnicería La Estancia','estancia','Cortes premium, carne de ternera, achuras, chorizos. Solo turno día 8 a 22hs.|carniceria.jpg',[{nombre:'Asado 2kg + chorizos',precio:18500},{nombre:'Milanesas de ternera 1kg',precio:9800}])">
