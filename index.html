@@ -735,7 +735,7 @@ function abrirPromo(nombre, dir, descImg, promos){
     html += `<div class="promo-box">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
         <span>${p.nombre}</span>
-        <b>$${p.precio.toLocaleString()}</b>
+        <b>$${p.precio.toLocaleString('es-AR')}</b>
       </div>
       <button class="btn" style="width:100%" onclick="abrirForm('${nombre}','${p.nombre}',${p.precio})">Pedir esta promo</button>
     </div>`;
@@ -743,79 +743,49 @@ function abrirPromo(nombre, dir, descImg, promos){
   document.getElementById('promoList').innerHTML = html;
   document.getElementById('modalPromo').classList.add('active');
 }
+
 let carrito = [];
 let envioActual = 0;
-
-function actualizarTotal() {
-  let subtotal = 0;
-  carrito.forEach(item => {
-    subtotal += item.precio * item.cantidad;
-  });
-  
-  const total = subtotal + envioActual;
-  
-  const totalEl = document.getElementById('total');
-  if(totalEl) totalEl.textContent = '$' + total.toLocaleString('es-AR');
-  
-  console.log('Subtotal:', subtotal, 'Envío:', envioActual, 'Total:', total);
-}
-
-function abrirForm(local, promo, precio) {
-  // Detectar envío según local
-  if(local.toLowerCase().includes('roma')) {
-    envioActual = 2000;
-  } else {
-    envioActual = 0;
-  }
-  
-  carrito = [{nombre: promo, precio: precio, cantidad: 1}];
-  
-  const subtotal = precio;
-  const total = subtotal + envioActual;
-  
-  document.getElementById('formLocal').textContent = local;
-  document.getElementById('formPromo').textContent = promo;
- document.getElementById('formPrecio').textContent = '$' + subtotal.toLocaleString('es-AR');
-document.getElementById('formEnvio').textContent = '$' + envioActual.toLocaleString('es-AR');
-document.getElementById('formPrecio').innerHTML += `<br><b>Total: $${(subtotal + envioActual).toLocaleString('es-AR')}</b>`;
-  
-  // PINTAR EL TOTAL EN formPrecio si no existe #total
-  const totalEl = document.getElementById('total');
-  if(totalEl) {
-    totalEl.textContent = '$' + total.toLocaleString('es-AR');
-  } else {
-    // Si no hay #total, lo mostramos abajo del envío
-    document.getElementById('formEnvio').innerHTML += `<br><b>Total: $${total.toLocaleString('es-AR')}</b>`;
-  }
-  
-  console.log('Subtotal:', subtotal, 'Envío:', envioActual, 'Total:', total);
-  
-  document.getElementById('modalForm').classList.add('active');
-}
+let pedidoActual = {};
 
 function cerrarPromo(){
   document.getElementById('modalPromo').classList.remove('active');
 }
 
-function abrirForm(local, promo, precio){
+function abrirForm(local, promo, precio) {
   cerrarPromo();
-  pedidoActual = {local, promo, precio};
-  const envio = 1500;
-  const totalCliente = precio + envio;
+
+  // 1. Calcular envío según local
+  if(local.toLowerCase().includes('roma')) {
+    envioActual = 2000;
+  } else {
+    envioActual = 1500; // Envío default para otros locales
+  }
+
+  const subtotal = precio;
+  const total = subtotal + envioActual;
+  pedidoActual = {local, promo, precio, subtotal, envio: envioActual, total};
+
+  // 2. Mostrar todo en el modal
   document.getElementById('modal-titulo').textContent = promo;
   document.getElementById('modal-total').innerHTML = `
-    Subtotal: $${precio.toLocaleString()}<br>
-    Envío: $2.000<br>
-    <b>TOTAL A PAGAR: $${totalCliente.toLocaleString()}</b>
+    Subtotal: $${subtotal.toLocaleString('es-AR')}<br>
+    Envío: $${envioActual.toLocaleString('es-AR')}<br>
+    <b>TOTAL A PAGAR: $${total.toLocaleString('es-AR')}</b>
   `;
+
   document.getElementById('modal').classList.add('active');
+
+  console.log('Local:', local, 'Subtotal:', subtotal, 'Envío:', envioActual, 'Total:', total);
 }
 
 function cerrarForm(){
   document.getElementById('modal').classList.remove('active');
-  ['nombre','direccion','infoCasa','telefono','aclaraciones'].forEach(id=>document.getElementById(id).value='');
+  ['nombre','direccion','infoCasa','telefono','aclaraciones'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.value = '';
+  });
 }
-
 function enviarWhatsApp(){
   const nombre = document.getElementById('nombre').value;
   const direccion = document.getElementById('direccion').value;
