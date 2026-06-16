@@ -743,7 +743,41 @@ function abrirPromo(nombre, dir, descImg, promos){
   document.getElementById('promoList').innerHTML = html;
   document.getElementById('modalPromo').classList.add('active');
 }
+let carrito = [];
+let envioActual = 0;
 
+function actualizarTotal() {
+  let subtotal = 0;
+  carrito.forEach(item => {
+    subtotal += item.precio * item.cantidad;
+  });
+  
+  const total = subtotal + envioActual;
+  
+  const totalEl = document.getElementById('total');
+  if(totalEl) totalEl.textContent = '$' + total.toLocaleString('es-AR');
+  
+  console.log('Subtotal:', subtotal, 'Envío:', envioActual, 'Total:', total);
+}
+
+function abrirForm(local, promo, precio) {
+  if(local.toLowerCase().includes('roma')) {
+    envioActual = 2000;
+  } else {
+    envioActual = 0;
+  }
+  
+  carrito = [{nombre: promo, precio: precio, cantidad: 1}];
+  
+  document.getElementById('formLocal').textContent = local;
+  document.getElementById('formPromo').textContent = promo;
+  document.getElementById('formPrecio').textContent = '$' + precio.toLocaleString();
+  document.getElementById('formEnvio').textContent = '$' + envioActual.toLocaleString();
+  
+  actualizarTotal();
+  
+  document.getElementById('modalForm').classList.add('active');
+}
 function cerrarPromo(){
   document.getElementById('modalPromo').classList.remove('active');
 }
