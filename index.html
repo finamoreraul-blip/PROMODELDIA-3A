@@ -5,6 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Promos Tres Arroyos</title>
 <style>
+  .promo-banner{
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse{
+ 0%, 100%{ transform: scale(1); }
+ 50%{ transform: scale(1.02); }
+}
 :root{
   --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --sub:#94a3b8;
   --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --border:#334155
@@ -218,7 +235,9 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('restaurantes')">🍔 Restaurantes</button>
   <button class="filter-btn" onclick="filtrar('online')">💻 Online</button>
 </div>
-
+<div class="promo-banner">
+  🔥 4 PROMOS GRATIS para comercios que se sumen ahora
+</div>
 <!-- WRAPPER GRID ABRE -->
 <div class="bares-grid">
 
