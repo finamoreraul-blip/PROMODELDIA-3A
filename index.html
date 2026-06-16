@@ -761,6 +761,7 @@ function actualizarTotal() {
 }
 
 function abrirForm(local, promo, precio) {
+  // Detectar envío según local
   if(local.toLowerCase().includes('roma')) {
     envioActual = 2000;
   } else {
@@ -769,16 +770,27 @@ function abrirForm(local, promo, precio) {
   
   carrito = [{nombre: promo, precio: precio, cantidad: 1}];
   
+  const subtotal = precio;
+  const total = subtotal + envioActual;
+  
   document.getElementById('formLocal').textContent = local;
   document.getElementById('formPromo').textContent = promo;
-  document.getElementById('formPrecio').textContent = '$' + precio.toLocaleString();
-  document.getElementById('formEnvio').textContent = '$' + envioActual.toLocaleString();
+  document.getElementById('formPrecio').textContent = '$' + subtotal.toLocaleString('es-AR');
+  document.getElementById('formEnvio').textContent = '$' + envioActual.toLocaleString('es-AR');
   
-  actualizarTotal();
+  // PINTAR EL TOTAL EN formPrecio si no existe #total
+  const totalEl = document.getElementById('total');
+  if(totalEl) {
+    totalEl.textContent = '$' + total.toLocaleString('es-AR');
+  } else {
+    // Si no hay #total, lo mostramos abajo del envío
+    document.getElementById('formEnvio').innerHTML += `<br><b>Total: $${total.toLocaleString('es-AR')}</b>`;
+  }
+  
+  console.log('Subtotal:', subtotal, 'Envío:', envioActual, 'Total:', total);
   
   document.getElementById('modalForm').classList.add('active');
 }
-  >/script>
 
 function cerrarPromo(){
   document.getElementById('modalPromo').classList.remove('active');
