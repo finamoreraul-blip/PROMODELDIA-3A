@@ -611,5 +611,38 @@ function resetearPromos(){
   }
 }
 </script>
+  <div class="modal-promo" id="modal" onclick="cerrarModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="cerrarModal()">×</span>
+    <img id="modalImg" src="" alt="">
+    <h3 id="modalNombre"></h3>
+    <p id="modalDesc"></p>
+    <div id="promoList"></div>
+  </div>
+</div>
+  <script>
+function abrirForm(bar, promo, precio){
+  document.getElementById('formBar').value = bar;
+  document.getElementById('formPromo').value = promo;
+  document.getElementById('formPrecio').value = precio;
+  document.getElementById('formModal').style.display = 'flex';
+}
+function cerrarForm(){document.getElementById('formModal').style.display = 'none'}
+function abrirPromo(nombre, tipo, desc, promos){
+  document.getElementById('modalNombre').textContent = nombre;
+  document.getElementById('modalDesc').textContent = desc.split('|')[0];
+  document.getElementById('modalImg').src = desc.split('|')[1];
+  let html = '<div class="promos-grid">';
+  promos.forEach(p=>{
+    html += `<div class="promo-card"><span>${p.nombre}</span><b>$${p.precio.toLocaleString()}</b><button class="btn" onclick="event.stopPropagation();abrirForm('${nombre}','${p.nombre}',${p.precio})">Pedir</button></div>`;
+  });
+  html += '</div>';
+  document.getElementById('promoList').innerHTML = html;
+  document.getElementById('modal').style.display = 'flex';
+}
+function cerrarModal(){document.getElementById('modal').style.display = 'none'}
+document.getElementById('modal').onclick = function(){this.style.display='none'};
+document.getElementById('formModal').onclick = function(){this.style.display='none'};
+</script>
 </body>
 </html>
