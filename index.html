@@ -232,7 +232,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('verduleria')">🥬 Verdulería</button>
   <button class="filter-btn" onclick="filtrar('bares')">🍺 Bares</button>
   <button class="filter-btn" onclick="filtrar('restaurantes')">🍔 Restaurantes</button>
-  <button class="filter-btn" onclick="filtrar('online')">💻 Online</button>
 </div>
 <div class="promo-banner">
   🔥 4 PROMOS GRATIS para comercios que se sumen ahora
@@ -387,70 +386,203 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   </div>
 </div>
   
+<!-- SECCION CARNICERIA ABRE -->
 <div id="sec-carniceria" class="seccion">
-<h2>🥩 Carnicería</h2>
-<div class="bar" data-categoria="carniceria" onclick="abrirPromo('Carnicería La Estancia','estancia','Cortes premium, carne de ternera, achuras, chorizos. Solo turno día 8 a 22hs.|carniceria.jpg',[{nombre:'Asado 2kg + chorizos',precio:18500},{nombre:'Milanesas de ternera 1kg',precio:9800}])">
-  <img class="bar-img" src="carniceria.jpg" alt="Carnicería">
-  <div class="bar-body">
-    <h3>Carnicería La Estancia <span class="tag">premium</span></h3>
-    <p class="bar-desc">Cortes de ternera 8 a 22hs</p>
-    <div class="promo"><span>Asado 2kg + chorizos</span><b>$18500</b>
-      <button class="btn" onclick="event.stopPropagation();abrirForm('Carnicería La Estancia','Asado 2kg + chorizos',18500)">Pedir</button></div>
+  <h2>🥩 Carnicerías</h2>
+  
+  <div class="bares-grid">
+
+  <div class="bar" data-categoria="carniceria" onclick="abrirPromo('La Nueva','carniceria1','Cortes premium + milanesas|carne-1.jpg',[{nombre:'Milanesas nalga x6',precio:5200}])">
+    <img class="bar-img" src="img/carne-1.jpg" alt="La Nueva">
+    <div class="bar-body">
+      <h3>La Nueva</h3>
+      <p class="bar-desc">Cortes premium</p>
+      <div class="promo"><span>Milanesas x6</span><b>$5200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('La Nueva','Milanesas nalga x6',5200)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="carniceria" onclick="abrirPromo('El Matadero','carniceria2','Parrilla y achuras|carne-2.jpg',[{nombre:'Asado banderita kg',precio:8900}])">
+    <img class="bar-img" src="img/carne-2.jpg" alt="El Matadero">
+    <div class="bar-body">
+      <h3>El Matadero</h3>
+      <p class="bar-desc">Parrilla y achuras</p>
+      <div class="promo"><span>Asado kg</span><b>$8900</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('El Matadero','Asado banderita kg',8900)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="carniceria" onclick="abrirPromo('Carnicería San José','carniceria3','Pollo y cerdo|carne-3.jpg',[{nombre:'Pollo entero',precio:3800}])">
+    <img class="bar-img" src="img/carne-3.jpg" alt="San José">
+    <div class="bar-body">
+      <h3>San José</h3>
+      <p class="bar-desc">Pollo y cerdo</p>
+      <div class="promo"><span>Pollo entero</span><b>$3800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Carnicería San José','Pollo entero',3800)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="carniceria" onclick="abrirPromo('Don Toro','carniceria4','Hamburguesas caseras|carne-4.jpg',[{nombre:'Medallones x4',precio:4200}])">
+    <img class="bar-img" src="img/carne-4.jpg" alt="Don Toro">
+    <div class="bar-body">
+      <h3>Don Toro</h3>
+      <p class="bar-desc">Hamburguesas caseras</p>
+      <div class="promo"><span>Medallones x4</span><b>$4200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Don Toro','Medallones x4',4200)">Pedir</button></div>
+    </div>
+  </div>
+
   </div>
 </div>
-</div>
 
+
+<!-- SECCION VERDULERIA ABRE -->
 <div id="sec-verduleria" class="seccion">
-<h2>🥬 Verdulería</h2>
-<div class="bar" data-categoria="verduleria" onclick="abrirPromo('Verdulería Verde','verde','Frutas y verduras frescas seleccionadas. Bolsones económicos. Solo turno día 8 a 22hs.|verduleria.jpg',[{nombre:'Bolson frutas 5kg',precio:6500},{nombre:'Ensalada completa x3',precio:4200}])">
-  <img class="bar-img" src="verduleria.jpg" alt="Verdulería">
-  <div class="bar-body">
-    <h3>Verdulería Verde <span class="tag">fresco</span></h3>
-    <p class="bar-desc">Frutas y verduras 8 a 22hs</p>
-    <div class="promo"><span>Bolson frutas 5kg</span><b>$6500</b>
-      <button class="btn" onclick="event.stopPropagation();abrirForm('Verdulería Verde','Bolson frutas 5kg',6500)">Pedir</button></div>
+  <h2>🥬 Verdulerías</h2>
+  
+  <div class="bares-grid">
+
+  <div class="bar" data-categoria="verduleria" onclick="abrirPromo('El Huerto','verduleria1','Frutas y verduras frescas|verdura-1.jpg',[{nombre:'Bolsón mixto 5kg',precio:3500}])">
+    <img class="bar-img" src="img/verdura-1.jpg" alt="El Huerto">
+    <div class="bar-body">
+      <h3>El Huerto</h3>
+      <p class="bar-desc">Frutas y verduras</p>
+      <div class="promo"><span>Bolsón mixto 5kg</span><b>$3500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('El Huerto','Bolsón mixto 5kg',3500)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="verduleria" onclick="abrirPromo('Verde Fresco','verduleria2','Orgánicos sin agroquímicos|verdura-2.jpg',[{nombre:'Lechuga + tomate',precio:1800}])">
+    <img class="bar-img" src="img/verdura-2.jpg" alt="Verde Fresco">
+    <div class="bar-body">
+      <h3>Verde Fresco</h3>
+      <p class="bar-desc">Orgánicos premium</p>
+      <div class="promo"><span>Lechuga + tomate</span><b>$1800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Verde Fresco','Lechuga + tomate',1800)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="verduleria" onclick="abrirPromo('La Huerta','verduleria3','Cítricos y banana|verdura-3.jpg',[{nombre:'Bolsa naranja 3kg',precio:2200}])">
+    <img class="bar-img" src="img/verdura-3.jpg" alt="La Huerta">
+    <div class="bar-body">
+      <h3>La Huerta</h3>
+      <p class="bar-desc">Cítricos y banana</p>
+      <div class="promo"><span>Bolsa naranja 3kg</span><b>$2200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('La Huerta','Bolsa naranja 3kg',2200)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="verduleria" onclick="abrirPromo('Del Campo','verduleria4','Papa, cebolla, zapallo|verdura-4.jpg',[{nombre:'Bolsa papa 5kg',precio:2800}])">
+    <img class="bar-img" src="img/verdura-4.jpg" alt="Del Campo">
+    <div class="bar-body">
+      <h3>Del Campo</h3>
+      <p class="bar-desc">Papa y zapallo</p>
+      <div class="promo"><span>Bolsa papa 5kg</span><b>$2800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Del Campo','Bolsa papa 5kg',2800)">Pedir</button></div>
+    </div>
+  </div>
+
   </div>
 </div>
-</div>
-
+  
+<!-- SECCION BARES ABRE -->
 <div id="sec-bares" class="seccion">
-<h2>🍺 Bares y Pubs</h2>
-<div class="bar" data-categoria="bares" onclick="abrirPromo('Bar Central','central','Bar nocturno, tragos, cervezas artesanales, picadas. Ambiente música 21 a 06hs.|bar.jpg',[{nombre:'2 cervezas artesanales + papas',precio:6500},{nombre:'Picada para 2 personas',precio:12000}])">
-  <img class="bar-img" src="bar.jpg" alt="Bar">
-  <div class="bar-body">
-    <h3>Bar Central <span class="tag">nocturno</span></h3>
-    <p class="bar-desc">Tragos y cervezas 21 a 06hs</p>
-    <div class="promo"><span>2 cervezas artesanales + papas</span><b>$6500</b>
-      <button class="btn" onclick="event.stopPropagation();abrirForm('Bar Central','2 cervezas artesanales + papas',6500)">Pedir</button></div>
+  <h2>🍻 Bares</h2>
+  
+  <div class="bares-grid">
+
+  <div class="bar" data-categoria="bares" onclick="abrirPromo('El Refugio','bar1','Cerveza tirada artesanal|bar-1.jpg',[{nombre:'Pinta IPA',precio:2500}])">
+    <img class="bar-img" src="img/bar-1.jpg" alt="El Refugio">
+    <div class="bar-body">
+      <h3>El Refugio</h3>
+      <p class="bar-desc">Cerveza tirada</p>
+      <div class="promo"><span>Pinta IPA</span><b>$2500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('El Refugio','Pinta IPA',2500)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="bares" onclick="abrirPromo('Bar Central','bar2','Tragos y picadas|bar-2.jpg',[{nombre:'Gin tonic',precio:3200}])">
+    <img class="bar-img" src="img/bar-2.jpg" alt="Bar Central">
+    <div class="bar-body">
+      <h3>Bar Central</h3>
+      <p class="bar-desc">Tragos y picadas</p>
+      <div class="promo"><span>Gin tonic</span><b>$3200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Bar Central','Gin tonic',3200)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="bares" onclick="abrirPromo('La Esquina','bar3','Música en vivo|bar-3.jpg',[{nombre:'Fernet + coca',precio:2800}])">
+    <img class="bar-img" src="img/bar-3.jpg" alt="La Esquina">
+    <div class="bar-body">
+      <h3>La Esquina</h3>
+      <p class="bar-desc">Música en vivo</p>
+      <div class="promo"><span>Fernet + coca</span><b>$2800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('La Esquina','Fernet + coca',2800)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="bares" onclick="abrirPromo('Bar 1900','bar4','Whisky y coctelería|bar-4.jpg',[{nombre:'Old Fashioned',precio:4500}])">
+    <img class="bar-img" src="img/bar-4.jpg" alt="Bar 1900">
+    <div class="bar-body">
+      <h3>Bar 1900</h3>
+      <p class="bar-desc">Whisky premium</p>
+      <div class="promo"><span>Old Fashioned</span><b>$4500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Bar 1900','Old Fashioned',4500)">Pedir</button></div>
+    </div>
+  </div>
+
   </div>
 </div>
-</div>
 
+<!-- SECCION RESTAURANTES ABRE -->
 <div id="sec-restaurantes" class="seccion">
-<h2>🍔 Restaurantes</h2>
-<div class="bar" data-categoria="restaurantes" onclick="abrirPromo('Sanguche Casero','casero','Milanesa de ternera rebozada a mano, pan casero, jamón, queso, tomate, lechuga, huevo y aderezo especial. Delivery 24hs.|milanesa.jpg',[{nombre:'Milanesa gigante completa con aderezo',precio:13000},{nombre:'Milanesa napolitana completa',precio:13500}])">
-  <img class="bar-img" src="milanesa.jpg" alt="Sanguche Milanesa">
-  <div class="bar-body">
-    <h3>Sanguche Casero <span class="tag">casero</span></h3>
-    <p class="bar-desc">Milanesas gigantes caseras 24hs</p>
-    <div class="promo"><span>Milanesa gigante completa con aderezo</span><b>$13000</b>
-      <button class="btn" onclick="event.stopPropagation();abrirForm('Sanguche Casero','Milanesa gigante completa con aderezo',13000)">Pedir</button></div>
+  <h2>🍽️ Restaurantes</h2>
+  
+  <div class="bares-grid">
+
+  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('La Parrilla','resto1','Asado y parrillada|rest-1.jpg',[{nombre:'Parrillada x2',precio:14500}])">
+    <img class="bar-img" src="img/rest-1.jpg" alt="La Parrilla">
+    <div class="bar-body">
+      <h3>La Parrilla</h3>
+      <p class="bar-desc">Asado y parrillada</p>
+      <div class="promo"><span>Parrillada x2</span><b>$14500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('La Parrilla','Parrillada x2',14500)">Pedir</button></div>
+    </div>
   </div>
-</div>
+
+  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('Pasta Madre','resto2','Pastas caseras|rest-2.jpg',[{nombre:'Sorrentinos + tuco',precio:5800}])">
+    <img class="bar-img" src="img/rest-2.jpg" alt="Pasta Madre">
+    <div class="bar-body">
+      <h3>Pasta Madre</h3>
+      <p class="bar-desc">Pastas caseras</p>
+      <div class="promo"><span>Sorrentinos + tuco</span><b>$5800</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Pasta Madre','Sorrentinos + tuco',5800)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('Sushi Zen','resto3','Sushi y comida oriental|rest-3.jpg',[{nombre:'Combo 20 piezas',precio:9200}])">
+    <img class="bar-img" src="img/rest-3.jpg" alt="Sushi Zen">
+    <div class="bar-body">
+      <h3>Sushi Zen</h3>
+      <p class="bar-desc">Sushi premium</p>
+      <div class="promo"><span>Combo 20 piezas</span><b>$9200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Sushi Zen','Combo 20 piezas',9200)">Pedir</button></div>
+    </div>
+  </div>
+
+  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('El Fogón','resto4','Comida casera|rest-4.jpg',[{nombre:'Milanesa napo + fritas',precio:6500}])">
+    <img class="bar-img" src="img/rest-4.jpg" alt="El Fogón">
+    <div class="bar-body">
+      <h3>El Fogón</h3>
+      <p class="bar-desc">Comida casera</p>
+      <div class="promo"><span>Milanesa napo + fritas</span><b>$6500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('El Fogón','Milanesa napo + fritas',6500)">Pedir</button></div>
+    </div>
+  </div>
+
+  </div>
 </div>
 
-<div id="sec-online" class="seccion">
-<h2>💻 Servicios Online</h2>
-<div class="bar" data-categoria="online" onclick="abrirPromo('Recargas Virtual','virtual','Carga de celular, SUBE, DirecTV, Netflix, Spotify. Acreditación inmediata 24hs.|online.jpg',[{nombre:'Recarga celular $5000',precio:5000},{nombre:'Carga SUBE $3000',precio:3000}])">
-  <img class="bar-img" src="online.jpg" alt="Online">
-  <div class="bar-body">
-    <h3>Recargas Virtual <span class="tag">24hs</span></h3>
-    <p class="bar-desc">Cargas inmediatas</p>
-    <div class="promo"><span>Recarga celular $5000</span><b>$5000</b>
-      <button class="btn" onclick="event.stopPropagation();abrirForm('Recargas Virtual','Recarga celular $5000',5000)">Pedir</button></div>
-  </div>
-</div>
-</div>
 
 </div>
 <!-- WRAPPER GRID CIERRA -->
