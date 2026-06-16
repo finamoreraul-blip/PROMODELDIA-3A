@@ -172,18 +172,19 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
-/* === UN POQUITO MÁS ANCHO === */
+/* === TODOS IGUAL A HELADERÍAS: 560x331.33 === */
 .seccion .bares-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)) !important; /* antes 320px, ahora 340px */
+  grid-template-columns: repeat(auto-fill, minmax(560px, 560px)) !important; /* ancho fijo exacto */
   gap: 20px !important;
   align-items: stretch !important;
+  justify-content: center !important;
 }
 
 .seccion .bar {
   margin: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+  width: 560px !important; /* ancho clavado */
+  height: 331.33px !important; /* alto clavado */
   display: flex !important;
   flex-direction: column !important;
 }
@@ -199,15 +200,19 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   display: flex !important;
   flex-direction: column !important;
   padding: 18px !important;
+  overflow: hidden !important;
 }
 
 .seccion .bar-desc {
   flex: 1 !important;
+  overflow: hidden !important;
 }
 
 .seccion .promo {
   margin-top: auto !important;
+  flex-shrink: 0 !important;
 }
+
 /* MODAL PEDIDO */
 .modal{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
