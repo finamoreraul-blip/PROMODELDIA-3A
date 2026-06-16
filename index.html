@@ -423,12 +423,12 @@ function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
   
-  // Mostrar todas las secciones
+  // Mostrar todas las secciones primero
   document.querySelectorAll('.seccion').forEach(s=>{
     s.style.display = 'block';
   });
   
-  // Filtrar comercios adentro del grid
+  // Ahora filtrá los comercios adentro del grid
   document.querySelectorAll('.bares-grid .bar').forEach(bar=>{
     if(cat==='all' || bar.dataset.categoria===cat){
       bar.style.display = 'block';
