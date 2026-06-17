@@ -285,7 +285,6 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
       <p class="modal-promo.dir" id="promo-dir"></p>
       <p class="modal-promo.desc" id="promo-desc"></p>
       <div class="promos-grid" id="promos-grid"></div>
-      <button class="btn" style="width:100%;margin-top:15px" onclick="abrirPedidoDesdePromo()">Pedir por WhatsApp</button>
     </div>
   </div>
 </div>
@@ -325,21 +324,16 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   </div>
 </div>
 <!-- MODAL DETALLE PROMO -->
-<div class="modal-promo" id="modal-detalle-promo">
-  <span class="close-x" onclick="cerrarDetallePromo()">&times;</span>
-  <div class="modal-promo-content">
-    <img class="modal-promo-img" id="detalle-img" src="" alt="">
-    <div class="modal-promo-body">
-      <h3 id="detalle-titulo"></h3>
-      <p class="modal-promo.desc" id="detalle-desc"></p>
-      <div style="margin:15px 0">
-        <b style="font-size:24px;color:var(--green)" id="detalle-precio"></b>
-      </div>
-      <div style="background:var(--card);padding:12px;border-radius:10px;border:1px solid var(--border)">
-        <b>Características:</b>
-        <p id="detalle-caracteristicas" style="margin-top:8px;color:var(--sub);font-size:14px"></p>
-      </div>
-      <button class="btn" style="width:100%;margin-top:15px" onclick="pedirEstaPromo()">Pedir esta promo</button>
+<!-- MODAL DETALLE PROMO -->
+<div class="modal-detalle" id="modal-detalle-promo">
+  <span class="close-x" onclick="cerrarDetalle()">&times;</span>
+  <div class="modal-detalle-content">
+    <img id="detalle-img" src="" alt="">
+    <div class="modal-detalle-body">
+      <h3 id="detalle-nombre"></h3>
+      <p id="detalle-desc"></p>
+      <p class="precio"><b id="detalle-precio"></b></p>
+      <button class="btn" style="width:100%;margin-top:15px" onclick="pedirPromoSemanal()">Pedir por WhatsApp</button>
     </div>
   </div>
 </div>
@@ -351,21 +345,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <p style="margin-top:10px">¿Tenés un comercio? Sumate gratis las primeras 4 promos</p>
   <p style="margin-top:15px;font-size:11px">© 2026 - Hecho con ❤️ en Tres Arroyos</p>
 </div>
-
-<!-- PANEL ADMIN -->
-<div id="panel-admin">
-  <button class="btn" onclick="togglePanel()">⚙️ Admin</button>
-  <div id="panel-content">
-    <h3 style="margin-bottom:10px">Panel de Control</h3>
-    <button class="btn" style="width:100%;margin-bottom:8px" onclick="exportarHistorial()">📥 Exportar Historial</button>
-    <button class="btn" style="width:100%;margin-bottom:8px;background:#dc2626" onclick="resetIndividual()">🗑️ Reset Individual</button>
-    <button class="btn" style="width:100%;margin-bottom:8px;background:#f59e0b" onclick="resetTotal()">⚠️ Reset Total</button>
-    <div id="historial-container" style="margin-top:15px">
-      <b>Últimos pedidos:</b>
-      <div id="historial-lista"></div>
-    </div>
-  </div>
-</div><script>
+<script>
 // VARIABLES GLOBALES
 let comercioActual = '';
 let promosActuales = [];
