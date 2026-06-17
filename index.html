@@ -168,174 +168,112 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 </div>
 
 <div class="filter-bar">
-  <button class="filter-btn active" onclick="filtrar('all', this)">Todas</button>
-  <button class="filter-btn" onclick="filtrar('almacen', this)">🏪 Almacén</button>
-  <button class="filter-btn" onclick="filtrar('heladeria', this)">🍦 Heladería</button>
-  <button class="filter-btn" onclick="filtrar('confiteria', this)">🥐 Confitería</button>
-  <button class="filter-btn" onclick="filtrar('carniceria', this)">🥩 Carnicería</button>
-  <button class="filter-btn" onclick="filtrar('verduleria', this)">🥬 Verdulería</button>
-  <button class="filter-btn" onclick="filtrar('bares', this)">🍺 Bares</button>
-  <button class="filter-btn" onclick="filtrar('restaurantes', this)">🍔 Restaurantes</button>
+  <button class="filter-btn active" onclick="filtrar('all', this)">Todos</button>
+  <button class="filter-btn" onclick="filtrar('carniceria', this)">Carnicerías</button>
+  <button class="filter-btn" onclick="filtrar('panaderia', this)">Panaderías</button>
+  <button class="filter-btn" onclick="filtrar('verduleria', this)">Verdulerías</button>
+  <button class="filter-btn" onclick="filtrar('almacen', this)">Almacenes</button>
+  <button class="filter-btn" onclick="filtrar('restaurante', this)">Restaurantes</button>
+  <button class="filter-btn" onclick="filtrar('bar', this)">Bares</button>
+  <button class="filter-btn" onclick="filtrar('kiosco', this)">Kioscos</button>
+  <button class="filter-btn" onclick="filtrar('floreria', this)">Florerías</button>
+  <button class="filter-btn" onclick="filtrar('lavanderia', this)">Lavanderías</button>
+  <button class="filter-btn" onclick="filtrar('petshop', this)">Pet Shops</button>
 </div>
 
 <div class="promo-banner">
   🔥 4 PROMOS GRATIS para comercios que se sumen ahora
-</div><!-- SECCION ALMACEN -->
-<section id="sec-almacen" class="seccion active">
-<h2>🏪 Almacenes</h2>
-<div class="bares-grid">
+</div>
+<!-- CARNICERÍAS -->
+<div class="bar" data-categoria="carniceria" onclick="abrirPromo('Carnicería Don Carlos','carniceria-1.jpg','Cortes premium',[ {nombre:'Asado banderita',precio:8500,desc:'Por kg',img:'promo-asado.jpg',caracteristicas:'Asado banderita novillito + Corte sin hueso. Tierno y jugoso. Corte día'},{nombre:'Milanesas napo x6',precio:7200,desc:'Lista para horno',img:'promo-mila.jpg',caracteristicas:'6 milanesas nalga + Queso muzzarella + Salsa + Orégano. Rebozadas caseras'},{nombre:'Picada parrillera',precio:9800,desc:'Para 4 personas',img:'promo-picada.jpg',caracteristicas:'Chorizos x4 + Morcilla x2 + Vacío 1kg + Sal gruesa + Chimichurri'},{nombre:'Hamburguesas x8',precio:6500,desc:'180g c/u',img:'promo-hamburguesas.jpg',caracteristicas:'8 medallones carne 180g + Pan rallado + Condimento. Congeladas por separado'} ])">
+  <img class="bar-img" src="img/carniceria-1.jpg" alt="Don Carlos">
+  <div class="bar-body"><h3>Carnicería Don Carlos <span class="tag">Premium</span></h3><p class="bar-desc">Cortes premium, faena propia</p><div class="promo"><span>Desde</span><b>$6500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
+</div>
 
-<div class="bar" data-categoria="almacen" onclick="abrirPromo('Almacén 24 Horas','almacen-1.jpg','Abierto hasta las 3am, fiado para vecinos',[ {nombre:'Pack básico',precio:3500,desc:'Gaseosa 2L + snacks'},{nombre:'Combo mate',precio:4200,desc:'Yerba + azúcar + bizcochos'},{nombre:'Limpieza express',precio:3800,desc:'Lavandina + detergente'},{nombre:'Gol gol de medianoche',precio:5500,desc:'Gaseosa + papas + alfajores'} ])">
+<div class="bar" data-categoria="carniceria" onclick="abrirPromo('La Nueva Res','carniceria-2.jpg','Precios mayoristas',[ {nombre:'Vacío entero',precio:15900,desc:'Por pieza',img:'promo-vacio.jpg',caracteristicas:'Vacío entero 4-5kg + Corte a pedido + Bolsa térmica. Ideal parrilla'},{nombre:'Pollo entero x3',precio:7800,desc:'Congelado',img:'promo-pollo.jpg',caracteristicas:'3 pollos enteros 2kg c/u + Limpios + Embolsados. Para freezer'},{nombre:'Costeleta cerdo',precio:6900,desc:'Por kg',img:'promo-cerdo.jpg',caracteristicas:'Costeleta cerdo sin hueso + Corte grueso. Tierna, sin grasa'},{nombre:'Combo milangas',precio:11500,desc:'Pollo + carne',img:'promo-combo.jpg',caracteristicas:'12 milanesas pollo + 12 carne + 2 limones + Perejil'} ])">
+  <img class="bar-img" src="img/carniceria-2.jpg" alt="La Nueva Res">
+  <div class="bar-body"><h3>La Nueva Res <span class="tag">Mayorista</span></h3><p class="bar-desc">Precios mayoristas, venta por cantidad</p><div class="promo"><span>Desde</span><b>$6900</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
+</div>
+
+<!-- PANADERÍAS -->
+<div class="bar" data-categoria="panaderia" onclick="abrirPromo('Panadería La Espiga','panaderia-1.jpg','Horno a leña',[ {nombre:'Pan casero 2kg',precio:2800,desc:'Recién horneado',img:'promo-pancasero.jpg',caracteristicas:'Pan casero 2kg + Corteza crocante + Masa madre. Horneado 6am y 18hs'},{nombre:'Facturas docena',precio:3200,desc:'Mixtas',img:'promo-facturas.jpg',caracteristicas:'12 facturas: vigilantes, libritos, cremonas + Dulce de leche + Membrillo'},{nombre:'Torta cumple',precio:8900,desc:'1kg',img:'promo-torta.jpg',caracteristicas:'Torta 1kg bizcochuelo + Dulce leche + Crema + Frutillas. Decoración simple'},{nombre:'Prepizzas x6',precio:3600,desc:'Grandes',img:'promo-prepizza.jpg',caracteristicas:'6 prepizzas grandes + Masa madre 48hs + Bolsa ziploc. Para freezer'} ])">
+  <img class="bar-img" src="img/panaderia-1.jpg" alt="La Espiga">
+  <div class="bar-body"><h3>Panadería La Espiga <span class="tag">Leña</span></h3><p class="bar-desc">Horno a leña, 40 años en Tres Arroyos</p><div class="promo"><span>Desde</span><b>$2800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
+</div>
+
+<div class="bar" data-categoria="panaderia" onclick="abrirPromo('El Trigo Dorado','panaderia-2.jpg','Integral y sin TACC',[ {nombre:'Pan integral',precio:2200,desc:'500g',img:'promo-integral.jpg',caracteristicas:'Pan integral semillas + Sin conservantes + Cortado en fetas + Bolsa kraft'},{nombre:'Medialunas manteca',precio:3800,desc:'Docena',img:'promo-medialunas.jpg',caracteristicas:'12 medialunas manteca + Glaseado + Caja. Recién horneadas 8am'},{nombre:'Sin TACC pan',precio:4500,desc:'Molde',img:'promo-sintacc.jpg',caracteristicas:'Pan sin TACC molde 500g + Harina arroz + Apto celíacos. Certificado'},{nombre:'Bizcochitos grasa',precio:1800,desc:'Kg',img:'promo-bizcochos.jpg',caracteristicas:'1kg bizcochitos grasa + Salados + Crocantes. Ideales mate'} ])">
+  <img class="bar-img" src="img/panaderia-2.jpg" alt="El Trigo Dorado">
+  <div class="bar-body"><h3>El Trigo Dorado <span class="tag">Sin TACC</span></h3><p class="bar-desc">Integral, sin TACC y artesanal</p><div class="promo"><span>Desde</span><b>$1800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
+</div>
+
+<!-- VERDULERÍAS -->
+<div class="bar" data-categoria="verduleria" onclick="abrirPromo('Verdulería Frescor','verduleria-1.jpg','Fruta y verdura fresca',[ {nombre:'Bolsón familiar',precio:4200,desc:'10kg mix',img:'promo-bolson.jpg',caracteristicas:'Papa 3kg + Cebolla 2kg + Tomate 2kg + Banana 1kg + Manzana 2kg. Fresco día'},{nombre:'Ensalada lista',precio:2500,desc:'Para 4',img:'promo-ensalada.jpg',caracteristicas:'Lechuga + Tomate + Zanahoria + Cebolla + Aderezo. Lavado y cortado'},{nombre:'Fruta picada',precio:3200,desc:'Bowl 1L',img:'promo-frutapicada.jpg',caracteristicas:'Sandía + Melón + Ananá + Manzana + Uva. Sin azúcar agregada'},{nombre:'Verdura congelada',precio:3800,desc:'Mix 2kg',img:'promo-congelada.jpg',caracteristicas:'Arvejas + Zanahoria + Choclo + Morrón. IQF, conserva vitaminas'} ])">
+  <img class="bar-img" src="img/verduleria-1.jpg" alt="Frescor">
+  <div class="bar-body"><h3>Verdulería Frescor <span class="tag">Fresco</span></h3><p class="bar-desc">Fruta y verdura fresca del día</p><div class="promo"><span>Desde</span><b>$2500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
+</div>
+
+<div class="bar" data-categoria="verduleria" onclick="abrirPromo('Huerta Orgánica','verduleria-2.jpg','Sin agroquímicos',[ {nombre:'Kit orgánico',precio:5800,desc:'7 productos',img:'promo-organico.jpg',caracteristicas:'Lechuga + Espinaca + Zapallito + Tomate cherry + Albahaca. Certificado orgánico'},{nombre:'Brotes germinados',precio:2100,desc:'Bandeja',img:'promo-brotes.jpg',caracteristicas:'Brotes alfalfa + Lenteja + Mix semillas. Alto valor nutricional'},{nombre:'Hierbas aromáticas',precio:1900,desc:'Maceta',img:'promo-hierbas.jpg',caracteristicas:'Albahaca + Perejil + Orégano + Romero en maceta. Para balcón'},{nombre:'Jugo verde',precio:2800,desc:'1L prensado',img:'promo-jugo.jpg',caracteristicas:'Apio + Pepino + Manzana verde + Jengibre. Prensado en frío'} ])">
+  <img class="bar-img" src="img/verduleria-2.jpg" alt="Huerta Orgánica">
+  <div class="bar-body"><h3>Huerta Orgánica <span class="tag">Orgánico</span></h3><p class="bar-desc">Sin agroquímicos, producción propia</p><div class="promo"><span>Desde</span><b>$1900</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
+</div><!-- ALMACENES -->
+<div class="bar" data-categoria="almacen" onclick="abrirPromo('Almacén 24 Horas','almacen-1.jpg','Abierto hasta las 3am',[ {nombre:'Pack básico',precio:3500,desc:'Gaseosa 2L + snacks',img:'promo-pack.jpg',caracteristicas:'Coca Cola 2.25L + Papas Lays + Alfajor Jorgito. Ideal picada rápida'},{nombre:'Combo mate',precio:4200,desc:'Yerba + azúcar',img:'promo-mate.jpg',caracteristicas:'Yerba Playadito 1kg + Azúcar Ledesma 1kg + Saquitos té x25'},{nombre:'Limpieza express',precio:3800,desc:'Lavandina + detergente',img:'promo-limpieza.jpg',caracteristicas:'Ayudín Lavandina 2L + Magistral Detergente 750ml + Esponja'},{nombre:'Gol gol medianoche',precio:5500,desc:'Gaseosa + papas + alfajores',img:'promo-gol.jpg',caracteristicas:'Sprite 2.25L + Pringles + 3 Alfajores Capitán del Espacio'} ])">
   <img class="bar-img" src="img/almacen-1.jpg" alt="24 Horas">
-  <div class="bar-body">
-    <h3>Almacén 24 Horas <span class="tag">24hs</span></h3>
-    <p class="bar-desc">Abierto hasta las 3am, delivery rápido zona centro</p>
-    <div class="promo"><span>Desde</span><b>$3500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+  <div class="bar-body"><h3>Almacén 24 Horas <span class="tag">24hs</span></h3><p class="bar-desc">Abierto hasta las 3am, delivery rápido</p><div class="promo"><span>Desde</span><b>$3500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="almacen" onclick="abrirPromo('El Rincón del Barrio','almacen-2.jpg','Todo suelto + delivery 20 min',[ {nombre:'Fideos + tuco',precio:2200,desc:'Para 2 personas'},{nombre:'Yerba + azúcar',precio:3100,desc:'Paquetes de 1kg'},{nombre:'Galletitas surtidas',precio:1800,desc:'3 paquetes x250g'},{nombre:'Combo desayuno',precio:4500,desc:'Café + leche + pan'} ])">
-  <img class="bar-img" src="img/almacen-2.jpg" alt="El Rincón">
-  <div class="bar-body">
-    <h3>El Rincón del Barrio</h3>
-    <p class="bar-desc">Todo suelto + delivery 20 min. Precios de barrio</p>
-    <div class="promo"><span>Desde</span><b>$2200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<div class="bar" data-categoria="almacen" onclick="abrirPromo('Despensa La Unión','almacen-2.jpg','Precios mayoristas',[ {nombre:'Pack familiar',precio:8900,desc:'Para 4 personas',img:'promo-familiar.jpg',caracteristicas:'Arroz Gallo 1kg + Fideos Matarazzo x2 + Salsa x3 + Atún x2. Rinde 6 comidas'},{nombre:'Desayuno completo',precio:5200,desc:'Lácteos + cereales',img:'promo-desayuno.jpg',caracteristicas:'Leche La Serenísima 1L x2 + Cereal Kellogg + Manteca La Cordobesa'},{nombre:'Combo asado',precio:12500,desc:'Todo para la parri',img:'promo-asado2.jpg',caracteristicas:'Carbón 3kg + Sal gruesa 1kg + Chimichurri + Pan choripán x6'},{nombre:'Golosinas x mayor',precio:4800,desc:'50 unidades mix',img:'promo-golosinas.jpg',caracteristicas:'Alfajores, chupetines, chocolates surtidos. Ideal kiosco'} ])">
+  <img class="bar-img" src="img/almacen-2.jpg" alt="La Unión">
+  <div class="bar-body"><h3>Despensa La Unión <span class="tag">Mayorista</span></h3><p class="bar-desc">Precios mayoristas sin mínimo</p><div class="promo"><span>Desde</span><b>$4800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="almacen" onclick="abrirPromo('Almacén El Faro','almacen-faro.jpg','Nuevo en el barrio, precios mayoristas',[ {nombre:'Combo familiar',precio:8900,desc:'Aceite + fideos + arroz x2kg'},{nombre:'Pack bebidas',precio:6200,desc:'6 gaseosas 2.25L surtidas'},{nombre:'Lácteos del día',precio:5400,desc:'Leche x6 + manteca + queso'},{nombre:'Despensa completa',precio:12800,desc:'15 productos básicos'} ])">
-  <img class="bar-img" src="img/almacen-faro.jpg" alt="El Faro">
-  <div class="bar-body">
-    <h3>Almacén El Faro <span class="tag">nuevo</span></h3>
-    <p class="bar-desc">Precios mayoristas sin salir del barrio. Abierto hasta 2am</p>
-    <div class="promo"><span>Desde</span><b>$5400</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<!-- RESTAURANTES -->
+<div class="bar" data-categoria="restaurante" onclick="abrirPromo('Parrilla El Fogón','rest-1.jpg','Carne a la parrilla',[ {nombre:'Menú ejecutivo',precio:6800,desc:'Lun a Vier 12-15hs',img:'promo-ejecutivo.jpg',caracteristicas:'Entrada + Principal + Postre + Bebida. Bife chorizo + Flan casero'},{nombre:'Parrillada 2 personas',precio:14500,desc:'Variada',img:'promo-parrilla2.jpg',caracteristicas:'Chorizo + Morcilla + Vacío + Pollo + Papas + Ensalada. Para 2'},{nombre:'Bife de chorizo',precio:8900,desc:'500g',img:'promo-bife.jpg',caracteristicas:'Bife de chorizo 500g parrilla + Guarnición + Chimichurri'},{nombre:'Promo familia',precio:18900,desc:'4 personas',img:'promo-familia.jpg',caracteristicas:'Costillares + Pollo + Chorizos x4 + Ensalada rusa + Pan + Gaseosa 2.25L'} ])">
+  <img class="bar-img" src="img/rest-1.jpg" alt="El Fogón">
+  <div class="bar-body"><h3>Parrilla El Fogón <span class="tag">Parrilla</span></h3><p class="bar-desc">Carne a la parrilla, cortes premium</p><div class="promo"><span>Desde</span><b>$6800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="almacen" onclick="abrirPromo('Don Tito Almacén','almacen-tito.jpg','El almacén de toda la vida',[ {nombre:'Yerba + azúcar',precio:3100,desc:'2 paquetes 1kg c/u'},{nombre:'Fideos largos x5',precio:4200,desc:'Tallarines + guiseros'},{nombre:'Conservas surtidas',precio:5800,desc:'Tomate + choclo + arvejas'},{nombre:'Combo asado',precio:9500,desc:'Carbón + sal + limones'} ])">
-  <img class="bar-img" src="img/almacen-tito.jpg" alt="Don Tito">
-  <div class="bar-body">
-    <h3>Don Tito Almacén <span class="tag">clásico</span></h3>
-    <p class="bar-desc">El almacén de confianza. Fiado a vecinos conocidos</p>
-    <div class="promo"><span>Desde</span><b>$3100</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
-</div>
-</div>
-</section>
-
-<!-- SECCION HELADERIA -->
-<div id="sec-heladeria" class="seccion">
-<h2>🍦 Heladerías</h2>
-<div class="bares-grid">
-
-<div class="bar" data-categoria="heladeria" onclick="abrirPromo('Heladería Roma','heladeria-1.jpg','Helados artesanales, 40 sabores. Delivery en pote de 1kg.',[ {nombre:'1/4 kg 3 gustos',precio:3200,desc:'Pote familiar'},{nombre:'Pote 1kg',precio:9800,desc:'Hasta 4 gustos'},{nombre:'Postre helado',precio:6500,desc:'Almendrado 8 porciones'},{nombre:'Bombones x12',precio:5200,desc:'Surtidos premium'} ])">
-  <img class="bar-img" src="img/heladeria-1.jpg" alt="Roma">
-  <div class="bar-body">
-    <h3>Heladería Roma <span class="tag">artesanal</span></h3>
-    <p class="bar-desc">Helados artesanales, 40 sabores. Dulce de leche granizado top</p>
-    <div class="promo"><span>Desde</span><b>$3200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<div class="bar" data-categoria="restaurante" onclick="abrirPromo('Pizzería Nápoli','rest-3.jpg','Horno a leña',[ {nombre:'Muzzarella grande',precio:4200,desc:'8 porciones',img:'promo-muzza.jpg',caracteristicas:'Pizza muzzarella grande 8 porciones + Aceitunas + Orégano. Masa madre 48hs'},{nombre:'Promo 2x1 Martes',precio:5900,desc:'Dos grandes',img:'promo-2x1pizza.jpg',caracteristicas:'2 Pizzas grandes muzzarella. Todos los martes. Retiro local'},{nombre:'Fugazzeta rellena',precio:5100,desc:'Con queso',img:'promo-fugazzeta.jpg',caracteristicas:'Fugazzeta rellena muzzarella + Cebolla + Aceitunas. 8 porciones'},{nombre:'Combo familia',precio:9800,desc:'2 grandes + faina',img:'promo-combofamilia.jpg',caracteristicas:'2 Pizzas grandes + Fainá + Gaseosa 2.25L + Postre helado'} ])">
+  <img class="bar-img" src="img/rest-3.jpg" alt="Nápoli">
+  <div class="bar-body"><h3>Pizzería Nápoli <span class="tag">Leña</span></h3><p class="bar-desc">Horno a leña, masa madre 48hs</p><div class="promo"><span>Desde</span><b>$4200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="heladeria" onclick="abrirPromo('Grido','heladeria-2.jpg','La cadena favorita, precios bajos. Promo 2x1 martes.',[ {nombre:'Cono doble',precio:1800,desc:'2 bochas'},{nombre:'Cucurucho 3 bochas',precio:2500,desc:'Sabor a elección'},{nombre:'Pote 1/2 kg',precio:4500,desc:'2 gustos'},{nombre:'Mega pote 2kg',precio:17500,desc:'Para compartir'} ])">
-  <img class="bar-img" src="img/heladeria-2.jpg" alt="Grido">
-  <div class="bar-body">
-    <h3>Grido</h3>
-    <p class="bar-desc">La cadena favorita, precios bajos. 2x1 martes y miércoles</p>
-    <div class="promo"><span>Desde</span><b>$1800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<!-- BARES -->
+<div class="bar" data-categoria="bar" onclick="abrirPromo('Bar Central','bar-1.jpg','Happy hour 18 a 21',[ {nombre:'2x1 Cervezas',precio:2400,desc:'Pintas tiradas',img:'promo-2x1.jpg',caracteristicas:'Quilmes/Heineken tirada 500ml. 2x1 todos los días 18 a 21hs'},{nombre:'Picada para 2',precio:5800,desc:'Quesos + fiambres',img:'promo-picada2.jpg',caracteristicas:'Jamón crudo, salame, queso, aceitunas, pan casero. Rinde 2'},{nombre:'Tragos clásicos',precio:3200,desc:'Fernet + Campari',img:'promo-tragos.jpg',caracteristicas:'Fernet 70cl + Coca 1L + Campari + Naranja. Vasos incluidos'},{nombre:'Promo estudiantes',precio:1900,desc:'Con libreta',img:'promo-estudiantes.jpg',caracteristicas:'Garrafa 500ml + Papas fritas. Con libreta universitaria'} ])">
+  <img class="bar-img" src="img/bar-1.jpg" alt="Bar Central">
+  <div class="bar-body"><h3>Bar Central <span class="tag">Happy Hour</span></h3><p class="bar-desc">Happy hour 18 a 21hs, música viernes</p><div class="promo"><span>Desde</span><b>$1900</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="heladeria" onclick="abrirPromo('Heladería Polar Sur','heladeria-polar.jpg','Helados 24hs, delivery nocturno',[ {nombre:'1kg familiar',precio:8900,desc:'3 gustos a elección'},{nombre:'Copa tentación',precio:4200,desc:'Helado + salsa + crema'},{nombre:'Bombón escocés x6',precio:3800,desc:'Baño de chocolate'},{nombre:'Torta helada 12 porciones',precio:12500,desc:'Para cumpleaños'} ])">
-  <img class="bar-img" src="img/heladeria-polar.jpg" alt="Polar Sur">
-  <div class="bar-body">
-    <h3>Heladería Polar Sur <span class="tag">24hs</span></h3>
-    <p class="bar-desc">Abierta toda la noche. Delivery sin cargo +23hs</p>
-    <div class="promo"><span>Desde</span><b>$3800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<div class="bar" data-categoria="bar" onclick="abrirPromo('Patio Cervecero','bar-3.jpg','Cervezas tiradas',[ {nombre:'Torre 2L',precio:6500,desc:'Rubia/Negra',img:'promo-torre.jpg',caracteristicas:'Cerveza artesanal tirada 2L. Rubia IPA o Negra Stout. Pico vertedor'},{nombre:'Tabla maridaje',precio:8200,desc:'Quesos + cerveza',img:'promo-tabla.jpg',caracteristicas:'4 quesos + 2 cervezas 500ml. Para compartir'},{nombre:'Jarra 1L + Papas',precio:4800,desc:'Promo combo',img:'promo-jarra.jpg',caracteristicas:'Jarra cerveza tirada 1L + Papas cheddar + Salsas'},{nombre:'Degustación x4',precio:5200,desc:'4 estilos',img:'promo-degustacion.jpg',caracteristicas:'4 vasos 250ml: Rubia, Roja, Negra, IPA. Guía de cata'} ])">
+  <img class="bar-img" src="img/bar-3.jpg" alt="Patio Cervecero">
+  <div class="bar-body"><h3>Patio Cervecero <span class="tag">Artesanal</span></h3><p class="bar-desc">Cervezas tiradas y patio al aire libre</p><div class="promo"><span>Desde</span><b>$4800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
+</div><!-- KIOSCOS -->
+<div class="bar" data-categoria="kiosco" onclick="abrirPromo('Kiosco 24hs','kiosco-1.jpg','Abierto toda la noche',[ {nombre:'Combo cigarrillos',precio:2100,desc:'Pack x10',img:'promo-cigarrillos.jpg',caracteristicas:'Phillip Morris Box 10 + Encendedor BIC + Fósforos. +18'},{nombre:'Energizantes',precio:1800,desc:'2 latas',img:'promo-energia.jpg',caracteristicas:'Monster + Red Bull 473ml. Fríos de heladera'},{nombre:'Gol gol nocturno',precio:3200,desc:'Snacks + bebida',img:'promo-golgol.jpg',caracteristicas:'Coca 500ml + Papas Lays + Alfajor + Chicle. Para desvelada'},{nombre:'Carga SUBE',precio:0,desc:'Sin costo',img:'promo-sube.jpg',caracteristicas:'Carga SUBE con QR o efectivo. Mínimo $500'} ])">
+  <img class="bar-img" src="img/kiosco-1.jpg" alt="Kiosco 24hs">
+  <div class="bar-body"><h3>Kiosco 24hs <span class="tag">24hs</span></h3><p class="bar-desc">Abierto toda la noche, zona terminal</p><div class="promo"><span>Desde</span><b>$0</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="heladeria" onclick="abrirPromo('Dulce Frío Premium','heladeria-dulce.jpg','Sabores premium importados',[ {nombre:'1/2 kg 4 gustos',precio:6200,desc:'Edición limitada'},{nombre:'Copa banana split',precio:5500,desc:'Con 3 bochas premium'},{nombre:'Postre La Bomba',precio:8900,desc:'8 porciones merengue'},{nombre:'Paletas artesanales x4',precio:4800,desc:'Chocolate belga'} ])">
-  <img class="bar-img" src="img/heladeria-dulce.jpg" alt="Dulce Frío">
-  <div class="bar-body">
-    <h3>Dulce Frío Premium</h3>
-    <p class="bar-desc">Sabores importados y ediciones limitadas mensuales</p>
-    <div class="promo"><span>Desde</span><b>$4800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
-</div>
-</div>
+<div class="bar" data-categoria="kiosco" onclick="abrirPromo('Maxi Kiosco','kiosco-3.jpg','Variedad total',[ {nombre:'Golosinas x mayor',precio:3800,desc:'100 unidades',img:'promo-mayor.jpg',caracteristicas:'Mix alfajores + chupetines + chocolates + galletitas. Para revender'},{nombre:'Pack cumple',precio:5200,desc:'Decoración',img:'promo-cumple.jpg',caracteristicas:'Globos x20 + Serpentina + Piñata + Velas + Mantel descartable'},{nombre:'Helados postre',precio:2400,desc:'Balde 2L',img:'promo-balde.jpg',caracteristicas:'Helado Freddo balde 2L sabor a elección + Cucuruchos x12'},{nombre:'Accesorios celu',precio:1600,desc:'Fundas + vidrio',img:'promo-accesorios.jpg',caracteristicas:'Funda silicona + Vidrio templado + Cable USB. Modelos varios'} ])">
+  <img class="bar-img" src="img/kiosco-3.jpg" alt="Maxi Kiosco">
+  <div class="bar-body"><h3>Maxi Kiosco <span class="tag">Variedad</span></h3><p class="bar-desc">Variedad total, cotillón y regalos</p><div class="promo"><span>Desde</span><b>$1600</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<!-- SECCION CONFITERIA -->
-<div id="sec-confiteria" class="seccion">
-<h2>🥐 Confiterías</h2>
-<div class="bares-grid">
-
-<div class="bar" data-categoria="confiteria" onclick="abrirPromo('La Central','confiteria-1.jpg','Desayunos caseros y meriendas',[ {nombre:'Desayuno completo',precio:2800,desc:'Café + 2 medialunas + jugo'},{nombre:'Té + 4 facturas',precio:2200,desc:'Para compartir'},{nombre:'Tostado jamón y queso',precio:3200,desc:'Pan casero'},{nombre:'Licuado + tostadas',precio:3500,desc:'Banana o frutilla'} ])">
-  <img class="bar-img" src="img/confiteria-1.jpg" alt="La Central">
-  <div class="bar-body">
-    <h3>La Central</h3>
-    <p class="bar-desc">Desayunos caseros desde las 7am. Facturas recién horneadas</p>
-    <div class="promo"><span>Desde</span><b>$2200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<!-- FLORERÍAS -->
+<div class="bar" data-categoria="floreria" onclick="abrirPromo('Florería Las Rosas','floreria-1.jpg','Envíos a domicilio',[ {nombre:'Ramo 12 rosas',precio:8900,desc:'Clásico',img:'promo-12rosas.jpg',caracteristicas:'12 rosas rojas + Verde + Moño + Tarjeta. Delivery incluido'},{nombre:'Centro de mesa',precio:6500,desc:'Girasoles',img:'promo-girasoles.jpg',caracteristicas:'Girasoles + Margaritas + Verde + Florero vidrio'},{nombre:'Corona fúnebre',precio:18500,desc:'Claveles',img:'promo-corona.jpg',caracteristicas:'Corona claveles blancos + Cinta + Tarjeta. Servicio 24hs'},{nombre:'Orquídea maceta',precio:12500,desc:'Planta viva',img:'promo-orquidea.jpg',caracteristicas:'Orquídea phalaenopsis + Maceta cerámica + Instrucciones'} ])">
+  <img class="bar-img" src="img/floreria-1.jpg" alt="Las Rosas">
+  <div class="bar-body"><h3>Florería Las Rosas <span class="tag">Delivery</span></h3><p class="bar-desc">Envíos a domicilio en el día</p><div class="promo"><span>Desde</span><b>$6500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="confiteria" onclick="abrirPromo('Confitería Paris','confiteria-2.jpg','Facturas recién hechas todos los días',[ {nombre:'Docena de facturas',precio:3500,desc:'Surtidas'},{nombre:'Bandeja masas finas',precio:4800,desc:'12 unidades premium'},{nombre:'Torta porción',precio:2600,desc:'Chocotorta o lemon'},{nombre:'Sandwich de miga x6',precio:4200,desc:'Jamón y queso'} ])">
-  <img class="bar-img" src="img/confiteria-2.jpg" alt="Paris">
-  <div class="bar-body">
-    <h3>Confitería Paris <span class="tag">premium</span></h3>
-    <p class="bar-desc">Masas finas y tortas por encargo para eventos</p>
-    <div class="promo"><span>Desde</span><b>$2600</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<!-- LAVANDERÍAS -->
+<div class="bar" data-categoria="lavanderia" onclick="abrirPromo('Lavandería Express','lavanderia-1.jpg','Servicio 24hs',[ {nombre:'Pack 5kg',precio:3200,desc:'Ropa común',img:'promo-5kg.jpg',caracteristicas:'Lavado + Secado + Planchado 5kg. Entrega 4hs. Sin frazadas'},{nombre:'Frazada queen',precio:4800,desc:'Lavado especial',img:'promo-frazada.jpg',caracteristicas:'Lavado en seco frazada 2 plazas + Embolsado + Aromatizado'},{nombre:'Camisas x10',precio:5900,desc:'Planchado',img:'promo-camisa.jpg',caracteristicas:'Planchado 10 camisas almidón + Perchas + Embolsado'},{nombre:'Edredón 2 plazas',precio:7500,desc:'Voluminoso',img:'promo-edredon.jpg',caracteristicas:'Lavado edredón 2 plazas + Secado industrial'} ])">
+  <img class="bar-img" src="img/lavanderia-1.jpg" alt="Express">
+  <div class="bar-body"><h3>Lavandería Express <span class="tag">24hs</span></h3><p class="bar-desc">Servicio 24hs, entrega en 4hs</p><div class="promo"><span>Desde</span><b>$3200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
 
-<div class="bar" data-categoria="confiteria" onclick="abrirPromo('El Colonial','confiteria-colonial.jpg','Masas finas tradicionales',[ {nombre:'Bandeja surtida x20',precio:6800,desc:'Facturas + masas secas'},{nombre:'Torta rogel porción',precio:3200,desc:'Dulce de leche'},{nombre:'Criollitos x6',precio:2800,desc:'Recién horneados'},{nombre:'Merengue individual',precio:1900,desc:'Con crema'} ])">
-  <img class="bar-img" src="img/confiteria-colonial.jpg" alt="El Colonial">
-  <div class="bar-body">
-    <h3>El Colonial</h3>
-    <p class="bar-desc">Recetas de abuela. Masas finas y criollitos crocantes</p>
-    <div class="promo"><span>Desde</span><b>$1900</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
+<!-- PET SHOPS -->
+<div class="bar" data-categoria="petshop" onclick="abrirPromo('Pet Shop Amigos','petshop-1.jpg','Todo para mascotas',[ {nombre:'Alimento 15kg',precio:8900,desc:'Perro adulto',img:'promo-alimento.jpg',caracteristicas:'Bolsa alimento premium 15kg + Pochitos + Delivery gratis'},{nombre:'Baño + corte',precio:6500,desc:'Raza chica',img:'promo-bano.jpg',caracteristicas:'Baño + Corte raza chica + Uñas + Limpieza oídos + Perfume'},{nombre:'Juguetes pack',precio:3200,desc:'3 unidades',img:'promo-juguetes.jpg',caracteristicas:'Pelota + Hueso caucho + Soga nudos. Resistente'},{nombre:'Accesorios gato',precio:4800,desc:'Kit básico',img:'promo-gato.jpg',caracteristicas:'Piedras sanitarias 4kg + Juguete caña + Cepillo + Premios'} ])">
+  <img class="bar-img" src="img/petshop-1.jpg" alt="Amigos">
+  <div class="bar-body"><h3>Pet Shop Amigos <span class="tag">Veterinaria</span></h3><p class="bar-desc">Todo para mascotas, peluquería canina</p><div class="promo"><span>Desde</span><b>$3200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div></div>
 </div>
-
-<div class="bar" data-categoria="confiteria" onclick="abrirPromo('Dulce Momento','confiteria-dulce.jpg','Tortas por encargo y desayunos',[ {nombre:'Cheesecake porción',precio:2600,desc:'Frutos rojos'},{nombre:'Desayuno para 2',precio:5200,desc:'Café + medialunas + jugo'},{nombre:'Tarta de coco',precio:4800,desc:'Porción grande'},{nombre:'Box dulce x4',precio:3800,desc:'Alfajores + cookies'} ])">
-  <img class="bar-img" src="img/confiteria-dulce.jpg" alt="Dulce Momento">
-  <div class="bar-body">
-    <h3>Dulce Momento <span class="tag">encargos</span></h3>
-    <p class="bar-desc">Tortas personalizadas y boxes dulces para regalo</p>
-    <div class="promo"><span>Desde</span><b>$2600</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
-</div>
-</div>
-</div><!-- SECCION CARNICERIA -->
-<div id="sec-carniceria" class="seccion">
-<h2>🥩 Carnicerías</h2>
-<div class="bares-grid">
-
-<div class="bar" data-categoria="carniceria" onclick="abrirPromo('La Nueva','carniceria-1.jpg','Carnes frescas de primera, cortes premium',[ {nombre:'Asado banderita',precio:4200,desc:'El kg'},{nombre:'Vacío tierno',precio:5800,desc:'El kg'},{nombre:'Milanesas x6',precio:5500,desc:'Nalga limpia'},{nombre:'Combo parrillero',precio:18500,desc:'Asado + vacío + chorizos x1kg c/u'} ])">
-  <img class="bar-img" src="img/carniceria-1.jpg" alt="La Nueva">
-  <div class="bar-body">
-    <h3>La Nueva <span class="tag">premium</span></h3>
-    <p class="bar-desc">Carnes frescas de primera. Cortes para parrilla y horno</p>
-    <div class="promo"><span>Desde</span><b>$4200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
-</div>
-
-<div class="bar" data-categoria="carniceria" onclick="abrirPromo('Carnicería El Progreso','carniceria-2.jpg','Precios de barrio, delivery en el día',[ {nombre:'Picada económica',precio:3800,desc:'1/2 kg molida + 1/2 salchicha'},{nombre:'Pollo entero',precio:6500,desc:'Eviscerado 2.5kg aprox'},{nombre:'Chorizos x12',precio:5200,desc:'Parrilleros'},{nombre:'Achuras surtidas',precio:4900,desc:'Chinchulines + riñones'} ])">
-  <img class="bar-img" src="img/carniceria-2.jpg" alt="El Progreso">
-  <div class="bar-body">
-    <h3>Carnicería El Progreso</h3>
-    <p class="bar-desc">Precios de barrio. Atención de 8 a 20hs corrido</p>
-    <div class="promo"><span>Desde</span><b>$3800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
-  </div>
-</div>
-
-<div class="bar" data-categoria="carniceria" onclick="abrirPromo('La Angus','carniceria-angus.jpg','Cortes Angus certificados',[ {nombre:'Bife de chorizo',precio:7200,desc:'El kg Angus'},{nombre:'Tira de asado',precio:5200,desc:'El kg premium'},{nombre:'Entraña',precio:6800,desc:'El kg marinada'},{nombre:'Box parrillero Angus',precio:24500,desc:'4 cortes premium x1kg'} ])">
-  <img class="bar-img" src="img/carniceria-angus.jpg" alt="La Angus">
-  <div class="bar-body">
-    <h3>La Angus <span class="tag">nuevo</span></h3>
-    <p class="bar-desc">Cortes Angus certificados. Mínimo 48hs maduración</p>
-    <div class="promo"><span>Desde</span><b>$5200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div><!-- MODAL CATALOGO DE PROMOS -->
 <div class="modal-promo" id="modal-promo">
@@ -386,7 +324,25 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
     </div>
   </div>
 </div>
-
+<!-- MODAL DETALLE PROMO -->
+<div class="modal-promo" id="modal-detalle-promo">
+  <span class="close-x" onclick="cerrarDetallePromo()">&times;</span>
+  <div class="modal-promo-content">
+    <img class="modal-promo-img" id="detalle-img" src="" alt="">
+    <div class="modal-promo-body">
+      <h3 id="detalle-titulo"></h3>
+      <p class="modal-promo.desc" id="detalle-desc"></p>
+      <div style="margin:15px 0">
+        <b style="font-size:24px;color:var(--green)" id="detalle-precio"></b>
+      </div>
+      <div style="background:var(--card);padding:12px;border-radius:10px;border:1px solid var(--border)">
+        <b>Características:</b>
+        <p id="detalle-caracteristicas" style="margin-top:8px;color:var(--sub);font-size:14px"></p>
+      </div>
+      <button class="btn" style="width:100%;margin-top:15px" onclick="pedirEstaPromo()">Pedir esta promo</button>
+    </div>
+  </div>
+</div>
 <!-- FOOTER -->
 <div class="footer">
   <p><b>Promos Tres Arroyos</b> 🚀</p>
@@ -450,16 +406,16 @@ function abrirPromo(titulo, img, desc, promos){
   document.getElementById('promo-dir').innerText = desc;
 
   let grid = document.getElementById('promos-grid');
-  grid.innerHTML = '';
-  promos.forEach((p, i)=>{
-    grid.innerHTML += `
-      <div class="promo-box">
-        <b>$${p.precio.toLocaleString('es-AR')}</b>
-        <div style="font-weight:bold;margin:5px 0">${p.nombre}</div>
-        <div style="color:var(--sub);font-size:13px">${p.desc}</div>
-      </div>
-    `;
-  });
+ grid.innerHTML = '';
+promos.forEach((p, i)=>{
+  grid.innerHTML += `
+    <div class="promo-box" onclick="abrirDetallePromo(${i})" style="cursor:pointer">
+      <b>$${p.precio.toLocaleString('es-AR')}</b>
+      <div style="font-weight:bold;margin:5px 0">${p.nombre}</div>
+      <div style="color:var(--sub);font-size:13px">${p.desc}</div>
+    </div>
+  `;
+});
 
   document.getElementById('modal-promo').classList.add('active');
 }
