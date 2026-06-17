@@ -17,7 +17,11 @@
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
   animation: pulse 2s infinite;
 }
-@keyframes pulse{0%, 100%{ transform: scale(1); }50%{ transform: scale(1.02); }}
+
+@keyframes pulse{
+ 0%, 100%{ transform: scale(1); }
+ 50%{ transform: scale(1.02); }
+}
 :root{
   --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --sub:#94a3b8;
   --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --border:#334155
@@ -26,23 +30,15 @@ body.light{
   --bg:#e2e8f0; --card:#ffffff; --text:#1e293b; --sub:#475569;
   --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --border:#94a3b8
 }
-body.dark-auto{
-  --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --sub:#94a3b8;
-  --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --border:#334155
-}
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
-  padding:16px;
-  max-width:360px;
+  padding:20px;
+  max-width:600px;
   margin:0 auto;
-  transition:0.3s;
-  display:flex;          
-  flex-direction:column; 
-  align-items:center;     
-}
+  transition:0.3s
 }
 .header{text-align:center;margin-bottom:25px}
 .logo{
@@ -53,11 +49,6 @@ body{
 }
 h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 .sub{color:var(--sub);font-size:13px;margin-bottom:10px}
-/* SUBTÍTULO ALMACÉN AMARILLO */
-#almacen .bar h3, 
-.seccion#almacen h2 {
-  color: var(--yellow) !important;
-}
 .toggle{
   position:absolute;top:20px;right:20px;
   background:var(--card);border:1px solid var(--border);
@@ -85,17 +76,10 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   border-bottom:2px solid var(--border);padding-bottom:8px
 }
 .bar{
-  margin-bottom:18px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  background:var(--card);
-  overflow:hidden;
-  cursor:pointer;
-  transition:transform 0.2s;
-  width:325px; 
+  margin-bottom:20px;border:1px solid var(--border);
+  border-radius:16px;background:var(--card);overflow:hidden;
+  cursor:pointer;transition:transform 0.2s
 }
-.bar:hover{transform:translateY(-3px);border-color:var(--accent)}
-.bar:hover{transform:translateY(-3px);border-color:var(--accent)}
 .bar:hover{transform:translateY(-3px);border-color:var(--accent)}
 .bar-img{
   width:100%;height:160px;object-fit:cover;
@@ -163,6 +147,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 @media(max-width:480px){
   .promos-grid{grid-template-columns:repeat(2, 1fr)}
 }
+/* MODAL PARA AMPLIAR FOTO */
 .modal-promo{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
   background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;
@@ -187,25 +172,29 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   position:absolute;top:15px;right:20px;font-size:40px;
   color:white;cursor:pointer;font-weight:bold;z-index:1001
 }
+/* === TODOS IGUAL A HELADERÍAS: 560x331.33 === */
 .seccion .bares-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(560px, 560px)) !important;
+  grid-template-columns: repeat(auto-fill, minmax(560px, 560px)) !important; /* ancho fijo exacto */
   gap: 20px !important;
   align-items: stretch !important;
   justify-content: center !important;
 }
+
 .seccion .bar {
   margin: 0 !important;
-  width: 560px !important;
-  height: 331.33px !important;
+  width: 560px !important; /* ancho clavado */
+  height: 331.33px !important; /* alto clavado */
   display: flex !important;
   flex-direction: column !important;
 }
+
 .seccion .bar-img {
   height: 160px !important;
   width: 100% !important;
   object-fit: cover !important;
 }
+
 .seccion .bar-body {
   flex: 1 !important;
   display: flex !important;
@@ -213,14 +202,18 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   padding: 18px !important;
   overflow: hidden !important;
 }
+
 .seccion .bar-desc {
   flex: 1 !important;
   overflow: hidden !important;
 }
+
 .seccion .promo {
   margin-top: auto !important;
   flex-shrink: 0 !important;
 }
+
+/* MODAL PEDIDO */
 .modal{
   display:none;position:fixed;top:0;left:0;width:100%;height:100%;
   background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;
@@ -255,9 +248,11 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   display:inline-block;background:var(--accent);color:var(--bg);
   padding:4px 10px;border-radius:6px;font-size:11px;font-weight:bold;margin-top:5px
 }
+/* GRID 3x3 NUEVO */
 .bares-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:0 20px}
 @media(max-width:900px){.bares-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.bares-grid{grid-template-columns:1fr}}
+/* === ARREGLAR TÍTULO ALMACÉN === */
 .seccion#almacen h2,
 .seccion#almacenes h2,
 #almacen .titulo-seccion,
@@ -271,7 +266,10 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   font-weight: 700 !important;
   text-align: center !important;
 }
-html {scroll-padding-top: 100px !important;}
+
+html {
+  scroll-padding-top: 100px !important;
+}
 </style>
 </head>
 <body>
@@ -285,22 +283,23 @@ html {scroll-padding-top: 100px !important;}
 </div>
 
 <div class="filter-bar">
-  <button class="filter-btn active" id="btn-todas" onclick="filtrar('all', this)">Todas</button>
-  <button class="filter-btn" onclick="filtrar('almacen', this)">🏪 Almacén</button>
-  <button class="filter-btn" onclick="filtrar('heladeria', this)">🍦 Heladería</button>
-  <button class="filter-btn" onclick="filtrar('confiteria', this)">🥐 Confitería</button>
-  <button class="filter-btn" onclick="filtrar('carniceria', this)">🥩 Carnicería</button>
-  <button class="filter-btn" onclick="filtrar('verduleria', this)">🥬 Verdulería</button>
-  <button class="filter-btn" onclick="filtrar('bares', this)">🍺 Bares</button>
-  <button class="filter-btn" onclick="filtrar('restaurantes', this)">🍔 Restaurantes</button>
+  <button class="filter-btn active" onclick="filtrar('all')">Todas</button>
+  <button class="filter-btn" onclick="filtrar('almacen')">🏪 Almacén</button>
+  <button class="filter-btn" onclick="filtrar('heladeria')">🍦 Heladería</button>
+  <button class="filter-btn" onclick="filtrar('confiteria')">🥐 Confitería</button>
+  <button class="filter-btn" onclick="filtrar('carniceria')">🥩 Carnicería</button>
+  <button class="filter-btn" onclick="filtrar('verduleria')">🥬 Verdulería</button>
+  <button class="filter-btn" onclick="filtrar('bares')">🍺 Bares</button>
+  <button class="filter-btn" onclick="filtrar('restaurantes')">🍔 Restaurantes</button>
 </div>
 <div class="promo-banner">
   🔥 4 PROMOS GRATIS para comercios que se sumen ahora
 </div>
-
-<!-- TUS 900 LÍNEAS DE LOCALES VAN ACÁ EXACTAS COMO LAS TENÍAS -->
-<section id="bares" class="seccion">
+  <section id="bares" class="seccion">
+<!-- WRAPPER GRID ABRE -->
 <div class="bares-grid">
+
+<!-- ALMACENES - 4 LOCALES FORMATO RECTANGULAR -->
 <div class="bar" data-categoria="almacen" onclick="abrirPromo('Almacén 24 Horas','almacen1','Abierto hasta las 3am, fiado para vecinos|almacen-1.jpg',[{nombre:'Pack básico',precio:3500}])">
   <img class="bar-img" src="img/almacen-1.jpg" alt="24 Horas">
   <div class="bar-body">
@@ -309,7 +308,9 @@ html {scroll-padding-top: 100px !important;}
     <div class="promo"><span>Pack básico</span><b>$3500</b>
       <button class="btn" onclick="event.stopPropagation();abrirForm('Almacén 24 Horas','Pack básico',3500)">Pedir</button></div>
   </div>
-</div><div class="bar" data-categoria="almacen" onclick="abrirPromo('El Rincón del Barrio','almacen2','Todo suelto + delivery 20 min|almacen-2.jpg',[{nombre:'Fideos + tuco',precio:2200}])">
+</div>
+
+<div class="bar" data-categoria="almacen" onclick="abrirPromo('El Rincón del Barrio','almacen2','Todo suelto + delivery 20 min|almacen-2.jpg',[{nombre:'Fideos + tuco',precio:2200}])">
   <img class="bar-img" src="img/almacen-2.jpg" alt="El Rincón">
   <div class="bar-body">
     <h3>El Rincón del Barrio</h3>
@@ -338,270 +339,13 @@ html {scroll-padding-top: 100px !important;}
       <button class="btn" onclick="event.stopPropagation();abrirForm('El Stock Almacén','Combo limpieza',4200)">Pedir</button></div>
   </div>
 </div>
-</div>
-</section>
-
-<!-- ACÁ PEGÁ TODAS TUS DEMÁS SECCIONES EXACTAS: heladeria, confiteria, carniceria, verduleria, bares, restaurantes -->
-<!-- Son las 700+ líneas que tenías. No cambio nada de tu HTML de locales -->
-
-<div class="footer">
-<strong>¿Cómo funciona?</strong><br>
-1. Tocá la promo para ver detalles<br>
-2. Tocá "Pedir" y completá tus datos<br>
-3. Te llega WhatsApp con el total<br>
-4. Pagás cuando llega tu pedido<br><br>
-<span id="horario-text">Horario: 21hs a 06hs | Tres Arroyos zona céntrica</span><br>
-Envío fijo: $2000
-</div>
-
-<div class="modal-promo" id="modalPromo">
-  <span class="close-x" onclick="cerrarPromo()">&times;</span>
-  <div class="modal-promo-content">
-    <img id="promoImg" class="modal-promo-img" src="">
-    <div class="modal-promo-body">
-      <h3 id="promoNombre"></h3>
-      <div class="dir" id="promoDir"></div>
-      <p class="desc" id="promoDesc"></p>
-      <div id="promoList"></div>
-    </div>
-  </div>
-</div>
-<p style="font-size:12px;color:var(--sub);margin-bottom:10px">4 promos gratis para comercios nuevos</p>
-
-<div class="modal" id="modalPedido">
-  <div class="modal-content">
-    <h3 id="modal-titulo">Confirmar pedido</h3>
-    <label>Tu nombre *</label>
-    <input type="text" id="nombre" placeholder="Juan Pérez">
-    <label>Dirección completa *</label>
-    <input type="text" id="direccion" placeholder="Av. Moreno 123">
-    <label>Info de la casa / Delivery *</label>
-    <textarea id="infoCasa" rows="2" placeholder="Piso 2 Depto B, portón azul..."></textarea>
-    <label>Teléfono *</label>
-    <input type="tel" id="telefono" placeholder="2284-123456">
-    <label>Forma de pago</label>
-    <select id="pago">
-      <option>Efectivo</option>
-      <option>Transferencia</option>
-      <option>Débito/Crédito</option>
-    </select>
-    <label>Aclaraciones del pedido</label>
-    <textarea id="aclaraciones" rows="2" placeholder="Sin mayonesa, etc"></textarea>
-    <div class="total" id="modal-total"></div>
-    <div class="modal-btns">
-      <button class="btn-cancelar" onclick="cerrarForm()">Cancelar</button>
-      <button class="btn-enviar" onclick="enviarWhatsApp()">Enviar pedido</button>
-    </div>
-  </div>
-</div>
-
-<script>
-const num="5492983389710";
-let pedidoActual = {};
-const ENVIO_FIJO = 2000;
-
-document.addEventListener('DOMContentLoaded', () => {
-  filtrar('all', document.getElementById('btn-todas'));
-  aplicarModoNocturnoAuto();
-});
-
-function filtrar(cat, btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  document.querySelectorAll('.seccion').forEach(seccion=>{
-    const bar = seccion.querySelector('.bar');
-    if(cat==='all' || (bar && bar.dataset.categoria===cat)){
-      seccion.classList.add('active');
-    } else {
-      seccion.classList.remove('active');
-    }
-  });
-}
-
-function abrirPromo(nombre, dir, descImg, promos){
-  const partes = descImg.split('|');
-  document.getElementById('promoNombre').textContent = nombre;
-  document.getElementById('promoDir').textContent = dir;
-  document.getElementById('promoDesc').textContent = partes[0];
-  document.getElementById('promoImg').src = partes[1];
-  let html = '';
-  promos.forEach(p=>{
-    html += `<div class="promo-box">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <span>${p.nombre}</span>
-        <b>$${p.precio.toLocaleString('es-AR')}</b>
-      </div>
-      <button class="btn" style="width:100%" onclick="abrirForm('${nombre}','${p.nombre}',${p.precio})">Pedir esta promo</button>
-    </div>`;
-  });
-  document.getElementById('promoList').innerHTML = html;
-  document.getElementById('modalPromo').classList.add('active');
-}
-
-function cerrarPromo(){
-  document.getElementById('modalPromo').classList.remove('active');
-}
-
-function abrirForm(local, promo, precio) {
-  cerrarPromo();
-  const subtotal = precio;
-  const total = subtotal + ENVIO_FIJO;
-  pedidoActual = {local, promo, precio, subtotal, envio: ENVIO_FIJO, total};
-  document.getElementById('modal-titulo').textContent = promo;
-  document.getElementById('modal-total').innerHTML = `
-    Subtotal: $${subtotal.toLocaleString('es-AR')}<br>
-    Envío: $${ENVIO_FIJO.toLocaleString('es-AR')}<br>
-    <b>TOTAL A PAGAR: $${total.toLocaleString('es-AR')}</b>
-  `;
-  document.getElementById('modalPedido').classList.add('active');
-}
-
-function cerrarForm(){
-  document.getElementById('modalPedido').classList.remove('active');
-  ['nombre','direccion','infoCasa','telefono','aclaraciones'].forEach(id=>{
-    const el = document.getElementById(id);
-    if(el) el.value = '';
-  });
-}
-
-function enviarWhatsApp(){
-  const nombre = document.getElementById('nombre').value;
-  const direccion = document.getElementById('direccion').value;
-  const infoCasa = document.getElementById('infoCasa').value;
-  const telefono = document.getElementById('telefono').value;
-  const pago = document.getElementById('pago').value;
-  const aclaraciones = document.getElementById('aclaraciones').value;
-  if(!nombre ||!direccion ||!infoCasa ||!telefono){
-    alert('Completá nombre, dirección, info de la casa y teléfono');
-    return;
-  }
-  const totalCliente = pedidoActual.subtotal + ENVIO_FIJO;
-  let msg = `*NUEVO PEDIDO*\n\n` +
-    `Local: ${pedidoActual.local}\n` +
-    `Promo: ${pedidoActual.promo}\n` +
-    `Subtotal: $${pedidoActual.subtotal.toLocaleString('es-AR')}\n` +
-    `Envío: $${ENVIO_FIJO.toLocaleString('es-AR')}\n` +
-    `*TOTAL CLIENTE: $${totalCliente.toLocaleString('es-AR')}*\n\n` +
-    `*DATOS DELIVERY*\n` +
-    `Nombre: ${nombre}\n` +
-    `Dirección: ${direccion}\n` +
-    `Info casa: ${infoCasa}\n` +
-    `Tel: ${telefono}\n` +
-    `Pago: ${pago}`;
-  if(aclaraciones) msg += `\nAclaraciones: ${aclaraciones}`;
-  const url = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
-  cerrarForm();
-}
-
-function aplicarModoNocturnoAuto(){
-  const hora = new Date().getHours();
-  if(hora >= 0 && hora < 7){
-    document.body.classList.add('dark-auto');
-    document.body.classList.remove('light');
-  } else {
-    document.body.classList.remove('dark-auto');
-  }
-  actualizarVista();
-}
-
-function actualizarVista(){
-  const esLight = document.body.classList.contains('light');
-  const hora = new Date().getHours();
-  const horarioText = document.getElementById('horario-text');
-  const subtitulo = document.getElementById('subtitulo');
-  const badge = document.getElementById('horario-badge');
-  if(esLight){
-    horarioText.textContent = 'Horario: 8hs a 22hs | Tres Arroyos';
-    subtitulo.textContent = 'Delivery 8hs a 22hs';
-    badge.textContent = hora >= 8 && hora < 22? 'Abierto ahora' : 'Cerrado';
-  } else {
-    horarioText.textContent = 'Horario: 21hs a 06hs | Tres Arroyos zona céntrica';
-    subtitulo.textContent = 'Delivery 21hs a 06hs';
-    badge.textContent = hora >= 21 || hora < 6? 'Abierto ahora' : 'Cerrado';
-  }
-}
-
-function toggleTheme(){
-  document.body.classList.toggle('light');
-  document.body.classList.remove('dark-auto');
-  localStorage.setItem('theme', document.body.classList.contains('light')? 'light' : 'dark');
-  actualizarVista();
-}
-
-if(localStorage.getItem('theme')==='light') document.body.classList.add('light');
-actualizarVista();
-setInterval(actualizarVista, 60000);
-setInterval(aplicarModoNocturnoAuto, 60000);
-
-document.getElementById('modalPedido').addEventListener('click', e=>{
-  if(e.target.id === 'modalPedido') cerrarForm();
-});
-document.getElementById('modalPromo').addEventListener('click', e=>{
-  if(e.target.id === 'modalPromo') cerrarPromo();
-});
-</script>
-
-<div id="panel-admin" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999">
-  <button onclick="togglePanel()" style="background:var(--accent);color:var(--bg);border:none;padding:12px 16px;border-radius:50px;font-weight:bold;cursor:pointer">📊 Panel</button>
-  <div id="panel-content" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px;margin-top:10px;max-width:280px">
-    <h4 style="color:var(--accent);margin-bottom:10px;font-size:14px">Comercios - Promos gratis</h4>
-    <div id="lista-comercios" style="font-size:12px"></div>
-    <button onclick="resetearPromos()" style="margin-top:10px;width:100%;background:var(--yellow);color:var(--bg);border:none;padding:8px;border-radius:6px;font-size:12px;cursor:pointer">Resetear mes</button>
-  </div>
-</div>
-
-<script>
-if(window.location.search.includes('admin=true')){
-  document.getElementById('panel-admin').style.display = 'block';
-}
-function togglePanel(){
-  const content = document.getElementById('panel-content');
-  content.style.display = content.style.display === 'none'? 'block' : 'none';
-  cargarPanel();
-}
-function cargarPanel(){
-  const comercios = [
-    'almacen-el-centro',
-    'heladeria-polar',
-    'confiteria-la-ideal',
-    'carniceria-la-estancia',
-    'verduleria-verde',
-    'bar-central',
-    'sanguche-casero',
-    'recargas-virtual'
-  ];
-  let html = '';
-  comercios.forEach(id => {
-    const promos = JSON.parse(localStorage.getItem('promos_'+id) || '[]');
-    const promosActivas = promos.filter(p => new Date(p.fecha) > new Date(Date.now() - 30*24*60*60*1000));
-    const usadas = promosActivas.length;
-    const restantes = 4 - usadas;
-    const color = restantes > 1? 'var(--green)' : restantes === 1? 'var(--yellow)' : 'tomato';
-    html += `<div style="margin-bottom:8px;padding:8px;background:var(--bg);border-radius:6px">
-      <b>${id.replace(/-/g,' ')}</b><br>
-      <span style="color:${color}">${usadas}/4 usadas - ${restantes} gratis</span>
-    </div>`;
-  });
-  document.getElementById('lista-comercios').innerHTML = html;
-}
-function resetearPromos(){
-  if(confirm('¿Resetear todas las promos? Esto inicia el mes nuevo para todos')){
-    const comercios = ['almacen-el-centro','heladeria-polar','confiteria-la-ideal','carniceria-la-estancia','verduleria-verde','bar-central','sanguche-casero','recargas-virtual'];
-    comercios.forEach(id => localStorage.removeItem('promos_'+id));
-    cargarPanel();
-    alert('Mes reseteado ✅');
-  }
-}
-</script>
-
-</body>
-</html><!-- ACÁ PEGÁ TODAS TUS SECCIONES RESTANTES EXACTAS COMO LAS TENÍAS -->
-<!-- Desde <div id="sec-heladeria" class="seccion"> hasta <div id="sec-restaurantes" class="seccion"> -->
+</div>  <!-- CIERRA bares-grid -->
+<!-- WRAPPER GRID CIERRA -->
+  </section>
 
 <div id="sec-heladeria" class="seccion">
 <h2>🍦 Heladería</h2>
-<div class="bares-grid">
+<!-- HELADERIAS - 4 LOCALES -->
 <div class="bar" data-categoria="heladeria" onclick="abrirPromo('Heladería Roma','heladeria1','Helados artesanales, 40 sabores. Delivery en pote de 1kg.|heladeria-1.jpg',[{nombre:'1/4 kg 3 gustos',precio:3200},{nombre:'Pote 1kg familiar',precio:9800}])">
   <img class="bar-img" src="img/heladeria-1.jpg" alt="Roma">
   <div class="bar-body">
@@ -641,8 +385,7 @@ function resetearPromos(){
       <button class="btn" onclick="event.stopPropagation();abrirForm('Freddo','Postre helado individual',2900)">Pedir</button></div>
   </div>
 </div>
-
-<div class="bar" data-categoria="heladeria" onclick="abrirPromo('Heladería Polar','polar','Helados artesanales 24hs. 40 gustos, bombones, postres. Delivery directo.|heladeria.jpg',[{nombre:'1/4 kg 3 gustos',precio:3800},{nombre:'Bombones x12 unidades',precio:5200}])">
+  <div class="bar" data-categoria="heladeria" onclick="abrirPromo('Heladería Polar','polar','Helados artesanales 24hs. 40 gustos, bombones, postres. Delivery directo.|heladeria.jpg',[{nombre:'1/4 kg 3 gustos',precio:3800},{nombre:'Bombones x12 unidades',precio:5200}])">
   <img class="bar-img" src="heladeria.jpg" alt="Heladería">
   <div class="bar-body">
     <h3>Heladería Polar <span class="tag">artesanal</span></h3>
@@ -652,11 +395,13 @@ function resetearPromos(){
   </div>
 </div>
 </div>
-</div>
 
+<!-- SECCION CONFITERIA ABRE -->
 <div id="sec-confiteria" class="seccion">
   <h2>☕ Confiterías</h2>
+  
   <div class="bares-grid">
+
   <div class="bar" data-categoria="confiteria" onclick="abrirPromo('La Central','confiteria1','Desayunos caseros|confiteria-1.jpg',[{nombre:'Desayuno completo',precio:2800}])">
     <img class="bar-img" src="img/confiteria-1.jpg" alt="La Central">
     <div class="bar-body">
@@ -696,12 +441,16 @@ function resetearPromos(){
         <button class="btn" onclick="event.stopPropagation();abrirForm('Dulce Momento','Cheesecake porción',2600)">Pedir</button></div>
     </div>
   </div>
+
   </div>
 </div>
-
+  
+<!-- SECCION CARNICERIA ABRE -->
 <div id="sec-carniceria" class="seccion">
   <h2>🥩 Carnicerías</h2>
+  
   <div class="bares-grid">
+
   <div class="bar" data-categoria="carniceria" onclick="abrirPromo('La Nueva','carniceria1','Cortes premium + milanesas|carne-1.jpg',[{nombre:'Milanesas nalga x6',precio:5200}])">
     <img class="bar-img" src="img/carne-1.jpg" alt="La Nueva">
     <div class="bar-body">
@@ -741,12 +490,17 @@ function resetearPromos(){
         <button class="btn" onclick="event.stopPropagation();abrirForm('Don Toro','Medallones x4',4200)">Pedir</button></div>
     </div>
   </div>
+
   </div>
 </div>
 
+
+<!-- SECCION VERDULERIA ABRE -->
 <div id="sec-verduleria" class="seccion">
   <h2>🥬 Verdulerías</h2>
+  
   <div class="bares-grid">
+
   <div class="bar" data-categoria="verduleria" onclick="abrirPromo('El Huerto','verduleria1','Frutas y verduras frescas|verdura-1.jpg',[{nombre:'Bolsón mixto 5kg',precio:3500}])">
     <img class="bar-img" src="img/verdura-1.jpg" alt="El Huerto">
     <div class="bar-body">
@@ -786,12 +540,16 @@ function resetearPromos(){
         <button class="btn" onclick="event.stopPropagation();abrirForm('Del Campo','Bolsa papa 5kg',2800)">Pedir</button></div>
     </div>
   </div>
+
   </div>
 </div>
-
+  
+<!-- SECCION BARES ABRE -->
 <div id="sec-bares" class="seccion">
   <h2>🍻 Bares</h2>
+  
   <div class="bares-grid">
+
   <div class="bar" data-categoria="bares" onclick="abrirPromo('El Refugio','bar1','Cerveza tirada artesanal|bar-1.jpg',[{nombre:'Pinta IPA',precio:2500}])">
     <img class="bar-img" src="img/bar-1.jpg" alt="El Refugio">
     <div class="bar-body">
@@ -831,12 +589,16 @@ function resetearPromos(){
         <button class="btn" onclick="event.stopPropagation();abrirForm('Bar 1900','Old Fashioned',4500)">Pedir</button></div>
     </div>
   </div>
+
   </div>
 </div>
 
+<!-- SECCION RESTAURANTES ABRE -->
 <div id="sec-restaurantes" class="seccion">
   <h2>🍽️ Restaurantes</h2>
+  
   <div class="bares-grid">
+
   <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('La Parrilla','resto1','Asado y parrillada|rest-1.jpg',[{nombre:'Parrillada x2',precio:14500}])">
     <img class="bar-img" src="img/rest-1.jpg" alt="La Parrilla">
     <div class="bar-body">
@@ -857,29 +619,44 @@ function resetearPromos(){
     </div>
   </div>
 
-  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('El Fogón','resto3','Parrilla al disco|rest-3.jpg',[{nombre:'Pollo al disco',precio:6500}])">
-    <img class="bar-img" src="img/rest-3.jpg" alt="El Fogón">
-    <div class="bar-body">
-      <h3>El Fogón</h3>
-      <p class="bar-desc">Parrilla al disco</p>
-      <div class="promo"><span>Pollo al disco</span><b>$6500</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('El Fogón','Pollo al disco',6500)">Pedir</button></div>
-    </div>
-  </div>
-
-  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('Sushi Zen','resto4','Sushi y comida oriental|rest-4.jpg',[{nombre:'Combo 30 piezas',precio:9800}])">
-    <img class="bar-img" src="img/rest-4.jpg" alt="Sushi Zen">
+  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('Sushi Zen','resto3','Sushi y comida oriental|rest-3.jpg',[{nombre:'Combo 20 piezas',precio:9200}])">
+    <img class="bar-img" src="img/rest-3.jpg" alt="Sushi Zen">
     <div class="bar-body">
       <h3>Sushi Zen</h3>
       <p class="bar-desc">Sushi premium</p>
-      <div class="promo"><span>Combo 30 piezas</span><b>$9800</b>
-        <button class="btn" onclick="event.stopPropagation();abrirForm('Sushi Zen','Combo 30 piezas',9800)">Pedir</button></div>
+      <div class="promo"><span>Combo 20 piezas</span><b>$9200</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('Sushi Zen','Combo 20 piezas',9200)">Pedir</button></div>
     </div>
   </div>
+
+  <div class="bar" data-categoria="restaurantes" onclick="abrirPromo('El Fogón','resto4','Comida casera|rest-4.jpg',[{nombre:'Milanesa napo + fritas',precio:6500}])">
+    <img class="bar-img" src="img/rest-4.jpg" alt="El Fogón">
+    <div class="bar-body">
+      <h3>El Fogón</h3>
+      <p class="bar-desc">Comida casera</p>
+      <div class="promo"><span>Milanesa napo + fritas</span><b>$6500</b>
+        <button class="btn" onclick="event.stopPropagation();abrirForm('El Fogón','Milanesa napo + fritas',6500)">Pedir</button></div>
+    </div>
+  </div>
+
   </div>
 </div>
 
 
+</div>
+<!-- WRAPPER GRID CIERRA -->
+
+<div class="footer">
+<strong>¿Cómo funciona?</strong><br>
+1. Tocá la promo para ver detalles<br>
+2. Tocá "Pedir" y completá tus datos<br>
+3. Te llega WhatsApp con el total<br>
+4. Pagás cuando llega tu pedido<br><br>
+<span id="horario-text">Horario: 21hs a 06hs | Tres Arroyos zona céntrica</span><br>
+Envío fijo: $2000
+</div>
+
+<!-- MODAL AMPLIAR FOTO -->
 <div class="modal-promo" id="modalPromo">
   <span class="close-x" onclick="cerrarPromo()">&times;</span>
   <div class="modal-promo-content">
@@ -894,7 +671,8 @@ function resetearPromos(){
 </div>
 <p style="font-size:12px;color:var(--sub);margin-bottom:10px">4 promos gratis para comercios nuevos</p>
 
-<div class="modal" id="modalPedido">
+<!-- MODAL PEDIDO -->
+<div class="modal" id="modal">
   <div class="modal-content">
     <h3 id="modal-titulo">Confirmar pedido</h3>
     <label>Tu nombre *</label>
@@ -924,25 +702,27 @@ function resetearPromos(){
 <script>
 const num="5492983389710";
 let pedidoActual = {};
-const ENVIO_FIJO = 2000;
 
-document.addEventListener('DOMContentLoaded', () => {
-  filtrar('all', document.getElementById('btn-todas'));
-  aplicarModoNocturnoAuto();
-});
-
-function filtrar(cat, btn){
+function filtrar(cat){
   document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
+  event.target.classList.add('active');
+  
   document.querySelectorAll('.seccion').forEach(seccion=>{
     const bar = seccion.querySelector('.bar');
-    if(cat==='all' || (bar && bar.dataset.categoria===cat)){
-      seccion.classList.add('active');
+    const subtitulo = seccion.querySelector('.subtitulo');
+    
+    if(cat==='all' || bar.dataset.categoria===cat){
+      seccion.style.display = 'block';
+      bar.style.display = 'block';
+      if(subtitulo) subtitulo.style.display = 'block';
     } else {
-      seccion.classList.remove('active');
+      seccion.style.display = 'none';
+      bar.style.display = 'none';
+      if(subtitulo) subtitulo.style.display = 'none';
     }
   });
 }
+
 
 function abrirPromo(nombre, dir, descImg, promos){
   const partes = descImg.split('|');
@@ -964,32 +744,48 @@ function abrirPromo(nombre, dir, descImg, promos){
   document.getElementById('modalPromo').classList.add('active');
 }
 
+let carrito = [];
+let envioActual = 0;
+let pedidoActual = {};
+
 function cerrarPromo(){
   document.getElementById('modalPromo').classList.remove('active');
 }
 
 function abrirForm(local, promo, precio) {
   cerrarPromo();
+
+  // 1. Calcular envío según local
+  if(local.toLowerCase().includes('roma')) {
+    envioActual = 2000;
+  } else {
+    envioActual = 1500; // Envío default para otros locales
+  }
+
   const subtotal = precio;
-  const total = subtotal + ENVIO_FIJO;
-  pedidoActual = {local, promo, precio, subtotal, envio: ENVIO_FIJO, total};
+  const total = subtotal + envioActual;
+  pedidoActual = {local, promo, precio, subtotal, envio: envioActual, total};
+
+  // 2. Mostrar todo en el modal
   document.getElementById('modal-titulo').textContent = promo;
   document.getElementById('modal-total').innerHTML = `
     Subtotal: $${subtotal.toLocaleString('es-AR')}<br>
-    Envío: $${ENVIO_FIJO.toLocaleString('es-AR')}<br>
+    Envío: $${envioActual.toLocaleString('es-AR')}<br>
     <b>TOTAL A PAGAR: $${total.toLocaleString('es-AR')}</b>
   `;
-  document.getElementById('modalPedido').classList.add('active');
+
+  document.getElementById('modal').classList.add('active');
+
+  console.log('Local:', local, 'Subtotal:', subtotal, 'Envío:', envioActual, 'Total:', total);
 }
 
 function cerrarForm(){
-  document.getElementById('modalPedido').classList.remove('active');
+  document.getElementById('modal').classList.remove('active');
   ['nombre','direccion','infoCasa','telefono','aclaraciones'].forEach(id=>{
     const el = document.getElementById(id);
     if(el) el.value = '';
   });
 }
-
 function enviarWhatsApp(){
   const nombre = document.getElementById('nombre').value;
   const direccion = document.getElementById('direccion').value;
@@ -1001,13 +797,14 @@ function enviarWhatsApp(){
     alert('Completá nombre, dirección, info de la casa y teléfono');
     return;
   }
-  const totalCliente = pedidoActual.subtotal + ENVIO_FIJO;
+  const envio = 2000;
+  const totalCliente = pedidoActual.precio + envio;
   let msg = `*NUEVO PEDIDO*\n\n` +
     `Local: ${pedidoActual.local}\n` +
     `Promo: ${pedidoActual.promo}\n` +
-    `Subtotal: $${pedidoActual.subtotal.toLocaleString('es-AR')}\n` +
-    `Envío: $${ENVIO_FIJO.toLocaleString('es-AR')}\n` +
-    `*TOTAL CLIENTE: $${totalCliente.toLocaleString('es-AR')}*\n\n` +
+    `Subtotal: $${pedidoActual.precio}\n` +
+    `Envío: $1500\n` +
+    `*TOTAL CLIENTE: $${totalCliente}*\n\n` +
     `*DATOS DELIVERY*\n` +
     `Nombre: ${nombre}\n` +
     `Dirección: ${direccion}\n` +
@@ -1020,20 +817,15 @@ function enviarWhatsApp(){
   cerrarForm();
 }
 
-function aplicarModoNocturnoAuto(){
-  const hora = new Date().getHours();
-  if(hora >= 0 && hora < 7){
-    document.body.classList.add('dark-auto');
-    document.body.classList.remove('light');
-  } else {
-    document.body.classList.remove('dark-auto');
-  }
-  actualizarVista();
-}
-
 function actualizarVista(){
   const esLight = document.body.classList.contains('light');
   const hora = new Date().getHours();
+  const seccionesDia = ['sec-carniceria','sec-verduleria','sec-confiteria'];
+  seccionesDia.forEach(id=>{
+    const sec = document.getElementById(id);
+    if(esLight) sec.style.display = sec.classList.contains('active')? 'block' : 'none';
+    else sec.style.display = 'none';
+  });
   const horarioText = document.getElementById('horario-text');
   const subtitulo = document.getElementById('subtitulo');
   const badge = document.getElementById('horario-badge');
@@ -1050,7 +842,6 @@ function actualizarVista(){
 
 function toggleTheme(){
   document.body.classList.toggle('light');
-  document.body.classList.remove('dark-auto');
   localStorage.setItem('theme', document.body.classList.contains('light')? 'light' : 'dark');
   actualizarVista();
 }
@@ -1058,16 +849,18 @@ function toggleTheme(){
 if(localStorage.getItem('theme')==='light') document.body.classList.add('light');
 actualizarVista();
 setInterval(actualizarVista, 60000);
-setInterval(aplicarModoNocturnoAuto, 60000);
 
-document.getElementById('modalPedido').addEventListener('click', e=>{
-  if(e.target.id === 'modalPedido') cerrarForm();
+document.getElementById('modal').addEventListener('click', e=>{
+  if(e.target.id === 'modal') cerrarForm();
 });
 document.getElementById('modalPromo').addEventListener('click', e=>{
   if(e.target.id === 'modalPromo') cerrarPromo();
 });
+
+filtrar('all');
 </script>
 
+<!-- PANEL ADMIN -->
 <div id="panel-admin" style="display:none;position:fixed;bottom:20px;right:20px;z-index:9999">
   <button onclick="togglePanel()" style="background:var(--accent);color:var(--bg);border:none;padding:12px 16px;border-radius:50px;font-weight:bold;cursor:pointer">📊 Panel</button>
   <div id="panel-content" style="display:none;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px;margin-top:10px;max-width:280px">
@@ -1078,14 +871,17 @@ document.getElementById('modalPromo').addEventListener('click', e=>{
 </div>
 
 <script>
+// Para abrir el panel: agregá ?admin=true al final de la URL
 if(window.location.search.includes('admin=true')){
   document.getElementById('panel-admin').style.display = 'block';
 }
+
 function togglePanel(){
   const content = document.getElementById('panel-content');
-  content.style.display = content.style.display === 'none'? 'block' : 'none';
+  content.style.display = content.style.display === 'none' ? 'block' : 'none';
   cargarPanel();
 }
+
 function cargarPanel(){
   const comercios = [
     'almacen-el-centro',
@@ -1097,13 +893,15 @@ function cargarPanel(){
     'sanguche-casero',
     'recargas-virtual'
   ];
+  
   let html = '';
   comercios.forEach(id => {
     const promos = JSON.parse(localStorage.getItem('promos_'+id) || '[]');
     const promosActivas = promos.filter(p => new Date(p.fecha) > new Date(Date.now() - 30*24*60*60*1000));
     const usadas = promosActivas.length;
     const restantes = 4 - usadas;
-    const color = restantes > 1? 'var(--green)' : restantes === 1? 'var(--yellow)' : 'tomato';
+    const color = restantes > 1 ? 'var(--green)' : restantes === 1 ? 'var(--yellow)' : 'tomato';
+    
     html += `<div style="margin-bottom:8px;padding:8px;background:var(--bg);border-radius:6px">
       <b>${id.replace(/-/g,' ')}</b><br>
       <span style="color:${color}">${usadas}/4 usadas - ${restantes} gratis</span>
@@ -1111,6 +909,7 @@ function cargarPanel(){
   });
   document.getElementById('lista-comercios').innerHTML = html;
 }
+
 function resetearPromos(){
   if(confirm('¿Resetear todas las promos? Esto inicia el mes nuevo para todos')){
     const comercios = ['almacen-el-centro','heladeria-polar','confiteria-la-ideal','carniceria-la-estancia','verduleria-verde','bar-central','sanguche-casero','recargas-virtual'];
@@ -1121,5 +920,39 @@ function resetearPromos(){
 }
 </script>
 
+<div class="modal-promo" id="modal" onclick="cerrarModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="cerrarModal()">×</span>
+    <img id="modalImg" src="" alt="">
+    <h3 id="modalNombre"></h3>
+    <p id="modalDesc"></p>
+    <div id="promoList"></div>
+  </div>
+</div>
+
+<script>
+function abrirForm(bar, promo, precio){
+  document.getElementById('formBar').value = bar;
+  document.getElementById('formPromo').value = promo;
+  document.getElementById('formPrecio').value = precio;
+  document.getElementById('formModal').style.display = 'flex';
+}
+function cerrarForm(){document.getElementById('formModal').style.display = 'none'}
+function abrirPromo(nombre, tipo, desc, promos){
+  document.getElementById('modalNombre').textContent = nombre;
+  document.getElementById('modalDesc').textContent = desc.split('|')[0];
+  document.getElementById('modalImg').src = desc.split('|')[1];
+  let html = '<div class="promos-grid">';
+  promos.forEach(p=>{
+    html += `<div class="promo-card"><span>${p.nombre}</span><b>$${p.precio.toLocaleString()}</b><button class="btn" onclick="event.stopPropagation();abrirFormhtml += `<div class="promo-card"><span>${p.nombre}</span><b>$${p.precio.toLocaleString()}</b><button class="btn" onclick="event.stopPropagation();abrirForm('${nombre}','${p.nombre}',${p.precio})">Pedir</button></div>`;
+  });
+  html += '</div>';
+  document.getElementById('promoList').innerHTML = html;
+  document.getElementById('modal').style.display = 'flex';
+}
+function cerrarModal(){document.getElementById('modal').style.display = 'none'}
+document.getElementById('modal').onclick = function(){this.style.display='none'};
+document.getElementById('formModal').onclick = function(){this.style.display='none'};
+</script>
 </body>
 </html>
