@@ -78,17 +78,17 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 .bares-grid{
   display:grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(560px, 560px)) !important;
-  gap: 20px !important;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 420px)) !important; /* antes 560px */
+  gap: 16px !important;
   justify-content: center !important;
 }
 
 .bar{
   margin: 0 !important;
-  width: 560px !important;
-  height: 331.33px !important;
+  width: 420px !important; /* antes 560px */
+  height: 280px !important; /* antes 331px */
   border:1px solid var(--border);
-  border-radius:16px;
+  border-radius:14px;
   background:var(--card);
   overflow:hidden;
   cursor:pointer;
@@ -96,8 +96,9 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   display:flex !important;
   flex-direction: column !important;
 }
+
 .bar:hover{transform:translateY(-3px);border-color:var(--accent)}
-.bar-img{width:100%;height:160px;object-fit:cover;display:block}
+.bar-img{width:100%;height:130px;object-fit:cover;display:block}
 .bar-body{
   flex:1 !important;
   display:flex !important;
@@ -118,7 +119,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 .btn{background:#25D366;color:white;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:bold;font-size:14px}
 .btn:hover{opacity:0.9}
 
-.modal-promo{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-promo{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:2000;align-items:center;justify-content:center;padding:20px}
 .modal-promo.active{display:flex}
 .modal-promo-content{background:var(--card);padding:0;border-radius:16px;max-width:500px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto}
 .modal-promo-img{width:100%;height:300px;object-fit:cover;border-radius:16px 16px 0 0}
@@ -131,7 +132,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 .promo-box b{color:var(--green);font-size:22px}
 .close-x{position:absolute;top:15px;right:20px;font-size:40px;color:white;cursor:pointer;font-weight:bold;z-index:1001}
 
-.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal{ display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:2001;align-items:center;justify-content:center;padding:20px }
 .modal.active{display:flex}
 .modal-content{background:var(--card);padding:25px;border-radius:16px;max-width:420px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto}
 .modal h3{color:var(--accent);margin-bottom:15px;font-size:18px}
@@ -189,7 +190,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Almacén 24 Horas <span class="tag">24hs</span></h3>
     <p class="bar-desc">Abierto hasta las 3am, delivery rápido zona centro</p>
-    <div class="promo"><span>Desde</span><b>$3500</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$3500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -198,7 +199,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>El Rincón del Barrio</h3>
     <p class="bar-desc">Todo suelto + delivery 20 min. Precios de barrio</p>
-    <div class="promo"><span>Desde</span><b>$2200</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$2200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -207,7 +208,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Almacén El Faro <span class="tag">nuevo</span></h3>
     <p class="bar-desc">Precios mayoristas sin salir del barrio. Abierto hasta 2am</p>
-    <div class="promo"><span>Desde</span><b>$5400</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$5400</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -216,7 +217,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Don Tito Almacén <span class="tag">clásico</span></h3>
     <p class="bar-desc">El almacén de confianza. Fiado a vecinos conocidos</p>
-    <div class="promo"><span>Desde</span><b>$3100</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$3100</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 </div>
@@ -232,7 +233,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Heladería Roma <span class="tag">artesanal</span></h3>
     <p class="bar-desc">Helados artesanales, 40 sabores. Dulce de leche granizado top</p>
-    <div class="promo"><span>Desde</span><b>$3200</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$3200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -241,7 +242,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Grido</h3>
     <p class="bar-desc">La cadena favorita, precios bajos. 2x1 martes y miércoles</p>
-    <div class="promo"><span>Desde</span><b>$1800</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$1800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -250,7 +251,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Heladería Polar Sur <span class="tag">24hs</span></h3>
     <p class="bar-desc">Abierta toda la noche. Delivery sin cargo +23hs</p>
-    <div class="promo"><span>Desde</span><b>$3800</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$3800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -259,7 +260,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Dulce Frío Premium</h3>
     <p class="bar-desc">Sabores importados y ediciones limitadas mensuales</p>
-    <div class="promo"><span>Desde</span><b>$4800</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$4800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 </div>
@@ -275,7 +276,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>La Central</h3>
     <p class="bar-desc">Desayunos caseros desde las 7am. Facturas recién horneadas</p>
-    <div class="promo"><span>Desde</span><b>$2200</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$2200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -284,7 +285,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Confitería Paris <span class="tag">premium</span></h3>
     <p class="bar-desc">Masas finas y tortas por encargo para eventos</p>
-    <div class="promo"><span>Desde</span><b>$2600</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$2600</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -293,7 +294,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>El Colonial</h3>
     <p class="bar-desc">Recetas de abuela. Masas finas y criollitos crocantes</p>
-    <div class="promo"><span>Desde</span><b>$1900</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$1900</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -302,7 +303,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Dulce Momento <span class="tag">encargos</span></h3>
     <p class="bar-desc">Tortas personalizadas y boxes dulces para regalo</p>
-    <div class="promo"><span>Desde</span><b>$2600</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$2600</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 </div>
@@ -316,7 +317,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>La Nueva <span class="tag">premium</span></h3>
     <p class="bar-desc">Carnes frescas de primera. Cortes para parrilla y horno</p>
-    <div class="promo"><span>Desde</span><b>$4200</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$4200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -325,7 +326,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>Carnicería El Progreso</h3>
     <p class="bar-desc">Precios de barrio. Atención de 8 a 20hs corrido</p>
-    <div class="promo"><span>Desde</span><b>$3800</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$3800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
 
@@ -334,7 +335,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <div class="bar-body">
     <h3>La Angus <span class="tag">nuevo</span></h3>
     <p class="bar-desc">Cortes Angus certificados. Mínimo 48hs maduración</p>
-    <div class="promo"><span>Desde</span><b>$5200</b><button class="btn" onclick="event.stopPropagation()">Ver promos</button></div>
+    <div class="promo"><span>Desde</span><b>$5200</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div><!-- MODAL CATALOGO DE PROMOS -->
 <div class="modal-promo" id="modal-promo">
