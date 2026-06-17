@@ -883,16 +883,64 @@ function togglePanel(){
 }
 
 function cargarPanel(){
-  const comercios = [
-    'almacen-el-centro',
-    'heladeria-polar',
-    'confiteria-la-ideal',
-    'carniceria-la-estancia',
-    'verduleria-verde',
-    'bar-central',
-    'sanguche-casero',
-    'recargas-virtual'
-  ];
+ const locales = [
+  {
+    nombre: "Pollería El Fogón",
+    tipo: "Pollos",
+    cat: "pollos",
+    img: "https://via.placeholder.com/400x180/E74C3C/fff?text=El+Fogón",
+    direccion: "Av. San Martín 1245",
+    horario: "11:00 a 15:00 / 20:00 a 00:00",
+    telefono: "2983-410000",
+    promos: [
+      {nombre: "Pollo entero + papas grandes", precio: 12800, img: "https://via.placeholder.com/300x120/E74C3C/fff?text=Pollo+Entero", desc: "Rinde 4 personas"},
+      {nombre: "1/2 pollo + ensalada", precio: 7200, img: "https://via.placeholder.com/300x120/E74C3C/fff?text=Medio+Pollo", desc: "Rinde 2 personas"},
+      {nombre: "Alitas x12", precio: 4900, img: "https://via.placeholder.com/300x120/E74C3C/fff?text=Alitas", desc: "Salsa BBQ o Picante"}
+    ]
+  },
+  {
+    nombre: "La Muza Pizzería",
+    tipo: "Pizzas",
+    cat: "pizzas",
+    img: "https://via.placeholder.com/400x180/3498DB/fff?text=La+Muza",
+    direccion: "25 de Mayo 832",
+    horario: "19:00 a 01:00",
+    telefono: "2983-420000",
+    promos: [
+      {nombre: "Muzzarella grande 8 porciones", precio: 5800, img: "https://via.placeholder.com/300x120/3498DB/fff?text=Muzza", desc: "Masa a la piedra"},
+      {nombre: "Promo 2x1 Martes y Miércoles", precio: 9900, img: "https://via.placeholder.com/300x120/3498DB/fff?text=2x1", desc: "Solo para llevar"},
+      {nombre: "Docena de empanadas", precio: 8500, img: "https://via.placeholder.com/300x120/3498DB/fff?text=Empanadas", desc: "Carne, jyq, pollo"}
+    ]
+  },
+  {
+    nombre: "Sushi Master",
+    tipo: "Sushi",
+    cat: "sushi",
+    img: "https://via.placeholder.com/400x180/27AE60/fff?text=Sushi+Master",
+    direccion: "Av. Libertad 567",
+    horario: "20:00 a 01:30",
+    telefono: "2983-430000",
+    promos: [
+      {nombre: "Combo 15 piezas", precio: 8900, img: "https://via.placeholder.com/300x120/27AE60/fff?text=15+Piezas", desc: "10 rolls + 5 nigiris"},
+      {nombre: "Promo Pareja 30 piezas", precio: 16500, img: "https://via.placeholder.com/300x120/27AE60/fff?text=30+Piezas", desc: "Incluye salsa y wasabi"},
+      {nombre: "Hot Rolls x8", precio: 5200, img: "https://via.placeholder.com/300x120/27AE60/fff?text=Hot+Rolls", desc: "Empanizados crocantes"}
+    ]
+  },
+  {
+    nombre: "Lo de Tito - Minutas",
+    tipo: "Minutas",
+    cat: "minutas",
+    img: "https://via.placeholder.com/400x180/F39C12/fff?text=Lo+de+Tito",
+    direccion: "San Juan 412",
+    horario: "11:30 a 15:30 / 20:00 a 23:30",
+    telefono: "2983-440000",
+    promos: [
+      {nombre: "Milanesa napo + fritas", precio: 4500, img: "https://via.placeholder.com/300x120/F39C12/fff?text=Milanesa", desc: "Con huevo frito opcional"},
+      {nombre: "2 Lomitos completos", precio: 8200, img: "https://via.placeholder.com/300x120/F39C12/fff?text=Lomitos", desc: "Promo 2x1 Lunes y Martes"},
+      {nombre: "Rabas + papas", precio: 5600, img: "https://via.placeholder.com/300x120/F39C12/fff?text=Rabas", desc: "Porción para compartir"}
+    ]
+  }
+];
   
   let html = '';
   comercios.forEach(id => {
