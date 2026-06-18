@@ -171,14 +171,65 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 </div><div class="bares-grid">
 
 <!-- CARNICERÍAS -->
-<div class="bar" data-categoria="carniceria" onclick="abrirPromo('Carnicería Don Carlos','img/carniceria-1.jpg','Cortes premium faena propia','Lun a Dom 8 a 20hs',[ {nombre:'Asado banderita',precio:8500,desc:'Por kg - Tierno',img:'img/promo-asado.jpg'},{nombre:'Milanesas napo x6',precio:7200,desc:'Lista para horno',img:'img/promo-mila.jpg'},{nombre:'Picada parrillera',precio:9800,desc:'Para 4 personas',img:'img/promo-picada.jpg'},{nombre:'Hamburguesas x8',precio:6500,desc:'180g c/u congeladas',img:'img/promo-hamburguesas.jpg'} ])">
-  <img class="bar-img" src="img/carniceria-1.jpg" alt="Don Carlos">
-  <div class="bar-body">
-    <h3>Carnicería Don Carlos <span class="tag">Premium</span></h3>
-    <p class="horario-local">🕐 Lun a Dom 8 a 20hs</p>
-    <p class="bar-desc">Cortes premium, faena propia. Carne de novillito</p>
-    <div class="promo"><span>Desde</span><b>$6500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
+<!-- PARRILLA DON CARLOS - 4 PROMOS CON FOTOS ILUSTRATIVAS -->
+<div class="local-card" style="border:1px solid #ddd; border-radius:12px; padding:15px; margin-bottom:20px; max-width:400px; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+  
+  <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=200&fit=crop" alt="Parrilla Don Carlos" style="width:60px; height:60px; border-radius:50%; object-fit:cover">
+    <div>
+      <h3 style="margin:0">Parrilla Don Carlos</h3>
+      <div style="font-size:12px; color:#666">Promos 24hs 🔥</div>
+    </div>
   </div>
+
+  <!-- GRILLA DE 4 PROMOS -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px">
+    
+    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+      <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="Promo 1" style="width:100%; height:120px; object-fit:cover">
+      <div style="padding:8px; font-size:13px; font-weight:bold">2x1 Vacío</div>
+      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%201" 
+         target="_blank"
+         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
+         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
+         Pedir Promo 1
+      </a>
+    </div>
+
+    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+      <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" alt="Promo 2" style="width:100%; height:120px; object-fit:cover">
+      <div style="padding:8px; font-size:13px; font-weight:bold">Costilla + Papa</div>
+      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%202" 
+         target="_blank"
+         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
+         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
+         Pedir Promo 2
+      </a>
+    </div>
+
+    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+      <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="Promo 3" style="width:100%; height:120px; object-fit:cover">
+      <div style="padding:8px; font-size:13px; font-weight:bold">Chori + Gaseosa</div>
+      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%203" 
+         target="_blank"
+         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
+         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
+         Pedir Promo 3
+      </a>
+    </div>
+
+    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" alt="Promo 4" style="width:100%; height:120px; object-fit:cover">
+      <div style="padding:8px; font-size:13px; font-weight:bold">Combo Familia</div>
+      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%204" 
+         target="_blank"
+         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
+         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
+         Pedir Promo 4
+      </a>
+    </div>
+  </div>
+
 </div>
 
 <div class="bar" data-categoria="carniceria" onclick="abrirPromo('La Nueva Res','img/carniceria-2.jpg','Precios mayoristas','Lun a Sáb 7 a 19hs',[ {nombre:'Vacío entero',precio:15900,desc:'Por pieza 4-5kg',img:'img/promo-vacio.jpg'},{nombre:'Pollo entero x3',precio:7800,desc:'Congelado 2kg c/u',img:'img/promo-pollo.jpg'},{nombre:'Costeleta cerdo',precio:6900,desc:'Por kg sin hueso',img:'img/promo-cerdo.jpg'},{nombre:'Combo milangas',precio:11500,desc:'12 pollo + 12 carne',img:'img/promo-combo.jpg'} ])">
