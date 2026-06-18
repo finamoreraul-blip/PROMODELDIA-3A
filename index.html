@@ -327,7 +327,7 @@ function aplicarTemaAuto(){
   }
 }
 aplicarTemaAuto();
-setInterval(aplicarTemaAuto, 60000); // revisa cada minuto
+setInterval(aplicarTemaAuto, 60000);
 
 function toggleTheme(){
   document.body.classList.toggle('light');
@@ -395,18 +395,26 @@ function cerrarModal(){
   document.getElementById('modalPedido').classList.remove('active');
 }
 
+// CALCULA PROMO + ENVÍO
 function calcularTotal(){
   const cant = parseInt(document.getElementById('modalCantidad').value);
-  document.getElementById('modalTotal').textContent = (precioActual * cant).toLocaleString('es-AR');
+  const envio = parseInt(document.getElementById('modalEnvio').value);
+  const subtotal = precioActual * cant;
+  const total = subtotal + envio;
+  document.getElementById('modalTotal').textContent = total.toLocaleString('es-AR');
 }
 
+// ENVÍA A TU WHATSAPP 5492983389710
 function enviarPedido(){
   const nombre = document.getElementById('modalNombre').value;
   const tel = document.getElementById('modalTel').value;
   const dir = document.getElementById('modalDir').value;
   const pago = document.getElementById('modalPago').value;
   const cant = document.getElementById('modalCantidad').value;
+  const envio = parseInt(document.getElementById('modalEnvio').value);
+  const envioTexto = document.getElementById('modalEnvio').options[document.getElementById('modalEnvio').selectedIndex].text;
   const total = document.getElementById('modalTotal').textContent;
+  const subtotal = precioActual * cant;
   
   if(!nombre || !tel || !dir){
     alert('Completá nombre, teléfono y dirección');
@@ -417,15 +425,18 @@ function enviarPedido(){
     `Local: ${promoActual.local}%0A`+
     `Promo: ${promoActual.promo}%0A`+
     `Cantidad: ${cant}%0A`+
-    `Total: $${total}%0A%0A`+
+    `Subtotal: $${subtotal.toLocaleString('es-AR')}%0A`+
+    `Envío: ${envioTexto}%0A`+
+    `*Total: $${total}*%0A%0A`+
     `Nombre: ${nombre}%0A`+
-    `Tel: ${tel}%0A`+
+    `Tel cliente: ${tel}%0A`+
     `Dirección: ${dir}%0A`+
     `Pago: ${pago}`;
     
-  window.open('https://wa.me/549298342XXXX?text=' + msg, '_blank');
+  window.open('https://wa.me/5492983389710?text=' + msg, '_blank');
   cerrarModal();
 }
+</script>
 </script><!-- FOOTER ABAJO DEL TODO - SIN BANNER 4 PROMOS GRATIS -->
 <div class="footer">
   <b style="color:var(--accent);font-size:14px">¿CÓMO FUNCIONA?</b><br><br>
