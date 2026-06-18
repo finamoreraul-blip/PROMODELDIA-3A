@@ -262,27 +262,58 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 <div class="modal" id="modalPedido">
   <div class="modal-content">
     <h3 id="modalTitulo">Hacer pedido</h3>
+    
     <label>Promo elegida</label>
     <input id="modalPromoElegida" readonly>
+    
     <label>Precio</label>
     <input id="modalPrecio" readonly>
+    
     <label>Cantidad</label>
-    <select id="modalCantidad" onchange="calcularTotal()"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+    <select id="modalCantidad" onchange="calcularTotal()">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    
+    <!-- ENVÍO VA ACÁ, JUSTO ANTES DEL TOTAL -->
+    <label>Envío</label>
+    <select id="modalEnvio" onchange="calcularTotal()">
+      <option value="0">Retiro en local - $0</option>
+      <option value="800">Zona Centro - $800</option>
+      <option value="1200">Zona Norte - $1200</option>
+      <option value="1200">Zona Sur - $1200</option>
+      <option value="1500">Zona Oeste/Este - $1500</option>
+    </select>
+    
     <div class="modal.total"><b>Total: $<span id="modalTotal">0</span></b></div>
+    
     <label>Nombre</label>
     <input id="modalNombre" placeholder="Tu nombre">
+    
     <label>Teléfono</label>
     <input id="modalTel" type="tel" placeholder="299XXXXXXX">
+    
     <label>Dirección</label>
     <textarea id="modalDir" rows="2" placeholder="Calle y altura"></textarea>
+    
     <label>Forma de pago</label>
-    <select id="modalPago"><option>Efectivo</option><option>Transferencia</option><option>Mercado Pago</option></select>
+    <select id="modalPago">
+      <option>Efectivo</option>
+      <option>Transferencia</option>
+      <option>Mercado Pago</option>
+    </select>
+    
     <div class="modal-btns">
       <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
       <button class="btn-enviar" onclick="enviarPedido()">Enviar por WhatsApp</button>
     </div>
   </div>
-</div><script>
+</div>
+
+<script>
 let promoActual = {};
 let precioActual = 0;
 
