@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,187 +9,133 @@
   --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --sub:#94a3b8;
   --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --border:#334155
 }
-[data-theme="light"]{
-  --bg:#f1f5f9; --card:#ffffff; --text:#0f172a; --sub:#64748b;
-  --accent:#0284c7; --green:#16a34a; --yellow:#ca8a04; --border:#cbd5e1
+body.light{
+  --bg:#e2e8f0; --card:#ffffff; --text:#1e293b; --sub:#475569;
+  --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --border:#94a3b8
 }
-
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:system-ui,-apple-system,sans-serif;
+  font-family:system-ui,sans-serif;
   background:var(--bg);
   color:var(--text);
-  padding:16px;
+  padding:20px;
   max-width:600px;
   margin:0 auto;
-  transition:background 0.3s,color 0.3s
+  transition:0.3s
 }
-.header{text-align:center;margin-bottom:24px;position:relative}
+.header{text-align:center;margin-bottom:30px}
 .logo{
-  width:70px;height:70px;border-radius:50%;
+  width:80px;height:80px;border-radius:50%;
   background:var(--accent);display:flex;align-items:center;
-  justify-content:center;font-size:36px;margin:0 auto 10px;
+  justify-content:center;font-size:40px;margin:0 auto 10px;
   border:3px solid var(--border)
 }
-h1{color:var(--accent);font-size:22px;margin-bottom:4px;font-weight:800}
-.sub{color:var(--sub);font-size:13px;margin-bottom:8px}
+h1{color:var(--accent);font-size:24px;margin-bottom:5px}
+.sub{color:var(--sub);font-size:13px;margin-bottom:10px}
 .horario-badge{
   display:inline-block;background:var(--green);color:white;
-  padding:6px 14px;border-radius:20px;font-size:12px;font-weight:bold
+  padding:6px 14px;border-radius:8px;font-size:12px;font-weight:bold
 }
 .toggle{
-  position:absolute;top:0;right:0;
+  position:absolute;top:20px;right:20px;
   background:var(--card);border:1px solid var(--border);
   padding:8px 12px;border-radius:8px;cursor:pointer;
-  color:var(--text);font-size:13px;font-weight:bold
+  color:var(--text);font-size:13px
 }
-
 .filter-bar{
-  display:flex;gap:8px;margin-bottom:24px;
+  display:flex;gap:8px;margin-bottom:30px;
   flex-wrap:wrap;justify-content:center
 }
 .filter-btn{
-  padding:8px 12px;background:var(--card);
+  padding:9px 14px;background:var(--card);
   border:2px solid var(--border);color:var(--text);
-  border-radius:20px;cursor:pointer;font-weight:600;
-  font-size:12px;transition:0.2s;white-space:nowrap
+  border-radius:50px;cursor:pointer;font-weight:bold;
+  font-size:13px;transition:0.3s;white-space:nowrap
 }
 .filter-btn.active,.filter-btn:hover{
-  background:var(--accent);color:white;
+  background:var(--accent);color:var(--bg);
   border-color:var(--accent)
 }
-
 .bares-grid{
-  display:flex;
-  flex-direction:column;
-  gap:20px
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 420px));
+  gap: 16px;
+  justify-content: center;
 }
-
-.bar-compacto {
-  border:2px solid var(--border); 
-  border-radius:12px; 
-  overflow:hidden; 
-  background:var(--card); 
-  box-shadow:0 2px 8px rgba(0,0,0,0.1)
-}
-.bar-header {
-  padding:14px; 
-  display:flex; 
-  gap:12px; 
-  align-items:center
-}
-.bar-header img {
-  width:70px; 
-  height:70px; 
-  border-radius:10px; 
-  object-fit:cover;
-  border:2px solid var(--border)
-}
-.bar-info {flex:1}
-.bar-info h3 {
-  margin:0 0 5px 0; 
-  font-size:16px; 
-  font-weight:800;
-  color:var(--text)
-}
-.horario-compacto {
-  font-size:12px; 
-  color:var(--sub); 
-  margin:3px 0; 
-  display:flex; 
-  align-items:center; 
-  gap:5px
-}
-.promitos {
-  display:grid; 
-  grid-template-columns:repeat(4,1fr); 
-  gap:6px; 
-  padding:0 14px 14px
-}
-.promito {
-  border:1px solid var(--border); 
-  border-radius:6px; 
-  overflow:hidden; 
-  text-align:center;
-  background:var(--bg)
-}
-.promito img {
-  width:100%; 
-  height:50px; 
-  object-fit:cover
-}
-.promito div {
-  font-size:10px; 
-  padding:4px 2px; 
-  font-weight:700;
-  color:var(--text);
-  line-height:1.2
-}
-.btn-ver {
-  width:calc(100% - 28px); 
-  margin:0 14px 14px; 
-  padding:12px; 
-  background:#25D366; 
-  color:white; 
-  border:none; 
-  border-radius:8px; 
-  font-weight:800; 
-  cursor:pointer; 
-  font-size:15px
-}
-.catalogo {
-  display:none; 
-  padding:0 14px 14px
-}
-.catalogo.active {display:block}
-.promo-card {
-  border:1px solid var(--border); 
-  border-radius:8px; 
-  margin-bottom:12px; 
+.bar{
+  width: 420px;
+  height: 320px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--card);
   overflow:hidden;
-  background:var(--bg)
+  transition:transform 0.2s;
+  display:flex;
+  flex-direction: column;
 }
-.promo-card img {
-  width:100%; 
-  height:140px; 
-  object-fit:cover
+.bar:hover{transform:translateY(-3px);border-color:var(--accent)}
+.bar-img{width:100%;height:130px;object-fit:cover;display:block}
+.bar-body{
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  padding:16px;
 }
-.promo-body {padding:12px}
-.promo-body b {
-  display:block; 
-  margin-bottom:5px; 
-  font-size:16px;
-  color:var(--text)
+.bar h3{color:var(--text);margin-bottom:6px;font-size:16px}
+.horario-local{color:var(--yellow);font-size:11px;font-weight:bold;margin-bottom:10px}
+.promo{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px;margin-top:auto;
+  background:var(--bg);border-radius:10px;gap:10px
 }
-.promo-body p {
-  margin:0 0 8px 0; 
-  font-size:13px; 
-  color:var(--sub)
-}
-.precio {
-  font-size:18px;
-  font-weight:800;
-  color:var(--accent);
-  margin-bottom:10px
-}
-.btn-pedir {
-  display:block; 
-  width:100%; 
-  padding:11px; 
-  background:#25D366; 
-  color:white; 
-  text-align:center; 
-  text-decoration:none; 
-  font-weight:800; 
-  border-radius:6px; 
-  font-size:13px
-}
+.promo span{font-size:14px;flex:1}
+.promo b{color:var(--green);font-size:16px}
 
-.footer{text-align:center;margin-top:60px;padding-top:20px;border-top:2px solid var(--border);font-size:12px;color:var(--sub);line-height:1.7}
+/* MODAL PROMOS */
+.modal-promo{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal-promo.active{display:flex}
+.modal-promo-content{background:var(--card);padding:0;border-radius:16px;max-width:500px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto}
+.modal-promo-img{width:100%;height:280px;object-fit:cover;border-radius:16px 16px 0 0}
+.modal-promo-body{padding:20px}
+.modal-promo h3{color:var(--accent);margin-bottom:8px;font-size:20px}
+.modal-promo.dir{color:var(--sub);font-size:13px;margin-bottom:15px}
+.promos-grid{display:grid;gap:12px;margin-top:16px}
+.promo-box{
+  background:var(--bg);padding:12px;border-radius:10px;
+  border:1px solid var(--border);display:flex;gap:12px;align-items:center;cursor:pointer
+}
+.promo-box-img{width:60px;height:60px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.promo-box-info{flex:1}
+.promo-box b{color:var(--green);font-size:18px;display:block}
+.promo-box-nombre{font-weight:bold;margin:3px 0;font-size:14px}
+.promo-box-desc{color:var(--sub);font-size:12px}
+
+/* MODAL PEDIDO CON FORM COMPLETO + 3 OPCIONES DENTRO */
+.modal{ display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:2001;align-items:center;justify-content:center;padding:20px }
+.modal.active{display:flex}
+.modal-content{background:var(--card);padding:25px;border-radius:16px;max-width:420px;width:100%;border:1px solid var(--border);max-height:90vh;overflow-y:auto}
+.modal h3{color:var(--accent);margin-bottom:15px;font-size:18px}
+.modal input,.modal select,.modal textarea{width:100%;padding:12px;margin-bottom:12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:15px;font-family:inherit}
+.modal label{font-size:13px;color:var(--sub);margin-bottom:5px;display:block}
+.modal.total{background:var(--bg);padding:12px;border-radius:8px;margin:15px 0;font-size:16px;text-align:center;border:1px solid var(--border)}
+.modal.total b{color:var(--green);font-size:20px}
+.opciones-entrega{display:flex;flex-direction:column;gap:8px;margin:12px 0;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border)}
+.opciones-entrega label{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:14px;color:var(--text);font-weight:normal}
+.opciones-entrega input[type="radio"]{width:auto;margin:0}
+.modal-btns{display:flex;gap:10px}
+.modal-btns button{flex:1;padding:12px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}
+.btn-enviar{background:#25D366;color:white}
+.btn-cancelar{background:var(--border);color:var(--text)}
+.footer{text-align:center;margin-top:100px;padding-top:25px;border-top:2px solid var(--border);font-size:12px;color:var(--sub);line-height:1.8}
+@media(max-width:600px){
+  .bares-grid{grid-template-columns:1fr}
+  .bar{width:100%}
+  .filter-bar{gap:6px}
+  .filter-btn{font-size:12px;padding:7px 11px}
 </style>
 </head>
 <body>
-<button class="toggle" id="themeBtn" onclick="toggleTheme()">☀️ Claro</button>
+<button class="toggle" onclick="toggleTheme()">🌓</button>
 
 <div class="header">
   <div class="logo">🚀</div>
@@ -203,476 +149,578 @@ h1{color:var(--accent);font-size:22px;margin-bottom:4px;font-weight:800}
   <button class="filter-btn" onclick="filtrar('carniceria', this)">Carnicerías</button>
   <button class="filter-btn" onclick="filtrar('panaderia', this)">Panaderías</button>
   <button class="filter-btn" onclick="filtrar('verduleria', this)">Verdulerías</button>
-  <button class="filter-btn" onclick="filtrar('polleria', this)">Pollerías</button>
-  <button class="filter-btn" onclick="filtrar('heladeria', this)">Heladerías</button>
-  <button class="filter-btn" onclick="filtrar('kiosco', this)">Kioscos</button>
-  <button class="filter-btn" onclick="filtrar('parrilla', this)">Parrillas</button>
   <button class="filter-btn" onclick="filtrar('bar', this)">Bares</button>
-  <button class="filter-btn" onclick="filtrar('libreria', this)">Librerías</button>
-  <button class="filter-btn" onclick="filtrar('forrajeria', this)">Forrajerías</button>
-  <button class="filter-btn" onclick="filtrar('pintureria', this)">Pinturerías</button>
-  <button class="filter-btn" onclick="filtrar('electro', this)">Electro</button>
-  <button class="filter-btn" onclick="filtrar('ferreteria', this)">Ferreterías</button>
-  <button class="filter-btn" onclick="filtrar('veterinaria', this)">Veterinarias</button>
+  <button class="filter-btn" onclick="filtrar('kiosco', this)">Kioscos</button>
 </div>
 
-<div class="bares-grid">
+<div class="bares-grid"><!-- 1. CARNICERÍA EL AMIGO -->
+<div class="bar" data-categoria="carniceria" data-local-id="carniceria-el-amigo">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop">
+  <div class="bar-body">
+    <h3>Carnicería El Amigo</h3>
+    <p class="horario-local"><span id="estado-carniceria-el-amigo" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 Lun a Sáb 8 a 20hs</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Asado 2kg</div><button onclick="abrirPedido('Carnicería El Amigo', 'Asado 2kg', 15000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Milanesas x6</div><button onclick="abrirPedido('Carnicería El Amigo', 'Milanesas x6', 8000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Chorizos x12</div><button onclick="abrirPedido('Carnicería El Amigo', 'Chorizos x12', 6500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Parri</div><button onclick="abrirPedido('Carnicería El Amigo', 'Combo Parri', 22000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
 
-<!-- LOCAL 1: Carnicería El Amigo - YA CORREGIDO -->
-<div class="bar-compacto" data-categoria="carniceria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=300&h=300&fit=crop" alt="El Amigo">
-    <div class="bar-info">
-      <h3>Carnicería El Amigo</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Av. San Martín 450</div>
+<!-- 2. PANADERÍA SAN JORGE -->
+<div class="bar" data-categoria="panaderia" data-local-id="panaderia-san-jorge">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop">
+  <div class="bar-body">
+    <h3>Panadería San Jorge</h3>
+    <p class="horario-local"><span id="estado-panaderia-san-jorge" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 6 a 21hs todos los días</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Docena Facturas</div><button onclick="abrirPedido('Panadería San Jorge', 'Docena Facturas', 4500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Tarta Completa</div><button onclick="abrirPedido('Panadería San Jorge', 'Tarta Completa', 3800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Pan Casero x2</div><button onclick="abrirPedido('Panadería San Jorge', 'Pan Casero x2', 2200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Torta Cumple</div><button onclick="abrirPedido('Panadería San Jorge', 'Torta Cumple', 12000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<!-- 3. VERDULERÍA DON PEPE -->
+<div class="bar" data-categoria="verduleria" data-local-id="verduleria-don-pepe">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop">
+  <div class="bar-body">
+    <h3>Verdulería Don Pepe</h3>
+    <p class="horario-local"><span id="estado-verduleria-don-pepe" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 7 a 20hs todos los días</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Bolsón Familia</div><button onclick="abrirPedido('Verdulería Don Pepe', 'Bolsón Familia', 3500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Fruta Fresca 3kg</div><button onclick="abrirPedido('Verdulería Don Pepe', 'Fruta Fresca 3kg', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Ensalada Completa</div><button onclick="abrirPedido('Verdulería Don Pepe', 'Ensalada Completa', 2800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Dieta</div><button onclick="abrirPedido('Verdulería Don Pepe', 'Combo Dieta', 5500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<!-- 4. BAR LOS AMIGOS -->
+<div class="bar" data-categoria="bar" data-local-id="bar-los-amigos">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop">
+  <div class="bar-body">
+    <h3>Bar Los Amigos</h3>
+    <p class="horario-local"><span id="estado-bar-los-amigos" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 18 a 3hs Jue a Dom</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">2x1 Fernet</div><button onclick="abrirPedido('Bar Los Amigos', '2x1 Fernet', 5000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Picada 2 pers</div><button onclick="abrirPedido('Bar Los Amigos', 'Picada 2 pers', 8500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Promo Gancia</div><button onclick="abrirPedido('Bar Los Amigos', 'Promo Gancia', 3200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Nachos + Cheddar</div><button onclick="abrirPedido('Bar Los Amigos', 'Nachos + Cheddar', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<!-- 5. KIOSCO 24HS EL RÁPIDO -->
+<div class="bar" data-categoria="kiosco" data-local-id="kiosco-el-rapido">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop">
+  <div class="bar-body">
+    <h3>Kiosco 24hs El Rápido</h3>
+    <p class="horario-local"><span id="estado-kiosco-el-rapido" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO 24HS</span> 🕐 Abierto las 24hs todos los días</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Gaseosa + Snack</div><button onclick="abrirPedido('Kiosco El Rápido', 'Combo Gaseosa + Snack', 1800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Alfajores x6</div><button onclick="abrirPedido('Kiosco El Rápido', 'Alfajores x6', 2400)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Cigarrillos + Encendedor</div><button onclick="abrirPedido('Kiosco El Rápido', 'Cigarrillos + Encendedor', 1200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Carga SUBE</div><button onclick="abrirPedido('Kiosco El Rápido', 'Carga SUBE', 0)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<!-- 6 AL 20 - REPETÍ ESTRUCTURA -->
+<div class="bar" data-categoria="carniceria" data-local-id="carniceria-san-jose"><img class="bar-img" src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&h=300&fit=crop"><div class="bar-body"><h3>Carnicería San José</h3><p class="horario-local"><span id="estado-carniceria-san-jose" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 Lun a Sáb 8:30 a 20:30hs</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Vacío 1kg</div><button onclick="abrirPedido('Carnicería San José', 'Vacío 1kg', 12000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Picada Completa</div><button onclick="abrirPedido('Carnicería San José', 'Picada Completa', 18000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Pollo Entero</div><button onclick="abrirPedido('Carnicería San José', 'Pollo Entero', 6500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Milanga</div><button onclick="abrirPedido('Carnicería San José', 'Combo Milanga', 14000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<div class="bar" data-categoria="panaderia" data-local-id="panaderia-el-horno"><img class="bar-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=400&h=300&fit=crop"><div class="bar-body"><h3>Panadería El Horno</h3><p class="horario-local"><span id="estado-panaderia-el-horno" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 5:30 a 21:30hs</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">2x1 Criollos</div><button onclick="abrirPedido('Panadería El Horno', '2x1 Criollos', 2800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Tortas Fritas x6</div><button onclick="abrirPedido('Panadería El Horno', 'Tortas Fritas x6', 1800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Fugazza Completa</div><button onclick="abrirPedido('Panadería El Horno', 'Fugazza Completa', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Alfajores x12</div><button onclick="abrirPedido('Panadería El Horno', 'Alfajores x12', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<!-- 7. PARRILLA LA ESTACA -->
+<div class="bar" data-categoria="parrilla" data-local-id="parrilla-la-estaca"><img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="bar-body"><h3>Parrilla La Estaca</h3><p class="horario-local"><span id="estado-parrilla-la-estaca" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 11 a 15hs y 20 a 00hs</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Tira + Vacío 2 pers</div><button onclick="abrirPedido('Parrilla La Estaca', 'Tira + Vacío 2 pers', 25000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Chori Pan x4</div><button onclick="abrirPedido('Parrilla La Estaca', 'Chori Pan x4', 3200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Costillar Completo</div><button onclick="abrirPedido('Parrilla La Estaca', 'Costillar Completo', 38000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Provoleta + Chori</div><button onclick="abrirPedido('Parrilla La Estaca', 'Provoleta + Chori', 6500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 8. HELADERÍA DOLCE VITA -->
+<div class="bar" data-categoria="heladeria" data-local-id="heladeria-dolce-vita"><img class="bar-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"><div class="bar-body"><h3>Heladería Dolce Vita</h3><p class="horario-local"><span id="estado-heladeria-dolce-vita" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 15 a 23hs todos los días</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">1/4 Helado + 2 Cucuruchos</div><button onclick="abrirPedido('Heladería Dolce Vita', '1/4 Helado + 2 Cucuruchos', 3800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Postre Helado Familiar</div><button onclick="abrirPedido('Heladería Dolce Vita', 'Postre Helado Familiar', 8500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Copa Dulce Tentación</div><button onclick="abrirPedido('Heladería Dolce Vita', 'Copa Dulce Tentación', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Torta Helada 1kg</div><button onclick="abrirPedido('Heladería Dolce Vita', 'Torta Helada 1kg', 12000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 9. POLLERÍA LA GRANJA -->
+<div class="bar" data-categoria="polleria" data-local-id="polleria-la-granja"><img class="bar-img" src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=400&h=300&fit=crop"><div class="bar-body"><h3>Pollería La Granja</h3><p class="horario-local"><span id="estado-polleria-la-granja" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 8 a 20hs Lun a Sáb</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Pollo Entero</div><button onclick="abrirPedido('Pollería La Granja', 'Pollo Entero', 7200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Pata Muslo x4</div><button onclick="abrirPedido('Pollería La Granja', 'Pata Muslo x4', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Milanesas x8</div><button onclick="abrirPedido('Pollería La Granja', 'Milanesas x8', 9200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Alitas x2kg</div><button onclick="abrirPedido('Pollería La Granja', 'Alitas x2kg', 11000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 10. CARNICERÍA LA IDEAL -->
+<div class="bar" data-categoria="carniceria" data-local-id="carniceria-la-ideal"><img class="bar-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop"><div class="bar-body"><h3>Carnicería La Ideal</h3><p class="horario-local"><span id="estado-carniceria-la-ideal" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 Lun a Sáb 7:30 a 20hs</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Costilla 3kg</div><button onclick="abrirPedido('Carnicería La Ideal', 'Costilla 3kg', 16000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Carne Molida 2kg</div><button onclick="abrirPedido('Carnicería La Ideal', 'Carne Molida 2kg', 9800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Matambre Tierno</div><button onclick="abrirPedido('Carnicería La Ideal', 'Matambre Tierno', 13500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Familia</div><button onclick="abrirPedido('Carnicería La Ideal', 'Combo Familia', 24000)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 11. PANADERÍA LA ESPAÑOLA -->
+<div class="bar" data-categoria="panaderia" data-local-id="panaderia-la-espanola"><img class="bar-img" src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop"><div class="bar-body"><h3>Panadería La Española</h3><p class="horario-local"><span id="estado-panaderia-la-espanola" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 6 a 20hs Lun a Dom</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Medialunas x12</div><button onclick="abrirPedido('Panadería La Española', 'Medialunas x12', 3600)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Pan de Miga</div><button onclick="abrirPedido('Panadería La Española', 'Pan de Miga', 5200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Chipá x20</div><button onclick="abrirPedido('Panadería La Española', 'Chipá x20', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Tarta Jamón y Queso</div><button onclick="abrirPedido('Panadería La Española', 'Tarta Jamón y Queso', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 12. VERDULERÍA LA HUERTA -->
+<div class="bar" data-categoria="verduleria" data-local-id="verduleria-la-huerta"><img class="bar-img" src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=400&h=300&fit=crop"><div class="bar-body"><h3>Verdulería La Huerta</h3><p class="horario-local"><span id="estado-verduleria-la-huerta" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 8 a 21hs Lun a Sáb</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Verdura 5kg</div><button onclick="abrirPedido('Verdulería La Huerta', 'Verdura 5kg', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Frutilla 2kg</div><button onclick="abrirPedido('Verdulería La Huerta', 'Frutilla 2kg', 3800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Mix Ensalada</div><button onclick="abrirPedido('Verdulería La Huerta', 'Mix Ensalada', 3200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Jugos</div><button onclick="abrirPedido('Verdulería La Huerta', 'Combo Jugos', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 13. BAR EL ENCUENTRO -->
+<div class="bar" data-categoria="bar" data-local-id="bar-el-encuentro"><img class="bar-img" src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop"><div class="bar-body"><h3>Bar El Encuentro</h3><p class="horario-local"><span id="estado-bar-el-encuentro" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 19 a 2hs Mar a Dom</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Jarra Cerveza 2L</div><button onclick="abrirPedido('Bar El Encuentro', 'Jarra Cerveza 2L', 6500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Picada Grande</div><button onclick="abrirPedido('Bar El Encuentro', 'Picada Grande', 9200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Fernet + Coca</div><button onclick="abrirPedido('Bar El Encuentro', 'Fernet + Coca', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Papas Cheddar</div><button onclick="abrirPedido('Bar El Encuentro', 'Papas Cheddar', 3800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 14. KIOSCO LA ESQUINA -->
+<div class="bar" data-categoria="kiosco" data-local-id="kiosco-la-esquina"><img class="bar-img" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop"><div class="bar-body"><h3>Kiosco La Esquina</h3><p class="horario-local"><span id="estado-kiosco-la-esquina" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO 24HS</span> 🕐 24hs todos los días</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Desayuno</div><button onclick="abrirPedido('Kiosco La Esquina', 'Combo Desayuno', 2200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Golocinas x10</div><button onclick="abrirPedido('Kiosco La Esquina', 'Golocinas x10', 1800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Puchos + Fósforos</div><button onclick="abrirPedido('Kiosco La Esquina', 'Puchos + Fósforos', 1400)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Gaseosa 2.5L</div><button onclick="abrirPedido('Kiosco La Esquina', 'Gaseosa 2.5L', 2800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 15. ROTISERÍA MAMÁ LUCHA -->
+<div class="bar" data-categoria="rotiseria" data-local-id="rotiseria-mama-lucha"><img class="bar-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"><div class="bar-body"><h3>Rotisería Mamá Lucha</h3><p class="horario-local"><span id="estado-rotiseria-mama-lucha" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 10 a 15hs y 19 a 23hs</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Milanesa Napo</div><button onclick="abrirPedido('Rotisería Mamá Lucha', 'Milanesa Napo', 5200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1563379091339-03246963b29f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Pollo al Horno</div><button onclick="abrirPedido('Rotisería Mamá Lucha', 'Pollo al Horno', 6800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Empanadas x12</div><button onclick="abrirPedido('Rotisería Mamá Lucha', 'Empanadas x12', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1563379091339-03246963b29f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Ensalada Rusa 1kg</div><button onclick="abrirPedido('Rotisería Mamá Lucha', 'Ensalada Rusa 1kg', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 16. PIZZERÍA DON PEPONE -->
+<div class="bar" data-categoria="pizzeria" data-local-id="pizzeria-don-pepone"><img class="bar-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop"><div class="bar-body"><h3>Pizzería Don Pepone</h3><p class="horario-local"><span id="estado-pizzeria-don-pepone" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 19 a 1hs Mar a Dom</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Pizza Muzza Grande</div><button onclick="abrirPedido('Pizzería Don Pepone', 'Pizza Muzza Grande', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">2x1 Empanadas</div><button onclick="abrirPedido('Pizzería Don Pepone', '2x1 Empanadas', 3800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Fugazzeta Rellena</div><button onclick="abrirPedido('Pizzería Don Pepone', 'Fugazzeta Rellena', 6200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo Familia</div><button onclick="abrirPedido('Pizzería Don Pepone', 'Combo Familia', 12500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 17. SUSHÍ YA -->
+<div class="bar" data-categoria="sushi" data-local-id="sushi-ya"><img class="bar-img" src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=300&fit=crop"><div class="bar-body"><h3>Sushi Ya</h3><p class="horario-local"><span id="estado-sushi-ya" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 20 a 2hs Jue a Dom</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo 30 piezas</div><button onclick="abrirPedido('Sushi Ya', 'Combo 30 piezas', 8500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Salmón Nigiri x8</div><button onclick="abrirPedido('Sushi Ya', 'Salmón Nigiri x8', 5200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Hot Roll x12</div><button onclick="abrirPedido('Sushi Ya', 'Hot Roll x12', 6800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Bandeja 50 piezas</div><button onclick="abrirPedido('Sushi Ya', 'Bandeja 50 piezas', 13500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 18. LOMITERÍA EL GAUCHO -->
+<div class="bar" data-categoria="lomiteria" data-local-id="lomiteria-el-gaucho"><img class="bar-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop"><div class="bar-body"><h3>Lomitería El Gaucho</h3><p class="horario-local"><span id="estado-lomiteria-el-gaucho" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 20 a 3hs Mar a Dom</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Lomo Completo</div><button onclick="abrirPedido('Lomitería El Gaucho', 'Lomo Completo', 6500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Hamburguesa Doble</div><button onclick="abrirPedido('Lomitería El Gaucho', 'Hamburguesa Doble', 5800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Papas Fritas 1kg</div><button onclick="abrirPedido('Lomitería El Gaucho', 'Papas Fritas 1kg', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Combo 2 Lomos</div><button onclick="abrirPedido('Lomitería El Gaucho', 'Combo 2 Lomos', 11800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 19. VEGGIE BAR -->
+<div class="bar" data-categoria="veggie" data-local-id="veggie-bar"><img class="bar-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop"><div class="bar-body"><h3>Veggie Bar</h3><p class="horario-local"><span id="estado-veggie-bar" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 12 a 15hs y 20 a 23hs</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Bowl Buddha</div><button onclick="abrirPedido('Veggie Bar', 'Bowl Buddha', 5200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1563379091339-03246963b29f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Hamburguesa Garbanzo</div><button onclick="abrirPedido('Veggie Bar', 'Hamburguesa Garbanzo', 4800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Wrap Veggie</div><button onclick="abrirPedido('Veggie Bar', 'Wrap Veggie', 4500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1563379091339-03246963b29f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Ensalada Completa</div><button onclick="abrirPedido('Veggie Bar', 'Ensalada Completa', 4200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+<!-- 20. CAFETERÍA EL RINCÓN -->
+<div class="bar" data-categoria="cafeteria" data-local-id="cafeteria-el-rincon"><img class="bar-img" src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop"><div class="bar-body"><h3>Cafetería El Rincón</h3><p class="horario-local"><span id="estado-cafeteria-el-rincon" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span> 🕐 7 a 20hs Lun a Sáb</p><div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0"><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Café + 2 Medialunas</div><button onclick="abrirPedido('Cafetería El Rincón', 'Café + 2 Medialunas', 1800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Tostado + Gaseosa</div><button onclick="abrirPedido('Cafetería El Rincón', 'Tostado + Gaseosa', 3200)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Porción Torta</div><button onclick="abrirPedido('Cafetería El Rincón', 'Porción Torta', 2800)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div><div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover"><div style="padding:6px; font-size:12px; font-weight:bold">Licuado Completo</div><button onclick="abrirPedido('Cafetería El Rincón', 'Licuado Completo', 3500)" style="display:block; width:100%; padding:5px; background:#25D366; color:white; border:none; font-size:11px; font-weight:bold; cursor:pointer">Pedir</button></div></div><div class="promo"><span>Promos</span><b>4/4</b></div></div></div>
+
+</div> <!-- CIERRA .bares-grid --><!-- MODAL PROMOS -->
+<div class="modal-promo" id="modalPromo">
+  <div class="modal-promo-content">
+    <img class="modal-promo-img" id="modalPromoImg" src="" alt="">
+    <div class="modal-promo-body">
+      <h3 id="modalPromoNombre"></h3>
+      <p class="modal-promo.dir" id="modalPromoDir"></p>
+      <div class="promos-grid" id="promosGrid"></div>
     </div>
   </div>
-  
-  <!-- Promitos mini que te gustaron -->
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Asado $8900</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Picada $6500</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=150"><div>Milanesas $4200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Chorizos $3800</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat1')">Ver catálogo completo</button>
-  
-  <!-- Catálogo que se abre con fotos grandes + descripción + precio -->
-  <div class="catalogo" id="cat1">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
-      <div class="promo-body">
-        <b>Asado de tira premium</b>
-        <p>Kilogramo seleccionado, tierno y jugoso. Corte de novillo, ideal para parrilla.</p>
-        <div class="precio">$8900</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Asado%20premium%20con%20ENVIO%20$8900+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Asado%20premium%20RETIRO%20$8900" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
+</div>
+
+<!-- MODAL PEDIDO CON FORM COMPLETO + 3 OPCIONES DENTRO -->
+<div class="modal" id="modalPedido">
+  <div class="modal-content">
+    <h3 id="modalTitulo">Hacer pedido</h3>
+    
+    <label>Promo elegida</label>
+    <input id="modalPromoElegida" readonly>
+    
+    <label>Precio unitario</label>
+    <input id="modalPrecio" readonly>
+    
+    <label>Cantidad</label>
+    <select id="modalCantidad" onchange="calcularTotal()">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    
+    <label>Opciones de entrega</label>
+    <div class="opciones-entrega">
+      <label><input type="radio" name="entrega" value="0" checked onchange="calcularTotal()"> Retiro en el local - $0</label>
+      <label><input type="radio" name="entrega" value="2000" onchange="calcularTotal()"> Envío a domicilio - $2.000</label>
+      <label><input type="radio" name="entrega" value="0" onchange="calcularTotal()"> A coordinar con el local</label>
     </div>
     
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
-      <div class="promo-body">
-        <b>Picada para 4 personas</b>
-        <p>Incluye: 4 chorizos, 2 morcillas, 1kg vacío, 500g chinchulines. Lista para tirar a la parri.</p>
-        <div class="precio">$6500</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Picada%20x4%20con%20ENVIO%20$6500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Picada%20x4%20RETIRO%20$6500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
+    <div class="modal.total"><b>Total: $<span id="modalTotal">0</span></b></div>
     
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600">
-      <div class="promo-body">
-        <b>Milanesas de nalga x6 unidades</b>
-        <p>Empanadas caseras con pan rallado artesanal. Lista para freír o al horno.</p>
-        <div class="precio">$4200</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Milanesas%20x6%20con%20ENVIO%20$4200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Milanesas%20x6%20RETIRO%20$4200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><!-- LOCAL 2: Carnicería San José - CORREGIDO -->
-<div class="bar-compacto" data-categoria="carniceria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=300&h=300&fit=crop" alt="San José">
-    <div class="bar-info">
-      <h3>Carnicería San José</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Belgrano 1280</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Vacío $9200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Costillas $8500</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=150"><div>Bondiolita $5200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Pulpa $7800</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat2')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat2">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
-      <div class="promo-body">
-        <b>Vacío tiernizado 7 días</b>
-        <p>Kilogramo de vacío madurado. Corte premium, súper tierno y jugoso para la parrilla.</p>
-        <div class="precio">$9200</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Vacío%20tiernizadocon%20ENVIO%20$9200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Vacío%20tiernizado%20RETIRO%20$9200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
+    <label>Nombre</label>
+    <input id="modalNombre" placeholder="Tu nombre" required>
     
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
-      <div class="promo-body">
-        <b>Costillas de ternera</b>
-        <p>Kilogramo de costillar completo. Ideales para hacer al asador o a la parrilla.</p>
-        <div class="precio">$8500</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Costillas%20con%20ENVIO%20$8500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Costillas%20RETIRO%20$8500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- LOCAL 3: Carnicería La Ideal - CORREGIDO -->
-<div class="bar-compacto" data-categoria="carniceria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=300&fit=crop" alt="La Ideal">
-    <div class="bar-info">
-      <h3>Carnicería La Ideal</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Rivadavia 890</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Entraña $9800</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Matambre $8600</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=150"><div>Hamburguesas $3500</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Molida $4100</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat3')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat3">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
-      <div class="promo-body">
-        <b>Entraña a la parrilla</b>
-        <p>Kilogramo de entraña finita. Corte premium, se cocina rápido y queda increíble.</p>
-        <div class="precio">$9800</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Entraña%20con%20ENVIO%20$9800+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Entraña%20RETIRO%20$9800" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
+    <label>Apellido</label>
+    <input id="modalApellido" placeholder="Tu apellido" required>
     
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
-      <div class="promo-body">
-        <b>Matambre arrollado</b>
-        <p>Matambre relleno casero x1kg. Lista para hervir y cortar en rodajas.</p>
-        <div class="precio">$8600</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Matambre%20con%20ENVIO%20$8600+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Matambre%20RETIRO%20$8600" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><!-- LOCAL 4: Panadería La Espiga - CORREGIDO -->
-<div class="bar-compacto" data-categoria="panaderia">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=300&fit=crop" alt="La Espiga">
-    <div class="bar-info">
-      <h3>Panadería La Espiga</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Av. Libertad 320</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Pan $2800</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Criollos $3200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Tortas $4500</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Facturas $3800</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat4')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat4">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600">
-      <div class="promo-body">
-        <b>Pan casero x2 kg</b>
-        <p>Recién horneado, corteza crocante y miga esponjosa. Ideal para tostadas.</p>
-        <div class="precio">$2800</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pan%20x2kg%20con%20ENVIO%20$2800+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pan%20x2kg%20RETIRO%20$2800" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
+    <label>Teléfono</label>
+    <input id="modalTel" type="tel" placeholder="299XXXXXXX" required>
     
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600">
-      <div class="promo-body">
-        <b>Docena de facturas surtidas</b>
-        <p>6 de crema, 3 membrillo, 3 dulce de leche. Recién horneadas a la mañana.</p>
-        <div class="precio">$3800</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Facturas%20con%20ENVIO%20$3800+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Facturas%20RETIRO%20$3800" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- LOCAL 5: Panadería El Trigal - CORREGIDO -->
-<div class="bar-compacto" data-categoria="panaderia">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=300&h=300&fit=crop" alt="El Trigal">
-    <div class="bar-info">
-      <h3>Panadería El Trigal</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Sarmiento 765</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Facturas $3600</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Tortas $4200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Pan $2600</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Prepizzas $2200</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat5')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat5">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600">
-      <div class="promo-body">
-        <b>Docena de criollos salados</b>
-        <p>Hojaldrados, crocantes y caseros. El clásico de Tres Arroyos.</p>
-        <div class="precio">$3600</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Criollos%20con%20ENVIO%20$3600+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Criollos%20RETIRO%20$3600" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- LOCAL 6: Panadería Don Carlos - CORREGIDO -->
-<div class="bar-compacto" data-categoria="panaderia">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=300&h=300&fit=crop" alt="Don Carlos">
-    <div class="bar-info">
-      <h3>Panadería Don Carlos</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Colón 1450</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=150"><div>Criollos $3000</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Pan $2700</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=150"><div>Medialunas $3400</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Rosca $5200</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat6')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat6">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=600">
-      <div class="promo-body">
-        <b>Docena de medialunas de manteca</b>
-        <p>Manteca pura, esponjosas y doradas. Recién salidas del horno.</p>
-        <div class="precio">$3400</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Medialunas%20con%20ENVIO%20$3400+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Medialunas%20RETIRO%20$3400" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><!-- LOCAL 7: Verdulería La Huerta - CORREGIDO -->
-<div class="bar-compacto" data-categoria="verduleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=300&h=300&fit=crop" alt="La Huerta">
-    <div class="bar-info">
-      <h3>Verdulería La Huerta</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Av. Dorrego 210</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Tomate $1800</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Papa $1200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Cebolla $1000</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Frutas $2500</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat7')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat7">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600">
-      <div class="promo-body">
-        <b>Bolsón de verduras x5kg</b>
-        <p>Tomate, lechuga, zanahoria, morrón, papa. Todo fresco de quinta.</p>
-        <div class="precio">$8500</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Bolsón%20con%20ENVIO%20$8500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Bolsón%20RETIRO%20$8500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- LOCAL 8: Verdulería El Sol - CORREGIDO -->
-<div class="bar-compacto" data-categoria="verduleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&h=300&fit=crop" alt="El Sol">
-    <div class="bar-info">
-      <h3>Verdulería El Sol</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 Moreno 980</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Frutas $2300</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Lechuga $800</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Morrón $2100</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Zanahoria $900</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat8')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat8">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600">
-      <div class="promo-body">
-        <b>Mix de frutas x3kg</b>
-        <p>Manzana, banana, naranja, pera. Selección de estación.</p>
-        <div class="precio">$6500</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Mix%20frutas%20con%20ENVIO%20$6500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Mix%20frutas%20RETIRO%20$6500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- LOCAL 9: Pollería Don Luis - CORREGIDO -->
-<div class="bar-compacto" data-categoria="polleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=300&h=300&fit=crop" alt="Don Luis">
-    <div class="bar-info">
-      <h3>Pollería Don Luis</h3>
-      <div class="horario-compacto">🕐 24hs</div>
-      <div class="horario-compacto">📍 25 de Mayo 560</div>
-    </div>
-  </div>
-  
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Pollo $4200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Pata/muslo $3800</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Supremas $5200</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Alitas $3500</div></div>
-  </div>
-  
-  <button class="btn-ver" onclick="toggleCatalogo('cat9')">Ver catálogo completo</button>
-  
-  <div class="catalogo" id="cat9">
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
-      <div class="promo-body">
-        <b>Pollo entero fresco</b>
-        <p>Kilogramo de pollo fresco, limpio y listo para cocinar. De granja.</p>
-        <div class="precio">$4200</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pollo%20entero%20con%20ENVIO%20$4200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pollo%20entero%20RETIRO%20$4200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
-    </div>
+    <label>Dirección</label>
+    <input id="modalDir" placeholder="Calle y altura" required>
     
-    <div class="promo-card">
-      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
-      <div class="promo-body">
-        <b>Supremas x1kg</b>
-        <p>Supremas de pollo sin hueso ni piel. Tiernas y frescas.</p>
-        <div class="precio">$5200</div>
-        <div style="display:flex;gap:6px;flex-direction:column">
-          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Supremas%20con%20ENVIO%20$5200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
-          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Supremas%20RETIRO%20$5200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
-        </div>
-      </div>
+    <label>Piso / Depto</label>
+    <input id="modalPiso" placeholder="Ej: 3° B - Opcional">
+    
+    <label>Aclaraciones</label>
+    <textarea id="modalAclaraciones" rows="2" placeholder="Timbre, referencias, etc - Opcional"></textarea>
+    
+    <label>Forma de pago</label>
+    <select id="modalPago">
+      <option>Efectivo</option>
+      <option>Transferencia</option>
+      <option>Mercado Pago</option>
+    </select>
+    
+    <div class="modal-btns">
+      <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
+      <button class="btn-enviar" onclick="enviarPedido()">Enviar por WhatsApp</button>
     </div>
   </div>
-</div><!-- FOOTER -->
-<div class="footer">
-  <p><b>Promos Tres Arroyos 24hs</b></p>
-  <p>Todas las promos de tu ciudad en un solo lugar</p>
-  <p style="margin-top:10px">Delivery y retiro las 24hs • WhatsApp directo</p>
-  <p style="margin-top:15px;font-size:11px">© 2026 Promos Tres Arroyos. Todos los derechos reservados.</p>
 </div>
 
-<!-- JAVASCRIPT: Filtros + Modo Oscuro + Abrir Catálogo -->
 <script>
-function toggleTheme(){
-  const html = document.documentElement;
-  const btn = document.getElementById('themeBtn');
-  if(html.getAttribute('data-theme') === 'dark'){
-    html.setAttribute('data-theme', 'light');
-    btn.textContent = '🌙 Oscuro';
+let promoActual = {};
+let precioActual = 0;
+
+function aplicarTemaAuto(){
+  const hora = new Date().getHours();
+  if(hora >= 0 && hora < 7){
+    document.body.classList.remove('light');
   } else {
-    html.setAttribute('data-theme', 'dark');
-    btn.textContent = '☀️ Claro';
+    document.body.classList.add('light');
   }
 }
+aplicarTemaAuto();
+setInterval(aplicarTemaAuto, 60000);
 
-function filtrar(categoria, btn){
-  // Saco active de todos los botones
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  // Pongo active al botón clickeado
-  btn.classList.add('active');
+function toggleTheme(){
+  document.body.classList.toggle('light');
+}
+
+function filtrar(categoria, boton){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  boton.classList.add('active');
   
-  // Filtro los locales por data-categoria
-  document.querySelectorAll('.bar-compacto').forEach(card => {
-    if(categoria === 'all' || card.dataset.categoria === categoria){
-      card.style.display = 'block';
+  document.querySelectorAll('.bar').forEach(bar=>{
+    if(categoria === 'all' || bar.dataset.categoria === categoria){
+      bar.style.display = 'flex';
     } else {
-      card.style.display = 'none';
+      bar.style.display = 'none';
     }
   });
 }
 
-function toggleCatalogo(id){
-  const cat = document.getElementById(id);
-  cat.classList.toggle('active');
+function abrirPedido(local, promo, precio){
+  promoActual = {local, promo};
+  precioActual = precio;
+  document.getElementById('modalPromo').classList.remove('active');
+  document.getElementById('modalTitulo').textContent = 'Pedido: ' + local;
+  document.getElementById('modalPromoElegida').value = promo;
+  document.getElementById('modalPrecio').value = '$' + precio.toLocaleString('es-AR');
+  calcularTotal();
+  document.getElementById('modalPedido').classList.add('active');
+}
+
+function cerrarModal(){
+  document.getElementById('modalPedido').classList.remove('active');
+}
+
+function calcularTotal(){
+  const cant = parseInt(document.getElementById('modalCantidad').value) || 1;
+  const envio = parseInt(document.querySelector('input[name="entrega"]:checked').value) || 0;
+  const subtotal = precioActual * cant;
+  const total = subtotal + envio;
+  
+  document.getElementById('modalTotal').textContent = total.toLocaleString('es-AR');
+}
+
+function enviarPedido(){
+  const nombre = document.getElementById('modalNombre').value;
+  const apellido = document.getElementById('modalApellido').value;
+  const tel = document.getElementById('modalTel').value;
+  const dir = document.getElementById('modalDir').value;
+  const piso = document.getElementById('modalPiso').value;
+  const aclaraciones = document.getElementById('modalAclaraciones').value;
+  const pago = document.getElementById('modalPago').value;
+  const cant = document.getElementById('modalCantidad').value;
+  const envio = parseInt(document.querySelector('input[name="entrega"]:checked').value);
+  const envioTexto = document.querySelector('input[name="entrega"]:checked').parentElement.textContent.trim();
+  const total = document.getElementById('modalTotal').textContent;
+  const subtotal = precioActual * cant;
+  
+  if(!nombre || !apellido || !tel || !dir){
+    alert('Completá nombre, apellido, teléfono y dirección');
+    return;
+  }
+  
+  const msg = `*PEDIDO PROMOS 24HS*%0A%0A`+
+    `Local: ${promoActual.local}%0A`+
+    `Promo: ${promoActual.promo}%0A`+
+    `Cantidad: ${cant}%0A`+
+    `Subtotal: $${subtotal.toLocaleString('es-AR')}%0A`+
+    `Envío: ${envioTexto}%0A`+
+    `*Total: $${total}*%0A%0A`+
+    `Nombre: ${nombre} ${apellido}%0A`+
+    `Tel cliente: ${tel}%0A`+
+    `Dirección: ${dir}%0A`+
+    (piso ? `Piso/Depto: ${piso}%0A` : '')+
+    (aclaraciones ? `Aclaraciones: ${aclaraciones}%0A` : '')+
+    `Pago: ${pago}`;
+    
+  window.open('https://wa.me/5492983389710?text=' + msg, '_blank');
+  cerrarModal();
+}<script>
+const CLAVE_ADMIN = 'tres2026';
+
+const TODOS_LOS_LOCALES = [
+  {id: 'carniceria-el-amigo', nombre: 'Carnicería El Amigo'},
+  {id: 'panaderia-san-jorge', nombre: 'Panadería San Jorge'},
+  {id: 'verduleria-don-pepe', nombre: 'Verdulería Don Pepe'},
+  {id: 'bar-los-amigos', nombre: 'Bar Los Amigos'},
+  {id: 'kiosco-el-rapido', nombre: 'Kiosco El Rápido'},
+  {id: 'carniceria-san-jose', nombre: 'Carnicería San José'},
+  {id: 'panaderia-el-horno', nombre: 'Panadería El Horno'},
+  {id: 'parrilla-la-estaca', nombre: 'Parrilla La Estaca'},
+  {id: 'heladeria-dolce-vita', nombre: 'Heladería Dolce Vita'},
+  {id: 'polleria-la-granja', nombre: 'Pollería La Granja'},
+  {id: 'carniceria-la-ideal', nombre: 'Carnicería La Ideal'},
+  {id: 'panaderia-la-espanola', nombre: 'Panadería La Española'},
+  {id: 'verduleria-la-huerta', nombre: 'Verdulería La Huerta'},
+  {id: 'bar-el-encuentro', nombre: 'Bar El Encuentro'},
+  {id: 'kiosco-la-esquina', nombre: 'Kiosco La Esquina'},
+  {id: 'rotiseria-mama-lucha', nombre: 'Rotisería Mamá Lucha'},
+  {id: 'pizzeria-don-pepone', nombre: 'Pizzería Don Pepone'},
+  {id: 'sushi-ya', nombre: 'Sushi Ya'},
+  {id: 'lomiteria-el-gaucho', nombre: 'Lomitería El Gaucho'},
+  {id: 'veggie-bar', nombre: 'Veggie Bar'},
+  {id: 'cafeteria-el-rincon', nombre: 'Cafetería El Rincón'}
+];
+
+let datosLocales = JSON.parse(localStorage.getItem('promos24hs')) || {};
+
+window.addEventListener('storage', function(e) {
+  if(e.key === 'promos24hs' && document.getElementById('panelModal')?.style.display === 'block') {
+    datosLocales = JSON.parse(e.newValue);
+    renderPanel();
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if(e.ctrlKey && e.shiftKey && e.key.toUpperCase() === 'P') {
+    e.preventDefault();
+    pedirClave();
+  }
+});
+
+function pedirClave() {
+  let clave = prompt('🔒 Panel Admin Tres Arroyos\nIngresá la clave:');
+  if(clave === CLAVE_ADMIN) {
+    mostrarPanel();
+  } else if(clave!== null) {
+    alert('Clave incorrecta ❌');
+  }
+}
+
+function mostrarPanel() {
+  let modal = document.getElementById('panelModal');
+  if(!modal) {
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="panelModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; overflow:auto;">
+        <div style="background:white; margin:40px auto; padding:20px; max-width:1100px; border-radius:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px">
+            <h2 style="margin:0; color:#333">Panel Promos 24hs - Tres Arroyos</h2>
+            <button onclick="cerrarPanel()" style="font-size:28px; border:none; background:none; cursor:pointer">×</button>
+          </div>
+          <div id="controlesEstado" style="margin-bottom:25px; padding:15px; background:#f8f9fa; border-radius:8px">
+            <h3 style="margin:0 0 15px 0; font-size:16px; color:#333">Estado de Locales</h3>
+            <div id="botonesEstado" style="display:flex; flex-wrap:wrap; gap:10px"></div>
+          </div>
+          <div id="resumenPanel" style="display:flex; gap:15px; margin:20px 0; flex-wrap:wrap"></div>
+          <div id="tablaVacia" style="text-align:center; padding:60px; color:#999; display:none">
+            <div style="font-size:48px; margin-bottom:10px">📊</div>
+            <div>Aún no hay locales registrados</div>
+            <div style="font-size:12px; margin-top:5px">Se van a ir agregando solos cuando hagan click</div>
+          </div>
+          <div id="tablaContainer" style="overflow-x:auto; display:none">
+            <table id="tablaLocales" style="width:100%; border-collapse:collapse; min-width:750px">
+              <thead>
+                <tr style="background:#25D366; color:white">
+                  <th style="padding:12px; text-align:left">Local</th>
+                  <th style="padding:12px; text-align:center">Estado</th>
+                  <th style="padding:12px; text-align:center">Clicks</th>
+                  <th style="padding:12px; text-align:center">Promos</th>
+                  <th style="padding:12px; text-align:center">Faltan</th>
+                  <th style="padding:12px">Último Click</th>
+                  <th style="padding:12px; text-align:center">Reset</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    `);
+    document.getElementById('panelModal').onclick = function(e) {
+      if(e.target.id === 'panelModal') cerrarPanel();
+    }
+  }
+  datosLocales = JSON.parse(localStorage.getItem('promos24hs')) || {};
+  document.getElementById('panelModal').style.display = 'block';
+  renderPanel();
+  renderBotonesEstado();
+}
+
+function cerrarPanel() {
+  document.getElementById('panelModal').style.display = 'none';
+}
+
+function renderBotonesEstado() {
+  const contenedor = document.getElementById('botonesEstado');
+  let html = '';
+
+  TODOS_LOS_LOCALES.forEach(local => {
+    const estado = localStorage.getItem('estado_' + local.id) || 'abierto';
+    const color = estado === 'abierto'? '#25D366' : '#dc3545';
+    const texto = estado === 'abierto'? 'ABIERTO' : 'CERRADO';
+
+    html += `
+      <div style="padding:10px; background:white; border:2px solid ${color}; border-radius:8px; min-width:200px">
+        <div style="font-weight:bold; margin-bottom:5px; color:#333">${local.nombre}</div>
+        <button onclick="cambiarEstado('${local.id}')"
+                style="padding:6px 12px; background:${color}; color:white; border:none; border-radius:5px; cursor:pointer; width:100%; font-weight:bold">
+          ${texto}
+        </button>
+      </div>
+    `;
+  });
+
+  contenedor.innerHTML = html;
+}
+
+function renderPanel() {
+  if(Object.keys(datosLocales).length === 0) {
+    document.getElementById('tablaVacia').style.display = 'block';
+    document.getElementById('tablaContainer').style.display = 'none';
+    document.getElementById('resumenPanel').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('tablaVacia').style.display = 'none';
+  document.getElementById('tablaContainer').style.display = 'block';
+
+  let totalClicks = 0;
+  let totalPromos = 0;
+  let totalUsadas = 0;
+  let tbody = '';
+
+  const ordenados = Object.entries(datosLocales).sort((a,b) =>
+    new Date(b[1].ultimoClick || 0) - new Date(a[1].ultimoClick || 0)
+  );
+
+  for(let [id, l] of ordenados) {
+    const faltan = l.promosTotales - l.promosUsadas;
+    const estado = localStorage.getItem('estado_' + id) || 'abierto';
+    const colorEstado = estado === 'abierto'? '#25D366' : '#dc3545';
+    const textoEstado = estado === 'abierto'? 'ABIERTO' : 'CERRADO';
+
+    totalClicks += l.clicks;
+    totalPromos += l.promosTotales;
+    totalUsadas += l.promosUsadas;
+
+    tbody += `<tr style="border-bottom:1px solid #eee">
+      <td style="padding:12px; color:#333">${l.nombre}</td>
+      <td style="padding:12px; text-align:center">
+        <span style="padding:4px 10px; background:${colorEstado}; color:white; border-radius:12px; font-size:11px; font-weight:bold">${textoEstado}</span>
+      </td>
+      <td style="padding:12px; text-align:center; color:#333"><b>${l.clicks}</b></td>
+      <td style="padding:12px; text-align:center; color:#333">${l.promosUsadas}/${l.promosTotales}</td>
+      <td style="padding:12px; text-align:center"><b style="color:${faltan==0?'green':'red'}">${faltan}</b></td>
+      <td style="padding:12px; font-size:12px; color:#666">${l.ultimoClick? new Date(l.ultimoClick).toLocaleString('es-AR') : '-'}</td>
+      <td style="padding:12px; text-align:center">
+        <button onclick="resetearLocal('${id}')" style="padding:6px 12px; background:#ff4444; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:bold">🔄 Reset</button>
+      </td>
+    </tr>`;
+  }
+
+  document.getElementById('resumenPanel').innerHTML = `
+    <div style="padding:15px; background:#e8f5e9; border-radius:8px; flex:1; min-width:150px">
+      <div style="font-size:12px; color:#666">Total Clicks</div>
+      <div style="font-size:26px; font-weight:bold; color:#333">${totalClicks}</div>
+    </div>
+    <div style="padding:15px; background:#fff3e0; border-radius:8px; flex:1; min-width:150px">
+      <div style="font-size:12px; color:#666">Promos Usadas</div>
+      <div style="font-size:26px; font-weight:bold; color:#333">${totalUsadas}/${totalPromos}</div>
+    </div>
+    <div style="padding:15px; background:#e3f2fd; border-radius:8px; flex:1; min-width:150px">
+      <div style="font-size:12px; color:#666">Locales Activos</div>
+      <div style="font-size:26px; font-weight:bold; color:#333">${Object.keys(datosLocales).length}</div>
+    </div>
+  `;
+
+  document.querySelector('#tablaLocales tbody').innerHTML = tbody;
+}
+
+function resetearLocal(id) {
+  if(confirm(`¿Resetear promociones de ${datosLocales[id].nombre}?`)) {
+    datosLocales[id].promosUsadas = 0;
+    datosLocales[id].ultimoClick = null;
+    localStorage.setItem('promos24hs', JSON.stringify(datosLocales));
+    renderPanel();
+  }
+}
+
+function sumarClick(idLocal, nombreLocal = idLocal, promosTotales = 20) {
+  if(!datosLocales[idLocal]) {
+    datosLocales[idLocal] = {
+      nombre: nombreLocal,
+      clicks: 0,
+      promosUsadas: 0,
+      promosTotales: promosTotales,
+      ultimoClick: null
+    };
+  }
+
+  datosLocales[idLocal].clicks++;
+  if(datosLocales[idLocal].promosUsadas < datosLocales[idLocal].promosTotales) {
+    datosLocales[idLocal].promosUsadas++;
+  }
+  datosLocales[idLocal].ultimoClick = new Date().toISOString();
+
+  localStorage.setItem('promos24hs', JSON.stringify(datosLocales));
+
+  if(document.getElementById('panelModal')?.style.display === 'block') {
+    renderPanel();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  TODOS_LOS_LOCALES.forEach(local => {
+    const estado = localStorage.getItem('estado_' + local.id);
+    const badge = document.getElementById('estado-' + local.id);
+
+    if(estado === 'cerrado' && badge) {
+      badge.style.background = '#dc3545';
+      badge.textContent = 'CERRADO';
+    }
+  });
+});
+
+function cambiarEstado(localId) {
+  const badge = document.getElementById('estado-' + localId);
+  const estadoActual = localStorage.getItem('estado_' + localId) || 'abierto';
+  const nuevoEstado = estadoActual === 'abierto'? 'cerrado' : 'abierto';
+
+  localStorage.setItem('estado_' + localId, nuevoEstado);
+
+  if(badge) {
+    if(nuevoEstado === 'cerrado') {
+      badge.style.background = '#dc3545';
+      badge.textContent = 'CERRADO';
+    } else {
+      badge.style.background = '#25D366';
+      badge.textContent = 'ABIERTO';
+    }
+  }
+
+  if(document.getElementById('panelModal')?.style.display === 'block') {
+    renderBotonesEstado();
+  }
 }
 </script>
 
-</div> <!-- cierra bares-grid -->
+<!-- FOOTER ABAJO DEL TODO -->
+<div class="footer">
+  <b style="color:var(--accent);font-size:14px">¿CÓMO FUNCIONA?</b><br><br>
+ 1. Elegí la categoría con los filtros de arriba<br>
+ 2. Tocá el local y mirá sus promos<br>
+ 3. Hacé clic en la promo que querés<br>
+ 4. Completá tus datos y enviá por WhatsApp<br><br>
+  <b>ABIERTO LAS 24 HS</b> - Pedidos por WhatsApp directo al comercio<br>
+  Los horarios de cada local están en su tarjeta<br><br>
+  <b>Panel Admin:</b> Presioná Ctrl+Shift+P y poné la clave: tres2026<br><br>
+  © 2026 Promos Tres Arroyos - Todos los derechos reservados
+</div>
+
 </body>
 </html>
