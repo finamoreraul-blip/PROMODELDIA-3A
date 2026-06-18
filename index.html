@@ -446,29 +446,20 @@ function enviarPedido(){
   Los horarios de cada local están en su tarjeta<br><br>
   © 2026 Promos Tres Arroyos - Todos los derechos reservados
 </div>
-<!-- PANEL CON CONTRASEÑA - SOLO VOS VES LOS DATOS -->
 <script>
-// CAMBIA ESTA CLAVE POR LA QUE QUIERAS
 const CLAVE_ADMIN = 'tres2026';
 
-let datosLocales = JSON.parse(localStorage.getItem('promos24hs')) || {
-  "kiosco-ana": {
-    "nombre": "Kiosco Ana",
-    "clicks": 142,
-    "promosUsadas": 18,
-    "promosTotales": 20,
-    "ultimoClick": "2026-06-18T15:30:00"
-  },
-  "panaderia-centro": {
-    "nombre": "Panadería Centro",
-    "clicks": 89,
-    "promosUsadas": 20,
-    "promosTotales": 20,
-    "ultimoClick": "2026-06-18T17:05:00"
-  }
-};
+// EMPIEZA VACÍO - Se llena solo cuando hay clicks
+let datosLocales = JSON.parse(localStorage.getItem('promos24hs')) || {};
 
-// BOTÓN OCULTO - Solo aparece con Ctrl+Shift+P
+// ESCUCHA CAMBIOS EN TIEMPO REAL
+window.addEventListener('storage', function(e) {
+  if(e.key === 'promos24hs' && document.getElementById('panelModal')?.style.display === 'block') {
+    datosLocales = JSON.parse(e.newValue);
+    renderPanel();
+  }
+});
+
 document.addEventListener('keydown', function(e) {
   if(e.ctrlKey && e.shiftKey && e.key.toUpperCase() === 'P') {
     e.preventDefault();
@@ -488,17 +479,21 @@ function pedirClave() {
 function mostrarPanel() {
   let modal = document.getElementById('panelModal');
   if(!modal) {
-    // Creamos el modal solo si no existe
     document.body.insertAdjacentHTML('beforeend', `
       <div id="panelModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; overflow:auto;">
-        <div style="background:white; margin:40px auto; padding:20px; max-width:900px; border-radius:10px;">
+        <div style="background:white; margin:40px auto; padding:20px; max-width:1000px; border-radius:10px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px">
             <h2 style="margin:0">Panel Promos 24hs - Tres Arroyos</h2>
-            <button onclick="cerrarPanel()" style="font-size:28px; border:none; background:none; cursor:pointer; line-height:1">×</button>
+            <button onclick="cerrarPanel()" style="font-size:28px; border:none; background:none; cursor:pointer">×</button>
           </div>
           <div id="resumenPanel" style="display:flex; gap:15px; margin:20px 0; flex-wrap:wrap"></div>
-          <div style="overflow-x:auto">
-            <table id="tablaLocales" style="width:100%; border-collapse:collapse; min-width:600px">
+          <div id="tablaVacia" style="text-align:center; padding:60px; color:#999; display:none">
+            <div style="font-size:48px; margin-bottom:10px">📊</div>
+            <div>Aún no hay locales registrados</div>
+            <div style="font-size:12px; margin-top:5px">Se van a ir agregando solos cuando hagan click</div>
+          </div>
+          <div id="tablaContainer" style="overflow-x:auto; display:none">
+            <table id="tablaLocales" style="width:100%; border-collapse:collapse; min-width:650px">
               <thead>
                 <tr style="background:#25D366; color:white">
                   <th style="padding:12px; text-align:left">Local</th>
@@ -515,11 +510,11 @@ function mostrarPanel() {
         </div>
       </div>
     `);
-    // Cerrar al tocar afuera
     document.getElementById('panelModal').onclick = function(e) {
       if(e.target.id === 'panelModal') cerrarPanel();
     }
   }
+  datosLocales = JSON.parse(localStorage.getItem('promos24hs')) || {};
   document.getElementById('panelModal').style.display = 'block';
   renderPanel();
 }
@@ -529,13 +524,27 @@ function cerrarPanel() {
 }
 
 function renderPanel() {
+  if(Object.keys(datosLocales).length === 0) {
+    document.getElementById('tablaVacia').style.display = 'block';
+    document.getElementById('tablaContainer').style.display = 'none';
+    document.getElementById('resumenPanel').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('tablaVacia').style.display = 'none';
+  document.getElementById('tablaContainer').style.display = 'block';
+
   let totalClicks = 0;
   let totalPromos = 0;
   let totalUsadas = 0;
   let tbody = '';
 
-  for(let id in datosLocales) {
-    const l = datosLocales[id];
+  // Ordenar por últimos clicks
+  const ordenados = Object.entries(datosLocales).sort((a,b) =>
+    new Date(b[1].ultimoClick || 0) - new Date(a[1].ultimoClick || 0)
+  );
+
+  for(let [id, l] of ordenados) {
     const faltan = l.promosTotales - l.promosUsadas;
     totalClicks += l.clicks;
     totalPromos += l.promosTotales;
@@ -563,7 +572,7 @@ function renderPanel() {
       <div style="font-size:26px; font-weight:bold">${totalUsadas}/${totalPromos}</div>
     </div>
     <div style="padding:15px; background:#e3f2fd; border-radius:8px; flex:1; min-width:150px">
-      <div style="font-size:12px; color:#666">Locales</div>
+      <div style="font-size:12px; color:#666">Locales Activos</div>
       <div style="font-size:26px; font-weight:bold">${Object.keys(datosLocales).length}</div>
     </div>
   `;
@@ -577,18 +586,33 @@ function resetearLocal(id) {
     datosLocales[id].ultimoClick = null;
     localStorage.setItem('promos24hs', JSON.stringify(datosLocales));
     renderPanel();
-    alert('✅ Plan reiniciado');
   }
 }
 
-function sumarClick(idLocal) {
-  if(datosLocales[idLocal]) {
-    datosLocales[idLocal].clicks++;
-    if(datosLocales[idLocal].promosUsadas < datosLocales[idLocal].promosTotales) {
-      datosLocales[idLocal].promosUsadas++;
-    }
-    datosLocales[idLocal].ultimoClick = new Date().toISOString();
-    localStorage.setItem('promos24hs', JSON.stringify(datosLocales));
+// FUNCIÓN CLAVE: REGISTRA AUTOMÁTICO SI NO EXISTE
+function sumarClick(idLocal, nombreLocal = idLocal, promosTotales = 20) {
+  if(!datosLocales[idLocal]) {
+    // Se crea solo el local si no existe
+    datosLocales[idLocal] = {
+      nombre: nombreLocal,
+      clicks: 0,
+      promosUsadas: 0,
+      promosTotales: promosTotales,
+      ultimoClick: null
+    };
+  }
+
+  datosLocales[idLocal].clicks++;
+  if(datosLocales[idLocal].promosUsadas < datosLocales[idLocal].promosTotales) {
+    datosLocales[idLocal].promosUsadas++;
+  }
+  datosLocales[idLocal].ultimoClick = new Date().toISOString();
+
+  localStorage.setItem('promos24hs', JSON.stringify(datosLocales));
+
+  // Si el panel está abierto, se actualiza solo
+  if(document.getElementById('panelModal')?.style.display === 'block') {
+    renderPanel();
   }
 }
 </script>
