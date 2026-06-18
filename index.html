@@ -168,11 +168,12 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('floreria', this)">Florerías</button>
   <button class="filter-btn" onclick="filtrar('lavanderia', this)">Lavanderías</button>
   <button class="filter-btn" onclick="filtrar('petshop', this)">Pet Shops</button>
-</div><div class="bares-grid">
+</div>
 
-<!-- CARNICERÍAS -->
-<!-- PARRILLA DON CARLOS - 4 PROMOS CON FOTOS ILUSTRATIVAS -->
-<div class="local-card" style="border:1px solid #ddd; border-radius:12px; padding:15px; margin-bottom:20px; max-width:400px; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+<div class="bares-grid">
+
+<!-- PARRILLA DON CARLOS - 4 PROMOS - AGREGUÉ data-categoria="restaurante" -->
+<div class="local-card" data-categoria="restaurante" style="border:1px solid #ddd; border-radius:12px; padding:15px; margin-bottom:20px; max-width:400px; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
   
   <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px">
     <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=200&fit=crop" alt="Parrilla Don Carlos" style="width:60px; height:60px; border-radius:50%; object-fit:cover">
@@ -182,9 +183,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
     </div>
   </div>
 
-  <!-- GRILLA DE 4 PROMOS -->
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px">
-    
     <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
       <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="Promo 1" style="width:100%; height:120px; object-fit:cover">
       <div style="padding:8px; font-size:13px; font-weight:bold">2x1 Vacío</div>
@@ -241,6 +240,8 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
     <div class="promo"><span>Desde</span><b>$6900</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
   </div>
 </div>
+
+</div> <!-- ACÁ CIERRA EL bares-grid - ESTE FALTABA -->
 
 <!-- PANADERÍAS -->
 <div class="bar" data-categoria="panaderia" onclick="abrirPromo('Panadería La Espiga','img/panaderia-1.jpg','Horno a leña 40 años','Lun a Dom 6 a 22hs',[ {nombre:'Pan casero 2kg',precio:2800,desc:'Recién horneado 6am',img:'img/promo-pancasero.jpg'},{nombre:'Facturas docena',precio:3200,desc:'Mixtas vigilantes',img:'img/promo-facturas.jpg'},{nombre:'Torta cumple 1kg',precio:8900,desc:'Bizcochuelo + crema',img:'img/promo-torta.jpg'},{nombre:'Prepizzas x6',precio:3600,desc:'Grandes masa madre',img:'img/promo-prepizza.jpg'} ])">
