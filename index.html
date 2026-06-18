@@ -172,76 +172,44 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 
 <div class="bares-grid">
 
-<!-- PARRILLA DON CARLOS - 4 PROMOS - AGREGUÉ data-categoria="restaurante" -->
-<div class="local-card" data-categoria="restaurante" style="border:1px solid #ddd; border-radius:12px; padding:15px; margin-bottom:20px; max-width:400px; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
-  
-  <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px">
-    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=200&fit=crop" alt="Parrilla Don Carlos" style="width:60px; height:60px; border-radius:50%; object-fit:cover">
-    <div>
-      <h3 style="margin:0">Parrilla Don Carlos</h3>
-      <div style="font-size:12px; color:#666">Promos 24hs 🔥</div>
-    </div>
-  </div>
-
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:15px">
-    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-      <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="Promo 1" style="width:100%; height:120px; object-fit:cover">
-      <div style="padding:8px; font-size:13px; font-weight:bold">2x1 Vacío</div>
-      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%201" 
-         target="_blank"
-         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
-         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
-         Pedir Promo 1
-      </a>
-    </div>
-
-    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-      <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" alt="Promo 2" style="width:100%; height:120px; object-fit:cover">
-      <div style="padding:8px; font-size:13px; font-weight:bold">Costilla + Papa</div>
-      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%202" 
-         target="_blank"
-         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
-         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
-         Pedir Promo 2
-      </a>
-    </div>
-
-    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-      <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="Promo 3" style="width:100%; height:120px; object-fit:cover">
-      <div style="padding:8px; font-size:13px; font-weight:bold">Chori + Gaseosa</div>
-      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%203" 
-         target="_blank"
-         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
-         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
-         Pedir Promo 3
-      </a>
-    </div>
-
-    <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" alt="Promo 4" style="width:100%; height:120px; object-fit:cover">
-      <div style="padding:8px; font-size:13px; font-weight:bold">Combo Familia</div>
-      <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%204" 
-         target="_blank"
-         onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)"
-         style="display:block; padding:6px; background:#25D366; color:white; text-decoration:none; font-size:12px; font-weight:bold">
-         Pedir Promo 4
-      </a>
-    </div>
-  </div>
-
-</div>
-
-<div class="bar" data-categoria="carniceria" onclick="abrirPromo('La Nueva Res','img/carniceria-2.jpg','Precios mayoristas','Lun a Sáb 7 a 19hs',[ {nombre:'Vacío entero',precio:15900,desc:'Por pieza 4-5kg',img:'img/promo-vacio.jpg'},{nombre:'Pollo entero x3',precio:7800,desc:'Congelado 2kg c/u',img:'img/promo-pollo.jpg'},{nombre:'Costeleta cerdo',precio:6900,desc:'Por kg sin hueso',img:'img/promo-cerdo.jpg'},{nombre:'Combo milangas',precio:11500,desc:'12 pollo + 12 carne',img:'img/promo-combo.jpg'} ])">
-  <img class="bar-img" src="img/carniceria-2.jpg" alt="La Nueva Res">
+<div class="bar" data-categoria="restaurante" data-local-id="parrilla-don-carlos">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla Don Carlos">
   <div class="bar-body">
-    <h3>La Nueva Res <span class="tag">Mayorista</span></h3>
-    <p class="horario-local">🕐 Lun a Sáb 7 a 19hs</p>
-    <p class="bar-desc">Precios mayoristas, venta por cantidad sin mínimo</p>
-    <div class="promo"><span>Desde</span><b>$6900</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
+    <h3>Parrilla Don Carlos</h3>
+    <p class="horario-local">
+      <span id="estado-parrilla-don-carlos" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 Todos los días 11 a 23hs
+    </p>
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="2x1 Vacío" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">2x1 Vacío</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%201" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" alt="Costilla" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Costilla + Papa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%202" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="Chori" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chori + Gaseosa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%203" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" alt="Combo" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Combo Familia</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%204" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+
+    <div class="promo">
+      <span>Promos</span>
+      <b>4/4</b>
+    </div>
   </div>
 </div>
-
-</div> <!-- ACÁ CIERRA EL bares-grid - ESTE FALTABA -->
 
 <!-- PANADERÍAS -->
 <div class="bar" data-categoria="panaderia" onclick="abrirPromo('Panadería La Espiga','img/panaderia-1.jpg','Horno a leña 40 años','Lun a Dom 6 a 22hs',[ {nombre:'Pan casero 2kg',precio:2800,desc:'Recién horneado 6am',img:'img/promo-pancasero.jpg'},{nombre:'Facturas docena',precio:3200,desc:'Mixtas vigilantes',img:'img/promo-facturas.jpg'},{nombre:'Torta cumple 1kg',precio:8900,desc:'Bizcochuelo + crema',img:'img/promo-torta.jpg'},{nombre:'Prepizzas x6',precio:3600,desc:'Grandes masa madre',img:'img/promo-prepizza.jpg'} ])">
@@ -501,6 +469,15 @@ function enviarPedido(){
 <script>
 const CLAVE_ADMIN = 'tres2026';
 
+// LISTA DE TODOS TUS LOCALES - AGREGÁ ACÁ LOS QUE FALTEN
+const TODOS_LOS_LOCALES = [
+  {id: 'parrilla-don-carlos', nombre: 'Parrilla Don Carlos'},
+  {id: 'la-nueva-res', nombre: 'La Nueva Res'},
+  // {id: 'panaderia-el-horno', nombre: 'Panadería El Horno'},
+  // {id: 'carniceria-san-jose', nombre: 'Carnicería San José'}
+  // DUPLICÁ LA LÍNEA Y CAMBIÁ ID + NOMBRE POR CADA LOCAL QUE TENGAS
+];
+
 // EMPIEZA VACÍO - Se llena solo cuando hay clicks
 let datosLocales = JSON.parse(localStorage.getItem('promos24hs')) || {};
 
@@ -533,11 +510,18 @@ function mostrarPanel() {
   if(!modal) {
     document.body.insertAdjacentHTML('beforeend', `
       <div id="panelModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; overflow:auto;">
-        <div style="background:white; margin:40px auto; padding:20px; max-width:1000px; border-radius:10px;">
+        <div style="background:white; margin:40px auto; padding:20px; max-width:1100px; border-radius:10px;">
           <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px">
             <h2 style="margin:0">Panel Promos 24hs - Tres Arroyos</h2>
             <button onclick="cerrarPanel()" style="font-size:28px; border:none; background:none; cursor:pointer">×</button>
           </div>
+
+          <!-- CONTROLES ABIERTO/CERRADO -->
+          <div id="controlesEstado" style="margin-bottom:25px; padding:15px; background:#f8f9fa; border-radius:8px">
+            <h3 style="margin:0 0 15px 0; font-size:16px">Estado de Locales</h3>
+            <div id="botonesEstado" style="display:flex; flex-wrap:wrap; gap:10px"></div>
+          </div>
+
           <div id="resumenPanel" style="display:flex; gap:15px; margin:20px 0; flex-wrap:wrap"></div>
           <div id="tablaVacia" style="text-align:center; padding:60px; color:#999; display:none">
             <div style="font-size:48px; margin-bottom:10px">📊</div>
@@ -545,10 +529,11 @@ function mostrarPanel() {
             <div style="font-size:12px; margin-top:5px">Se van a ir agregando solos cuando hagan click</div>
           </div>
           <div id="tablaContainer" style="overflow-x:auto; display:none">
-            <table id="tablaLocales" style="width:100%; border-collapse:collapse; min-width:650px">
+            <table id="tablaLocales" style="width:100%; border-collapse:collapse; min-width:750px">
               <thead>
                 <tr style="background:#25D366; color:white">
                   <th style="padding:12px; text-align:left">Local</th>
+                  <th style="padding:12px; text-align:center">Estado</th>
                   <th style="padding:12px; text-align:center">Clicks</th>
                   <th style="padding:12px; text-align:center">Promos</th>
                   <th style="padding:12px; text-align:center">Faltan</th>
@@ -569,10 +554,34 @@ function mostrarPanel() {
   datosLocales = JSON.parse(localStorage.getItem('promos24hs')) || {};
   document.getElementById('panelModal').style.display = 'block';
   renderPanel();
+  renderBotonesEstado();
 }
 
 function cerrarPanel() {
   document.getElementById('panelModal').style.display = 'none';
+}
+
+function renderBotonesEstado() {
+  const contenedor = document.getElementById('botonesEstado');
+  let html = '';
+
+  TODOS_LOS_LOCALES.forEach(local => {
+    const estado = localStorage.getItem('estado_' + local.id) || 'abierto';
+    const color = estado === 'abierto'? '#25D366' : '#dc3545';
+    const texto = estado === 'abierto'? 'ABIERTO' : 'CERRADO';
+
+    html += `
+      <div style="padding:10px; background:white; border:2px solid ${color}; border-radius:8px; min-width:200px">
+        <div style="font-weight:bold; margin-bottom:5px">${local.nombre}</div>
+        <button onclick="cambiarEstado('${local.id}')"
+                style="padding:6px 12px; background:${color}; color:white; border:none; border-radius:5px; cursor:pointer; width:100%; font-weight:bold">
+          ${texto}
+        </button>
+      </div>
+    `;
+  });
+
+  contenedor.innerHTML = html;
 }
 
 function renderPanel() {
@@ -591,19 +600,25 @@ function renderPanel() {
   let totalUsadas = 0;
   let tbody = '';
 
-  // Ordenar por últimos clicks
   const ordenados = Object.entries(datosLocales).sort((a,b) =>
     new Date(b[1].ultimoClick || 0) - new Date(a[1].ultimoClick || 0)
   );
 
   for(let [id, l] of ordenados) {
     const faltan = l.promosTotales - l.promosUsadas;
+    const estado = localStorage.getItem('estado_' + id) || 'abierto';
+    const colorEstado = estado === 'abierto'? '#25D366' : '#dc3545';
+    const textoEstado = estado === 'abierto'? 'ABIERTO' : 'CERRADO';
+
     totalClicks += l.clicks;
     totalPromos += l.promosTotales;
     totalUsadas += l.promosUsadas;
 
     tbody += `<tr style="border-bottom:1px solid #eee">
       <td style="padding:12px">${l.nombre}</td>
+      <td style="padding:12px; text-align:center">
+        <span style="padding:4px 10px; background:${colorEstado}; color:white; border-radius:12px; font-size:11px; font-weight:bold">${textoEstado}</span>
+      </td>
       <td style="padding:12px; text-align:center"><b>${l.clicks}</b></td>
       <td style="padding:12px; text-align:center">${l.promosUsadas}/${l.promosTotales}</td>
       <td style="padding:12px; text-align:center"><b style="color:${faltan==0?'green':'red'}">${faltan}</b></td>
@@ -641,10 +656,8 @@ function resetearLocal(id) {
   }
 }
 
-// FUNCIÓN CLAVE: REGISTRA AUTOMÁTICO SI NO EXISTE
 function sumarClick(idLocal, nombreLocal = idLocal, promosTotales = 20) {
   if(!datosLocales[idLocal]) {
-    // Se crea solo el local si no existe
     datosLocales[idLocal] = {
       nombre: nombreLocal,
       clicks: 0,
@@ -662,9 +675,45 @@ function sumarClick(idLocal, nombreLocal = idLocal, promosTotales = 20) {
 
   localStorage.setItem('promos24hs', JSON.stringify(datosLocales));
 
-  // Si el panel está abierto, se actualiza solo
   if(document.getElementById('panelModal')?.style.display === 'block') {
     renderPanel();
+  }
+}
+
+// Cargar estado al iniciar la página
+document.addEventListener('DOMContentLoaded', function() {
+  TODOS_LOS_LOCALES.forEach(local => {
+    const estado = localStorage.getItem('estado_' + local.id);
+    const badge = document.getElementById('estado-' + local.id);
+
+    if(estado === 'cerrado' && badge) {
+      badge.style.background = '#dc3545';
+      badge.textContent = 'CERRADO';
+    }
+  });
+});
+
+// Función que usa el panel para cambiar estado
+function cambiarEstado(localId) {
+  const badge = document.getElementById('estado-' + localId);
+  const estadoActual = localStorage.getItem('estado_' + localId) || 'abierto';
+  const nuevoEstado = estadoActual === 'abierto'? 'cerrado' : 'abierto';
+
+  localStorage.setItem('estado_' + localId, nuevoEstado);
+
+  if(badge) {
+    if(nuevoEstado === 'cerrado') {
+      badge.style.background = '#dc3545';
+      badge.textContent = 'CERRADO';
+    } else {
+      badge.style.background = '#25D366';
+      badge.textContent = 'ABIERTO';
+    }
+  }
+
+  // Actualizar botones del panel si está abierto
+  if(document.getElementById('panelModal')?.style.display === 'block') {
+    renderBotonesEstado();
   }
 }
 </script>
