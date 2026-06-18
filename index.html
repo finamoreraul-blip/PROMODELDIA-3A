@@ -279,14 +279,11 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
     </select>
     
     <!-- ENVÍO VA ACÁ, JUSTO ANTES DEL TOTAL -->
-    <label>Envío</label>
-    <select id="modalEnvio" onchange="calcularTotal()">
-      <option value="0">Retiro en local - $0</option>
-      <option value="800">Zona Centro - $800</option>
-      <option value="1200">Zona Norte - $1200</option>
-      <option value="1200">Zona Sur - $1200</option>
-      <option value="1500">Zona Oeste/Este - $1500</option>
-    </select>
+ <label>Envío</label>
+<select id="modalEnvio" onchange="calcularTotal()">
+  <option value="0">Retiro en el local - $0</option>
+  <option value="2000">Envío a domicilio - $2.000</option>
+</select>
     
     <div class="modal.total"><b>Total: $<span id="modalTotal">0</span></b></div>
     
