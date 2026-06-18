@@ -170,102 +170,1305 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('petshop', this)">Pet Shops</button>
 </div>
 
-<div class="bares-grid">
-
-<div class="bar" data-categoria="restaurante" data-local-id="parrilla-don-carlos">
-  <img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla Don Carlos">
+<div class="bar" data-categoria="carniceria" data-local-id="carniceria-el-amigo">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop" alt="Carnicería El Amigo">
   <div class="bar-body">
-    <h3>Parrilla Don Carlos</h3>
+    <h3>Carnicería El Amigo</h3>
     <p class="horario-local">
-      <span id="estado-parrilla-don-carlos" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
-      🕐 Todos los días 11 a 23hs
+      <span id="estado-carniceria-el-amigo" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 Lun a Sáb 8 a 20hs
     </p>
-    
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
       <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="2x1 Vacío" style="width:100%; height:100px; object-fit:cover">
-        <div style="padding:6px; font-size:12px; font-weight:bold">2x1 Vacío</div>
-        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%201" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Asado 2kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Amigo%2C%20quiero%20la%20promo%201" target="_blank" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
       </div>
       <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-        <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" alt="Costilla" style="width:100%; height:100px; object-fit:cover">
-        <div style="padding:6px; font-size:12px; font-weight:bold">Costilla + Papa</div>
-        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%202" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+        <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Milanesas x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Amigo%2C%20quiero%20la%20promo%202" target="_blank" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
       </div>
       <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" alt="Chori" style="width:100%; height:100px; object-fit:cover">
-        <div style="padding:6px; font-size:12px; font-weight:bold">Chori + Gaseosa</div>
-        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%203" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chorizos x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Amigo%2C%20quiero%20la%20promo%203" target="_blank" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
       </div>
       <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" alt="Combo" style="width:100%; height:100px; object-fit:cover">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Combo Parri</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Amigo%2C%20quiero%20la%20promo%204" target="_blank" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="carniceria" data-local-id="carniceria-san-jose">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&h=300&fit=crop" alt="Carnicería San José">
+  <div class="bar-body">
+    <h3>Carnicería San José</h3>
+    <p class="horario-local">
+      <span id="estado-carniceria-san-jose" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 Lun a Sáb 8:30 a 20:30hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Vacío 1kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jose%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Picada Completa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jose%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pollo Entero</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jose%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Combo Milanga</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jose%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="carniceria" data-local-id="carniceria-la-ideal">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" alt="Carnicería La Ideal">
+  <div class="bar-body">
+    <h3>Carnicería La Ideal</h3>
+    <p class="horario-local">
+      <span id="estado-carniceria-la-ideal" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 Lun a Sáb 7:30 a 20hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Costilla 3kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Ideal%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Carne Molida 2kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Ideal%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Matambre Tierno</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Ideal%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
         <div style="padding:6px; font-size:12px; font-weight:bold">Combo Familia</div>
-        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20la%20promo%204" target="_blank" onclick="sumarClick('parrilla-don-carlos', 'Parrilla Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Ideal%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
       </div>
     </div>
-
-    <div class="promo">
-      <span>Promos</span>
-      <b>4/4</b>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="panaderia" data-local-id="panaderia-san-jorge">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Panadería San Jorge">
+  <div class="bar-body">
+    <h3>Panadería San Jorge</h3>
+    <p class="horario-local">
+      <span id="estado-panaderia-san-jorge" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 6 a 21hs todos los días
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Docena Facturas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jorge%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tarta Completa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jorge%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pan Casero x2</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jorge%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Torta Cumple</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20San%20Jorge%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
     </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
   </div>
-</div>
-
-<!-- PANADERÍAS -->
-<div class="bar" data-categoria="panaderia" onclick="abrirPromo('Panadería La Espiga','img/panaderia-1.jpg','Horno a leña 40 años','Lun a Dom 6 a 22hs',[ {nombre:'Pan casero 2kg',precio:2800,desc:'Recién horneado 6am',img:'img/promo-pancasero.jpg'},{nombre:'Facturas docena',precio:3200,desc:'Mixtas vigilantes',img:'img/promo-facturas.jpg'},{nombre:'Torta cumple 1kg',precio:8900,desc:'Bizcochuelo + crema',img:'img/promo-torta.jpg'},{nombre:'Prepizzas x6',precio:3600,desc:'Grandes masa madre',img:'img/promo-prepizza.jpg'} ])">
-  <img class="bar-img" src="img/panaderia-1.jpg" alt="La Espiga">
+</div><div class="bar" data-categoria="panaderia" data-local-id="panaderia-el-horno">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=400&h=300&fit=crop" alt="Panadería El Horno">
   <div class="bar-body">
-    <h3>Panadería La Espiga <span class="tag">Leña</span></h3>
-    <p class="horario-local">🕐 Lun a Dom 6 a 22hs</p>
-    <p class="bar-desc">Horno a leña, 40 años en Tres Arroyos</p>
-    <div class="promo"><span>Desde</span><b>$2800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
+    <h3>Panadería El Horno</h3>
+    <p class="horario-local">
+      <span id="estado-panaderia-el-horno" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 5:30 a 21:30hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">2x1 Criollos</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Horno%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tortas Fritas x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Horno%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Fugazza Completa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Horno%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Alfajores x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Horno%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
   </div>
-</div>
-
-<div class="bar" data-categoria="panaderia" onclick="abrirPromo('El Trigo Dorado','img/panaderia-2.jpg','Integral y sin TACC','Lun a Vie 7 a 20hs',[ {nombre:'Pan integral',precio:2200,desc:'500g semillas',img:'img/promo-integral.jpg'},{nombre:'Medialunas docena',precio:3800,desc:'Manteca glaseadas',img:'img/promo-medialunas.jpg'},{nombre:'Sin TACC molde',precio:4500,desc:'Apto celíacos',img:'img/promo-sintacc.jpg'},{nombre:'Bizcochitos 1kg',precio:1800,desc:'Grasa salados',img:'img/promo-bizcochos.jpg'} ])">
-  <img class="bar-img" src="img/panaderia-2.jpg" alt="El Trigo Dorado">
+</div><div class="bar" data-categoria="panaderia" data-local-id="panaderia-la-espanola">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop" alt="Panadería La Española">
   <div class="bar-body">
-    <h3>El Trigo Dorado <span class="tag">Sin TACC</span></h3>
-    <p class="horario-local">🕐 Lun a Vie 7 a 20hs</p>
-    <p class="bar-desc">Integral, sin TACC y artesanal certificado</p>
-    <div class="promo"><span>Desde</span><b>$1800</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
+    <h3>Panadería La Española</h3>
+    <p class="horario-local">
+      <span id="estado-panaderia-la-espanola" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 6 a 20hs Lun a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Medialunas x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espanola%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('panaderia-la-espanola', 'Panadería La Española', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pan de Miga</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espanola%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('panaderia-la-espanola', 'Panadería La Española', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chipá x20</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espanola%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('panaderia-la-espanola', 'Panadería La Española', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tarta Jamón y Queso</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espanola%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('panaderia-la-espanola', 'Panadería La Española', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
   </div>
-</div>
-
-<!-- VERDULERÍAS -->
-<div class="bar" data-categoria="verduleria" onclick="abrirPromo('Verdulería Frescor','img/verduleria-1.jpg','Fresco del día','Lun a Dom 8 a 21hs',[ {nombre:'Bolsón familiar 10kg',precio:4200,desc:'Papa+cebolla+tomate',img:'img/promo-bolson.jpg'},{nombre:'Ensalada lista x4',precio:2500,desc:'Lavada y cortada',img:'img/promo-ensalada.jpg'},{nombre:'Fruta picada 1L',precio:3200,desc:'Sin azúcar',img:'img/promo-frutapicada.jpg'},{nombre:'Verdura congelada',precio:3800,desc:'Mix 2kg IQF',img:'img/promo-congelada.jpg'} ])">
-  <img class="bar-img" src="img/verduleria-1.jpg" alt="Frescor">
+</div><div class="bar" data-categoria="verduleria" data-local-id="verduleria-don-pepe">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop" alt="Verdulería Don Pepe">
   <div class="bar-body">
-    <h3>Verdulería Frescor <span class="tag">Fresco</span></h3>
-    <p class="horario-local">🕐 Lun a Dom 8 a 21hs</p>
-    <p class="bar-desc">Fruta y verdura fresca del mercado central</p>
-    <div class="promo"><span>Desde</span><b>$2500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
+    <h3>Verdulería Don Pepe</h3>
+    <p class="horario-local">
+      <span id="estado-verduleria-don-pepe" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 7 a 20hs todos los días
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bolsón Familia</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Pepe%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Fruta Fresca 3kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Pepe%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Ensalada Completa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Pepe%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Combo Dieta</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Pepe%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
   </div>
-</div><!-- ALMACENES -->
-<div class="bar" data-categoria="almacen" onclick="abrirPromo('Almacén 24hs Centro','img/almacen-1.jpg','Abierto siempre','Abierto 24hs',[ {nombre:'Combo fideos x5',precio:3800,desc:'500g c/u marcas',img:'img/promo-fideos.jpg'},{nombre:'Leche larga vida x6',precio:4200,desc:'1L descremada',img:'img/promo-leche.jpg'},{nombre:'Aceite girasol x3',precio:3600,desc:'900ml marca líder',img:'img/promo-aceite.jpg'},{nombre:'Yerba 1kg x2',precio:5200,desc:'Playadito/Union',img:'img/promo-yerba.jpg'} ])">
-  <img class="bar-img" src="img/almacen-1.jpg" alt="Almacén 24hs">
+</div><div class="bar" data-categoria="verduleria" data-local-id="verduleria-la-huerta">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=400&h=300&fit=crop" alt="Verdulería La Huerta">
   <div class="bar-body">
-    <h3>Almacén 24hs Centro <span class="tag">24hs</span></h3>
-    <p class="horario-local">🕐 Abierto 24hs</p>
-    <p class="bar-desc">Todo para tu casa, precios mayoristas sin mínimo</p>
-    <div class="promo"><span>Desde</span><b>$3600</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
+    <h3>Verdulería La Huerta</h3>
+    <p class="horario-local">
+      <span id="estado-verduleria-la-huerta" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 8 a 21hs Lun a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Verdura 5kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Huerta%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Frutilla 2kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Huerta%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Mix Ensalada</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Huerta%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Combo Jugos</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Huerta%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
   </div>
-</div>
-
-<!-- RESTAURANTES -->
-<div class="bar" data-categoria="restaurante" onclick="abrirPromo('Resto La Parrilla','img/resto-1.jpg','Carnes a la parrilla','Lun a Dom 11 a 23hs',[ {nombre:'Parrillada 2 pers',precio:18900,desc:'Con guarnición',img:'img/promo-parrilla.jpg'},{nombre:'Milanesa gigante',precio:6500,desc:'1kg napolitana',img:'img/promo-milanesa.jpg'},{nombre:'Bife chorizo 500g',precio:9800,desc:'A punto con papas',img:'img/promo-bife.jpg'},{nombre:'Combo familiar',precio:24500,desc:'4 personas completo',img:'img/promo-familiar.jpg'} ])">
-  <img class="bar-img" src="img/resto-1.jpg" alt="La Parrilla">
+</div><div class="bar" data-categoria="verduleria" data-local-id="verduleria-frescura">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=300&fit=crop" alt="Verdulería Frescura">
   <div class="bar-body">
-    <h3>Resto La Parrilla <span class="tag">Parrilla</span></h3>
-    <p class="horario-local">🕐 Lun a Dom 11 a 23hs</p>
-    <p class="bar-desc">Carnes a la parrilla, horno de barro y pastas</p>
-    <div class="promo"><span>Desde</span><b>$6500</b><button class="btn" onclick="event.stopPropagation(); event.currentTarget.closest('.bar').click()">Ver promos</button></div>
+    <h3>Verdulería Frescura</h3>
+    <p class="horario-local">
+      <span id="estado-verduleria-frescura" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 7:30 a 20:30hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Papa + Cebolla 5kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Frescura%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Naranja 3kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Frescura%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Verdeo + Ajo</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Frescura%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Combo Wok</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Frescura%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="polleria" data-local-id="polleria-la-granja">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=400&h=300&fit=crop" alt="Pollería La Granja">
+  <div class="bar-body">
+    <h3>Pollería La Granja</h3>
+    <p class="horario-local">
+      <span id="estado-polleria-la-granja" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 8 a 20hs Lun a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pollo Entero</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Granja%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pata Muslo x4</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Granja%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Milanesas x8</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Granja%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Alitas x2kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Granja%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="polleria" data-local-id="polleria-pollos-rio">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=400&h=300&fit=crop" alt="Pollería Pollos Río">
+  <div class="bar-body">
+    <h3>Pollería Pollos Río</h3>
+    <p class="horario-local">
+      <span id="estado-polleria-pollos-rio" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 9 a 19hs de Lun a Vie
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Supremas x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Pollos%20Rio%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Hamburguesas x8</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Pollos%20Rio%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pechuga Deshuesada</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Pollos%20Rio%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Menudos + Cuello</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Pollos%20Rio%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="carniceria" data-local-id="carniceria-el-gaucho">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop" alt="Carnicería El Gaucho">
+  <div class="bar-body">
+    <h3>Carnicería El Gaucho</h3>
+    <p class="horario-local">
+      <span id="estado-carniceria-el-gaucho" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 8 a 13hs y 16 a 20hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Asado Tira</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Gaucho%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chorizos x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Gaucho%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Milanesas x8</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Gaucho%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Picada Completa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Gaucho%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="carniceria" data-local-id="carniceria-la-nueva">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop" alt="Carnicería La Nueva">
+  <div class="bar-body">
+    <h3>Carnicería La Nueva</h3>
+    <p class="horario-local">
+      <span id="estado-carniceria-la-nueva" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 7:30 a 13hs y 16 a 20hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Vacío + Chimichurri</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Nueva%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Morcillas x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Nueva%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Hígado + Cebolla</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Nueva%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Carne Molida 2kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Nueva%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="carniceria" data-local-id="carniceria-don-carlos">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Carnicería Don Carlos">
+  <div class="bar-body">
+    <h3>Carnicería Don Carlos</h3>
+    <p class="horario-local">
+      <span id="estado-carniceria-don-carlos" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 8 a 20hs Lun a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Lomo Finito</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Costillitas BBQ</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Hamburguesas x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Achuras Mix</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Carlos%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="kiosco" data-local-id="kiosco-el-rapido">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop" alt="Kiosco 24hs El Rápido">
+  <div class="bar-body">
+    <h3>Kiosco 24hs El Rápido</h3>
+    <p class="horario-local">
+      <span id="estado-kiosco-el-rapido" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO 24HS</span>
+      🕐 Abierto las 24hs todos los días
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Combo Gaseosa + Snack</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rapido%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Alfajores x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rapido%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Cigarrillos + Encendedor</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rapido%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Carga SUBE</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rapido%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="kiosco" data-local-id="kiosco-la-esquina">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Kiosco La Esquina">
+  <div class="bar-body">
+    <h3>Kiosco La Esquina</h3>
+    <p class="horario-local">
+      <span id="estado-kiosco-la-esquina" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 7 a 23hs todos los días
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chupetines x50</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Galletitas x3</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bebidas 2x1</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Útiles Escolares</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="kiosco" data-local-id="kiosco-punto-carga">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop" alt="Kiosco Punto Carga">
+  <div class="bar-body">
+    <h3>Kiosco Punto Carga</h3>
+    <p class="horario-local">
+      <span id="estado-kiosco-punto-carga" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 8 a 22hs Lun a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Carga Celular 10%</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Punto%20Carga%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pack Energéticas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Punto%20Carga%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Golosinas x100</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Punto%20Carga%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Agua + Papas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Punto%20Carga%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="parrilla" data-local-id="parrilla-la-estaca">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
+  <div class="bar-body">
+    <h3>Parrilla La Estaca</h3>
+    <p class="horario-local">
+      <span id="estado-parrilla-la-estaca" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 11 a 15hs y 20 a 00hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tira + Vacío 2 pers</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Estaca%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chori Pan x4</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Estaca%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Costillar Completo</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Estaca%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Provoleta + Chori</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Estaca%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="parrilla" data-local-id="parrilla-don-tito">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop" alt="Parrilla Don Tito">
+  <div class="bar-body">
+    <h3>Parrilla Don Tito</h3>
+    <p class="horario-local">
+      <span id="estado-parrilla-don-tito" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 12 a 15hs y 20 a 00hs Mié a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bife de Chorizo</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Tito%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Matambre a la Pizza</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Tito%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chinchulines + Riñón</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Tito%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Parrillada 4 pers</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Tito%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="parrilla" data-local-id="parrilla-el-fogon">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop" alt="Parrilla El Fogón">
+  <div class="bar-body">
+    <h3>Parrilla El Fogón</h3>
+    <p class="horario-local">
+      <span id="estado-parrilla-el-fogon" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 11:30 a 15hs y 20 a 00hs
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Entraña a la Parrilla</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Fogon%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chorizo Criollo x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Fogon%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Mollejitas + Chori</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Fogon%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Ojo de Bife 500g</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Fogon%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="heladeria" data-local-id="heladeria-dolce-vita">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Heladería Dolce Vita">
+  <div class="bar-body">
+    <h3>Heladería Dolce Vita</h3>
+    <p class="horario-local">
+      <span id="estado-heladeria-dolce-vita" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 15 a 23hs todos los días
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">1/4 Helado + 2 Cucuruchos</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Dolce%20Vita%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Postre Helado Familiar</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Dolce%20Vita%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Copa Dulce Tentación</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Dolce%20Vita%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Torta Helada 1kg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Dolce%20Vita%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="heladeria" data-local-id="heladeria-ice-cream">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop" alt="Heladería Ice Cream">
+  <div class="bar-body">
+    <h3>Heladería Ice Cream</h3>
+    <p class="horario-local">
+      <span id="estado-heladeria-ice-cream" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 16 a 00hs Lun a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">1/2kg 3 Gustos</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Ice%20Cream%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Paletas Artesanales x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Ice%20Cream%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Copa Banana Split</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Ice%20Cream%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bombones Helados x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Ice%20Cream%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="heladeria" data-local-id="heladeria-cremolatti">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Heladería Cremolatti">
+  <div class="bar-body">
+    <h3>Heladería Cremolatti</h3>
+    <p class="horario-local">
+      <span id="estado-heladeria-cremolatti" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 15 a 23:30hs todos los días
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Cucurucho Doble</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Cremolatti%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">1kg Helado Delivery</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Cremolatti%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Licuado + 2 Bochas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Cremolatti%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Postre Balcarce</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Cremolatti%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
   </div>
 </div>
 
+<div class="bar" data-categoria="panaderia" data-local-id="panaderia-el-trigal">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Panadería El Trigal">
+  <div class="bar-body">
+    <h3>Panadería El Trigal</h3>
+    <p class="horario-local">
+      <span id="estado-panaderia-el-trigal" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 6 a 21hs Lun a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Docena Facturas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Trigal%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pan Casero x2</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Trigal%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tarta Jamón y Queso</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Trigal%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Prepizzas x3</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Trigal%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="panaderia" data-local-id="panaderia-la-espiga">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop" alt="Panadería La Espiga">
+  <div class="bar-body">
+    <h3>Panadería La Espiga</h3>
+    <p class="horario-local">
+      <span id="estado-panaderia-la-espiga" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 7 a 20hs Lun a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tortas Fritas x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espiga%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bizcochitos de Grasa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espiga%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Medialunas Manteca</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espiga%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tarta de Coco</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Espiga%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
 </div>
-<!-- Fin bares-grid -->
 
+<div class="bar" data-categoria="panaderia" data-local-id="panaderia-central">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Panadería Central">
+  <div class="bar-body">
+    <h3>Panadería Central</h3>
+    <p class="horario-local">
+      <span id="estado-panaderia-central" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 5:30 a 21hs todos los días
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Pan Francés xkg</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Central%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Criollitos x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Central%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Torta Balcarce</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Central%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Sandwich de Miga x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Central%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="panaderia" data-local-id="panaderia-don-juan">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop" alt="Panadería Don Juan">
+  <div class="bar-body">
+    <h3>Panadería Don Juan</h3>
+    <p class="horario-local">
+      <span id="estado-panaderia-don-juan" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 6 a 20hs Lun a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Libretas Pan x2</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Juan%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Facturas Surtidas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Juan%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tarta Pastelera</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Juan%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chipá x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Don%20Juan%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<div class="bar" data-categoria="bar" data-local-id="bar-los-amigos">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" alt="Bar Los Amigos">
+  <div class="bar-body">
+    <h3>Bar Los Amigos</h3>
+    <p class="horario-local">
+      <span id="estado-bar-los-amigos" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 18 a 3hs Jue a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">2x1 Fernet</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Los%20Amigos%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Picada 2 pers</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Los%20Amigos%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo Gancia</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Los%20Amigos%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Nachos + Cheddar</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Los%20Amigos%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="bar" data-local-id="bar-el-encuentro">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop" alt="Bar El Encuentro">
+  <div class="bar-body">
+    <h3>Bar El Encuentro</h3>
+    <p class="horario-local">
+      <span id="estado-bar-el-encuentro" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 19 a 2hs Mar a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Jarra Cerveza 2L</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Encuentro%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Muzzarella + Papas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Encuentro%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo Vodka + Speed</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Encuentro%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Rabas 300g</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Encuentro%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<div class="bar" data-categoria="bar" data-local-id="bar-la-terraza">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" alt="Bar La Terraza">
+  <div class="bar-body">
+    <h3>Bar La Terraza</h3>
+    <p class="horario-local">
+      <span id="estado-bar-la-terraza" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 20 a 4hs Vie a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tragos 2x1</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Terraza%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-la-terraza', 'Bar La Terraza', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo Birra + Chori</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Terraza%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-la-terraza', 'Bar La Terraza', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bastones Muzzarella</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Terraza%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-la-terraza', 'Bar La Terraza', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tequila + Sal + Limón</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Terraza%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-la-terraza', 'Bar La Terraza', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="bar" data-local-id="bar-el-rincon">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop" alt="Bar El Rincón">
+  <div class="bar-body">
+    <h3>Bar El Rincón</h3>
+    <p class="horario-local">
+      <span id="estado-bar-el-rincon" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 18 a 3hs Mié a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Litro Cerveza Tirada</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rincon%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-el-rincon', 'Bar El Rincón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Empanadas x6</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rincon%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-el-rincon', 'Bar El Rincón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Campari + Pomelo</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rincon%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-el-rincon', 'Bar El Rincón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Provoleta</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Rincon%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-el-rincon', 'Bar El Rincón', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<div class="bar" data-categoria="bar" data-local-id="bar-la-esquina">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" alt="Bar La Esquina">
+  <div class="bar-body">
+    <h3>Bar La Esquina</h3>
+    <p class="horario-local">
+      <span id="estado-bar-la-esquina" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 19 a 2:30hs Jue a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Gin Tonic 2x1</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-la-esquina', 'Bar La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bondiola al Pan</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-la-esquina', 'Bar La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo Fernet + Coca</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-la-esquina', 'Bar La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Papitas con Cheddar</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Esquina%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-la-esquina', 'Bar La Esquina', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="bar" data-local-id="bar-el-viejo-almacen">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop" alt="Bar El Viejo Almacén">
+  <div class="bar-body">
+    <h3>Bar El Viejo Almacén</h3>
+    <p class="horario-local">
+      <span id="estado-bar-el-viejo-almacen" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 18 a 1hs Lun a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Chop 500cc x2</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Viejo%20Almacen%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-el-viejo-almacen', 'Bar El Viejo Almacén', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Picada Chica</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Viejo%20Almacen%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-el-viejo-almacen', 'Bar El Viejo Almacén', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Caipirinha</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Viejo%20Almacen%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-el-viejo-almacen', 'Bar El Viejo Almacén', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Milanesa Napo</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Viejo%20Almacen%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-el-viejo-almacen', 'Bar El Viejo Almacén', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<div class="bar" data-categoria="bar" data-local-id="bar-la-union">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" alt="Bar La Unión">
+  <div class="bar-body">
+    <h3>Bar La Unión</h3>
+    <p class="horario-local">
+      <span id="estado-bar-la-union" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 19 a 3hs Mar a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo Cerveza + Papas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Union%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-la-union', 'Bar La Unión', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Wisky + Coca 750cc</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Union%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-la-union', 'Bar La Unión', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tequeños x8</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Union%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-la-union', 'Bar La Unión', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Soda + Limón Jarra</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Union%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-la-union', 'Bar La Unión', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="bar" data-local-id="bar-el-progreso">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop" alt="Bar El Progreso">
+  <div class="bar-body">
+    <h3>Bar El Progreso</h3>
+    <p class="horario-local">
+      <span id="estado-bar-el-progreso" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 17 a 2hs Lun a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Litro Cerveza + 2 Vasos</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Progreso%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-el-progreso', 'Bar El Progreso', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Hamburguesa Completa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Progreso%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-el-progreso', 'Bar El Progreso', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Fernet Branca 750cc</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Progreso%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-el-progreso', 'Bar El Progreso', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Papas con Cheddar</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Progreso%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-el-progreso', 'Bar El Progreso', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<div class="bar" data-categoria="bar" data-local-id="bar-central">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" alt="Bar Central">
+  <div class="bar-body">
+    <h3>Bar Central</h3>
+    <p class="horario-local">
+      <span id="estado-bar-central" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 18 a 3hs Jue a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">2x1 Gancia</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Bar%20Central%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-central', 'Bar Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tostado + Gaseosa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Bar%20Central%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-central', 'Bar Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Cuba Libre</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Bar%20Central%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-central', 'Bar Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Picada Grande</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20Bar%20Central%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-central', 'Bar Central', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="bar" data-local-id="bar-la-bodega">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop" alt="Bar La Bodega">
+  <div class="bar-body">
+    <h3>Bar La Bodega</h3>
+    <p class="horario-local">
+      <span id="estado-bar-la-bodega" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 18 a 2hs Mar a Sáb
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Vino + Picada</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Bodega%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-la-bodega', 'Bar La Bodega', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo Cerveza Artesanal</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Bodega%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-la-bodega', 'Bar La Bodega', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Tapa de Empanadas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Bodega%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-la-bodega', 'Bar La Bodega', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Gin Premium + Tónica</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Bodega%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-la-bodega', 'Bar La Bodega', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<div class="bar" data-categoria="bar" data-local-id="bar-el-club">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" alt="Bar El Club">
+  <div class="bar-body">
+    <h3>Bar El Club</h3>
+    <p class="horario-local">
+      <span id="estado-bar-el-club" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 19 a 3hs Vie a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Jarra 1L + Maní</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Club%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-el-club', 'Bar El Club', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Lomito Completo</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Club%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-el-club', 'Bar El Club', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Speed + Vodka</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Club%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-el-club', 'Bar El Club', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Bastones + Salsa</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Club%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-el-club', 'Bar El Club', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div><div class="bar" data-categoria="bar" data-local-id="bar-el-resto">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop" alt="Bar El Resto">
+  <div class="bar-body">
+    <h3>Bar El Resto</h3>
+    <p class="horario-local">
+      <span id="estado-bar-el-resto" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 18 a 1:30hs Lun a Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo Chop 1L</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Resto%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-el-resto', 'Bar El Resto', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Rabas + Limón</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Resto%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-el-resto', 'Bar El Resto', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Campari Tonic</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Resto%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-el-resto', 'Bar El Resto', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Sandwich de Miga x4</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20El%20Resto%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-el-resto', 'Bar El Resto', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
+
+<div class="bar" data-categoria="bar" data-local-id="bar-la-pena">
+  <img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" alt="Bar La Peña">
+  <div class="bar-body">
+    <h3>Bar La Peña</h3>
+    <p class="horario-local">
+      <span id="estado-bar-la-pena" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold; margin-right:6px">ABIERTO</span>
+      🕐 20 a 4hs Sáb y Dom
+    </p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0">
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Fernet 750cc + Coca</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Pena%2C%20quiero%20promo%201" target="_blank" onclick="sumarClick('bar-la-pena', 'Bar La Peña', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Promo 2 Cervezas</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Pena%2C%20quiero%20promo%202" target="_blank" onclick="sumarClick('bar-la-pena', 'Bar La Peña', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Muzzarella x12</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Pena%2C%20quiero%20promo%203" target="_blank" onclick="sumarClick('bar-la-pena', 'Bar La Peña', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+      <div style="border:1px solid #eee; border-radius:8px; overflow:hidden; text-align:center">
+        <img src="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=300&h=200&fit=crop" style="width:100%; height:100px; object-fit:cover">
+        <div style="padding:6px; font-size:12px; font-weight:bold">Gancia + Sprite</div>
+        <a href="https://wa.me/5492983XXXXXX?text=Hola%20La%20Pena%2C%20quiero%20promo%204" target="_blank" onclick="sumarClick('bar-la-pena', 'Bar La Peña', 4)" style="display:block; padding:5px; background:#25D366; color:white; text-decoration:none; font-size:11px; font-weight:bold">Pedir</a>
+      </div>
+    </div>
+    <div class="promo"><span>Promos</span><b>4/4</b></div>
+  </div>
+</div>
 <!-- MODAL PROMOS CON IMAGEN CHICA EN CADA PROMO -->
 <div class="modal-promo" id="modalPromo">
   <div class="modal-promo-content">
