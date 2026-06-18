@@ -596,6 +596,23 @@ document.getElementById('modal').addEventListener('click', e=>{
   if(e.target.id === 'modal') cerrarModal();
 });
 </script>
+  <script>
+function filtrar(categoria, boton) {
+  const locales = document.querySelectorAll('.local');
+  const botones = document.querySelectorAll('.filter-btn');
+  
+  botones.forEach(btn => btn.classList.remove('active'));
+  boton.classList.add('active');
+  
+  locales.forEach(local => {
+    if (categoria === 'all' || local.classList.contains(categoria)) {
+      local.style.display = 'block';
+    } else {
+      local.style.display = 'none';
+    }
+  });
+}
+</script>
 </body>
 </html>
 
