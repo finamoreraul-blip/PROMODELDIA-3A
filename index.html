@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,121 +9,121 @@
   --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --sub:#94a3b8;
   --accent:#38bdf8; --green:#4ade80; --yellow:#fbbf24; --border:#334155
 }
-body.light{
-  --bg:#e2e8f0; --card:#ffffff; --text:#1e293b; --sub:#475569;
-  --accent:#0284c7; --green:#16a34a; --yellow:#b45309; --border:#94a3b8
+[data-theme="light"]{
+  --bg:#f1f5f9; --card:#ffffff; --text:#0f172a; --sub:#64748b;
+  --accent:#0284c7; --green:#16a34a; --yellow:#ca8a04; --border:#cbd5e1
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  font-family:system-ui,sans-serif;
+  font-family:system-ui,-apple-system,sans-serif;
   background:var(--bg);
   color:var(--text);
-  padding:20px;
+  padding:16px;
   max-width:600px;
   margin:0 auto;
-  transition:0.3s
+  transition:background 0.3s,color 0.3s
 }
-.header{text-align:center;margin-bottom:30px}
+.header{text-align:center;margin-bottom:24px;position:relative}
 .logo{
-  width:80px;height:80px;border-radius:50%;
+  width:70px;height:70px;border-radius:50%;
   background:var(--accent);display:flex;align-items:center;
-  justify-content:center;font-size:40px;margin:0 auto 10px;
+  justify-content:center;font-size:36px;margin:0 auto 10px;
   border:3px solid var(--border)
 }
-h1{color:var(--accent);font-size:24px;margin-bottom:5px}
-.sub{color:var(--sub);font-size:13px;margin-bottom:10px}
+h1{color:var(--accent);font-size:22px;margin-bottom:4px;font-weight:800}
+.sub{color:var(--sub);font-size:13px;margin-bottom:8px}
 .horario-badge{
   display:inline-block;background:var(--green);color:white;
-  padding:6px 14px;border-radius:8px;font-size:12px;font-weight:bold
+  padding:6px 14px;border-radius:20px;font-size:12px;font-weight:bold
 }
 .toggle{
-  position:absolute;top:20px;right:20px;
+  position:absolute;top:0;right:0;
   background:var(--card);border:1px solid var(--border);
   padding:8px 12px;border-radius:8px;cursor:pointer;
-  color:var(--text);font-size:13px
+  color:var(--text);font-size:13px;font-weight:bold
 }
 
-/* FILTROS */
 .filter-bar{
-  display:flex;gap:8px;margin-bottom:30px;
+  display:flex;gap:8px;margin-bottom:24px;
   flex-wrap:wrap;justify-content:center
 }
 .filter-btn{
-  padding:9px 14px;background:var(--card);
+  padding:8px 12px;background:var(--card);
   border:2px solid var(--border);color:var(--text);
-  border-radius:50px;cursor:pointer;font-weight:bold;
-  font-size:13px;transition:0.3s;white-space:nowrap
+  border-radius:20px;cursor:pointer;font-weight:600;
+  font-size:12px;transition:0.2s;white-space:nowrap
 }
 .filter-btn.active,.filter-btn:hover{
-  background:var(--accent);color:var(--bg);
+  background:var(--accent);color:white;
   border-color:var(--accent)
 }
 
-/* LOCALES COMPACTOS CON BORDE GRUESO Y SEPARACIÓN */
 .bares-grid{
   display:flex;
-  flex-direction: column;
-  gap: 24px;
+  flex-direction:column;
+  gap:20px
 }
 
 .bar-compacto {
-  border:2px solid #ccc; 
+  border:2px solid var(--border); 
   border-radius:12px; 
-  margin:24px 0; 
   overflow:hidden; 
   background:var(--card); 
-  box-shadow:0 3px 6px rgba(0,0,0,0.12)
+  box-shadow:0 2px 8px rgba(0,0,0,0.1)
 }
 .bar-header {
   padding:14px; 
   display:flex; 
-  gap:14px; 
+  gap:12px; 
   align-items:center
 }
 .bar-header img {
-  width:75px; 
-  height:75px; 
+  width:70px; 
+  height:70px; 
   border-radius:10px; 
-  object-fit:cover
+  object-fit:cover;
+  border:2px solid var(--border)
 }
 .bar-info {flex:1}
 .bar-info h3 {
-  margin:0 0 6px 0; 
-  font-size:17px; 
-  font-weight:bold;
+  margin:0 0 5px 0; 
+  font-size:16px; 
+  font-weight:800;
   color:var(--text)
 }
 .horario-compacto {
-  font-size:13px; 
+  font-size:12px; 
   color:var(--sub); 
-  margin:4px 0; 
+  margin:3px 0; 
   display:flex; 
   align-items:center; 
-  gap:6px
+  gap:5px
 }
 .promitos {
   display:grid; 
   grid-template-columns:repeat(4,1fr); 
-  gap:5px; 
+  gap:6px; 
   padding:0 14px 14px
 }
 .promito {
   border:1px solid var(--border); 
   border-radius:6px; 
   overflow:hidden; 
-  text-align:center
+  text-align:center;
+  background:var(--bg)
 }
 .promito img {
   width:100%; 
-  height:55px; 
+  height:50px; 
   object-fit:cover
 }
 .promito div {
   font-size:10px; 
-  padding:3px; 
-  font-weight:bold;
-  color:var(--text)
+  padding:4px 2px; 
+  font-weight:700;
+  color:var(--text);
+  line-height:1.2
 }
 .btn-ver {
   width:calc(100% - 28px); 
@@ -133,7 +133,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   color:white; 
   border:none; 
   border-radius:8px; 
-  font-weight:bold; 
+  font-weight:800; 
   cursor:pointer; 
   font-size:15px
 }
@@ -141,7 +141,7 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   display:none; 
   padding:0 14px 14px
 }
-.catalogo.activo {display:block}
+.catalogo.active {display:block}
 .promo-card {
   border:1px solid var(--border); 
   border-radius:8px; 
@@ -151,39 +151,45 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
 }
 .promo-card img {
   width:100%; 
-  height:130px; 
+  height:140px; 
   object-fit:cover
 }
-.promo-body {padding:10px}
+.promo-body {padding:12px}
 .promo-body b {
   display:block; 
   margin-bottom:5px; 
-  font-size:15px;
+  font-size:16px;
   color:var(--text)
 }
 .promo-body p {
-  margin:0 0 10px 0; 
+  margin:0 0 8px 0; 
   font-size:13px; 
   color:var(--sub)
+}
+.precio {
+  font-size:18px;
+  font-weight:800;
+  color:var(--accent);
+  margin-bottom:10px
 }
 .btn-pedir {
   display:block; 
   width:100%; 
-  padding:10px; 
+  padding:11px; 
   background:#25D366; 
   color:white; 
   text-align:center; 
   text-decoration:none; 
-  font-weight:bold; 
+  font-weight:800; 
   border-radius:6px; 
-  font-size:14px
+  font-size:13px
 }
 
-.footer{text-align:center;margin-top:100px;padding-top:25px;border-top:2px solid var(--border);font-size:12px;color:var(--sub);line-height:1.8}
+.footer{text-align:center;margin-top:60px;padding-top:20px;border-top:2px solid var(--border);font-size:12px;color:var(--sub);line-height:1.7}
 </style>
 </head>
 <body>
-<button class="toggle" onclick="toggleTheme()">🌓</button>
+<button class="toggle" id="themeBtn" onclick="toggleTheme()">☀️ Claro</button>
 
 <div class="header">
   <div class="logo">🚀</div>
@@ -202,922 +208,471 @@ h1{color:var(--accent);font-size:24px;margin-bottom:5px}
   <button class="filter-btn" onclick="filtrar('kiosco', this)">Kioscos</button>
   <button class="filter-btn" onclick="filtrar('parrilla', this)">Parrillas</button>
   <button class="filter-btn" onclick="filtrar('bar', this)">Bares</button>
+  <button class="filter-btn" onclick="filtrar('libreria', this)">Librerías</button>
+  <button class="filter-btn" onclick="filtrar('forrajeria', this)">Forrajerías</button>
+  <button class="filter-btn" onclick="filtrar('pintureria', this)">Pinturerías</button>
+  <button class="filter-btn" onclick="filtrar('electro', this)">Electro</button>
+  <button class="filter-btn" onclick="filtrar('ferreteria', this)">Ferreterías</button>
+  <button class="filter-btn" onclick="filtrar('veterinaria', this)">Veterinarias</button>
 </div>
 
 <div class="bares-grid">
 
-<!-- CARNICERÍA EL AMIGO -->
+<!-- LOCAL 1: Carnicería El Amigo - YA CORREGIDO -->
 <div class="bar-compacto" data-categoria="carniceria">
   <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop" alt="Carnicería El Amigo">
+    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=300&h=300&fit=crop" alt="El Amigo">
     <div class="bar-info">
       <h3>Carnicería El Amigo</h3>
-      <p class="horario-compacto">
-        <span id="estado-carniceria-el-amigo" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 Lun a Sáb 8 a 20hs
-      </p>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Av. San Martín 450</div>
     </div>
   </div>
+  
+  <!-- Promitos mini que te gustaron -->
   <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Asado 2kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop"><div>Milanesas x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop"><div>Chorizos x12</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop"><div>Combo Parri</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Asado $8900</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Picada $6500</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=150"><div>Milanesas $4200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Chorizos $3800</div></div>
   </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-amigo')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-amigo">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Asado 2kg</b><p>Corte de novillito seleccionado</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Amigo,%20quiero%20la%20promo%20Asado%202kg" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&h=300&fit=crop"><div class="promo-body"><b>Milanesas x6</b><p>Nalga fresca, empanadas caseras</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Amigo,%20quiero%20la%20promo%20Milanesas%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop"><div class="promo-body"><b>Chorizos x12</b><p>Parrilleros, bien condimentados</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Amigo,%20quiero%20la%20promo%20Chorizos%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Parri</b><p>Asado + Chori + Vacío 1kg c/u</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Amigo,%20quiero%20la%20promo%20Combo%20Parri" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-amigo', 'Carnicería El Amigo', 4)">Pedir por WhatsApp</a></div></div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat1')">Ver catálogo completo</button>
+  
+  <!-- Catálogo que se abre con fotos grandes + descripción + precio -->
+  <div class="catalogo" id="cat1">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
+      <div class="promo-body">
+        <b>Asado de tira premium</b>
+        <p>Kilogramo seleccionado, tierno y jugoso. Corte de novillo, ideal para parrilla.</p>
+        <div class="precio">$8900</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Asado%20premium%20con%20ENVIO%20$8900+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Asado%20premium%20RETIRO%20$8900" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
+      <div class="promo-body">
+        <b>Picada para 4 personas</b>
+        <p>Incluye: 4 chorizos, 2 morcillas, 1kg vacío, 500g chinchulines. Lista para tirar a la parri.</p>
+        <div class="precio">$6500</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Picada%20x4%20con%20ENVIO%20$6500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Picada%20x4%20RETIRO%20$6500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600">
+      <div class="promo-body">
+        <b>Milanesas de nalga x6 unidades</b>
+        <p>Empanadas caseras con pan rallado artesanal. Lista para freír o al horno.</p>
+        <div class="precio">$4200</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Milanesas%20x6%20con%20ENVIO%20$4200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Milanesas%20x6%20RETIRO%20$4200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- CARNICERÍA SAN JOSÉ -->
+</div><!-- LOCAL 2: Carnicería San José - CORREGIDO -->
 <div class="bar-compacto" data-categoria="carniceria">
   <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&h=300&fit=crop" alt="Carnicería San José">
+    <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=300&h=300&fit=crop" alt="San José">
     <div class="bar-info">
       <h3>Carnicería San José</h3>
-      <p class="horario-compacto">
-        <span id="estado-carniceria-san-jose" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 Lun a Sáb 8:30 a 20:30hs
-      </p>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Belgrano 1280</div>
     </div>
   </div>
+  
   <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Vacío 1kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop"><div>Picada Completa</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop"><div>Pollo Entero</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop"><div>Combo Milanga</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Vacío $9200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Costillas $8500</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=150"><div>Bondiolita $5200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Pulpa $7800</div></div>
   </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-san-jose')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-san-jose">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Vacío 1kg</b><p>Vacío tierno de novillo</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20San%20Jose,%20quiero%20promo%20Vacío%201kg" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&h=300&fit=crop"><div class="promo-body"><b>Picada Completa</b><p>Salame + Queso + Aceitunas</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20San%20Jose,%20quiero%20promo%20Picada%20Completa" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop"><div class="promo-body"><b>Pollo Entero</b><p>Pollo fresco de granja</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20San%20Jose,%20quiero%20promo%20Pollo%20Entero" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Milanga</b><p>2kg milanesas + limones</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20San%20Jose,%20quiero%20promo%20Combo%20Milanga" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-san-jose', 'Carnicería San José', 4)">Pedir por WhatsApp</a></div></div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat2')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat2">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
+      <div class="promo-body">
+        <b>Vacío tiernizado 7 días</b>
+        <p>Kilogramo de vacío madurado. Corte premium, súper tierno y jugoso para la parrilla.</p>
+        <div class="precio">$9200</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Vacío%20tiernizadocon%20ENVIO%20$9200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Vacío%20tiernizado%20RETIRO%20$9200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
+      <div class="promo-body">
+        <b>Costillas de ternera</b>
+        <p>Kilogramo de costillar completo. Ideales para hacer al asador o a la parrilla.</p>
+        <div class="precio">$8500</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Costillas%20con%20ENVIO%20$8500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Costillas%20RETIRO%20$8500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- CARNICERÍA LA IDEAL -->
+<!-- LOCAL 3: Carnicería La Ideal - CORREGIDO -->
 <div class="bar-compacto" data-categoria="carniceria">
   <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" alt="Carnicería La Ideal">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=300&fit=crop" alt="La Ideal">
     <div class="bar-info">
       <h3>Carnicería La Ideal</h3>
-      <p class="horario-compacto">
-        <span id="estado-carniceria-la-ideal" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 Lun a Sáb 7:30 a 20hs
-      </p>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Rivadavia 890</div>
     </div>
   </div>
+  
   <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Costilla 3kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=300&h=200&fit=crop"><div>Carne Molida 2kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=300&h=200&fit=crop"><div>Matambre Tierno</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=300&h=200&fit=crop"><div>Combo Familia</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Entraña $9800</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Matambre $8600</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=150"><div>Hamburguesas $3500</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Molida $4100</div></div>
   </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-ideal')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-ideal">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Costilla 3kg</b><p>Costilla de novillo</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Ideal,%20quiero%20promo%20Costilla%203kg" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1558030006-450675393462?w=400&h=300&fit=crop"><div class="promo-body"><b>Carne Molida 2kg</b><p>Picada especial</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Ideal,%20quiero%20promo%20Carne%20Molida%202kg" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop"><div class="promo-body"><b>Matambre Tierno</b><p>Matambre arrollado</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Ideal,%20quiero%20promo%20Matambre%20Tierno" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Familia</b><p>5kg mix para 8 personas</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Ideal,%20quiero%20promo%20Combo%20Familia" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-ideal', 'Carnicería La Ideal', 4)">Pedir por WhatsApp</a></div></div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat3')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat3">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
+      <div class="promo-body">
+        <b>Entraña a la parrilla</b>
+        <p>Kilogramo de entraña finita. Corte premium, se cocina rápido y queda increíble.</p>
+        <div class="precio">$9800</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Entraña%20con%20ENVIO%20$9800+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Entraña%20RETIRO%20$9800" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
+      <div class="promo-body">
+        <b>Matambre arrollado</b>
+        <p>Matambre relleno casero x1kg. Lista para hervir y cortar en rodajas.</p>
+        <div class="precio">$8600</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Matambre%20con%20ENVIO%20$8600+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Matambre%20RETIRO%20$8600" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- PANADERÍA SAN JORGE -->
+</div><!-- LOCAL 4: Panadería La Espiga - CORREGIDO -->
 <div class="bar-compacto" data-categoria="panaderia">
   <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Panadería San Jorge">
-    <div class="bar-info">
-      <h3>Panadería San Jorge</h3>
-      <p class="horario-compacto">
-        <span id="estado-panaderia-san-jorge" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 6 a 21hs todos los días
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Docena Facturas</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop"><div>Tarta Completa</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop"><div>Pan Casero x2</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop"><div>Torta Cumple</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-san-jorge')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-san-jorge">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Docena Facturas</b><p>Suritidas de manteca</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20San%20Jorge,%20quiero%20promo%20Docena%20Facturas" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=400&h=300&fit=crop"><div class="promo-body"><b>Tarta Completa</b><p>Jamón y queso</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20San%20Jorge,%20quiero%20promo%20Tarta%20Completa" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop"><div class="promo-body"><b>Pan Casero x2</b><p>Recién horneado</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20San%20Jorge,%20quiero%20promo%20Pan%20Casero%20x2" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"><div class="promo-body"><b>Torta Cumple</b><p>Con decoración</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20San%20Jorge,%20quiero%20promo%20Torta%20Cumple" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-san-jorge', 'Panadería San Jorge', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- PANADERÍA EL HORNO -->
-<div class="bar-compacto" data-categoria="panaderia">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=400&h=300&fit=crop" alt="Panadería El Horno">
-    <div class="bar-info">
-      <h3>Panadería El Horno</h3>
-      <p class="horario-compacto">
-        <span id="estado-panaderia-el-horno" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 5:30 a 21:30hs
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>2x1 Criollos</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop"><div>Tortas Fritas x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop"><div>Fugazza Completa</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop"><div>Alfajores x12</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-horno')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-horno">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>2x1 Criollos</b><p>De grasa caseros</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Horno,%20quiero%20promo%202x1%20Criollos" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=400&h=300&fit=crop"><div class="promo-body"><b>Tortas Fritas x6</b><p>Calientes</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Horno,%20quiero%20promo%20Tortas%20Fritas%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop"><div class="promo-body"><b>Fugazza Completa</b><p>Con muzzarella</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Horno,%20quiero%20promo%20Fugazza%20Completa" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"><div class="promo-body"><b>Alfajores x12</b><p>De maicena</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Horno,%20quiero%20promo%20Alfajores%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-horno', 'Panadería El Horno', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- PANADERÍA LA ESPAÑOLA -->
-<div class="bar-compacto" data-categoria="panaderia">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop" alt="Panadería La Española">
-    <div class="bar-info">
-      <h3>Panadería La Española</h3>
-      <p class="horario-compacto">
-        <span id="estado-panaderia-la-espanola" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 6 a 20hs Lun a Dom
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Medialunas x12</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=300&h=200&fit=crop"><div>Pan de Miga</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=300&h=200&fit=crop"><div>Chipá x20</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop"><div>Tarta Jamón y Queso</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-espanola')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-espanola">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Medialunas x12</b><p>De manteca</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20La%20Espanola,%20quiero%20promo%20Medialunas%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-la-espanola', 'Panadería La Española', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=400&h=300&fit=crop"><div class="promo-body"><b>Pan de Miga</b><p>Fresco del día</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20La%20Espanola,%20quiero%20promo%20Pan%20de%20Miga" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-la-espanola', 'Panadería La Española', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop"><div class <!-- VERDULERÍA DON PEPE -->
-<div class="bar-compacto" data-categoria="verduleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop" alt="Verdulería Don Pepe">
-    <div class="bar-info">
-      <h3>Verdulería Don Pepe</h3>
-      <p class="horario-compacto">
-        <span id="estado-verduleria-don-pepe" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 7 a 20hs todos los días
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop"><div>Bolsón Familia</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop"><div>Fruta Fresca 3kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop"><div>Ensalada Completa</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop"><div>Combo Dieta</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-don-pepe')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-don-pepe">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=400&h=300&fit=crop"><div class="promo-body"><b>Bolsón Familia</b><p>10kg de verduras surtidas</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Don%20Pepe,%20quiero%20promo%20Bolsón%20Familia" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=400&h=300&fit=crop"><div class="promo-body"><b>Fruta Fresca 3kg</b><p>Mix de estación</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Don%20Pepe,%20quiero%20promo%20Fruta%20Fresca%203kg" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=300&fit=crop"><div class="promo-body"><b>Ensalada Completa</b><p>Lechuga + Tomate + Zanahoria</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Don%20Pepe,%20quiero%20promo%20Ensalada%20Completa" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Dieta</b><p>Verde + Frutas light</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Don%20Pepe,%20quiero%20promo%20Combo%20Dieta" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-don-pepe', 'Verdulería Don Pepe', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- VERDULERÍA LA HUERTA -->
-<div class="bar-compacto" data-categoria="verduleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=400&h=300&fit=crop" alt="Verdulería La Huerta">
-    <div class="bar-info">
-      <h3>Verdulería La Huerta</h3>
-      <p class="horario-compacto">
-        <span id="estado-verduleria-la-huerta" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 8 a 21hs Lun a Sáb
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop"><div>Verdura 5kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop"><div>Frutilla 2kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop"><div>Mix Ensalada</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop"><div>Combo Jugos</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-huerta')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-huerta">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=400&h=300&fit=crop"><div class="promo-body"><b>Verdura 5kg</b><p>Papa + Cebolla + Batata</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20La%20Huerta,%20quiero%20promo%20Verdura%205kg" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=400&h=300&fit=crop"><div class="promo-body"><b>Frutilla 2kg</b><p>Frescas de Mar del Plata</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20La%20Huerta,%20quiero%20promo%20Frutilla%202kg" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=300&fit=crop"><div class="promo-body"><b>Mix Ensalada</b><p>4 variedades lavadas</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20La%20Huerta,%20quiero%20promo%20Mix%20Ensalada" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Jugos</b><p>Naranja + Manzana 3kg</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20La%20Huerta,%20quiero%20promo%20Combo%20Jugos" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-la-huerta', 'Verdulería La Huerta', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- VERDULERÍA FRESCURA -->
-<div class="bar-compacto" data-categoria="verduleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=300&fit=crop" alt="Verdulería Frescura">
-    <div class="bar-info">
-      <h3>Verdulería Frescura</h3>
-      <p class="horario-compacto">
-        <span id="estado-verduleria-frescura" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 7:30 a 20:30hs
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop"><div>Papa + Cebolla 5kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop"><div>Naranja 3kg</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop"><div>Verdeo + Ajo</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop"><div>Combo Wok</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-frescura')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-frescura">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=400&h=300&fit=crop"><div class="promo-body"><b>Papa + Cebolla 5kg</b><p>2.5kg de cada una</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Frescura,%20quiero%20promo%20Papa%20%2B%20Cebolla%205kg" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=400&h=300&fit=crop"><div class="promo-body"><b>Naranja 3kg</b><p>Dulces de jugo</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Frescura,%20quiero%20promo%20Naranja%203kg" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=300&fit=crop"><div class="promo-body"><b>Verdeo + Ajo</b><p>2 atados + 1 cabeza</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Frescura,%20quiero%20promo%20Verdeo%20%2B%20Ajo" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Wok</b><p>Zanahoria + Morron + Brocoli</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20Frescura,%20quiero%20promo%20Combo%20Wok" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-frescura', 'Verdulería Frescura', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div><!-- POLLERÍA LA GRANJA -->
-<div class="bar-compacto" data-categoria="polleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=400&h=300&fit=crop" alt="Pollería La Granja">
-    <div class="bar-info">
-      <h3>Pollería La Granja</h3>
-      <p class="horario-compacto">
-        <span id="estado-polleria-la-granja" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 8 a 20hs Lun a Sáb
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop"><div>Pollo Entero</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=300&h=200&fit=crop"><div>Pata Muslo x4</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=300&h=200&fit=crop"><div>Milanesas x8</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop"><div>Alitas x2kg</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-granja')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-granja">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=400&h=300&fit=crop"><div class="promo-body"><b>Pollo Entero</b><p>Fresco de granja 2.5kg</p><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20La%20Granja,%20quiero%20promo%20Pollo%20Entero" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=400&h=300&fit=crop"><div class="promo-body"><b>Pata Muslo x4</b><p>Con cuero crocante</p><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20La%20Granja,%20quiero%20promo%20Pata%20Muslo%20x4" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=400&h=300&fit=crop"><div class="promo-body"><b>Milanesas x8</b><p>Supremas empanadas</p><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20La%20Granja,%20quiero%20promo%20Milanesas%20x8" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=400&h=300&fit=crop"><div class="promo-body"><b>Alitas x2kg</b><b>Para la parri</b><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20La%20Granja,%20quiero%20promo%20Alitas%20x2kg" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-la-granja', 'Pollería La Granja', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- POLLERÍA POLLOS RÍO -->
-<div class="bar-compacto" data-categoria="polleria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=400&h=300&fit=crop" alt="Pollería Pollos Río">
-    <div class="bar-info">
-      <h3>Pollería Pollos Río</h3>
-      <p class="horario-compacto">
-        <span id="estado-polleria-pollos-rio" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 9 a 19hs de Lun a Vie
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop"><div>Supremas x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=300&h=200&fit=crop"><div>Hamburguesas x8</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=300&h=200&fit=crop"><div>Pechuga Deshuesada</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=300&h=200&fit=crop"><div>Menudos + Cuello</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-pollos-rio')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-pollos-rio">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=400&h=300&fit=crop"><div class="promo-body"><b>Supremas x6</b><p>Fileteadas y limpias</p><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20Pollos%20Rio,%20quiero%20promo%20Supremas%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1626644735500-3e63c2158d92?w=400&h=300&fit=crop"><div class="promo-body"><b>Hamburguesas x8</b><p>De pollo caseras</p><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20Pollos%20Rio,%20quiero%20promo%20Hamburguesas%20x8" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=400&h=300&fit=crop"><div class="promo-body"><b>Pechuga Deshuesada</b><p>1.5kg sin hueso</p><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20Pollos%20Rio,%20quiero%20promo%20Pechuga%20Deshuesada" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92?w=400&h=300&fit=crop"><div class="promo-body"><b>Menudos + Cuello</b><p>Combo para guiso</p><a href="https://wa.me/5492983389710?text=Hola%20Polleria%20Pollos%20Rio,%20quiero%20promo%20Menudos%20%2B%20Cuello" target="_blank" class="btn-pedir" onclick="sumarClick('polleria-pollos-rio', 'Pollería Pollos Río', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- CARNICERÍA EL GAUCHO -->
-<div class="bar-compacto" data-categoria="carniceria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop" alt="Carnicería El Gaucho">
-    <div class="bar-info">
-      <h3>Carnicería El Gaucho</h3>
-      <p class="horario-compacto">
-        <span id="estado-carniceria-el-gaucho" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 8 a 13hs y 16 a 20hs
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Asado Tira</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop"><div>Chorizos x12</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Milanesas x8</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Picada Completa</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-gaucho')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-gaucho">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Asado Tira</b><p>Corte ancho de novillo</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Gaucho,%20quiero%20promo%20Asado%20Tira" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"><div class="promo-body"><b>Chorizos x12</b><p>Caseros parrilleros</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Gaucho,%20quiero%20promo%20Chorizos%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Milanesas x8</b><p>Nalga empanada</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Gaucho,%20quiero%20promo%20Milanesas%20x8" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Picada Completa</b><p>Salame + Queso + Aceitunas</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Gaucho,%20quiero%20promo%20Picada%20Completa" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-gaucho', 'Carnicería El Gaucho', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- CARNICERÍA LA NUEVA -->
-<div class="bar-compacto" data-categoria="carniceria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop" alt="Carnicería La Nueva">
-    <div class="bar-info">
-      <h3>Carnicería La Nueva</h3>
-      <p class="horario-compacto">
-        <span id="estado-carniceria-la-nueva" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 7:30 a 13hs y 16 a 20hs
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Vacío + Chimichurri</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop"><div>Morcillas x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Hígado + Cebolla</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Carne Molida 2kg</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-nueva')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-nueva">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Vacío + Chimichurri</b><p>1.5kg + frasco casero</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Nueva,%20quiero%20promo%20Vacío%20%2B%20Chimichurri" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"><div class="promo-body"><b>Morcillas x6</b><p>Con arroz y verdeo</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Nueva,%20quiero%20promo%20Morcillas%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Hígado + Cebolla</b><p>1kg + 2 cebollas</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Nueva,%20quiero%20promo%20Hígado%20%2B%20Cebolla" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Carne Molida 2kg</b><p>Especial para hamburguesas</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20La%20Nueva,%20quiero%20promo%20Carne%20Molida%202kg" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-la-nueva', 'Carnicería La Nueva', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div><!-- CARNICERÍA DON CARLOS -->
-<div class="bar-compacto" data-categoria="carniceria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Carnicería Don Carlos">
-    <div class="bar-info">
-      <h3>Carnicería Don Carlos</h3>
-      <p class="horario-compacto">
-        <span id="estado-carniceria-don-carlos" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 8 a 20hs Lun a Sáb
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Lomo Finito</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop"><div>Costillitas BBQ</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Hamburguesas x12</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Achuras Mix</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-don-carlos')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-don-carlos">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Lomo Finito</b><p>Corte premium 1kg</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20Don%20Carlos,%20quiero%20promo%20Lomo%20Finito" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"><div class="promo-body"><b>Costillitas BBQ</b><p>Con salsa lista</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20Don%20Carlos,%20quiero%20promo%20Costillitas%20BBQ" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Hamburguesas x12</b><p>Carne pura 80g c/u</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20Don%20Carlos,%20quiero%20promo%20Hamburguesas%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Achuras Mix</b><p>Chori + Molleja + Riñón</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20Don%20Carlos,%20quiero%20promo%20Achuras%20Mix" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-don-carlos', 'Carnicería Don Carlos', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- KIOSCO EL RÁPIDO -->
-<div class="bar-compacto" data-categoria="kiosco">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop" alt="Kiosco 24hs El Rápido">
-    <div class="bar-info">
-      <h3>Kiosco 24hs El Rápido</h3>
-      <p class="horario-compacto">
-        <span id="estado-kiosco-el-rapido" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO 24HS</span>
-        🕐 Abierto las 24hs todos los días
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop"><div>Combo Gaseosa + Snack</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop"><div>Alfajores x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Cigarrillos + Encendedor</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop"><div>Carga SUBE</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-rapido')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-rapido">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Gaseosa + Snack</b><p>Coca 1.5L + Papas</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20El%20Rapido,%20quiero%20promo%20Combo%20Gaseosa%20%2B%20Snack" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"><div class="promo-body"><b>Alfajores x6</b><p>Capitán del Espacio</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20El%20Rapido,%20quiero%20promo%20Alfajores%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Cigarrillos + Encendedor</b><p>Phillip Morris</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20El%20Rapido,%20quiero%20promo%20Cigarrillos%20%2B%20Encendedor" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop"><div class="promo-body"><b>Carga SUBE</b><p>Desde $500</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20El%20Rapido,%20quiero%20promo%20Carga%20SUBE" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-el-rapido', 'Kiosco 24hs El Rápido', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- KIOSCO LA ESQUINA -->
-<div class="bar-compacto" data-categoria="kiosco">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop" alt="Kiosco La Esquina">
-    <div class="bar-info">
-      <h3>Kiosco La Esquina</h3>
-      <p class="horario-compacto">
-        <span id="estado-kiosco-la-esquina" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 7 a 23hs todos los días
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop"><div>Chupetines x50</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Galletitas x3</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop"><div>Bebidas 2x1</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop"><div>Útiles Escolares</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-esquina')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-esquina">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"><div class="promo-body"><b>Chupetines x50</b><p>Arcoiris surtidos</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20La%20Esquina,%20quiero%20promo%20Chupetines%20x50" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Galletitas x3</b><p>Cofler + Oreo + Pepitos</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20La%20Esquina,%20quiero%20promo%20Galletitas%20x3" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop"><div class="promo-body"><b>Bebidas 2x1</b><p>Sprite o Fanta 500cc</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20La%20Esquina,%20quiero%20promo%20Bebidas%202x1" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"><div class="promo-body"><b>Útiles Escolares</b><p>Lapicera + Cuaderno</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20La%20Esquina,%20quiero%20promo%20Útiles%20Escolares" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-la-esquina', 'Kiosco La Esquina', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- KIOSCO PUNTO CARGA -->
-<div class="bar-compacto" data-categoria="kiosco">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop" alt="Kiosco Punto Carga">
-    <div class="bar-info">
-      <h3>Kiosco Punto Carga</h3>
-      <p class="horario-compacto">
-        <span id="estado-kiosco-punto-carga" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 8 a 22hs Lun a Dom
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Carga Celular 10%</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=300&h=200&fit=crop"><div>Pack Energéticas</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300&h=200&fit=crop"><div>Golosinas x100</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Agua + Papas</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-punto-carga')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-punto-carga">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Carga Celular 10%</b><p>Todas las compañías</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20Punto%20Carga,%20quiero%20promo%20Carga%20Celular%2010%" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop"><div class="promo-body"><b>Pack Energéticas</b><p>Speed + Monster</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20Punto%20Carga,%20quiero%20promo%20Pack%20Energéticas" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&h=300&fit=crop"><div class="promo-body"><b>Golosinas x100</b><p>Surtidas para cumple</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20Punto%20Carga,%20quiero%20promo%20Golosinas%20x100" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Agua + Papas</b><p>500cc + Lays</p><a href="https://wa.me/5492983389710?text=Hola%20Kiosco%20Punto%20Carga,%20quiero%20promo%20Agua%20%2B%20Papas" target="_blank" class="btn-pedir" onclick="sumarClick('kiosco-punto-carga', 'Kiosco Punto Carga', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div><!-- PARRILLA LA ESTACA -->
-<div class="bar-compacto" data-categoria="parrilla">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
-    <div class="bar-info">
-      <h3>Parrilla La Estaca</h3>
-      <p class="horario-compacto">
-        <span id="estado-parrilla-la-estaca" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 11 a 15hs y 20 a 00hs
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Tira + Vacío 2 pers</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop"><div>Chori Pan x4</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Costillar Completo</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Provoleta + Chori</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-estaca')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-estaca">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Tira + Vacío 2 pers</b><p>Con ensalada y pan</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20La%20Estaca,%20quiero%20promo%20Tira%20%2B%20Vacío%202%20pers" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"><div class="promo-body"><b>Chori Pan x4</b><p>Con chimichurri casero</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20La%20Estaca,%20quiero%20promo%20Chori%20Pan%20x4" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Costillar Completo</b><p>Para 6 personas</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20La%20Estaca,%20quiero%20promo%20Costillar%20Completo" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Provoleta + Chori</b><p>Provoleta fundida</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20La%20Estaca,%20quiero%20promo%20Provoleta%20%2B%20Chori" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-la-estaca', 'Parrilla La Estaca', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- PARRILLA DON TITO -->
-<div class="bar-compacto" data-categoria="parrilla">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop" alt="Parrilla Don Tito">
-    <div class="bar-info">
-      <h3>Parrilla Don Tito</h3>
-      <p class="horario-compacto">
-        <span id="estado-parrilla-don-tito" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 12 a 15hs y 20 a 00hs Mié a Dom
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Bife de Chorizo</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop"><div>Matambre a la Pizza</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Chinchulines + Riñón</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Parrillada 4 pers</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-don-tito')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-don-tito">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Bife de Chorizo</b><p>500g a la parrilla</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20Don%20Tito,%20quiero%20promo%20Bife%20de%20Chorizo" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"><div class="promo-body"><b>Matambre a la Pizza</b><p>Con muzzarella</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20Don%20Tito,%20quiero%20promo%20Matambre%20a%20la%20Pizza" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Chinchulines + Riñón</b><p>Porción abundante</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20Don%20Tito,%20quiero%20promo%20Chinchulines%20%2B%20Riñón" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Parrillada 4 pers</b><p>Mix completo</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20Don%20Tito,%20quiero%20promo%20Parrillada%204%20pers" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-don-tito', 'Parrilla Don Tito', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- PARRILLA EL FOGÓN -->
-<div class="bar-compacto" data-categoria="parrilla">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop" alt="Parrilla El Fogón">
-    <div class="bar-info">
-      <h3>Parrilla El Fogón</h3>
-      <p class="horario-compacto">
-        <span id="estado-parrilla-el-fogon" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 11:30 a 15hs y 20 a 00hs
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Entraña a la Parrilla</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop"><div>Chorizo Criollo x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Mollejitas + Chori</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Ojo de Bife 500g</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-fogon')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-fogon">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Entraña a la Parrilla</b><p>Jugosa a punto</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20El%20Fogon,%20quiero%20promo%20Entraña%20a%20la%20Parrilla" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"><div class="promo-body"><b>Chorizo Criollo x6</b><p>Caseros bien condimentados</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20El%20Fogon,%20quiero%20promo%20Chorizo%20Criollo%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Mollejitas + Chori</b><p>Para picar</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20El%20Fogon,%20quiero%20promo%20Mollejitas%20%2B%20Chori" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Ojo de Bife 500g</b><p>Corte premium</p><a href="https://wa.me/5492983389710?text=Hola%20Parrilla%20El%20Fogon,%20quiero%20promo%20Ojo%20de%20Bife%20500g" target="_blank" class="btn-pedir" onclick="sumarClick('parrilla-el-fogon', 'Parrilla El Fogón', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- HELADERÍA DOLCE VITA -->
-<div class="bar-compacto" data-categoria="heladeria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Heladería Dolce Vita">
-    <div class="bar-info">
-      <h3>Heladería Dolce Vita</h3>
-      <p class="horario-compacto">
-        <span id="estado-heladeria-dolce-vita" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 15 a 23hs todos los días
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop"><div>1/4 Helado + 2 Cucuruchos</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop"><div>Postre Helado Familiar</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop"><div>Copa Dulce Tentación</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop"><div>Torta Helada 1kg</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-dolce-vita')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-dolce-vita">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"><div class="promo-body"><b>1/4 Helado + 2 Cucuruchos</b><p>3 gustos a elección</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Dolce%20Vita,%20quiero%20promo%201/4%20Helado%20%2B%202%20Cucuruchos" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="promo-body"><b>Postre Helado Familiar</b><p>Para 6 personas</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Dolce%20Vita,%20quiero%20promo%20Postre%20Helado%20Familiar" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"><div class="promo-body"><b>Copa Dulce Tentación</b><p>Chocolate + Dulce de leche</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Dolce%20Vita,%20quiero%20promo%20Copa%20Dulce%20Tentación" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="promo-body"><b>Torta Helada 1kg</b><p>Con decoración</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Dolce%20Vita,%20quiero%20promo%20Torta%20Helada%201kg" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-dolce-vita', 'Heladería Dolce Vita', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div><!-- HELADERÍA ICE CREAM -->
-<div class="bar-compacto" data-categoria="heladeria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop" alt="Heladería Ice Cream">
-    <div class="bar-info">
-      <h3>Heladería Ice Cream</h3>
-      <p class="horario-compacto">
-        <span id="estado-heladeria-ice-cream" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 16 a 00hs Lun a Dom
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop"><div>1/2kg 3 Gustos</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop"><div>Paletas Artesanales x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop"><div>Copa Banana Split</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop"><div>Bombones Helados x12</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-ice-cream')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-ice-cream">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="promo-body"><b>1/2kg 3 Gustos</b><p>A elección</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Ice%20Cream,%20quiero%20promo%201/2kg%203%20Gustos" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"><div class="promo-body"><b>Paletas Artesanales x6</b><p>Frutales y chocolate</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Ice%20Cream,%20quiero%20promo%20Paletas%20Artesanales%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="promo-body"><b>Copa Banana Split</b><p>Con crema y salsa</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Ice%20Cream,%20quiero%20promo%20Copa%20Banana%20Split" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"><div class="promo-body"><b>Bombones Helados x12</b><p>Baño de chocolate</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Ice%20Cream,%20quiero%20promo%20Bombones%20Helados%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-ice-cream', 'Heladería Ice Cream', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- HELADERÍA CREMOLATTI -->
-<div class="bar-compacto" data-categoria="heladeria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Heladería Cremolatti">
-    <div class="bar-info">
-      <h3>Heladería Cremolatti</h3>
-      <p class="horario-compacto">
-        <span id="estado-heladeria-cremolatti" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 15 a 23:30hs todos los días
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop"><div>Cucurucho Doble</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop"><div>1kg Helado Delivery</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop"><div>Licuado + 2 Bochas</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=300&h=200&fit=crop"><div>Postre Balcarce</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-cremolatti')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-cremolatti">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"><div class="promo-body"><b>Cucurucho Doble</b><p>2 gustos grandes</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Cremolatti,%20quiero%20promo%20Cucurucho%20Doble" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="promo-body"><b>1kg Helado Delivery</b><p>4 gustos a elección</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Cremolatti,%20quiero%20promo%201kg%20Helado%20Delivery" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop"><div class="promo-body"><b>Licuado + 2 Bochas</b><p>Frutilla o durazno</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Cremolatti,%20quiero%20promo%20Licuado%20%2B%202%20Bochas" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="promo-body"><b>Postre Balcarce</b><p>Clásico argentino</p><a href="https://wa.me/5492983389710?text=Hola%20Heladeria%20Cremolatti,%20quiero%20promo%20Postre%20Balcarce" target="_blank" class="btn-pedir" onclick="sumarClick('heladeria-cremolatti', 'Heladería Cremolatti', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- PANADERÍA EL TRIGAL -->
-<div class="bar-compacto" data-categoria="panaderia">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Panadería El Trigal">
-    <div class="bar-info">
-      <h3>Panadería El Trigal</h3>
-      <p class="horario-compacto">
-        <span id="estado-panaderia-el-trigal" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 6 a 21hs Lun a Sáb
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>Docena Facturas</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Pan Casero x2</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>Tarta Jamón y Queso</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Prepizzas x3</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-trigal')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-trigal">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>Docena Facturas</b><p>Manteca surtidas</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Trigal,%20quiero%20promo%20Docena%20Facturas" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Pan Casero x2</b><p>Recién salido</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Trigal,%20quiero%20promo%20Pan%20Casero%20x2" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>Tarta Jamón y Queso</b><p>Muzzarella completa</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Trigal,%20quiero%20promo%20Tarta%20Jamón%20y%20Queso" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Prepizzas x3</b><p>Para freezar</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20El%20Trigal,%20quiero%20promo%20Prepizzas%20x3" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-el-trigal', 'Panadería El Trigal', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- PANADERÍA LA ESPIGA -->
-<div class="bar-compacto" data-categoria="panaderia">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop" alt="Panadería La Espiga">
+    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=300&fit=crop" alt="La Espiga">
     <div class="bar-info">
       <h3>Panadería La Espiga</h3>
-      <p class="horario-compacto">
-        <span id="estado-panaderia-la-espiga" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 7 a 20hs Lun a Dom
-      </p>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Av. Libertad 320</div>
     </div>
   </div>
+  
   <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Tortas Fritas x12</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>Bizcochitos de Grasa</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Medialunas Manteca</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>Tarta de Coco</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Pan $2800</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Criollos $3200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Tortas $4500</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Facturas $3800</div></div>
   </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-espiga')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-espiga">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Tortas Fritas x12</b><p>Calientes y crocantes</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20La%20Espiga,%20quiero%20promo%20Tortas%20Fritas%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>Bizcochitos de Grasa</b><p>Salados caseros</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20La%20Espiga,%20quiero%20promo%20Bizcochitos%20de%20Grasa" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Medialunas Manteca</b><p>Dulces de manteca</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20La%20Espiga,%20quiero%20promo%20Medialunas%20Manteca" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>Tarta de Coco</b><p>Con dulce de leche</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20La%20Espiga,%20quiero%20promo%20Tarta%20de%20Coco" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-la-espiga', 'Panadería La Espiga', 4)">Pedir por WhatsApp</a></div></div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat4')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat4">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600">
+      <div class="promo-body">
+        <b>Pan casero x2 kg</b>
+        <p>Recién horneado, corteza crocante y miga esponjosa. Ideal para tostadas.</p>
+        <div class="precio">$2800</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pan%20x2kg%20con%20ENVIO%20$2800+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pan%20x2kg%20RETIRO%20$2800" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600">
+      <div class="promo-body">
+        <b>Docena de facturas surtidas</b>
+        <p>6 de crema, 3 membrillo, 3 dulce de leche. Recién horneadas a la mañana.</p>
+        <div class="precio">$3800</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Facturas%20con%20ENVIO%20$3800+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Facturas%20RETIRO%20$3800" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div><!-- PANADERÍA CENTRAL -->
+</div>
+
+<!-- LOCAL 5: Panadería El Trigal - CORREGIDO -->
 <div class="bar-compacto" data-categoria="panaderia">
   <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" alt="Panadería Central">
+    <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=300&h=300&fit=crop" alt="El Trigal">
     <div class="bar-info">
-      <h3>Panadería Central</h3>
-      <p class="horario-compacto">
-        <span id="estado-panaderia-central" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 5:30 a 21:30hs todos los días
-      </p>
+      <h3>Panadería El Trigal</h3>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Sarmiento 765</div>
     </div>
   </div>
+  
   <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>2x1 Pan Francés</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Libra Manteca</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>Alfajores x6</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Tarta Verdura</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Facturas $3600</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Tortas $4200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=150"><div>Pan $2600</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Prepizzas $2200</div></div>
   </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-central')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-central">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>2x1 Pan Francés</b><p>Crocante recién horneado</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Central,%20quiero%20promo%202x1%20Pan%20Francés" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Libra Manteca</b><p>Con sal casera</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Central,%20quiero%20promo%20Libra%20Manteca" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>Alfajores x6</b><p>De maicena</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Central,%20quiero%20promo%20Alfajores%20x6" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Tarta Verdura</b><p>Acelga y choclo</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Central,%20quiero%20promo%20Tarta%20Verdura" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-central', 'Panadería Central', 4)">Pedir por WhatsApp</a></div></div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat5')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat5">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600">
+      <div class="promo-body">
+        <b>Docena de criollos salados</b>
+        <p>Hojaldrados, crocantes y caseros. El clásico de Tres Arroyos.</p>
+        <div class="precio">$3600</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Criollos%20con%20ENVIO%20$3600+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Criollos%20RETIRO%20$3600" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- PANADERÍA DON JUAN -->
+<!-- LOCAL 6: Panadería Don Carlos - CORREGIDO -->
 <div class="bar-compacto" data-categoria="panaderia">
   <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop" alt="Panadería Don Juan">
+    <img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=300&h=300&fit=crop" alt="Don Carlos">
     <div class="bar-info">
-      <h3>Panadería Don Juan</h3>
-      <p class="horario-compacto">
-        <span id="estado-panaderia-don-juan" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 6 a 20hs Lun a Sáb
-      </p>
+      <h3>Panadería Don Carlos</h3>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Colón 1450</div>
     </div>
   </div>
+  
   <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Criollos de Grasa x12</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>Pan de Miga</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=300&h=200&fit=crop"><div>Chipá x20</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=300&h=200&fit=crop"><div>Torta Balcarce</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=150"><div>Criollos $3000</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Pan $2700</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=150"><div>Medialunas $3400</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=150"><div>Rosca $5200</div></div>
   </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-don-juan')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-don-juan">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Criollos de Grasa x12</b><p>Crocantes y salados</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Don%20Juan,%20quiero%20promo%20Criollos%20de%20Grasa%20x12" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>Pan de Miga</b><p>Fresco del día</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Don%20Juan,%20quiero%20promo%20Pan%20de%20Miga" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop"><div class="promo-body"><b>Chipá x20</b><p>Calientes recién hechos</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Don%20Juan,%20quiero%20promo%20Chipá%20x20" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="promo-body"><b>Torta Balcarce</b><p>Merengue + crema</p><a href="https://wa.me/5492983389710?text=Hola%20Panaderia%20Don%20Juan,%20quiero%20promo%20Torta%20Balcarce" target="_blank" class="btn-pedir" onclick="sumarClick('panaderia-don-juan', 'Panadería Don Juan', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- BAR LOS AMIGOS -->
-<div class="bar-compacto" data-categoria="bar">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop" alt="Bar Los Amigos">
-    <div class="bar-info">
-      <h3>Bar Los Amigos</h3>
-      <p class="horario-compacto">
-        <span id="estado-bar-los-amigos" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 17 a 3hs todos los días
-      </p>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat6')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat6">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1509440159596-024949a4f3ff?w=600">
+      <div class="promo-body">
+        <b>Docena de medialunas de manteca</b>
+        <p>Manteca pura, esponjosas y doradas. Recién salidas del horno.</p>
+        <div class="precio">$3400</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Medialunas%20con%20ENVIO%20$3400+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Medialunas%20RETIRO%20$3400" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Promo 2x1 Gintonic</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Pizza + Cerveza</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Picada Completa</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Jarrita Chop 2L</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-los-amigos')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-los-amigos">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Promo 2x1 Gintonic</b><p>De 18 a 21hs</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20Los%20Amigos,%20quiero%20promo%202x1%20Gintonic" target="_blank" class="btn-pedir" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Pizza + Cerveza</b><p>Muzzarella + Quilmes 1L</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20Los%20Amigos,%20quiero%20promo%20Pizza%20%2B%20Cerveza" target="_blank" class="btn-pedir" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Picada Completa</b><p>Salame + Queso + Pan</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20Los%20Amigos,%20quiero%20promo%20Picada%20Completa" target="_blank" class="btn-pedir" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Jarrita Chop 2L</b><p>Artesanal rubia</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20Los%20Amigos,%20quiero%20promo%20Jarrita%20Chop%202L" target="_blank" class="btn-pedir" onclick="sumarClick('bar-los-amigos', 'Bar Los Amigos', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- BAR EL ENCUENTRO -->
-<div class="bar-compacto" data-categoria="bar">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop" alt="Bar El Encuentro">
-    <div class="bar-info">
-      <h3>Bar El Encuentro</h3>
-      <p class="horario-compacto">
-        <span id="estado-bar-el-encuentro" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 18 a 2hs Mié a Dom
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Ferné + Coca 1L</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Hamburguesa Completa</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Papas + 3 Salsas</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Tragos 2x1</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-encuentro')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-encuentro">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Ferné + Coca 1L</b><p>Medida doble</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20El%20Encuentro,%20quiero%20promo%20Ferné%20%2B%20Coca%201L" target="_blank" class="btn-pedir" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Hamburguesa Completa</b><p>Con cheddar y bacon</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20El%20Encuentro,%20quiero%20promo%20Hamburguesa%20Completa" target="_blank" class="btn-pedir" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Papas + 3 Salsas</b><p>Cheddar + Barbacoa + Picante</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20El%20Encuentro,%20quiero%20promo%20Papas%20%2B%203%20Salsas" target="_blank" class="btn-pedir" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Tragos 2x1</b><p>Daiquiri + Mojito</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20El%20Encuentro,%20quiero%20promo%20Tragos%202x1" target="_blank" class="btn-pedir" onclick="sumarClick('bar-el-encuentro', 'Bar El Encuentro', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div><!-- BAR LA BARRA -->
-<div class="bar-compacto" data-categoria="bar">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop" alt="Bar La Barra">
-    <div class="bar-info">
-      <h3>Bar La Barra</h3>
-      <p class="horario-compacto">
-        <span id="estado-bar-la-barra" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 19 a 4hs Jue a Dom
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Promo Caipirinha</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Nachos + Salsas</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Tabla de Quesos</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Combo 4 Cervezas</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-la-barra')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-la-barra">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Promo Caipirinha</b><p>Cachaça + Limón 2x1</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20La%20Barra,%20quiero%20promo%20Caipirinha" target="_blank" class="btn-pedir" onclick="sumarClick('bar-la-barra', 'Bar La Barra', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Nachos + Salsas</b><p>Cheddar + Guacamole</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20La%20Barra,%20quiero%20promo%20Nachos%20%2B%20Salsas" target="_blank" class="btn-pedir" onclick="sumarClick('bar-la-barra', 'Bar La Barra', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Tabla de Quesos</b><p>Para compartir 4 pers</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20La%20Barra,%20quiero%20promo%20Tabla%20de%20Quesos" target="_blank" class="btn-pedir" onclick="sumarClick('bar-la-barra', 'Bar La Barra', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo 4 Cervezas</b><p>Quilmes 1L</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%20La%20Barra,%20quiero%20promo%20Combo%204%20Cervezas" target="_blank" class="btn-pedir" onclick="sumarClick('bar-la-barra', 'Bar La Barra', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- BAR 33 -->
-<div class="bar-compacto" data-categoria="bar">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop" alt="Bar 33">
-    <div class="bar-info">
-      <h3>Bar 33</h3>
-      <p class="horario-compacto">
-        <span id="estado-bar-33" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 18 a 3hs todos los días
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Mojito Clásico</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Lomito Completo</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"><div>Rabas + Limón</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=300&h=200&fit=crop"><div>Happy Hour 20%</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-bar-33')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-bar-33">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Mojito Clásico</b><p>Ron + Menta + Limón</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%2033,%20quiero%20promo%20Mojito%20Clásico" target="_blank" class="btn-pedir" onclick="sumarClick('bar-33', 'Bar 33', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Lomito Completo</b><p>Jamón + Queso + Huevo</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%2033,%20quiero%20promo%20Lomito%20Completo" target="_blank" class="btn-pedir" onclick="sumarClick('bar-33', 'Bar 33', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400&h=300&fit=crop"><div class="promo-body"><b>Rabas + Limón</b><p>Porción grande</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%2033,%20quiero%20promo%20Rabas%20%2B%20Limón" target="_blank" class="btn-pedir" onclick="sumarClick('bar-33', 'Bar 33', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1516992273906-2f84e6e6a8c9?w=400&h=300&fit=crop"><div class="promo-body"><b>Happy Hour 20%</b><p>De 18 a 21hs</p><a href="https://wa.me/5492983389710?text=Hola%20Bar%2033,%20quiero%20promo%20Happy%20Hour%2020%" target="_blank" class="btn-pedir" onclick="sumarClick('bar-33', 'Bar 33', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- CARNICERÍA EL MEJOR -->
-<div class="bar-compacto" data-categoria="carniceria">
-  <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Carnicería El Mejor">
-    <div class="bar-info">
-      <h3>Carnicería El Mejor</h3>
-      <p class="horario-compacto">
-        <span id="estado-carniceria-el-mejor" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 8 a 20hs Lun a Sáb
-      </p>
-    </div>
-  </div>
-  <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Colita de Cuadril</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=300&h=200&fit=crop"><div>Salchicha Parrillera</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=300&h=200&fit=crop"><div>Bondiolita Marinada</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=300&h=200&fit=crop"><div>Combo Asado Familia</div></div>
-  </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-mejor')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-mejor">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Colita de Cuadril</b><p>Corte premium 1kg</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Mejor,%20quiero%20promo%20Colita%20de%20Cuadril" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-mejor', 'Carnicería El Mejor', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop"><div class="promo-body"><b>Salchicha Parrillera</b><p>Con queso x12</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Mejor,%20quiero%20promo%20Salchicha%20Parrillera" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-mejor', 'Carnicería El Mejor', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="promo-body"><b>Bondiolita Marinada</b><p>Lista para parrilla</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Mejor,%20quiero%20promo%20Bondiolita%20Marinada" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-mejor', 'Carnicería El Mejor', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop"><div class="promo-body"><b>Combo Asado Familia</b><p>6kg para 12 personas</p><a href="https://wa.me/5492983389710?text=Hola%20Carniceria%20El%20Mejor,%20quiero%20promo%20Combo%20Asado%20Familia" target="_blank" class="btn-pedir" onclick="sumarClick('carniceria-el-mejor', 'Carnicería El Mejor', 4)">Pedir por WhatsApp</a></div></div>
-  </div>
-</div>
-
-<!-- VERDULERÍA EL VERDE -->
+</div><!-- LOCAL 7: Verdulería La Huerta - CORREGIDO -->
 <div class="bar-compacto" data-categoria="verduleria">
   <div class="bar-header">
-    <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop" alt="Verdulería El Verde">
+    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=300&h=300&fit=crop" alt="La Huerta">
     <div class="bar-info">
-      <h3>Verdulería El Verde</h3>
-      <p class="horario-compacto">
-        <span id="estado-verduleria-el-verde" style="display:inline-block; padding:3px 8px; background:#25D366; color:white; border-radius:12px; font-size:11px; font-weight:bold">ABIERTO</span>
-        🕐 7 a 20hs todos los días
-      </p>
+      <h3>Verdulería La Huerta</h3>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Av. Dorrego 210</div>
     </div>
   </div>
+  
   <div class="promitos">
-    <div class="promito"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=300&h=200&fit=crop"><div>Bolsón Orgánico</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=300&h=200&fit=crop"><div>Frutas de Estación</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=300&h=200&fit=crop"><div>Mix Verde Detox</div></div>
-    <div class="promito"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=300&h=200&fit=crop"><div>Tomate + Lechuga 3kg</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Tomate $1800</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Papa $1200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Cebolla $1000</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Frutas $2500</div></div>
   </div>
-  <button class="btn-ver" onclick="toggleCatalogo('cat-el-verde')">VER PROMOCIONES</button>
-  <div class="catalogo" id="cat-el-verde">
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1576045057995-568f5883f967?w=400&h=300&fit=crop"><div class="promo-body"><b>Bolsón Orgánico</b><p>8kg sin agroquímicos</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20El%20Verde,%20quiero%20promo%20Bolsón%20Orgánico" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-el-verde', 'Verdulería El Verde', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1566385101049-1a0a0a19518e?w=400&h=300&fit=crop"><div class="promo-body"><b>Frutas de Estación</b><p>Mix 4kg</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20El%20Verde,%20quiero%20promo%20Frutas%20de%20Estación" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-el-verde', 'Verdulería El Verde', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=400&h=300&fit=crop"><div class="promo-body"><b>Mix Verde Detox</b><p>Espinaca + Apio + Pepino</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20El%20Verde,%20quiero%20promo%20Mix%20Verde%20Detox" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-el-verde', 'Verdulería El Verde', 4)">Pedir por WhatsApp</a></div></div>
-    <div class="promo-card"><img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=400&h=300&fit=crop"><div class="promo-body"><b>Tomate + Lechuga 3kg</b><p>1.5kg de cada uno</p><a href="https://wa.me/5492983389710?text=Hola%20Verduleria%20El%20Verde,%20quiero%20promo%20Tomate%20%2B%20Lechuga%203kg" target="_blank" class="btn-pedir" onclick="sumarClick('verduleria-el-verde', 'Verdulería El Verde', 4)">Pedir por WhatsApp</a></div></div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat7')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat7">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600">
+      <div class="promo-body">
+        <b>Bolsón de verduras x5kg</b>
+        <p>Tomate, lechuga, zanahoria, morrón, papa. Todo fresco de quinta.</p>
+        <div class="precio">$8500</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Bolsón%20con%20ENVIO%20$8500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Bolsón%20RETIRO%20$8500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
   </div>
-</div></div>
-
-<div class="footer">
-  <p>© 2026 Promos Tres Arroyos - Todos los derechos reservados</p>
-  <p>Encontrá todas las promos de tu ciudad en un solo lugar 🚀</p>
-  <p style="margin-top: 15px; font-size: 11px; color: var(--subtext);">Los precios pueden variar. Consultá directamente con cada local.</p>
 </div>
 
+<!-- LOCAL 8: Verdulería El Sol - CORREGIDO -->
+<div class="bar-compacto" data-categoria="verduleria">
+  <div class="bar-header">
+    <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=300&h=300&fit=crop" alt="El Sol">
+    <div class="bar-info">
+      <h3>Verdulería El Sol</h3>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 Moreno 980</div>
+    </div>
+  </div>
+  
+  <div class="promitos">
+    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Frutas $2300</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Lechuga $800</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=150"><div>Morrón $2100</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=150"><div>Zanahoria $900</div></div>
+  </div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat8')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat8">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=600">
+      <div class="promo-body">
+        <b>Mix de frutas x3kg</b>
+        <p>Manzana, banana, naranja, pera. Selección de estación.</p>
+        <div class="precio">$6500</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Mix%20frutas%20con%20ENVIO%20$6500+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Mix%20frutas%20RETIRO%20$6500" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOCAL 9: Pollería Don Luis - CORREGIDO -->
+<div class="bar-compacto" data-categoria="polleria">
+  <div class="bar-header">
+    <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=300&h=300&fit=crop" alt="Don Luis">
+    <div class="bar-info">
+      <h3>Pollería Don Luis</h3>
+      <div class="horario-compacto">🕐 24hs</div>
+      <div class="horario-compacto">📍 25 de Mayo 560</div>
+    </div>
+  </div>
+  
+  <div class="promitos">
+    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Pollo $4200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Pata/muslo $3800</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=150"><div>Supremas $5200</div></div>
+    <div class="promito"><img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=150"><div>Alitas $3500</div></div>
+  </div>
+  
+  <button class="btn-ver" onclick="toggleCatalogo('cat9')">Ver catálogo completo</button>
+  
+  <div class="catalogo" id="cat9">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1587593810167-2310e9fe5b96?w=600">
+      <div class="promo-body">
+        <b>Pollo entero fresco</b>
+        <p>Kilogramo de pollo fresco, limpio y listo para cocinar. De granja.</p>
+        <div class="precio">$4200</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pollo%20entero%20con%20ENVIO%20$4200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Pollo%20entero%20RETIRO%20$4200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82e?w=600">
+      <div class="promo-body">
+        <b>Supremas x1kg</b>
+        <p>Supremas de pollo sin hueso ni piel. Tiernas y frescas.</p>
+        <div class="precio">$5200</div>
+        <div style="display:flex;gap:6px;flex-direction:column">
+          <button style="width:100%;padding:10px;background:var(--border);color:var(--sub);border:none;border-radius:6px;font-weight:700;font-size:12px;cursor:default" disabled>👇 Elegí opción de entrega</button>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Supremas%20con%20ENVIO%20$5200+$2000" class="btn-pedir">🚚 Envío a domicilio $2000</a>
+          <a href="https://wa.me/5492983389710?text=Hola%20quiero%20Supremas%20RETIRO%20$5200" class="btn-pedir" style="background:#38bdf8">🏪 Retiro en local $0</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- FOOTER -->
+<div class="footer">
+  <p><b>Promos Tres Arroyos 24hs</b></p>
+  <p>Todas las promos de tu ciudad en un solo lugar</p>
+  <p style="margin-top:10px">Delivery y retiro las 24hs • WhatsApp directo</p>
+  <p style="margin-top:15px;font-size:11px">© 2026 Promos Tres Arroyos. Todos los derechos reservados.</p>
+</div>
+
+<!-- JAVASCRIPT: Filtros + Modo Oscuro + Abrir Catálogo -->
 <script>
-function toggleTheme() {
+function toggleTheme(){
   const html = document.documentElement;
-  const currentTheme = html.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
-  document.getElementById('themeBtn').textContent = newTheme === 'dark' ? '☀️ Claro' : '🌙 Oscuro';
+  const btn = document.getElementById('themeBtn');
+  if(html.getAttribute('data-theme') === 'dark'){
+    html.setAttribute('data-theme', 'light');
+    btn.textContent = '🌙 Oscuro';
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    btn.textContent = '☀️ Claro';
+  }
 }
 
-function toggleCatalogo(id) {
-  const catalogo = document.getElementById(id);
-  catalogo.classList.toggle('active');
+function filtrar(categoria, btn){
+  // Saco active de todos los botones
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  // Pongo active al botón clickeado
+  btn.classList.add('active');
+  
+  // Filtro los locales por data-categoria
+  document.querySelectorAll('.bar-compacto').forEach(card => {
+    if(categoria === 'all' || card.dataset.categoria === categoria){
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
 }
 
-// Cargar tema guardado
-const savedTheme = localStorage.getItem('theme') || 'dark';
-document.documentElement.setAttribute('data-theme', savedTheme);
-document.getElementById('themeBtn').textContent = savedTheme === 'dark' ? '☀️ Claro' : '🌙 Oscuro';
-
-// Animación de entrada escalonada
-const cards = document.querySelectorAll('.card');
-cards.forEach((card, index) => {
-  card.style.opacity = '0';
-  card.style.transform = 'translateY(20px)';
-  setTimeout(() => {
-    card.style.transition = 'opacity 0.5s, transform 0.5s';
-    card.style.opacity = '1';
-    card.style.transform = 'translateY(0)';
-  }, index * 50);
-});
+function toggleCatalogo(id){
+  const cat = document.getElementById(id);
+  cat.classList.toggle('active');
+}
 </script>
 
+</div> <!-- cierra bares-grid -->
 </body>
 </html>
