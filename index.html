@@ -409,7 +409,7 @@ h1 {font-size:22px; color:#25D366}
 
 </div>
 
-<!-- MODAL PROMOS -->
+<!-- MODAL PROMOS CON DESCRIPCIÓN -->
 <div id="modal-promos" class="modal">
   <div class="modal-content">
     <div class="modal-header">
@@ -422,6 +422,7 @@ h1 {font-size:22px; color:#25D366}
       </div>
       <span class="modal-close" onclick="cerrarModalPromos()">&times;</span>
     </div>
+    
     <div id="modal-promos-grid" class="modal-promos-grid"></div>
     
     <div class="modal-pedido" id="modal-pedido" style="display:none">
@@ -471,22 +472,29 @@ const NUMERO = "5492983389710";
 let pedidoActual = {};
 
 function abrirModalPromos(nombre, direccion, img, promosArray) {
+  const local = document.querySelector(`[data-nombre="${nombre}"]`);
+  const horario = local.querySelector('.horario-local').textContent;
+  
   document.getElementById('modal-nombre').textContent = nombre;
   document.getElementById('modal-direccion').textContent = direccion;
+  document.getElementById('modal-horario').textContent = horario;
   document.getElementById('modal-img').src = img;
   
   const grid = document.getElementById('modal-promos-grid');
+  const promosData = JSON.parse(local.dataset.promos);
+  
   grid.innerHTML = '';
   
-  promosArray.forEach(p => {
-    const [nom, precio] = p.split('|');
+  promosData.forEach(p => {
+    const [nom, precio] = p.nombre + '|' + precio;
     grid.innerHTML += `
       <div class="modal-promo-item">
-        <div>
-          <strong style="color:#25D366">${nom}</strong><br>
-          <small>$${precio}</small>
+        <div style="flex:1">
+          <strong style="color:#25D366; font-size:15px">${p.nombre}</strong><br>
+          <small style="color:#666; font-size:13px; line-height:1.4">${p.desc}</small><br>
+          <span style="font-weight:bold; font-size:16px; color:#25D366">$${precio}</span>
         </div>
-        <button class="btn-pedir-modal" style="background:#25D366" onclick="abrirPedido('${nombre}','${nom}',${precio})">Pedir</button>
+        <button class="btn-pedir-modal" style="background:#25D366" onclick="abrirPedido('${nombre}','${p.nombre}',${precio})">Pedir</button>
       </div>
     `;
   });
@@ -494,10 +502,6 @@ function abrirModalPromos(nombre, direccion, img, promosArray) {
   document.getElementById('modal-pedido').style.display = 'none';
   document.getElementById('modal-promos-grid').style.display = 'grid';
   document.getElementById('modal-promos').style.display = 'flex';
-}
-
-function cerrarModalPromos() {
-  document.getElementById('modal-promos').style.display = 'none';
 }
 
 function abrirPedido(local, producto, precio) {
