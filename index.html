@@ -13,22 +13,26 @@ h1 {font-size:22px; color:#ff6b00}
 .filter-btn {padding:8px 14px; border:none; border-radius:20px; background:#2a2a2a; color:#fff; cursor:pointer; white-space:nowrap; font-size:14px}
 .filter-btn.active {background:#ff6b00}
 .container {padding:12px; max-width:1200px; margin:auto}
-.grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:15px}
+
+/* Tarjetas más chicas para que no quede todo grande */
+.grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:10px}
+
+/* TODOS muestra todas las promos */
 .grid-todos .bar .grid-promos {display:grid !important}
 
 .bar {background:#1a1a1a; border-radius:12px; overflow:hidden; border:1px solid #333}
-.bar-img {width:100%; height:180px; object-fit:cover}
-.bar-body {padding:12px}
-.bar h3 {font-size:18px; margin-bottom:5px; color:#ff6b00}
-.horario-local {font-size:13px; color:#aaa; margin-bottom:10px}
-.estado-badge {background:#28a745; padding:3px 8px; border-radius:12px; font-size:11px; color:#fff}
+.bar-img {width:100%; height:160px; object-fit:cover}
+.bar-body {padding:10px}
+.bar h3 {font-size:17px; margin-bottom:5px; color:#ff6b00}
+.horario-local {font-size:12px; color:#aaa; margin-bottom:8px}
+.estado-badge {background:#28a745; padding:3px 8px; border-radius:12px; font-size:10px; color:#fff}
 
-.grid-promos {display:none; grid-template-columns:repeat(2, 1fr); gap:8px; margin-top:10px}
-.promo-item {background:#2a2a2a; border-radius:8px; padding:8px; text-align:center}
-.promo-item img {width:100%; height:90px; object-fit:cover; border-radius:6px; margin-bottom:5px}
-.promo-nombre {font-size:12px; margin-bottom:5px; height:32px; overflow:hidden}
-.btn-pedir {background:#ff6b00; border:none; color:#fff; padding:6px 10px; border-radius:6px; cursor:pointer; font-size:12px; width:100%}
-.btn-ver-promos {background:#333; border:none; color:#ff6b00; padding:8px; border-radius:8px; width:100%; margin-top:10px; cursor:pointer; font-weight:bold}
+.grid-promos {display:none; grid-template-columns:repeat(2, 1fr); gap:6px; margin-top:8px}
+.promo-item {background:#2a2a2a; border-radius:8px; padding:6px; text-align:center}
+.promo-item img {width:100%; height:80px; object-fit:cover; border-radius:6px; margin-bottom:4px}
+.promo-nombre {font-size:11px; margin-bottom:4px; height:28px; overflow:hidden}
+.btn-pedir {background:#ff6b00; border:none; color:#fff; padding:5px 8px; border-radius:6px; cursor:pointer; font-size:11px; width:100%}
+.btn-ver-promos {background:#333; border:none; color:#ff6b00; padding:7px; border-radius:8px; width:100%; margin-top:8px; cursor:pointer; font-weight:bold; font-size:13px}
 
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
 .modal-content {background:#1a1a1a; border-radius:15px; max-width:500px; width:90%; max-height:85vh; overflow-y:auto; border:1px solid #333}
