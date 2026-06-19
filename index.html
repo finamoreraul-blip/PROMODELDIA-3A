@@ -4,57 +4,53 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Promos 24hs - Tres Arroyos</title>
+  <link rel="stylesheet" href="style.css?v=2">
 <style>
 * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif}
 body {background:#0a0a0a; color:#fff}
 header {background:#1a1a1a; padding:15px; text-align:center; position:sticky; top:0; z-index:100}
-h1 {font-size:22px; color:#ff6b00}
+
+h1 {font-size:22px; color:#25D366}
+
 .filtros {display:flex; gap:8px; padding:12px; overflow-x:auto; background:#151515}
 .filter-btn {padding:8px 14px; border:none; border-radius:20px; background:#2a2a2a; color:#fff; cursor:pointer; white-space:nowrap; font-size:14px}
-.filter-btn.active {background:#ff6b00}
-.container {padding:12px; max-width:1200px; margin:auto}
+.filter-btn.active {background:#25D366; color:white}
 
-/* Tarjetas más chicas para que no quede todo grande */
+.container {padding:12px; max-width:1200px; margin:auto}
 .grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:10px}
 
-/* TODOS muestra todas las promos */
-.grid-todos .bar .grid-promos {display:grid !important}
-
+/* TARJETAS CHICAS */
 .bar {background:#1a1a1a; border-radius:12px; overflow:hidden; border:1px solid #333}
-.bar-img {width:100%; height:160px; object-fit:cover}
+.bar-img {width:100%; height:120px; object-fit:cover; border-radius:8px}
 .bar-body {padding:10px}
-.bar h3 {font-size:17px; margin-bottom:5px; color:#ff6b00}
+.bar h3 {font-size:17px; margin-bottom:5px; color:#25D366}
 .horario-local {font-size:12px; color:#aaa; margin-bottom:8px}
 .estado-badge {background:#28a745; padding:3px 8px; border-radius:12px; font-size:10px; color:#fff}
 
+/* PROMOS OCULTAS POR DEFECTO */
 .grid-promos {display:none; grid-template-columns:repeat(2, 1fr); gap:6px; margin-top:8px}
-.promo-item {background:#2a2a2a; border-radius:8px; padding:6px; text-align:center}
-.promo-item img {width:100%; height:80px; object-fit:cover; border-radius:6px; margin-bottom:4px}
+.promo-item {background:#2a2a2a; border-radius:8px; padding:6px; text-align:center; border:1px solid #333}
+.promo-item img {width:100%; height:70px; object-fit:cover; border-radius:6px; margin-bottom:4px}
 .promo-nombre {font-size:11px; margin-bottom:4px; height:28px; overflow:hidden}
-.btn-pedir {background:#ff6b00; border:none; color:#fff; padding:5px 8px; border-radius:6px; cursor:pointer; font-size:11px; width:100%}
-.btn-ver-promos {background:#333; border:none; color:#ff6b00; padding:7px; border-radius:8px; width:100%; margin-top:8px; cursor:pointer; font-weight:bold; font-size:13px}
+.btn-pedir {background:#25D366; border:none; color:#fff; padding:5px 8px; border-radius:6px; cursor:pointer; font-size:11px; width:100%}
+.btn-ver-promos {background:#333; border:none; color:#25D366; padding:7px; border-radius:8px; width:100%; margin-top:8px; cursor:pointer; font-weight:bold; font-size:13px}
 
+/* CUANDO TOCÁS TODOS */
+.grid-todos .bar .grid-promos {display:grid !important}
+
+/* MODAL */
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
 .modal-content {background:#1a1a1a; border-radius:15px; max-width:500px; width:90%; max-height:85vh; overflow-y:auto; border:1px solid #333}
 .modal-header {display:flex; gap:12px; padding:15px; border-bottom:1px solid #333}
 .modal-header img {width:70px; height:70px; border-radius:10px; object-fit:cover}
 .modal-close {margin-left:auto; font-size:28px; cursor:pointer; color:#aaa}
 .modal-promos-grid {padding:15px; display:grid; gap:10px}
-.modal-promo-item {background:#2a2a2a; padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center}
-.btn-pedir-modal {background:#ff6b00; border:none; color:#fff; padding:8px 15px; border-radius:6px; cursor:pointer}
-
+.modal-promo-item {background:#2a2a2a; padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; border:1px solid #333}
+.btn-pedir-modal {background:#25D366; border:none; color:#fff; padding:8px 15px; border-radius:6px; cursor:pointer}
 .modal-pedido {padding:20px}
-.modal-pedido h3 {color:#ff6b00; margin-bottom:15px}
+.modal-pedido h3 {color:#25D366; margin-bottom:15px}
 .modal-pedido input, .modal-pedido textarea {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #333; background:#2a2a2a; color:#fff}
-
-/* Botón WhatsApp VERDE */
 .btn-whatsapp {background:#25D366; border:none; color:#fff; padding:12px; border-radius:8px; width:100%; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px}
-
-.footer {background:#1a1a1a; padding:20px; margin-top:30px; text-align:center; border-top:1px solid #333}
-.footer-content {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; max-width:1000px; margin:auto}
-.footer h4 {color:#ff6b00; margin-bottom:10px}
-.footer a {color:#aaa; text-decoration:none; display:block; margin:5px 0}
-.footer-bottom {border-top:1px solid #333; margin-top:20px; padding-top:15px; color:#666}
 </style>
 </head>
 <body>
