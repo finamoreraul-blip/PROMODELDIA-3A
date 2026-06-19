@@ -707,66 +707,60 @@ h1 {font-size:22px; color:#ff6b00}
   </div>
 </footer>
 <script>
-let pedidoActual = {};
+const NUMERO = "5492983389710";
 
-function abrirModalPromos(nombre, direccion, img, promos) {
+function abrirPromos(id) {
+  const bar = document.getElementById('bar-' + id);
+  const promos = bar.dataset.promos;
+  const nombre = bar.dataset.nombre;
+  const img = bar.querySelector('.bar-img').src;
+  const horario = bar.querySelector('.horario-local').textContent;
+  
   document.getElementById('modal-nombre').textContent = nombre;
-  document.getElementById('modal-direccion').textContent = direccion;
   document.getElementById('modal-img').src = img;
+  document.getElementById('modal-horario').textContent = horario;
   
   const grid = document.getElementById('modal-promos-grid');
   grid.innerHTML = '';
-  
-  promos.forEach(p => {
-    const [prod, precio] = p.split('|');
+  JSON.parse(promos).forEach(p => {
     grid.innerHTML += `
-      <div class="modal-promo-item">
-        <div class="modal-promo-nombre">${prod}</div>
-        <button class="btn-pedir-modal" onclick="abrirPedido('${nombre}','${prod}',${precio})">$${precio}</button>
+      <div class="modal-promo-item" style="border:1px solid #333">
+        <div>
+          <strong style="color:#25D366">${p.nombre}</strong><br>
+          <small>${p.desc}</small>
+        </div>
+        <button class="btn-pedir-modal" onclick="abrirPedido('${nombre}', '${p.nombre}')">Pedir</button>
       </div>
     `;
   });
   
-  document.getElementById('modal-promos').style.display = 'flex';
+  document.getElementById('modal').style.display = 'flex';
 }
 
-function cerrarModalPromos() {
-  document.getElementById('modal-promos').style.display = 'none';
+function cerrarModal() {
+  document.getElementById('modal').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'none';
 }
 
-function abrirPedido(local, producto, precio) {
-  pedidoActual = {local, producto, precio};
-  document.getElementById('pedido-local').textContent = local;
-  document.getElementById('pedido-producto').textContent = producto;
-  document.getElementById('pedido-precio').textContent = '$' + precio;
-  document.getElementById('modal-promos').style.display = 'none';
-  document.getElementById('modal-whatsapp').style.display = 'flex';
+function abrirPedido(bar, promo) {
+  document.getElementById('modal-promos-grid').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'block';
+  document.getElementById('pedido-bar').value = bar;
+  document.getElementById('pedido-promo').value = promo;
 }
 
-function cerrarModalPedido() {
-  document.getElementById('modal-whatsapp').style.display = 'none';
-}
-
-function enviarWhatsApp() {
+function enviarPedido() {
+  const bar = document.getElementById('pedido-bar').value;
+  const promo = document.getElementById('pedido-promo').value;
   const nombre = document.getElementById('pedido-nombre').value;
-  const direccion = document.getElementById('pedido-direccion').value;
+  const dir = document.getElementById('pedido-dir').value;
+  const tel = document.getElementById('pedido-tel').value;
   const nota = document.getElementById('pedido-nota').value;
   
-  if(!nombre || !direccion) {
-    alert('Completá nombre y dirección');
-    return;
-  }
+  const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${bar}%0A*Promo:* ${promo}%0A*Nombre:* ${nombre}%0A*Dirección:* ${dir}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
   
-  const mensaje = `Hola! Quiero hacer un pedido:%0A%0A` +
-    `*Local:* ${pedidoActual.local}%0A` +
-    `*Producto:* ${pedidoActual.producto}%0A` +
-    `*Precio:* $${pedidoActual.precio}%0A%0A` +
-    `*Nombre:* ${nombre}%0A` +
-    `*Dirección:* ${direccion}%0A` +
-    `*Aclaraciones:* ${nota || 'Ninguna'}`;
-  
-  window.open(`https://wa.me/5492983XXXXXX?text=${mensaje}`, '_blank');
-  cerrarModalPedido();
+  window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
+  cerrarModal();
 }
 
 function filtrar(categoria) {
@@ -785,6 +779,10 @@ function filtrar(categoria) {
       bar.style.display = bar.dataset.categoria === categoria ? 'block' : 'none';
     });
   }
+}
+
+document.getElementById('modal').onclick = function(e) {
+  if(e.target.id === 'modal') cerrarModal();
 }
 </script>
 </body>
