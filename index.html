@@ -5,62 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Promos 24hs - Tres Arroyos</title>
 <style>
-:root{--bg:#0a0a0a;--card:#111;--text:#fff;--accent:#25D366;--muted:#888;--border:#222}
-body.light{--bg:#f5f5f5;--card:#fff;--text:#111;--muted:#666;--border:#ddd}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);transition:background 0.3s,color 0.3s;line-height:1.5}
-.header{position:sticky;top:0;z-index:100;background:var(--card);padding:15px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.header h1{margin:0;font-size:20px;font-weight:700;color:var(--accent)}
-.theme-btn{background:none;border:2px solid var(--accent);color:var(--accent);padding:8px 14px;border-radius:25px;cursor:pointer;font-size:13px;font-weight:600;transition:0.2s}
-.theme-btn:hover{background:var(--accent);color:#000}
-.filters{display:flex;gap:10px;padding:15px 20px;overflow-x:auto;background:var(--card);border-bottom:1px solid var(--border);scrollbar-width:none}
-.filters::-webkit-scrollbar{display:none}
-.filter-btn{padding:10px 18px;border:2px solid var(--accent);background:transparent;color:var(--accent);border-radius:25px;white-space:nowrap;cursor:pointer;font-size:14px;font-weight:600;transition:0.2s;flex-shrink:0}
-.filter-btn.active{background:var(--accent);color:#000}
-.filter-btn:hover{transform:scale(1.05)}
-.bares-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:20px;padding:20px;max-width:1400px;margin:0 auto}
-.bar{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:transform 0.2s,box-shadow 0.2s}
-.bar:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
-.bar-img{width:100%;height:200px;object-fit:cover;display:block}
-.bar-body{padding:18px}
-.bar-body h3{margin:0 0 10px 0;font-size:18px;font-weight:700}
-.horario-local{font-size:13px;color:var(--muted);margin:0 0 12px 0;display:flex;align-items:center;gap:6px}
-.estado-badge{display:inline-block;padding:4px 10px;background:#25D366;color:white;border-radius:12px;font-size:11px;font-weight:bold;margin-right:8px}
-.grid-promos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}
-.promo-item{border:1px solid var(--border);border-radius:10px;overflow:hidden;text-align:center;background:var(--bg)}
-.promo-item img{width:100%;height:110px;object-fit:cover}
-.promo-nombre{padding:8px;font-size:13px;font-weight:600;line-height:1.3}
-.btn-pedir{width:100%;padding:7px;background:var(--accent);color:#000;border:none;font-size:12px;font-weight:bold;cursor:pointer;transition:0.2s}
-.btn-pedir:hover{opacity:0.8}
-.btn-ver-promos{margin-top:14px;width:100%;padding:12px;background:var(--accent);color:#000;border:none;border-radius:10px;font-weight:bold;cursor:pointer;font-size:15px;transition:0.2s}
-.btn-ver-promos:hover{opacity:0.9;transform:scale(1.02)}
-.modal,.modal-promo{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
-.modal.active,.modal-promo.active{display:flex}
-.modal-content,.modal-promo-content{background:var(--card);border-radius:16px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;padding:25px;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
-.modal-promo-img{width:100%;height:220px;object-fit:cover;border-radius:12px;margin-bottom:15px}
-.modal-promo-body h3{font-size:22px;margin-bottom:8px}
-.modal-promo-dir{color:var(--muted);font-size:14px;margin-bottom:20px}
-.promos-grid{display:grid;gap:14px;margin-top:20px}
-.promo-card{border:2px solid var(--border);border-radius:12px;padding:15px;cursor:pointer;transition:0.2s;background:var(--bg)}
-.promo-card:hover{border-color:var(--accent);transform:scale(1.02)}
-.promo-card h4{margin:0 0 8px 0;font-size:16px;font-weight:700}
-.promo-card p{margin:0;font-size:14px;color:var(--muted)}
-.modal h3{font-size:20px;margin-bottom:20px;color:var(--accent)}
-.modal label{display:block;margin-top:16px;font-size:14px;margin-bottom:6px;font-weight:600}
-.modal input,.modal select,.modal textarea{width:100%;padding:12px;border:2px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:15px;font-family:inherit}
-.modal input:focus,.modal select:focus,.modal textarea:focus{outline:none;border-color:var(--accent)}
-.opciones-entrega{display:flex;flex-direction:column;gap:10px;margin:12px 0;padding:15px;border:2px solid var(--border);border-radius:10px;background:var(--bg)}
-.opciones-entrega label{display:flex;align-items:center;gap:10px;margin:0;font-size:14px;cursor:pointer;font-weight:500}
-.opciones-entrega input[type="radio"]{width:auto;margin:0}
-.modal.total{margin:20px 0;text-align:right;font-size:22px;padding:15px;background:var(--bg);border-radius:10px}
-.modal-btns{display:flex;gap:12px;margin-top:20px}
-.btn-cancelar{flex:1;padding:14px;background:#444;color:#fff;border:none;border-radius:10px;cursor:pointer;font-size:15px;font-weight:600;transition:0.2s}
-.btn-cancelar:hover{background:#555}
-.btn-enviar{flex:2;padding:14px;background:var(--accent);color:#000;border:none;border-radius:10px;font-weight:bold;cursor:pointer;font-size:16px;transition:0.2s}
-.btn-enviar:hover{opacity:0.9;transform:scale(1.02)}
-.footer{padding:40px 20px;text-align:center;font-size:14px;color:var(--muted);line-height:1.8;max-width:600px;margin:0 auto}
-.footer b{color:var(--accent);font-size:16px}
-@media(max-width:768px){.bares-grid{grid-template-columns:1fr;padding:15px}.grid-promos{grid-template-columns:1fr 1fr}.header h1{font-size:16px}}
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif}
+body {background:#0a0a0a; color:#fff}
+header {background:#1a1a1a; padding:15px; text-align:center; position:sticky; top:0; z-index:100}
+h1 {font-size:22px; color:#ff6b00}
+.filtros {display:flex; gap:8px; padding:12px; overflow-x:auto; background:#151515}
+.filter-btn {padding:8px 14px; border:none; border-radius:20px; background:#2a2a2a; color:#fff; cursor:pointer; white-space:nowrap; font-size:14px}
+.filter-btn.active {background:#ff6b00}
+.container {padding:12px; max-width:1200px; margin:auto}
+.grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:15px}
+  /* TODOS muestra todas las promos */
+.grid-todos .bar .grid-promos {display:grid !important}
+
+/* TODOS muestra todas las promos */
+.grid-todos .bar .grid-promos {display:grid !important}
+
+.bar {background:#1a1a1a; border-radius:12px; overflow:hidden; border:1px solid #333}
+.bar-img {width:100%; height:180px; object-fit:cover}
+.bar-body {padding:12px}
+.bar h3 {font-size:18px; margin-bottom:5px; color:#ff6b00}
+.horario-local {font-size:13px; color:#aaa; margin-bottom:10px}
+.estado-badge {background:#28a745; padding:3px 8px; border-radius:12px; font-size:11px; color:#fff}
+
+.grid-promos {display:none; grid-template-columns:repeat(2, 1fr); gap:8px; margin-top:10px}
+.promo-item {background:#2a2a2a; border-radius:8px; padding:8px; text-align:center}
+.promo-item img {width:100%; height:90px; object-fit:cover; border-radius:6px; margin-bottom:5px}
+.promo-nombre {font-size:12px; margin-bottom:5px; height:32px; overflow:hidden}
+.btn-pedir {background:#ff6b00; border:none; color:#fff; padding:6px 10px; border-radius:6px; cursor:pointer; font-size:12px; width:100%}
+.btn-ver-promos {background:#333; border:none; color:#ff6b00; padding:8px; border-radius:8px; width:100%; margin-top:10px; cursor:pointer; font-weight:bold}
+
+.modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
+.modal-content {background:#1a1a1a; border-radius:15px; max-width:500px; width:90%; max-height:85vh; overflow-y:auto; border:1px solid #333}
+.modal-header {display:flex; gap:12px; padding:15px; border-bottom:1px solid #333}
+.modal-header img {width:70px; height:70px; border-radius:10px; object-fit:cover}
+.modal-close {margin-left:auto; font-size:28px; cursor:pointer; color:#aaa}
+.modal-promos-grid {padding:15px; display:grid; gap:10px}
+.modal-promo-item {background:#2a2a2a; padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center}
+.btn-pedir-modal {background:#ff6b00; border:none; color:#fff; padding:8px 15px; border-radius:6px; cursor:pointer}
+
+.modal-pedido {padding:20px}
+.modal-pedido h3 {color:#ff6b00; margin-bottom:15px}
+.modal-pedido input, .modal-pedido textarea {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #333; background:#2a2a2a; color:#fff}
+
+/* Botón WhatsApp VERDE */
+.btn-whatsapp {background:#25D366; border:none; color:#fff; padding:12px; border-radius:8px; width:100%; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px}
+
+.footer {background:#1a1a1a; padding:20px; margin-top:30px; text-align:center; border-top:1px solid #333}
+.footer-content {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px; max-width:1000px; margin:auto}
+.footer h4 {color:#ff6b00; margin-bottom:10px}
+.footer a {color:#aaa; text-decoration:none; display:block; margin:5px 0}
+.footer-bottom {border-top:1px solid #333; margin-top:20px; padding-top:15px; color:#666}
 </style>
 </head>
 <body>
@@ -82,8 +77,6 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-seri
   <button class="filter-btn" onclick="filtrar('polleria',this)">Pollería</button>
   <button class="filter-btn" onclick="filtrar('rotiseria',this)">Rotisería</button>
   <button class="filter-btn" onclick="filtrar('pizzeria',this)">Pizzería</button>
-  <button class="filter-btn" onclick="filtrar('sushi',this)">Sushi</button>
-  <button class="filter-btn" onclick="filtrar('lomiteria',this)">Lomitería</button>
   <button class="filter-btn" onclick="filtrar('cafeteria',this)">Cafetería</button>
 </div>
 
@@ -401,68 +394,6 @@ body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-seri
     </div>
   </div>
 
-  <!-- LOCAL 11: Sushi -->
-  <div class="bar" data-categoria="sushi">
-    <img class="bar-img" src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=300&fit=crop" alt="Sushi Ya">
-    <div class="bar-body">
-      <h3>Sushi Ya</h3>
-      <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 20 a 2hs Jue a Dom</p>
-      <div class="grid-promos">
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Combo 30 Piezas Mix</div>
-          <button class="btn-pedir" onclick="abrirPedido('Sushi Ya','Combo 30 Piezas Mix',8500)">$8.500</button>
-        </div>
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Salmón Nigiri x8 Piezas</div>
-          <button class="btn-pedir" onclick="abrirPedido('Sushi Ya','Salmón Nigiri x8 Piezas',5200)">$5.200</button>
-        </div>
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Hot Roll Tempura x12</div>
-          <button class="btn-pedir" onclick="abrirPedido('Sushi Ya','Hot Roll Tempura x12',6800)">$6.800</button>
-        </div>
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Bandeja 50 Piezas Premium</div>
-          <button class="btn-pedir" onclick="abrirPedido('Sushi Ya','Bandeja 50 Piezas Premium',13500)">$13.500</button>
-        </div>
-      </div>
-      <button class="btn-ver-promos" onclick="abrirModalPromos('Sushi Ya','Av. Belgrano 963','https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=300&fit=crop',['Combo 30 Piezas Mix|8500','Salmón Nigiri x8 Piezas|5200','Hot Roll Tempura x12|6800','Bandeja 50 Piezas Premium|13500'])">Ver Promos</button>
-    </div>
-  </div>
-
-  <!-- LOCAL 12: Lomitería -->
-  <div class="bar" data-categoria="lomiteria">
-    <img class="bar-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop" alt="Lomitería El Gaucho">
-    <div class="bar-body">
-      <h3>Lomitería El Gaucho</h3>
-      <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 20 a 3hs Mar a Dom</p>
-      <div class="grid-promos">
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Lomo Completo a la Piedra</div>
-          <button class="btn-pedir" onclick="abrirPedido('Lomitería El Gaucho','Lomo Completo a la Piedra',6500)">$6.500</button>
-        </div>
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Hamburguesa Doble Cheddar</div>
-          <button class="btn-pedir" onclick="abrirPedido('Lomitería El Gaucho','Hamburguesa Doble Cheddar',5800)">$5.800</button>
-        </div>
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Papas Fritas 1kg Caseras</div>
-          <button class="btn-pedir" onclick="abrirPedido('Lomitería El Gaucho','Papas Fritas 1kg Caseras',4200)">$4.200</button>
-        </div>
-        <div class="promo-item">
-          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop">
-          <div class="promo-nombre">Combo 2 Lomos + Papas</div>
-          <button class="btn-pedir" onclick="abrirPedido('Lomitería El Gaucho','Combo 2 Lomos + Papas',11800)">$11.800</button>
-        </div>
-      </div>
-      <button class="btn-ver-promos" onclick="abrirModalPromos('Lomitería El Gaucho','Calle Sarmiento 147','https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop',['Lomo Completo a la Piedra|6500','Hamburguesa Doble Cheddar|5800','Papas Fritas 1kg Caseras|4200','Combo 2 Lomos + Papas|11800'])">Ver Promos</button>
-    </div>
   </div>  <!-- LOCAL 13: Cafetería -->
   <div class="bar" data-categoria="cafeteria">
     <img class="bar-img" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop" alt="Cafetería El Rincón">
@@ -842,17 +773,19 @@ function enviarWhatsApp() {
 function filtrar(categoria) {
   const bars = document.querySelectorAll('.bar');
   const btns = document.querySelectorAll('.filter-btn');
-  
   btns.forEach(b => b.classList.remove('active'));
   event.target.classList.add('active');
+  const grid = document.getElementById('grid-locales');
   
-  bars.forEach(bar => {
-    if(categoria === 'todos' || bar.dataset.categoria === categoria) {
-      bar.style.display = 'block';
-    } else {
-      bar.style.display = 'none';
-    }
-  });
+  if(categoria === 'todos') {
+    grid.classList.add('grid-todos');
+    bars.forEach(bar => bar.style.display = 'block');
+  } else {
+    grid.classList.remove('grid-todos');
+    bars.forEach(bar => {
+      bar.style.display = bar.dataset.categoria === categoria ? 'block' : 'none';
+    });
+  }
 }
 </script>
 </body>
