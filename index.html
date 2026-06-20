@@ -99,19 +99,19 @@ h1 {font-size:22px; color:#25D366}
   background: #1ebc57;
 }
 
-/* MODAL */
+/* MODAL ÚNICO */
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
 .modal-content {background:#1a1a1a; border-radius:15px; max-width:500px; width:90%; max-height:85vh; overflow-y:auto; border:1px solid #333}
-.modal-header {display:flex; gap:12px; padding:15px; border-bottom:1px solid #333}
+.modal-header {display:flex; gap:12px; padding:15px; border-bottom:1px solid #333; position:relative}
 .modal-header img {width:70px; height:70px; border-radius:10px; object-fit:cover}
-.modal-close {margin-left:auto; font-size:28px; cursor:pointer; color:#aaa}
-.modal-promos-grid {padding:15px; display:grid; gap:10px}
-.modal-promo-item {background:#2a2a2a; padding:12px; border-radius:8px; display:flex; justify-content:space-between; align-items:center; border:1px solid #333}
-.btn-pedir-modal {background:#25D366; border:none; color:#fff; padding:8px 15px; border-radius:6px; cursor:pointer}
-.modal-pedido {padding:20px}
+.modal-close {position:absolute; top:12px; right:16px; font-size:28px; cursor:pointer; color:#aaa}
+.modal-promos-grid {padding:15px; display:flex; flex-direction:column; gap:10px}
+.modal-promo-item {background:#2a2a2a; padding:12px; border-radius:8px; display:flex; flex-direction:column; gap:8px; border:1px solid #333}
+.btn-pedir-modal {background:#25D366; border:none; color:#000; padding:8px 15px; border-radius:6px; cursor:pointer; font-weight:bold}
+.modal-pedido {padding:20px; display:none}
 .modal-pedido h3 {color:#25D366; margin-bottom:15px}
 .modal-pedido input, .modal-pedido textarea {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #333; background:#2a2a2a; color:#fff}
-.btn-whatsapp {background:#25D366; border:none; color:#fff; padding:12px; border-radius:8px; width:100%; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px}
+.btn-whatsapp {background:#25D366; border:none; color:#000; padding:12px; border-radius:8px; width:100%; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px}
 </style>
 </head>
 <body>
@@ -135,6 +135,7 @@ h1 {font-size:22px; color:#25D366}
   <button class="filter-btn" onclick="filtrarCategoria('cafeteria', this)">Cafeterías</button>
 </div>
   
+<!-- TODO TU HTML DE LOCALES VA ACÁ IGUAL, NO TOCAMOS NADA -->
  <!-- LOCAL 1 -->
   <div class="bar" id="bar-1" data-categoria="carniceria" data-nombre="Carnicería Don José" data-direccion="Av. Belgrano 123" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Asado 3kg Premium","precio":16500,"desc":"Tira, vacío, matambre premium","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Milanesas x8 Ternera","precio":8900,"desc":"Ternera especial para milanesas","img":"https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"},{"nombre":"Costilla 2kg Parrilla","precio":12800,"desc":"Costilla ancha para parrilla","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"},{"nombre":"Combo Familia 5kg","precio":22500,"desc":"5kg mixto para toda la familia","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"}]'>
     <img class="bar-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" alt="Carnicería Don José">
@@ -530,136 +531,89 @@ h1 {font-size:22px; color:#25D366}
       </div>
     </div>
   </div>
-<div id="modal-promos" class="modal">
+
+<!-- MODAL ÚNICO - BORRA EL OTRO MODAL QUE TENÍAS -->
+<div class="modal" id="modal">
   <div class="modal-content">
     <div class="modal-header">
       <img id="modal-img" src="" alt="">
-      <div class="modal-info">
+      <div style="flex:1">
         <h3 id="modal-nombre"></h3>
         <p id="modal-direccion"></p>
         <p id="modal-horario"></p>
-        <span class="modal-badge" style="background:#25D366">PROMOS DEL DÍA</span>
       </div>
-      <span class="modal-close" onclick="cerrarModalPromos()">&times;</span>
+      <span class="modal-close" onclick="cerrarModal()">&times;</span>
     </div>
     
     <div id="modal-promos-grid" class="modal-promos-grid"></div>
     
-    <div class="modal-pedido" id="modal-pedido" style="display:none">
+    <div class="modal-pedido" id="modal-pedido">
       <h3>Confirmar Pedido 📱</h3>
-      <p class="pedido-info">Estás por pedir en <b id="pedido-local"></b></p>
-      <div class="pedido-producto">
+      <p style="color:#aaa">Local: <b id="pedido-local"></b></p>
+      <div style="display:flex; justify-content:space-between; margin:10px 0">
         <b id="pedido-producto"></b>
-        <span id="pedido-precio"></span>
+        <span id="pedido-precio" style="color:#25D366; font-weight:bold"></span>
       </div>
       <input type="text" id="pedido-nombre" placeholder="Tu nombre" required>
       <input type="text" id="pedido-direccion" placeholder="Tu dirección completa" required>
       <input type="tel" id="pedido-tel" placeholder="Tu teléfono" required>
       <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
-      <button class="btn-whatsapp" style="background:#25D366" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
-    </div>
-  </div>
-</div>
-
-</footer>
-
-<!-- MODAL PROMOS - COPIÁ DESDE ACÁ -->
-<div class="modal" id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center">
-  <div class="modal-content" style="background:#1a1a1a; border-radius:12px; max-width:500px; width:90%; max-height:80vh; overflow-y:auto">
-    
-    <div class="modal-header" style="display:flex; gap:12px; padding:16px; border-bottom:1px solid #333; position:relative">
-      <img id="modal-img" style="width:60px; height:60px; border-radius:8px; object-fit:cover">
-      <div style="flex:1">
-        <h3 id="modal-nombre" style="margin:0; color:#fff; font-size:18px"></h3>
-        <p id="modal-direccion" style="margin:4px 0 0 0; color:#aaa; font-size:13px"></p>
-        <p id="modal-horario" style="margin:4px 0 0 0; color:#25D366; font-size:13px"></p>
-      </div>
-      <span class="modal-close" onclick="cerrarModal()" style="position:absolute; top:12px; right:16px; font-size:28px; color:#aaa; cursor:pointer">&times;</span>
-    </div>
-
-    <div class="modal-promos-grid" id="modal-promos-grid" style="padding:16px; display:flex; flex-direction:column; gap:12px">
-    </div>
-
-    <!-- FORM PEDIDO OCULTO -->
-    <div id="modal-pedido" style="display:none; padding:16px">
-      <h4 style="color:#fff; margin-top:0">Confirmar pedido</h4>
-      <p style="color:#aaa">Local: <span id="pedido-local"></span></p>
-      <p style="color:#aaa">Promo: <span id="pedido-producto"></span></p>
-      <p style="color:#25D366; font-size:18px; font-weight:bold">Precio: <span id="pedido-precio"></span></p>
-      
-      <input id="pedido-nombre" placeholder="Tu nombre" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff">
-      <input id="pedido-direccion" placeholder="Tu dirección" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff">
-      <input id="pedido-tel" placeholder="Tu teléfono" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff">
-      <textarea id="pedido-nota" placeholder="Nota para el local" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff; min-height:60px"></textarea>
-      
-      <div style="display:flex; gap:8px; margin-top:12px">
-        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:6px; background:#444; color:#fff; cursor:pointer">Volver</button>
-        <button onclick="enviarWhatsApp()" style="flex:2; padding:12px; border:none; border-radius:6px; background:#25D366; color:#000; font-weight:bold; cursor:pointer">Enviar por WhatsApp</button>
+      <div style="display:flex; gap:8px; margin-top:10px">
+        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
       </div>
     </div>
   </div>
 </div>
-<!-- HASTA ACÁ EL MODAL -->
 
+</body>
 <script>
 const NUMERO = "5492983389710";
 let pedidoActual = {};
 
 function abrirModalPromos(btn) {
-  const nombre = btn.dataset.nombre;
-  const direccion = btn.dataset.direccion;
-  const img = btn.dataset.img;
-  const local = btn.closest('.bar, .local-card');
-  const horario = local.querySelector('.horario-local').textContent.trim();
-  const promosData = JSON.parse(local.dataset.promos);
-  
-  document.getElementById('modal-nombre').textContent = nombre;
-  document.getElementById('modal-direccion').textContent = direccion;
-  document.getElementById('modal-horario').textContent = horario;
-  document.getElementById('modal-img').src = img;
-  
-  const grid = document.getElementById('modal-promos-grid');
-  grid.innerHTML = '';
-}
-  promosData.forEach((p) => {
-    // Escapamos las comillas simples para que no rompa el onclick
-    const nombreEsc = nombre.replace(/'/g, "\\'");
-    const promoEsc = p.nombre.replace(/'/g, "\\'");
+  try {
+    const nombre = btn.dataset.nombre;
+    const direccion = btn.dataset.direccion;
+    const img = btn.dataset.img;
+    const local = btn.closest('.bar, .local-card');
+    const horario = local.querySelector('.horario-local').textContent.trim();
+    const promosData = JSON.parse(local.dataset.promos);
     
-    grid.innerHTML += `
-      <div class="modal-promo-item" style="display:flex; flex-direction:column; gap:8px; background:#2a2a2a; padding:12px; border-radius:8px">
-        <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
-        <div>
-          <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
-          <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
-            <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
-            <button class="btn-pedir-modal" style="background:#25D366; padding:8px 16px; border:none; border-radius:6px; color:#000; font-weight:bold; cursor:pointer" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
+    document.getElementById('modal-nombre').textContent = nombre;
+    document.getElementById('modal-direccion').textContent = direccion;
+    document.getElementById('modal-horario').textContent = horario;
+    document.getElementById('modal-img').src = img;
+    
+    const grid = document.getElementById('modal-promos-grid');
+    grid.innerHTML = '';
+
+    promosData.forEach((p) => {
+      const nombreEsc = nombre.replace(/'/g, "\\'");
+      const promoEsc = p.nombre.replace(/'/g, "\\'");
+      
+      grid.innerHTML += `
+        <div class="modal-promo-item">
+          <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
+          <div>
+            <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
+            <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
+              <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
+              <button class="btn-pedir-modal" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
+            </div>
           </div>
         </div>
-      </div>
-    `;
-  });
+      `;
+    });
 
-  document.getElementById('modal').style.display = 'flex';
-}
-  promosData.forEach((p, index) => {
-    grid.innerHTML += `
-      <div class="modal-promo-item" style="display:flex; flex-direction:column; gap:8px; background:#2a2a2a; padding:12px; border-radius:8px">
-        <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
-        <div>
-          <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
-          <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
-            <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
-            <button class="btn-pedir-modal" style="background:#25D366; padding:8px 16px; border:none; border-radius:6px; color:#000; font-weight:bold; cursor:pointer" onclick="abrirPedido('${nombre}','${p.nombre}',${p.precio})">Pedir</button>
-          </div>
-        </div>
-      </div>
-    `;
-  });
-
-  document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('modal-pedido').style.display = 'none';
+    grid.style.display = 'flex';
+  } catch(e) {
+    console.error('Error abrirModalPromos:', e);
+    alert('Error cargando promos. Revisá el data-promos del local.');
+  }
 }
 
 function cerrarModal() {
@@ -673,6 +627,13 @@ function abrirPedido(local, producto, precio) {
   document.getElementById('pedido-local').textContent = local;
   document.getElementById('pedido-producto').textContent = producto;
   document.getElementById('pedido-precio').textContent = '$' + precio.toLocaleString('es-AR');
+  
+  // Si viene del botón "Ver Todas las Promos", abre el modal
+  const modal = document.getElementById('modal');
+  if(modal.style.display !== 'flex') {
+    modal.style.display = 'flex';
+  }
+  
   document.getElementById('modal-promos-grid').style.display = 'none';
   document.getElementById('modal-pedido').style.display = 'block';
 }
@@ -695,17 +656,26 @@ function enviarWhatsApp() {
 }
 
 function filtrarCategoria(categoria, btn) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  
-  const locales = document.querySelectorAll('.bar, .local-card');
-  locales.forEach(local => {
-    if(categoria === 'todos' || local.dataset.categoria === categoria) {
-      local.style.display = 'block';
-    } else {
-      local.style.display = 'none';
-    }
-  });
+  try {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    
+    const locales = document.querySelectorAll('.bar, .local-card');
+    locales.forEach(local => {
+      try {
+        if(categoria === 'todos' || local.dataset.categoria === categoria) {
+          local.style.display = 'block';
+        } else {
+          local.style.display = 'none';
+        }
+      } catch(e) {
+        console.error('Error en local:', local.dataset.nombre, e);
+        local.style.display = 'block';
+      }
+    });
+  } catch(e) {
+    console.error('Error filtrarCategoria:', e);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -720,5 +690,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
-</body>
 </html>
