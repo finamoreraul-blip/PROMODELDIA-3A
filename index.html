@@ -601,11 +601,15 @@ function filtrarCategoria(categoria, btn) {
 document.addEventListener('DOMContentLoaded', () => {
   const btnTodos = document.querySelector('.filter-btn');
   if(btnTodos) btnTodos.classList.add('active');
-});
 
-document.getElementById('modal-promos').onclick = function(e) {
-  if(e.target.id === 'modal-promos') cerrarModalPromos();
-}
+  // Esto va acá adentro para que espere a que cargue el HTML
+  const modal = document.getElementById('modal-promos');
+  if(modal) {
+    modal.onclick = function(e) {
+      if(e.target.id === 'modal-promos') cerrarModalPromos();
+    }
+  }
+});
 </script>
 </body>
 </html>
