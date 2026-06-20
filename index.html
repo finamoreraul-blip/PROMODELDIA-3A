@@ -591,8 +591,11 @@ h1 {font-size:22px; color:#25D366}
 const NUMERO = "5492983389710";
 let pedidoActual = {};
 
-function abrirModalPromos(nombre, direccion, img) {
-  const local = document.querySelector(`[data-nombre="${nombre}"]`);
+function abrirModalPromos(btn) {
+  const nombre = btn.dataset.nombre;
+  const direccion = btn.dataset.direccion;
+  const img = btn.dataset.img;
+  const local = btn.closest('.bar, .local-card');
   const horario = local.querySelector('.horario-local').textContent;
   const promosData = JSON.parse(local.dataset.promos);
   
@@ -616,13 +619,20 @@ function abrirModalPromos(nombre, direccion, img) {
         <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
         <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
           <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
-          <button class="btn-pedir-modal" style="background:#25D366" data-index="${index}">Pedir</button>
+          <button class="btn-pedir-modal" style="background:#25D366" onclick="abrirPedido('${nombre}','${p.nombre}',${p.precio})">Pedir</button>
         </div>
       </div>
     `;
     
     grid.appendChild(item);
   });
+
+  document.getElementById('modal').style.display = 'flex';
+}
+
+function cerrarModal() {
+  document.getElementById('modal').style.display = 'none';
+}
 
   // Asignamos click a todos los botones DESPUÉS de crearlos
   document.querySelectorAll('.btn-pedir-modal').forEach(btn => {
