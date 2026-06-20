@@ -547,22 +547,43 @@ h1 {font-size:22px; color:#25D366}
     
     <div id="modal-promos-grid" class="modal-promos-grid"></div>
     
-    <div class="modal-pedido" id="modal-pedido">
-      <h3>Confirmar Pedido 📱</h3>
-      <p style="color:#aaa">Local: <b id="pedido-local"></b></p>
-      <div style="display:flex; justify-content:space-between; margin:10px 0">
-        <b id="pedido-producto"></b>
-        <span id="pedido-precio" style="color:#25D366; font-weight:bold"></span>
-      </div>
-      <input type="text" id="pedido-nombre" placeholder="Tu nombre" required>
-      <input type="text" id="pedido-direccion" placeholder="Tu dirección completa" required>
-      <input type="tel" id="pedido-tel" placeholder="Tu teléfono" required>
-      <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
-      <div style="display:flex; gap:8px; margin-top:10px">
-        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
-        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
-      </div>
-    </div>
+   <div class="modal-pedido" id="modal-pedido">
+  <h3>Confirmar Pedido 📱</h3>
+  <p style="color:#aaa">Local: <b id="pedido-local"></b></p>
+  <div style="display:flex; justify-content:space-between; margin:10px 0">
+    <b id="pedido-producto"></b>
+    <span id="pedido-precio" style="color:#25D366; font-weight:bold"></span>
+  </div>
+  
+  <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
+    <p style="margin-bottom:8px; font-weight:bold">Forma de entrega:</p>
+    <label style="display:flex; align-items:center; gap:8px; margin:8px 0; cursor:pointer">
+      <input type="radio" name="entrega" value="retira" checked onchange="calcularTotal()">
+      <span>Retira en local - Gratis</span>
+    </label>
+    <label style="display:flex; align-items:center; gap:8px; margin:8px 0; cursor:pointer">
+      <input type="radio" name="entrega" value="domicilio" onchange="calcularTotal()">
+      <span>Envío a domicilio + $2.000</span>
+    </label>
+    <label style="display:flex; align-items:center; gap:8px; margin:8px 0; cursor:pointer">
+      <input type="radio" name="entrega" value="mensaje" onchange="calcularTotal()">
+      <span>Consultar con el local</span>
+    </label>
+  </div>
+
+  <p style="font-size:18px; margin:15px 0; text-align:center">
+    Total: <b id="pedido-total" style="color:#25D366; font-size:22px"></b>
+  </p>
+
+  <input type="text" id="pedido-nombre" placeholder="Tu nombre" required>
+  <input type="text" id="pedido-direccion" placeholder="Tu dirección completa" required>
+  <input type="tel" id="pedido-tel" placeholder="Tu teléfono" required>
+  <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
+  <div style="display:flex; gap:8px; margin-top:10px">
+    <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
+    <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+  </div>
+</div>
   </div>
 </div>
 
@@ -621,12 +642,30 @@ function cerrarModal() {
   document.getElementById('modal-pedido').style.display = 'none';
   document.getElementById('modal-promos-grid').style.display = 'flex';
 }
+  function calcularTotal() {
+  const entrega = document.querySelector('input[name="entrega"]:checked').value;
+  let total = pedidoActual.precio;
+  if(entrega === 'domicilio') total += 2000;
+  document.getElementById('pedido-total').textContent = '$' + total.toLocaleString('es-AR');
+}
 
 function abrirPedido(local, producto, precio) {
   pedidoActual = {local, producto, precio};
   document.getElementById('pedido-local').textContent = local;
   document.getElementById('pedido-producto').textContent = producto;
   document.getElementById('pedido-precio').textContent = '$' + precio.toLocaleString('es-AR');
+  
+  const modal = document.getElementById('modal');
+  if(modal.style.display !== 'flex') {
+    modal.style.display = 'flex';
+  }
+  
+  document.getElementById('modal-promos-grid').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'block';
+  
+  // Calcular total al abrir
+  calcularTotal();
+}
   
   // Si viene del botón "Ver Todas las Promos", abre el modal
   const modal = document.getElementById('modal');
@@ -638,22 +677,12 @@ function abrirPedido(local, producto, precio) {
   document.getElementById('modal-pedido').style.display = 'block';
 }
 
-function enviarWhatsApp() {
-  const nombre = document.getElementById('pedido-nombre').value;
-  const direccion = document.getElementById('pedido-direccion').value;
-  const tel = document.getElementById('pedido-tel').value;
-  const nota = document.getElementById('pedido-nota').value;
-  
-  if(!nombre || !direccion || !tel) {
-    alert('Completá nombre, dirección y teléfono');
-    return;
-  }
-  
-  const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Nombre:* ${nombre}%0A*Dirección:* ${direccion}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
-  
-  window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
-  cerrarModal();
-}
+const entrega = document.querySelector('input[name="entrega"]:checked').value;
+const textoEntrega = entrega === 'retira' ? 'Retira en local' : entrega === 'domicilio' ? 'Envío a domicilio + $2.000' : 'Consultar con el local';
+let total = pedidoActual.precio;
+if(entrega === 'domicilio') total += 2000;
+
+const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Entrega:* ${textoEntrega}%0A*Total:* $${total}%0A*Nombre:* ${nombre}%0A*Dirección:* ${direccion}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
 
 function filtrarCategoria(categoria, btn) {
   try {
