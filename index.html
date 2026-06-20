@@ -531,22 +531,34 @@ function abrirModalPromos(nombre, direccion, img) {
   document.getElementById('modal-img').src = img;
   
   const grid = document.getElementById('modal-promos-grid');
-  grid.innerHTML = '';
+grid.innerHTML = '';
+
+promosData.forEach((p, index) => {
+  const item = document.createElement('div');
+  item.className = 'modal-promo-item';
+  item.style = 'flex-direction:column; align-items:stretch; gap:8px';
   
-  promosData.forEach(p => {
-  grid.innerHTML += `
-    <div class="modal-promo-item" style="flex-direction:column; align-items:stretch; gap:8px">
-      <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
-      <div>
-        <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
-        <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
-          <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
-          <button class="btn-pedir-modal" style="background:#25D366" onclick="abrirPedido(${JSON.stringify(nombre)},${JSON.stringify(p.nombre)},${p.precio})">Pedir</button>
-        </div>
+  item.innerHTML = `
+    <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
+    <div>
+      <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
+      <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
+        <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
+        <button class="btn-pedir-modal" style="background:#25D366" data-index="${index}">Pedir</button>
       </div>
     </div>
   `;
+  
+  grid.appendChild(item);
+});
+
+// Acá le ponemos el click a todos los botones después
+document.querySelectorAll('.btn-pedir-modal').forEach(btn => {
+  btn.onclick = () => {
+    const p = promosData[btn.dataset.index];
+    abrirPedido(nombre, p.nombre, p.precio);
+  };
 });
   
   document.getElementById('modal-pedido').style.display = 'none';
