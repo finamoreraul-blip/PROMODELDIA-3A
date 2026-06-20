@@ -610,7 +610,7 @@ function abrirModalPromos(btn) {
   const direccion = btn.dataset.direccion;
   const img = btn.dataset.img;
   const local = btn.closest('.bar, .local-card');
-  const horario = local.querySelector('.horario-local').textContent;
+  const horario = local.querySelector('.horario-local').textContent.trim();
   const promosData = JSON.parse(local.dataset.promos);
   
   document.getElementById('modal-nombre').textContent = nombre;
@@ -621,6 +621,28 @@ function abrirModalPromos(btn) {
   const grid = document.getElementById('modal-promos-grid');
   grid.innerHTML = '';
 
+  promosData.forEach((p) => {
+    // Escapamos las comillas simples para que no rompa el onclick
+    const nombreEsc = nombre.replace(/'/g, "\\'");
+    const promoEsc = p.nombre.replace(/'/g, "\\'");
+    
+    grid.innerHTML += `
+      <div class="modal-promo-item" style="display:flex; flex-direction:column; gap:8px; background:#2a2a2a; padding:12px; border-radius:8px">
+        <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
+        <div>
+          <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
+          <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
+            <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
+            <button class="btn-pedir-modal" style="background:#25D366; padding:8px 16px; border:none; border-radius:6px; color:#000; font-weight:bold; cursor:pointer" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById('modal').style.display = 'flex';
+}
   promosData.forEach((p, index) => {
     grid.innerHTML += `
       <div class="modal-promo-item" style="display:flex; flex-direction:column; gap:8px; background:#2a2a2a; padding:12px; border-radius:8px">
