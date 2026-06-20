@@ -634,18 +634,6 @@ function cerrarModal() {
   document.getElementById('modal').style.display = 'none';
 }
 
-  // Asignamos click a todos los botones DESPUÉS de crearlos
-  document.querySelectorAll('.btn-pedir-modal').forEach(btn => {
-    btn.onclick = () => {
-      const p = promosData[btn.dataset.index];
-      abrirPedido(nombre, p.nombre, p.precio);
-    };
-  });
-  
-  document.getElementById('modal-pedido').style.display = 'none';
-  document.getElementById('modal-promos-grid').style.display = 'grid';
-  document.getElementById('modal-promos').style.display = 'flex';
-}
 
 function cerrarModalPromos() {
   document.getElementById('modal-promos').style.display = 'none';
