@@ -469,8 +469,7 @@ h1 {font-size:22px; color:#25D366}
     </div>
     
     <div id="modal-promos-grid" class="modal-promos-grid"></div>
-    
-   <div class="modal-pedido" id="modal-pedido">
+  <div class="modal-pedido" id="modal-pedido">
   <h3>Confirmar Pedido 📱</h3>
   <p style="color:#aaa">Local: <b id="pedido-local"></b></p>
   <div style="display:flex; justify-content:space-between; margin:10px 0">
@@ -497,7 +496,6 @@ h1 {font-size:22px; color:#25D366}
   </p>
 
   <input type="text" id="pedido-nombre" placeholder="Tu nombre" required>
-  <input type="text" id="pedido-direccion" placeholder="Tu dirección completa" required>
   <input type="tel" id="pedido-tel" placeholder="Tu teléfono" required>
   <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
   <div style="display:flex; gap:8px; margin-top:10px">
@@ -615,7 +613,6 @@ function abrirPedido(local, producto, precio) {
 
 function enviarWhatsApp() {
   const nombre = document.getElementById('pedido-nombre').value;
-  const direccion = document.getElementById('pedido-direccion').value;
   const tel = document.getElementById('pedido-tel').value;
   const nota = document.getElementById('pedido-nota').value;
   const entrega = document.getElementById('tipoEntrega').value;
@@ -628,8 +625,8 @@ function enviarWhatsApp() {
     return;
   }
   
-  if(!nombre || !direccion || !tel) {
-    alert('Completá nombre, dirección y teléfono');
+  if(!nombre || !tel) {
+    alert('Completá nombre y teléfono');
     return;
   }
   
