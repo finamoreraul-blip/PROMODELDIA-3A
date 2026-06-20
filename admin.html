@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Promos 24hs</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif}
+body {background:#0a0a0a; color:#fff; padding:20px}
+.login-box {max-width:400px; margin:100px auto; background:#1a1a1a; padding:30px; border-radius:12px; border:1px solid #333}
+.login-box h2 {color:#25D366; margin-bottom:20px; text-align:center}
+.login-box input {width:100%; padding:12px; margin:10px 0; border-radius:8px; border:1px solid #333; background:#2a2a2a; color:#fff; font-size:16px}
+.btn-login {width:100%; padding:12px; background:#25D366; border:none; color:#000; font-weight:bold; border-radius:8px; cursor:pointer; font-size:16px}
+
+.admin-panel {display:none; max-width:1400px; margin:auto}
+.header-admin {display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:15px; border-bottom:2px solid #25D366}
+.header-admin h1 {color:#25D366}
+.btn-logout {padding:10px 20px; background:#dc3545; border:none; color:#fff; border-radius:8px; cursor:pointer}
+
+.stats {display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px; margin-bottom:30px}
+.stat-card {background:#1a1a1a; padding:20px; border-radius:10px; border:1px solid #333}
+.stat-card h3 {color:#aaa; font-size:14px; margin-bottom:8px}
+.stat-card p {font-size:28px; font-weight:bold; color:#25D366}
+
+.local-admin {background:#1a1a1a; border:1px solid #333; border-radius:12px; padding:15px; margin-bottom:15px}
+.local-header {display:flex; justify-content:space-between; align-items:center; margin-bottom:12px}
+.local-header h3 {color:#25D366; font-size:18px}
+.btn-estado {padding:6px 14px; border:none; border-radius:20px; cursor:pointer; font-weight:bold; font-size:13px}
+.btn-estado.abierto {background:#28a745; color:#fff}
+.btn-estado.cerrado {background:#dc3545; color:#fff}
+
+.promo-admin {background:#2a2a2a; padding:12px; border-radius:8px; margin:8px 0; display:grid; grid-template-columns:1fr 120px 80px 100px; gap:10px; align-items:center}
+.promo-admin input {padding:8px; border-radius:6px; border:1px solid #444; background:#1a1a1a; color:#fff; font-size:13px}
+.btn-guardar {background:#25D366; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; color:#000; font-weight:bold}
+.btn-eliminar {background:#dc3545; border:none; padding:8px 12px; border-radius:6px; cursor:pointer; color:#fff}
+
+.stats-local {font-size:12px; color:#aaa; margin-top:8px}
+.stats-local span {margin-right:15px; color:#25D366}
+
+.btn-agregar {background:#25D366; border:none; padding:10px 20px; border-radius:8px; cursor:pointer; color:#000; font-weight:bold; margin-top:10px}
+.btn-agregar-local {width:100%; padding:15px; background:#1a1a1a; border:2px dashed #25D366; color:#25D366; border-radius:12px; cursor:pointer; font-size:16px; margin-top:20px}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-box" id="loginBox">
+  <h2>🔒 Panel Admin</h2>
+  <input type="password" id="password" placeholder="Contraseña">
+  <button class="btn-login" onclick="login()">Entrar</button>
+  <p id="errorLogin" style="color:#dc3545; margin-top:10px; display:none">Contraseña incorrecta</p>
+</div>
+
+<!-- PANEL ADMIN -->
+<div class="admin-panel" id="adminPanel">
+  <div class="header-admin">
+    <h1>Panel Admin - Promos 24hs</h1>
+    <button class="btn-logout" onclick="logout()">Salir</button>
+  </div>
+
+  <!-- ESTADÍSTICAS GENERALES -->
+  <div class="stats">
+    <div class="stat-card">
+      <h3>Total Clicks Promos</h3>
+      <p id="totalClicks">0</p>
+    </div>
+    <div class="stat-card">
+      <h3>Pedidos Enviados</h3>
+      <p id="totalPedidos">0</p>
+    </div>
+    <div class="stat-card">
+      <h3>Locales Activos</h3>
+      <p id="localesActivos">0/18</p>
+    </div>
+  </div>
+
+  <!-- LISTA DE LOCALES -->
+  <div id="listaLocales"></div>
+
+  <button class="btn-agregar-local" onclick="agregarLocal()">+ Agregar Nuevo Local</button>
+</div>
+
+<script type="module">
+// CONFIGURACIÓN - CAMBIÁ LA CONTRASEÑA ACÁ
+const PASSWORD = "BrunoEmma2026";
+
+// Firebase - Reemplazá con tus datos
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getDatabase, ref, onValue, set, update, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "TU_API_KEY",
+  authDomain: "tu-proyecto.firebaseapp.com",
+  databaseURL: "https://tu-proyecto-default-rtdb.firebaseio.com",
+  projectId: "tu-proyecto",
+  storageBucket: "tu-proyecto.appspot.com",
+  messagingSenderId: "123456",
+  appId: "1:123456:web:abc123"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// LOGIN
+window.login = function() {
+  const pass = document.getElementById('password').value;
+  if(pass === PASSWORD) {
+    localStorage.setItem('adminAuth', 'true');
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    cargarDatos();
+  } else {
+    document.getElementById('errorLogin').style.display = 'block';
+  }
+}
+
+window.logout = function() {
+  localStorage.removeItem('adminAuth');
+  location.reload();
+}
+
+// Si ya está logueado
+if(localStorage.getItem('adminAuth') === 'true') {
+  document.getElementById('loginBox').style.display = 'none';
+  document.getElementById('adminPanel').style.display = 'block';
+  cargarDatos();
+}
+</script>
+</body>
+</html>
