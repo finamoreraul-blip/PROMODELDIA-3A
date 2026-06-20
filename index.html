@@ -561,31 +561,45 @@ h1 {font-size:22px; color:#25D366}
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-content">
-    <div class="footer-section">
-      <h4>Promos Delivery Tres Arroyos</h4>
-      <p>Las mejores promos de tu ciudad. Entregas rápidas y locales de confianza.</p>
+</footer>
+
+<!-- MODAL PROMOS - COPIÁ DESDE ACÁ -->
+<div class="modal" id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center">
+  <div class="modal-content" style="background:#1a1a1a; border-radius:12px; max-width:500px; width:90%; max-height:80vh; overflow-y:auto">
+    
+    <div class="modal-header" style="display:flex; gap:12px; padding:16px; border-bottom:1px solid #333; position:relative">
+      <img id="modal-img" style="width:60px; height:60px; border-radius:8px; object-fit:cover">
+      <div style="flex:1">
+        <h3 id="modal-nombre" style="margin:0; color:#fff; font-size:18px"></h3>
+        <p id="modal-direccion" style="margin:4px 0 0 0; color:#aaa; font-size:13px"></p>
+        <p id="modal-horario" style="margin:4px 0 0 0; color:#25D366; font-size:13px"></p>
+      </div>
+      <span class="modal-close" onclick="cerrarModal()" style="position:absolute; top:12px; right:16px; font-size:28px; color:#aaa; cursor:pointer">&times;</span>
     </div>
-    <div class="footer-section">
-      <h4>Contacto</h4>
-      <p>📱 WhatsApp: +54 9 2983 389710</p>
-      <p>📧 promos@tresarroyos.com</p>
+
+    <div class="modal-promos-grid" id="modal-promos-grid" style="padding:16px; display:flex; flex-direction:column; gap:12px">
     </div>
-    <div class="footer-section">
-      <h4>Seguinos</h4>
-      <div class="social-links">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">WhatsApp</a>
+
+    <!-- FORM PEDIDO OCULTO -->
+    <div id="modal-pedido" style="display:none; padding:16px">
+      <h4 style="color:#fff; margin-top:0">Confirmar pedido</h4>
+      <p style="color:#aaa">Local: <span id="pedido-local"></span></p>
+      <p style="color:#aaa">Promo: <span id="pedido-producto"></span></p>
+      <p style="color:#25D366; font-size:18px; font-weight:bold">Precio: <span id="pedido-precio"></span></p>
+      
+      <input id="pedido-nombre" placeholder="Tu nombre" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff">
+      <input id="pedido-direccion" placeholder="Tu dirección" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff">
+      <input id="pedido-tel" placeholder="Tu teléfono" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff">
+      <textarea id="pedido-nota" placeholder="Nota para el local" style="width:100%; padding:10px; margin:8px 0; border-radius:6px; border:1px solid #333; background:#2a2a2a; color:#fff; min-height:60px"></textarea>
+      
+      <div style="display:flex; gap:8px; margin-top:12px">
+        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:6px; background:#444; color:#fff; cursor:pointer">Volver</button>
+        <button onclick="enviarWhatsApp()" style="flex:2; padding:12px; border:none; border-radius:6px; background:#25D366; color:#000; font-weight:bold; cursor:pointer">Enviar por WhatsApp</button>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 Promos Delivery Tres Arroyos. Todos los derechos reservados.</p>
-  </div>
-</footer>
+</div>
+<!-- HASTA ACÁ EL MODAL -->
 
 <script>
 const NUMERO = "5492983389710";
@@ -608,23 +622,19 @@ function abrirModalPromos(btn) {
   grid.innerHTML = '';
 
   promosData.forEach((p, index) => {
-    const item = document.createElement('div');
-    item.className = 'modal-promo-item';
-    item.style = 'flex-direction:column; align-items:stretch; gap:8px';
-    
-    item.innerHTML = `
-      <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
-      <div>
-        <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
-        <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
-          <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
-          <button class="btn-pedir-modal" style="background:#25D366" onclick="abrirPedido('${nombre}','${p.nombre}',${p.precio})">Pedir</button>
+    grid.innerHTML += `
+      <div class="modal-promo-item" style="display:flex; flex-direction:column; gap:8px; background:#2a2a2a; padding:12px; border-radius:8px">
+        <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
+        <div>
+          <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
+          <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
+            <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
+            <button class="btn-pedir-modal" style="background:#25D366; padding:8px 16px; border:none; border-radius:6px; color:#000; font-weight:bold; cursor:pointer" onclick="abrirPedido('${nombre}','${p.nombre}',${p.precio})">Pedir</button>
+          </div>
         </div>
       </div>
     `;
-    
-    grid.appendChild(item);
   });
 
   document.getElementById('modal').style.display = 'flex';
@@ -632,11 +642,8 @@ function abrirModalPromos(btn) {
 
 function cerrarModal() {
   document.getElementById('modal').style.display = 'none';
-}
-
-
-function cerrarModalPromos() {
-  document.getElementById('modal-promos').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'none';
+  document.getElementById('modal-promos-grid').style.display = 'flex';
 }
 
 function abrirPedido(local, producto, precio) {
@@ -662,7 +669,7 @@ function enviarWhatsApp() {
   const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Nombre:* ${nombre}%0A*Dirección:* ${direccion}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
   
   window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
-  cerrarModalPromos();
+  cerrarModal();
 }
 
 function filtrarCategoria(categoria, btn) {
@@ -683,10 +690,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnTodos = document.querySelector('.filter-btn');
   if(btnTodos) btnTodos.classList.add('active');
 
-  const modal = document.getElementById('modal-promos');
+  const modal = document.getElementById('modal');
   if(modal) {
     modal.onclick = function(e) {
-      if(e.target.id === 'modal-promos') cerrarModalPromos();
+      if(e.target.id === 'modal') cerrarModal();
     }
   }
 });
