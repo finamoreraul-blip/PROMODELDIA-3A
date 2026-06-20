@@ -642,11 +642,19 @@ function cerrarModal() {
   document.getElementById('modal-pedido').style.display = 'none';
   document.getElementById('modal-promos-grid').style.display = 'flex';
 }
-  function calcularTotal() {
-  const entrega = document.querySelector('input[name="entrega"]:checked').value;
-  let total = pedidoActual.precio;
-  if(entrega === 'domicilio') total += 2000;
-  document.getElementById('pedido-total').textContent = '$' + total.toLocaleString('es-AR');
+
+function calcularTotal() {
+  try {
+    const radio = document.querySelector('input[name="entrega"]:checked');
+    const totalEl = document.getElementById('pedido-total');
+    if(!radio || !totalEl || !pedidoActual.precio) return;
+    
+    let total = pedidoActual.precio;
+    if(radio.value === 'domicilio') total += 2000;
+    totalEl.textContent = '$' + total.toLocaleString('es-AR');
+  } catch(e) {
+    console.error('Error calcularTotal:', e);
+  }
 }
 
 function abrirPedido(local, producto, precio) {
@@ -663,26 +671,32 @@ function abrirPedido(local, producto, precio) {
   document.getElementById('modal-promos-grid').style.display = 'none';
   document.getElementById('modal-pedido').style.display = 'block';
   
-  // Calcular total al abrir
+  // Resetear radio a "retira"
+  document.querySelector('input[name="entrega"][value="retira"]').checked = true;
   calcularTotal();
 }
+
+function enviarWhatsApp() {
+  const nombre = document.getElementById('pedido-nombre').value;
+  const direccion = document.getElementById('pedido-direccion').value;
+  const tel = document.getElementById('pedido-tel').value;
+  const nota = document.getElementById('pedido-nota').value;
+  const entrega = document.querySelector('input[name="entrega"]:checked').value;
   
-  // Si viene del botón "Ver Todas las Promos", abre el modal
-  const modal = document.getElementById('modal');
-  if(modal.style.display !== 'flex') {
-    modal.style.display = 'flex';
+  if(!nombre || !direccion || !tel) {
+    alert('Completá nombre, dirección y teléfono');
+    return;
   }
   
-  document.getElementById('modal-promos-grid').style.display = 'none';
-  document.getElementById('modal-pedido').style.display = 'block';
+  const textoEntrega = entrega === 'retira' ? 'Retira en local' : entrega === 'domicilio' ? 'Envío a domicilio + $2.000' : 'Consultar con el local';
+  let total = pedidoActual.precio;
+  if(entrega === 'domicilio') total += 2000;
+  
+  const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Entrega:* ${textoEntrega}%0A*Total:* $${total.toLocaleString('es-AR')}%0A*Nombre:* ${nombre}%0A*Dirección:* ${direccion}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
+  
+  window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
+  cerrarModal();
 }
-
-const entrega = document.querySelector('input[name="entrega"]:checked').value;
-const textoEntrega = entrega === 'retira' ? 'Retira en local' : entrega === 'domicilio' ? 'Envío a domicilio + $2.000' : 'Consultar con el local';
-let total = pedidoActual.precio;
-if(entrega === 'domicilio') total += 2000;
-
-const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Entrega:* ${textoEntrega}%0A*Total:* $${total}%0A*Nombre:* ${nombre}%0A*Dirección:* ${direccion}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
 
 function filtrarCategoria(categoria, btn) {
   try {
