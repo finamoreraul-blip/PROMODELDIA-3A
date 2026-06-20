@@ -46,7 +46,7 @@ body {background:#0a0a0a; color:#fff; padding:20px}
 <!-- LOGIN -->
 <div class="login-box" id="loginBox">
   <h2>🔒 Panel Admin</h2>
-  <input type="password" id="password" placeholder="Contraseña">
+  <input type="password" id="password" placeholder="BrunoEmma2026">
   <button class="btn-login" onclick="login()">Entrar</button>
   <p id="errorLogin" style="color:#dc3545; margin-top:10px; display:none">Contraseña incorrecta</p>
 </div>
@@ -81,10 +81,11 @@ body {background:#0a0a0a; color:#fff; padding:20px}
 </div>
 
 <script type="module">
-// CONFIGURACIÓN - CAMBIÁ LA CONTRASEÑA ACÁ
-const PASSWORD = "BrunoEmma2026";
+// ========== CONFIGURACIÓN ==========
+// CAMBIÁ LA CONTRASEÑA ACÁ
+const PASSWORD = "AdminTresArroyos2026";
 
-// Firebase - Reemplazá con tus datos
+// Firebase - Reemplazá con tus datos de Firebase Realtime Database
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getDatabase, ref, onValue, set, update, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
@@ -101,7 +102,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// LOGIN
+// ========== LOGIN ==========
 window.login = function() {
   const pass = document.getElementById('password').value;
   if(pass === PASSWORD) {
@@ -124,6 +125,155 @@ if(localStorage.getItem('adminAuth') === 'true') {
   document.getElementById('loginBox').style.display = 'none';
   document.getElementById('adminPanel').style.display = 'block';
   cargarDatos();
+}
+
+let localesData = {};
+
+// ========== CARGAR DATOS DESDE FIREBASE ==========
+window.cargarDatos = function() {
+  const localesRef = ref(db, 'locales');
+  onValue(localesRef, (snapshot) => {
+    localesData = snapshot.val() || {};
+    renderizarLocales();
+    actualizarStats();
+  });
+
+  const statsRef = ref(db, 'stats');
+  onValue(statsRef, (snapshot) => {
+    const stats = snapshot.val() || {clicks: 0, pedidos: 0};
+    document.getElementById('totalClicks').textContent = stats.clicks || 0;
+    document.getElementById('totalPedidos').textContent = stats.pedidos || 0;
+  });
+}
+
+// ========== RENDERIZAR LOCALES ==========
+function renderizarLocales() {
+  const contenedor = document.getElementById('listaLocales');
+  contenedor.innerHTML = '';
+
+  let activos = 0;
+  Object.keys(localesData).forEach(id => {
+    const local = localesData[id];
+    if(local.estado === 'abierto') activos++;
+
+    let promosHTML = '';
+    if(local.promos) {
+      Object.keys(local.promos).forEach(promoId => {
+        const promo = local.promos[promoId];
+        promosHTML += `
+          <div class="promo-admin">
+            <input type="text" value="${promo.nombre}" onchange="editarPromo('${id}','${promoId}','nombre',this.value)">
+            <input type="number" value="${promo.precio}" onchange="editarPromo('${id}','${promoId}','precio',this.value)">
+            <input type="text" value="${promo.desc || ''}" placeholder="Desc" onchange="editarPromo('${id}','${promoId}','desc',this.value)">
+            <button class="btn-eliminar" onclick="eliminarPromo('${id}','${promoId}')">Eliminar</button>
+            <div class="stats-local" style="grid-column:1/5">
+              <span>Clicks: ${promo.clicks || 0}</span>
+              <span>Pedidos: ${promo.pedidos || 0}</span>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    contenedor.innerHTML += `
+      <div class="local-admin">
+        <div class="local-header">
+          <div>
+            <h3>${local.nombre}</h3>
+            <small style="color:#aaa">${local.direccion} - ${local.categoria}</small>
+          </div>
+          <div style="display:flex; gap:10px">
+            <button class="btn-estado ${local.estado}" onclick="toggleEstado('${id}')">
+              ${local.estado.toUpperCase()}
+            </button>
+            <button class="btn-eliminar" onclick="eliminarLocal('${id}')">Eliminar Local</button>
+          </div>
+        </div>
+
+        <div style="margin:10px 0">
+          <input type="text" value="${local.nombre}" placeholder="Nombre" onchange="editarLocal('${id}','nombre',this.value)" style="width:100%; padding:8px; margin:5px 0; background:#2a2a2a; border:1px solid #444; color:#fff; border-radius:6px">
+          <input type="text" value="${local.direccion}" placeholder="Dirección" onchange="editarLocal('${id}','direccion',this.value)" style="width:100%; padding:8px; margin:5px 0; background:#2a2a2a; border:1px solid #444; color:#fff; border-radius:6px">
+          <input type="text" value="${local.horario}" placeholder="Horario" onchange="editarLocal('${id}','horario',this.value)" style="width:100%; padding:8px; margin:5px 0; background:#2a2a2a; border:1px solid #444; color:#fff; border-radius:6px">
+        </div>
+
+        <div style="margin-top:15px">
+          <h4 style="color:#25D366; margin-bottom:8px">Promociones:</h4>
+          ${promosHTML}
+          <button class="btn-agregar" onclick="agregarPromo('${id}')">+ Agregar Promo</button>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById('localesActivos').textContent = `${activos}/${Object.keys(localesData).length}`;
+}
+
+// ========== FUNCIONES ADMIN ==========
+window.toggleEstado = function(id) {
+  const nuevoEstado = localesData[id].estado === 'abierto'? 'cerrado' : 'abierto';
+  update(ref(db, `locales/${id}`), {estado: nuevoEstado});
+}
+
+window.editarLocal = function(id, campo, valor) {
+  update(ref(db, `locales/${id}`), {[campo]: valor});
+}
+
+window.editarPromo = function(localId, promoId, campo, valor) {
+  if(campo === 'precio') valor = parseInt(valor);
+  update(ref(db, `locales/${localId}/promos/${promoId}`), {[campo]: valor});
+}
+
+window.agregarPromo = function(localId) {
+  const nuevaPromoRef = push(ref(db, `locales/${localId}/promos`));
+  set(nuevaPromoRef, {
+    nombre: 'Nueva Promo',
+    precio: 1000,
+    desc: 'Descripción',
+    clicks: 0,
+    pedidos: 0
+  });
+}
+
+window.eliminarPromo = function(localId, promoId) {
+  if(confirm('¿Eliminar esta promo?')) {
+    set(ref(db, `locales/${localId}/promos/${promoId}`), null);
+  }
+}
+
+window.agregarLocal = function() {
+  const nuevoLocalRef = push(ref(db, 'locales'));
+  set(nuevoLocalRef, {
+    nombre: 'Nuevo Local',
+    direccion: 'Dirección',
+    horario: '8 a 20hs',
+    categoria: 'bar',
+    estado: 'abierto',
+    img: 'https://via.placeholder.com/400x300',
+    promos: {
+      promo1: {
+        nombre: 'Promo Ejemplo',
+        precio: 2000,
+        desc: 'Descripción',
+        clicks: 0,
+        pedidos: 0
+      }
+    }
+  });
+}
+
+window.eliminarLocal = function(id) {
+  if(confirm('¿Eliminar este local y todas sus promos?')) {
+    set(ref(db, `locales/${id}`), null);
+  }
+}
+
+function actualizarStats() {
+  const totalLocales = Object.keys(localesData).length;
+  let activos = 0;
+  Object.keys(localesData).forEach(id => {
+    if(localesData[id].estado === 'abierto') activos++;
+  });
+  document.getElementById('localesActivos').textContent = `${activos}/${totalLocales}`;
 }
 </script>
 </body>
