@@ -82,24 +82,40 @@ h1 {font-size:22px; color:#25D366}
   line-height: 1.2;
 }
 
+/* BOTONES DOBLES */
+.btn-group {
+  display: flex;
+  gap: 4px;
+  margin-top: auto;
+}
+
 .btn-pedir {
-  width: 100%;
+  flex: 1;
   background: #25D366;
   color: white;
   border: none;
   padding: 8px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 0 0 8px 8px;
-  margin-top: auto;
+  border-radius: 0 0 0 8px;
 }
 
-.btn-pedir:hover {
-  background: #1ebc57;
+.btn-carrito {
+  flex: 1;
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 0 0 8px 0;
 }
 
-.btn-pedir:active {transform:scale(0.95);}
+.btn-pedir:hover {background: #1ebc57;}
+.btn-carrito:hover {background: #e68900;}
+.btn-carrito:active {transform:scale(0.95);}
 
 /* MODAL ÚNICO */
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
@@ -114,6 +130,14 @@ h1 {font-size:22px; color:#25D366}
 .modal-pedido h3 {color:#25D366; margin-bottom:15px}
 .modal-pedido input, .modal-pedido textarea {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #333; background:#2a2a2a; color:#fff}
 .btn-whatsapp {background:#25D366; border:none; color:#000; padding:12px; border-radius:8px; width:100%; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px}
+
+/* CARRITO DESPUÉS DE FILTROS */
+#carrito {background:#1a1a1a; margin:15px 12px; padding:15px; border-radius:12px; border:1px solid #333; display:none}
+#carrito.mostrar {display:block}
+#carrito h3 {color:#25D366; margin-bottom:10px}
+#items-carrito {margin:10px 0; max-height:300px; overflow-y:auto}
+#items-carrito p {margin:8px 0; padding-bottom:8px; border-bottom:1px solid #333; font-size:14px}
+#enviar-wsp {background:#25D366; color:white; border:none; padding:12px; width:100%; border-radius:8px; font-weight:bold; cursor:pointer; margin-top:10px}
 </style>
 </head>
 <body>
@@ -136,6 +160,13 @@ h1 {font-size:22px; color:#25D366}
   <button class="filter-btn" onclick="filtrarCategoria('verduleria', this)">Verdulerías</button>
   <button class="filter-btn" onclick="filtrarCategoria('cafeteria', this)">Cafeterías</button>
 </div>
+
+<!-- CARRITO DESPUÉS DE LOS FILTROS, ANTES DE LOS LOCALES -->
+<div id="carrito">
+  <h3>🛒 Tu pedido <span id="contador">(0 items)</span></h3>
+  <div id="items-carrito"><p style="color:#999">Agregá promos al carrito</p></div>
+  <button id="enviar-wsp">Enviar pedido por WhatsApp</button>
+</div>
   
 <!-- LOCAL 1 -->
 <div class="bar" id="bar-1" data-categoria="carniceria" data-nombre="Carnicería Don José" data-direccion="Av. Belgrano 123" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Asado 3kg Premium","precio":16500,"desc":"Tira, vacío, matambre premium","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Milanesas x8 Ternera","precio":8900,"desc":"Ternera especial para milanesas","img":"https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"},{"nombre":"Costilla 2kg Parrilla","precio":12800,"desc":"Costilla ancha para parrilla","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"},{"nombre":"Combo Familia 5kg","precio":22500,"desc":"5kg mixto para toda la familia","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"}]'>
@@ -144,10 +175,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Carnicería Don José</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 8 a 21hs Lun a Sáb</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Asado 3kg Premium</div><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Asado 3kg Premium',16500)">Pedir $16.500</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesas x8 Ternera</div><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Milanesas x8 Ternera',8900)">Pedir $8.900</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"><div class="promo-nombre">Costilla 2kg Parrilla</div><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Costilla 2kg Parrilla',12800)">Pedir $12.800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familia 5kg</div><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Combo Familia 5kg',22500)">Pedir $22.500</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Asado 3kg Premium</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Asado 3kg Premium',16500)">Pedir $16.500</button><button class="btn-carrito" data-local="Carnicería Don José" data-promo="Asado 3kg Premium" data-precio="16500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesas x8 Ternera</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Milanesas x8 Ternera',8900)">Pedir $8.900</button><button class="btn-carrito" data-local="Carnicería Don José" data-promo="Milanesas x8 Ternera" data-precio="8900">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"><div class="promo-nombre">Costilla 2kg Parrilla</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Costilla 2kg Parrilla',12800)">Pedir $12.800</button><button class="btn-carrito" data-local="Carnicería Don José" data-promo="Costilla 2kg Parrilla" data-precio="12800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familia 5kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería Don José','Combo Familia 5kg',22500)">Pedir $22.500</button><button class="btn-carrito" data-local="Carnicería Don José" data-promo="Combo Familia 5kg" data-precio="22500">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Carnicería Don José" data-direccion="Av. Belgrano 123" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -162,10 +193,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Panadería La Espiga</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 6 a 20hs Lun a Dom</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"><div class="promo-nombre">Medialunas Manteca x12</div><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Medialunas Manteca x12',3600)">Pedir $3.600</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan de Miga Artesanal</div><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Pan de Miga Artesanal',5200)">Pedir $5.200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"><div class="promo-nombre">Tarta Jamón y Queso</div><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Tarta Jamón y Queso',4800)">Pedir $4.800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Tortas Fritas x6 Dulces</div><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Tortas Fritas x6 Dulces',1800)">Pedir $1.800</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"><div class="promo-nombre">Medialunas Manteca x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Medialunas Manteca x12',3600)">Pedir $3.600</button><button class="btn-carrito" data-local="Panadería La Espiga" data-promo="Medialunas Manteca x12" data-precio="3600">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan de Miga Artesanal</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Pan de Miga Artesanal',5200)">Pedir $5.200</button><button class="btn-carrito" data-local="Panadería La Espiga" data-promo="Pan de Miga Artesanal" data-precio="5200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"><div class="promo-nombre">Tarta Jamón y Queso</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Tarta Jamón y Queso',4800)">Pedir $4.800</button><button class="btn-carrito" data-local="Panadería La Espiga" data-promo="Tarta Jamón y Queso" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Tortas Fritas x6 Dulces</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería La Espiga','Tortas Fritas x6 Dulces',1800)">Pedir $1.800</button><button class="btn-carrito" data-local="Panadería La Espiga" data-promo="Tortas Fritas x6 Dulces" data-precio="1800">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Panadería La Espiga" data-direccion="Calle Rivadavia 456" data-img="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -180,10 +211,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Verdulería La Huerta</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO 24HS</span> 🕐 Todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&h=110&fit=crop"><div class="promo-nombre">Bolsón Verdura 5kg</div><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Bolsón Verdura 5kg',4200)">Pedir $4200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=200&h=110&fit=crop"><div class="promo-nombre">Frutas 3kg</div><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Frutas 3kg',3800)">Pedir $3800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Ensalada</div><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Combo Ensalada',1500)">Pedir $1500</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1518977676601-c3d64c35b409?w=200&h=110&fit=crop"><div class="promo-nombre">Promo Papa 2kg</div><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Promo Papa 2kg',1800)">Pedir $1800</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&h=110&fit=crop"><div class="promo-nombre">Bolsón Verdura 5kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Bolsón Verdura 5kg',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Verdulería La Huerta" data-promo="Bolsón Verdura 5kg" data-precio="4200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=200&h=110&fit=crop"><div class="promo-nombre">Frutas 3kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Frutas 3kg',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Verdulería La Huerta" data-promo="Frutas 3kg" data-precio="3800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Ensalada</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Combo Ensalada',1500)">Pedir $1500</button><button class="btn-carrito" data-local="Verdulería La Huerta" data-promo="Combo Ensalada" data-precio="1500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1518977676601-c3d64c35b409?w=200&h=110&fit=crop"><div class="promo-nombre">Promo Papa 2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería La Huerta','Promo Papa 2kg',1800)">Pedir $1800</button><button class="btn-carrito" data-local="Verdulería La Huerta" data-promo="Promo Papa 2kg" data-precio="1800">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Verdulería La Huerta" data-direccion="Av. Rivadavia 1250" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=200&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -198,10 +229,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Bar El Encuentro</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 19 a 2hs Mar a Dom</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=110&fit=crop"><div class="promo-nombre">Jarra Cerveza Artesanal 2L</div><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Jarra Cerveza Artesanal 2L',6500)">Pedir $6500</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Picada Grande 4 Pers</div><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Picada Grande 4 Pers',9200)">Pedir $9200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1473120596889-42a697e2c39c?w=200&h=110&fit=crop"><div class="promo-nombre">Fernet Branca + Coca 2L</div><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Fernet Branca + Coca 2L',4800)">Pedir $4800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=200&h=110&fit=crop"><div class="promo-nombre">Papas Cheddar y Bacon</div><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Papas Cheddar y Bacon',3800)">Pedir $3800</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=110&fit=crop"><div class="promo-nombre">Jarra Cerveza Artesanal 2L</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Jarra Cerveza Artesanal 2L',6500)">Pedir $6500</button><button class="btn-carrito" data-local="Bar El Encuentro" data-promo="Jarra Cerveza Artesanal 2L" data-precio="6500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Picada Grande 4 Pers</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Picada Grande 4 Pers',9200)">Pedir $9200</button><button class="btn-carrito" data-local="Bar El Encuentro" data-promo="Picada Grande 4 Pers" data-precio="9200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1473120596889-42a697e2c39c?w=200&h=110&fit=crop"><div class="promo-nombre">Fernet Branca + Coca 2L</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Fernet Branca + Coca 2L',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Bar El Encuentro" data-promo="Fernet Branca + Coca 2L" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1585109649139-366815a0d713?w=200&h=110&fit=crop"><div class="promo-nombre">Papas Cheddar y Bacon</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar El Encuentro','Papas Cheddar y Bacon',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Bar El Encuentro" data-promo="Papas Cheddar y Bacon" data-precio="3800">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Bar El Encuentro" data-direccion="Av. Libertad 258" data-img="https://images.unsplash.com/photo-1470337458703-46e7f6652aef?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -216,10 +247,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Kiosco La Esquina 24hs</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO 24HS</span> 🕐 Todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1485809052867-1993bd6afa1f?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Desayuno Completo</div><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Combo Desayuno Completo',2200)">Pedir $2200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=200&h=110&fit=crop"><div class="promo-nombre">Golosinas Surtidas x10</div><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Golosinas Surtidas x10',1800)">Pedir $1800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=200&h=110&fit=crop"><div class="promo-nombre">Puchos + Fósforos Pack</div><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Puchos + Fósforos Pack',1400)">Pedir $1400</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop"><div class="promo-nombre">Gaseosa 2.5L Fría</div><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Gaseosa 2.5L Fría',2800)">Pedir $2800</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1485809052867-1993bd6afa1f?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Desayuno Completo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Combo Desayuno Completo',2200)">Pedir $2200</button><button class="btn-carrito" data-local="Kiosco La Esquina 24hs" data-promo="Combo Desayuno Completo" data-precio="2200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=200&h=110&fit=crop"><div class="promo-nombre">Golosinas Surtidas x10</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Golosinas Surtidas x10',1800)">Pedir $1800</button><button class="btn-carrito" data-local="Kiosco La Esquina 24hs" data-promo="Golosinas Surtidas x10" data-precio="1800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=200&h=110&fit=crop"><div class="promo-nombre">Puchos + Fósforos Pack</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Puchos + Fósforos Pack',1400)">Pedir $1400</button><button class="btn-carrito" data-local="Kiosco La Esquina 24hs" data-promo="Puchos + Fósforos Pack" data-precio="1400">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop"><div class="promo-nombre">Gaseosa 2.5L Fría</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Esquina 24hs','Gaseosa 2.5L Fría',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Kiosco La Esquina 24hs" data-promo="Gaseosa 2.5L Fría" data-precio="2800">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Kiosco La Esquina 24hs" data-direccion="Calle Rivadavia 369" data-img="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -228,32 +259,34 @@ h1 {font-size:22px; color:#25D366}
 </div>
 
 <!-- LOCAL 6 -->
-<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Combo clásico de parrilla","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"}]'>
+<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Combo clásico de parrilla","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h"img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
 <div class="bar-body">
 <h3>Parrilla La Estaca</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 20 a 00hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Tira + Vacío 2 Personas</div><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"><div class="promo-nombre">Chori Pan Casero x4</div><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Chori Pan Casero x4',3200)">Pedir $3200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Costillar Completo 6kg</div><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Costillar Completo 6kg',38000)">Pedir $38000</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"><div class="promo-nombre">Provoleta + Chorizo</div><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Provoleta + Chorizo',6500)">Pedir $6500</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Tira + Vacío 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Tira + Vacío 2 Personas" data-precio="25000">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"><div class="promo-nombre">Chori Pan Casero x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Chori Pan Casero x4',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Chori Pan Casero x4" data-precio="3200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Costillar Completo 6kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Costillar Completo 6kg',38000)">Pedir $38000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Costillar Completo 6kg" data-precio="38000">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"><div class="promo-nombre">Provoleta + Chorizo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Provoleta + Chorizo',6500)">Pedir $6500</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Provoleta + Chorizo" data-precio="6500">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
 </div>
 </div>
-</div><!-- LOCAL 7 - CORREGIDO CON LA LÍNEA COMPLETA -->
+</div>
+
+<!-- LOCAL 7 -->
 <div class="bar" id="bar-7" data-categoria="heladeria" data-nombre="Heladería Dolce Vita" data-direccion="Calle 25 de Mayo 789" data-img="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" data-promos='[{"nombre":"1/4 Helado + 2 Cucuruchos","precio":3800,"desc":"1/4kg a elección + 2 cucuruchos","img":"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"},{"nombre":"Postre Helado Familiar 1kg","precio":8500,"desc":"Familiar para 6 personas","img":"https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Copa Dulce Tentación","precio":4200,"desc":"Copa con 3 bochas + toppings","img":"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"},{"nombre":"Torta Helada Chocolate 1kg","precio":12000,"desc":"Chocolate con dulce de leche","img":"https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Heladería Dolce Vita">
 <div class="bar-body">
 <h3>Heladería Dolce Vita</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 15 a 23hs todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"><div class="promo-nombre">1/4 Helado + 2 Cucuruchos</div><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','1/4 Helado + 2 Cucuruchos',3800)">Pedir $3800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Postre Helado Familiar 1kg</div><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','Postre Helado Familiar 1kg',8500)">Pedir $8500</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"><div class="promo-nombre">Copa Dulce Tentación</div><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','Copa Dulce Tentación',4200)">Pedir $4200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"><div class="promo-nombre">Torta Helada Chocolate 1kg</div><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','Torta Helada Chocolate 1kg',12000)">Pedir $12000</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"><div class="promo-nombre">1/4 Helado + 2 Cucuruchos</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','1/4 Helado + 2 Cucuruchos',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Heladería Dolce Vita" data-promo="1/4 Helado + 2 Cucuruchos" data-precio="3800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Postre Helado Familiar 1kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','Postre Helado Familiar 1kg',8500)">Pedir $8500</button><button class="btn-carrito" data-local="Heladería Dolce Vita" data-promo="Postre Helado Familiar 1kg" data-precio="8500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"><div class="promo-nombre">Copa Dulce Tentación</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','Copa Dulce Tentación',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Heladería Dolce Vita" data-promo="Copa Dulce Tentación" data-precio="4200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"><div class="promo-nombre">Torta Helada Chocolate 1kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Vita','Torta Helada Chocolate 1kg',12000)">Pedir $12000</button><button class="btn-carrito" data-local="Heladería Dolce Vita" data-promo="Torta Helada Chocolate 1kg" data-precio="12000">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Heladería Dolce Vita" data-direccion="Calle 25 de Mayo 789" data-img="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -268,10 +301,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Pollería La Granja</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 8 a 20hs Lun a Sáb</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo Entero Granja</div><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Pollo Entero Granja',7200)">Pedir $7200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=200&h=110&fit=crop"><div class="promo-nombre">Pata Muslo x4 Unidades</div><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Pata Muslo x4 Unidades',4800)">Pedir $4800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1693561868466-6f5a9efb2863?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesas de Pollo x8</div><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Milanesas de Pollo x8',9200)">Pedir $9200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620832904-9a4c2a79b356?w=200&h=110&fit=crop"><div class="promo-nombre">Alitas BBQ x2kg</div><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Alitas BBQ x2kg',11000)">Pedir $11000</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo Entero Granja</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Pollo Entero Granja',7200)">Pedir $7200</button><button class="btn-carrito" data-local="Pollería La Granja" data-promo="Pollo Entero Granja" data-precio="7200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=200&h=110&fit=crop"><div class="promo-nombre">Pata Muslo x4 Unidades</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Pata Muslo x4 Unidades',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Pollería La Granja" data-promo="Pata Muslo x4 Unidades" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1693561868466-6f5a9efb2863?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesas de Pollo x8</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Milanesas de Pollo x8',9200)">Pedir $9200</button><button class="btn-carrito" data-local="Pollería La Granja" data-promo="Milanesas de Pollo x8" data-precio="9200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620832904-9a4c2a79b356?w=200&h=110&fit=crop"><div class="promo-nombre">Alitas BBQ x2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería La Granja','Alitas BBQ x2kg',11000)">Pedir $11000</button><button class="btn-carrito" data-local="Pollería La Granja" data-promo="Alitas BBQ x2kg" data-precio="11000">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Pollería La Granja" data-direccion="Av. Belgrano 321" data-img="https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -286,10 +319,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Rotisería Mamá Lucha</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 10 a 15hs y 19 a 23hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1693561868466-6f5a9efb2863?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesa Napolitana Casera</div><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Milanesa Napolitana Casera',5200)">Pedir $5200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo al Horno con Papas</div><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Pollo al Horno con Papas',6800)">Pedir $6800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">Empanadas de Carne x12</div><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Empanadas de Carne x12',4800)">Pedir $4800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=110&fit=crop"><div class="promo-nombre">Ensalada Rusa 1kg Casera</div><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Ensalada Rusa 1kg Casera',4200)">Pedir $4200</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1693561868466-6f5a9efb2863?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesa Napolitana Casera</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Milanesa Napolitana Casera',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Rotisería Mamá Lucha" data-promo="Milanesa Napolitana Casera" data-precio="5200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo al Horno con Papas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Pollo al Horno con Papas',6800)">Pedir $6800</button><button class="btn-carrito" data-local="Rotisería Mamá Lucha" data-promo="Pollo al Horno con Papas" data-precio="6800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">Empanadas de Carne x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Empanadas de Carne x12',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Rotisería Mamá Lucha" data-promo="Empanadas de Carne x12" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=110&fit=crop"><div class="promo-nombre">Ensalada Rusa 1kg Casera</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Lucha','Ensalada Rusa 1kg Casera',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Rotisería Mamá Lucha" data-promo="Ensalada Rusa 1kg Casera" data-precio="4200">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Rotisería Mamá Lucha" data-direccion="Av. San Martín 741" data-img="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -304,10 +337,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Pizzería Don Pepone</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 19 a 1hs Mar a Dom</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&h=110&fit=crop"><div class="promo-nombre">Pizza Muzza Grande 8 Porciones</div><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','Pizza Muzza Grande 8 Porciones',4800)">Pedir $4800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">2x1 Empanadas de Carne</div><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','2x1 Empanadas de Carne',3800)">Pedir $3800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Fugazzeta Rellena Premium</div><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','Fugazzeta Rellena Premium',6200)">Pedir $6200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familia 2 Pizzas</div><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','Combo Familia 2 Pizzas',12500)">Pedir $12500</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&h=110&fit=crop"><div class="promo-nombre">Pizza Muzza Grande 8 Porciones</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','Pizza Muzza Grande 8 Porciones',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Pizzería Don Pepone" data-promo="Pizza Muzza Grande 8 Porciones" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">2x1 Empanadas de Carne</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','2x1 Empanadas de Carne',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Pizzería Don Pepone" data-promo="2x1 Empanadas de Carne" data-precio="3800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Fugazzeta Rellena Premium</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','Fugazzeta Rellena Premium',6200)">Pedir $6200</button><button class="btn-carrito" data-local="Pizzería Don Pepone" data-promo="Fugazzeta Rellena Premium" data-precio="6200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familia 2 Pizzas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Don Pepone','Combo Familia 2 Pizzas',12500)">Pedir $12500</button><button class="btn-carrito" data-local="Pizzería Don Pepone" data-promo="Combo Familia 2 Pizzas" data-precio="12500">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Pizzería Don Pepone" data-direccion="Calle 25 de Mayo 852" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -322,10 +355,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Cafetería El Rincón</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 7 a 20hs Lun a Sáb</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=110&fit=crop"><div class="promo-nombre">Café + 2 Medialunas</div><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Café + 2 Medialunas',1800)">Pedir $1800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=110&fit=crop"><div class="promo-nombre">Capuccino Grande</div><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Capuccino Grande',2200)">Pedir $2200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1528605248644-14dd040a5e7e?w=200&h=110&fit=crop"><div class="promo-nombre">Tostado Jamón y Queso</div><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Tostado Jamón y Queso',3200)">Pedir $3200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1485809052867-1993bd6afa1f?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Merienda x2</div><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Combo Merienda x2',4800)">Pedir $4800</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=110&fit=crop"><div class="promo-nombre">Café + 2 Medialunas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Café + 2 Medialunas',1800)">Pedir $1800</button><button class="btn-carrito" data-local="Cafetería El Rincón" data-promo="Café + 2 Medialunas" data-precio="1800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=200&h=110&fit=crop"><div class="promo-nombre">Capuccino Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Capuccino Grande',2200)">Pedir $2200</button><button class="btn-carrito" data-local="Cafetería El Rincón" data-promo="Capuccino Grande" data-precio="2200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1528605248644-14dd040a5e7e?w=200&h=110&fit=crop"><div class="promo-nombre">Tostado Jamón y Queso</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Tostado Jamón y Queso',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Cafetería El Rincón" data-promo="Tostado Jamón y Queso" data-precio="3200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1485809052867-1993bd6afa1f?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Merienda x2</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Cafetería El Rincón','Combo Merienda x2',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Cafetería El Rincón" data-promo="Combo Merienda x2" data-precio="4800">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Cafetería El Rincón" data-direccion="Calle San Martín 258" data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -340,26 +373,28 @@ h1 {font-size:22px; color:#25D366}
 <h3>Carnicería La Ideal</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 8 a 20hs Lun a Sáb</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"><div class="promo-nombre">Bola de Lomo 2kg</div><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Bola de Lomo 2kg',9800)">Pedir $9800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Picada Especial 3kg</div><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Picada Especial 3kg',14500)">Pedir $14500</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Carne Molida 2kg</div><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Carne Molida 2kg',8200)">Pedir $8200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Parrillero 4kg</div><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Combo Parrillero 4kg',19800)">Pedir $19800</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"><div class="promo-nombre">Bola de Lomo 2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Bola de Lomo 2kg',9800)">Pedir $9800</button><button class="btn-carrito" data-local="Carnicería La Ideal" data-promo="Bola de Lomo 2kg" data-precio="9800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Picada Especial 3kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Picada Especial 3kg',14500)">Pedir $14500</button><button class="btn-carrito" data-local="Carnicería La Ideal" data-promo="Picada Especial 3kg" data-precio="14500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Carne Molida 2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Carne Molida 2kg',8200)">Pedir $8200</button><button class="btn-carrito" data-local="Carnicería La Ideal" data-promo="Carne Molida 2kg" data-precio="8200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Parrillero 4kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Ideal','Combo Parrillero 4kg',19800)">Pedir $19800</button><button class="btn-carrito" data-local="Carnicería La Ideal" data-promo="Combo Parrillero 4kg" data-precio="19800">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Carnicería La Ideal" data-direccion="Av. Sarmiento 741" data-img="https://images.unsplash.com/photo-1617714458886-ade68204c0d8?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
 </div>
 </div>
-</div><!-- LOCAL 13 -->
+</div>
+
+<!-- LOCAL 13 -->
 <div class="bar" id="bar-13" data-categoria="panaderia" data-nombre="Panadería El Horno" data-direccion="Calle Moreno 963" data-img="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pan Casero x3 Unidades","precio":2100,"desc":"3 unidades horno de barro","img":"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"},{"nombre":"Factura Surtida x12","precio":3400,"desc":"Docena surtida recién hecha","img":"https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"},{"nombre":"Chipa Queso x20","precio":2800,"desc":"20 unidades crocantes","img":"https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"},{"nombre":"Rosca de Reyes Grande","precio":5600,"desc":"Grande con crema pastelera","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" alt="Panadería El Horno">
 <div class="bar-body">
 <h3>Panadería El Horno</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 5 a 19hs Lun a Dom</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan Casero x3 Unidades</div><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Pan Casero x3 Unidades',2100)">Pedir $2100</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"><div class="promo-nombre">Factura Surtida x12</div><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Factura Surtida x12',3400)">Pedir $3400</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"><div class="promo-nombre">Chipa Queso x20</div><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Chipa Queso x20',2800)">Pedir $2800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Rosca de Reyes Grande</div><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Rosca de Reyes Grande',5600)">Pedir $5600</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan Casero x3 Unidades</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Pan Casero x3 Unidades',2100)">Pedir $2100</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Pan Casero x3 Unidades" data-precio="2100">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"><div class="promo-nombre">Factura Surtida x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Factura Surtida x12',3400)">Pedir $3400</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Factura Surtida x12" data-precio="3400">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"><div class="promo-nombre">Chipa Queso x20</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Chipa Queso x20',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Chipa Queso x20" data-precio="2800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Rosca de Reyes Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Rosca de Reyes Grande',5600)">Pedir $5600</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Rosca de Reyes Grande" data-precio="5600">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Panadería El Horno" data-direccion="Calle Moreno 963" data-img="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -374,10 +409,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Verdulería Frescura</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 7 a 21hs Lun a Sáb</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=200&h=110&fit=crop"><div class="promo-nombre">Bolsón Mixto 8kg</div><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Bolsón Mixto 8kg',5800)">Pedir $5800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Tomate Perita 3kg</div><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Tomate Perita 3kg',3200)">Pedir $3200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1464961913533-3eecc0b8dd2d?w=200&h=110&fit=crop"><div class="promo-nombre">Frutas Temporada 4kg</div><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Frutas Temporada 4kg',4800)">Pedir $4800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1449300079477-fbdafe51c068?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Verdeo + Morrón Pack</div><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Verdeo + Morrón Pack',2200)">Pedir $2200</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=200&h=110&fit=crop"><div class="promo-nombre">Bolsón Mixto 8kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Bolsón Mixto 8kg',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Verdulería Frescura" data-promo="Bolsón Mixto 8kg" data-precio="5800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Tomate Perita 3kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Tomate Perita 3kg',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Verdulería Frescura" data-promo="Tomate Perita 3kg" data-precio="3200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1464961913533-3eecc0b8dd2d?w=200&h=110&fit=crop"><div class="promo-nombre">Frutas Temporada 4kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Frutas Temporada 4kg',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Verdulería Frescura" data-promo="Frutas Temporada 4kg" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1449300079477-fbdafe51c068?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Verdeo + Morrón Pack</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescura','Verdeo + Morrón Pack',2200)">Pedir $2200</button><button class="btn-carrito" data-local="Verdulería Frescura" data-promo="Verdeo + Morrón Pack" data-precio="2200">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Verdulería Frescura" data-direccion="Av. Libertad 852" data-img="https://images.unsplash.com/photo-1449300079477-fbdafe51c068?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -392,10 +427,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Bar La Cueva</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 20 a 3hs Mié a Dom</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1473120596889-42a697e2c39c?w=200&h=110&fit=crop"><div class="promo-nombre">2x1 Tragos Importados</div><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','2x1 Tragos Importados',4200)">Pedir $4200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Tabla Quesos y Vinos</div><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','Tabla Quesos y Vinos',8800)">Pedir $8800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=110&fit=crop"><div class="promo-nombre">Cerveza Artesanal 1L</div><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','Cerveza Artesanal 1L',3800)">Pedir $3800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1514517220017-8ce977fa181d?w=200&h=110&fit=crop"><div class="promo-nombre">Nachos con Guacamole</div><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','Nachos con Guacamole',5200)">Pedir $5200</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1473120596889-42a697e2c39c?w=200&h=110&fit=crop"><div class="promo-nombre">2x1 Tragos Importados</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','2x1 Tragos Importados',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Bar La Cueva" data-promo="2x1 Tragos Importados" data-precio="4200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Tabla Quesos y Vinos</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','Tabla Quesos y Vinos',8800)">Pedir $8800</button><button class="btn-carrito" data-local="Bar La Cueva" data-promo="Tabla Quesos y Vinos" data-precio="8800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=110&fit=crop"><div class="promo-nombre">Cerveza Artesanal 1L</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','Cerveza Artesanal 1L',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Bar La Cueva" data-promo="Cerveza Artesanal 1L" data-precio="3800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1514517220017-8ce977fa181d?w=200&h=110&fit=crop"><div class="promo-nombre">Nachos con Guacamole</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Cueva','Nachos con Guacamole',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Bar La Cueva" data-promo="Nachos con Guacamole" data-precio="5200">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Bar La Cueva" data-direccion="Calle 25 de Mayo 963" data-img="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -410,10 +445,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Kiosco Open 24</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO 24HS</span> 🕐 Todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?w=200&h=110&fit=crop"><div class="promo-nombre">Pack Energizantes x3</div><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Pack Energizantes x3',2800)">Pedir $2800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=200&h=110&fit=crop"><div class="promo-nombre">Golosinas Importadas Mix</div><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Golosinas Importadas Mix',3200)">Pedir $3200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=200&h=110&fit=crop"><div class="promo-nombre">Cigarrillos + Encendedor</div><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Cigarrillos + Encendedor',1600)">Pedir $1600</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop"><div class="promo-nombre">Agua Saborizada 2L</div><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Agua Saborizada 2L',1800)">Pedir $1800</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?w=200&h=110&fit=crop"><div class="promo-nombre">Pack Energizantes x3</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Pack Energizantes x3',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Kiosco Open 24" data-promo="Pack Energizantes x3" data-precio="2800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=200&h=110&fit=crop"><div class="promo-nombre">Golosinas Importadas Mix</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Golosinas Importadas Mix',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Kiosco Open 24" data-promo="Golosinas Importadas Mix" data-precio="3200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=200&h=110&fit=crop"><div class="promo-nombre">Cigarrillos + Encendedor</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Cigarrillos + Encendedor',1600)">Pedir $1600</button><button class="btn-carrito" data-local="Kiosco Open 24" data-promo="Cigarrillos + Encendedor" data-precio="1600">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop"><div class="promo-nombre">Agua Saborizada 2L</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco Open 24','Agua Saborizada 2L',1800)">Pedir $1800</button><button class="btn-carrito" data-local="Kiosco Open 24" data-promo="Agua Saborizada 2L" data-precio="1800">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Kiosco Open 24" data-direccion="Av. San Martín 321" data-img="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -428,10 +463,10 @@ h1 {font-size:22px; color:#25D366}
 <h3>Parrilla El Fogón</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 12 a 15hs y 20 a 00hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Asado Tira 3kg Premium</div><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Asado Tira 3kg Premium',28000)">Pedir $28000</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Matambre a la Pizza</div><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Matambre a la Pizza',12500)">Pedir $12500</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"><div class="promo-nombre">Chorizos Criollos x6</div><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Chorizos Criollos x6',4800)">Pedir $4800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familiar 8 Pers</div><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Combo Familiar 8 Pers',52000)">Pedir $52000</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Asado Tira 3kg Premium</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Asado Tira 3kg Premium',28000)">Pedir $28000</button><button class="btn-carrito" data-local="Parrilla El Fogón" data-promo="Asado Tira 3kg Premium" data-precio="28000">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Matambre a la Pizza</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Matambre a la Pizza',12500)">Pedir $12500</button><button class="btn-carrito" data-local="Parrilla El Fogón" data-promo="Matambre a la Pizza" data-precio="12500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"><div class="promo-nombre">Chorizos Criollos x6</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Chorizos Criollos x6',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Parrilla El Fogón" data-promo="Chorizos Criollos x6" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familiar 8 Pers</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón','Combo Familiar 8 Pers',52000)">Pedir $52000</button><button class="btn-carrito" data-local="Parrilla El Fogón" data-promo="Combo Familiar 8 Pers" data-precio="52000">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Parrilla El Fogón" data-direccion="Ruta 3 Km 475" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
@@ -446,16 +481,17 @@ h1 {font-size:22px; color:#25D366}
 <h3>Heladería Artika</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 14 a 23hs todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"><div class="promo-nombre">1/2 Helado 4 Gustos</div><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','1/2 Helado 4 Gustos',7200)">Pedir $7200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"><div class="promo-nombre">Alfajor Helado x6</div><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','Alfajor Helado x6',4200)">Pedir $4200</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"><div class="promo-nombre">Bombón Suizo x12</div><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','Bombón Suizo x12',5800)">Pedir $5800</button></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Torta Helada 2kg</div><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','Torta Helada 2kg',22000)">Pedir $22000</button></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"><div class="promo-nombre">1/2 Helado 4 Gustos</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','1/2 Helado 4 Gustos',7200)">Pedir $7200</button><button class="btn-carrito" data-local="Heladería Artika" data-promo="1/2 Helado 4 Gustos" data-precio="7200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"><div class="promo-nombre">Alfajor Helado x6</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','Alfajor Helado x6',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Heladería Artika" data-promo="Alfajor Helado x6" data-precio="4200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"><div class="promo-nombre">Bombón Suizo x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','Bombón Suizo x12',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Heladería Artika" data-promo="Bombón Suizo x12" data-precio="5800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Torta Helada 2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Artika','Torta Helada 2kg',22000)">Pedir $22000</button><button class="btn-carrito" data-local="Heladería Artika" data-promo="Torta Helada 2kg" data-precio="22000">+ Carrito</button></div></div>
 </div>
 <div style="text-align:center; margin-top:12px">
 <button class="btn-ver-promos" data-nombre="Heladería Artika" data-direccion="Av. Belgrano 147" data-img="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
 </div>
 </div>
 </div>
+
 <!-- MODAL ÚNICO - EDITADO CON SELECT -->
 <div class="modal" id="modal">
   <div class="modal-content">
@@ -507,20 +543,11 @@ h1 {font-size:22px; color:#25D366}
   </div>
 </div>
 
-<!-- CARRITO FLOTANTE - AGREGADO NUEVO -->
-<div id="carrito" style="position:fixed; bottom:20px; right:20px; z-index:9999;">
-  <button id="btn-carrito">🛒 <span id="contador">0</span></button>
-  <div id="panel-carrito" style="display:none; background:white; padding:15px; border-radius:10px; box-shadow:0 4px 20px #0003; width:280px; max-height:400px; overflow-y:auto;">
-    <h3 style="margin:0 0 10px 0; color:#000;">Tu pedido</h3>
-    <div id="items-carrito"><p style="color:#999">Vacío</p></div>
-    <button id="enviar-wsp" style="background:#25D366; color:white; border:none; padding:10px; width:100%; border-radius:6px; margin-top:10px; cursor:pointer; font-weight:bold;">Enviar por WhatsApp</button>
-  </div>
-</div>
-
 </body>
 <script>
 const NUMERO = "5492983389710";
 let pedidoActual = {};
+let carrito = [];
 
 function abrirModalPromos(btn) {
   try {
@@ -551,7 +578,10 @@ function abrirModalPromos(btn) {
             <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
               <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
-              <button class="btn-pedir-modal pedir-btn" data-local="${nombreEsc}" data-promo="${promoEsc}" data-precio="${p.precio}">Pedir</button>
+              <div style="display:flex; gap:5px">
+                <button class="btn-pedir-modal" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
+                <button class="btn-pedir-modal" style="background:#ff9800" data-local="${nombreEsc}" data-promo="${promoEsc}" data-precio="${p.precio}" onclick="agregarCarrito(this)">+ Carrito</button>
+              </div>
             </div>
           </div>
         </div>
@@ -614,8 +644,7 @@ function abrirPedido(local, producto, precio) {
     modal.style.display = 'flex';
   }
   
-  document.getElementById('modal-promos-grid').style.display = 'none';
-  document.getElementById('modal-pedido').style.display = 'block';
+document.getElementById('modal-pedido').style.display = 'block';
   
   document.getElementById('tipoEntrega').value = '';
   document.getElementById('direccionEnvio').style.display = 'none';
@@ -682,39 +711,57 @@ function filtrarCategoria(categoria, btn) {
 }
 
 // CÓDIGO CARRITO NUEVO
-let carrito = [];
 document.addEventListener('click', e => {
-  if(e.target.classList.contains('pedir-btn')) {
+  if(e.target.classList.contains('btn-carrito')) {
     const item = {
       local: e.target.dataset.local, 
       promo: e.target.dataset.promo, 
       precio: e.target.dataset.precio
     };
     carrito.push(item);
-    document.getElementById('contador').textContent = carrito.length;
-    e.target.textContent = "Agregado ✓";
-    setTimeout(() => e.target.textContent = `Pedir $${Number(item.precio).toLocaleString('es-AR')}`, 1000);
-  }
-  if(e.target.id === 'btn-carrito') {
-    const panel = document.getElementById('panel-carrito');
-    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
-    mostrarItems();
-  }
-  if(e.target.id === 'enviar-wsp') {
-    if(carrito.length === 0) return alert("El carrito está vacío");
-    let texto = "Hola! Quiero pedir:%0A%0A";
-    carrito.forEach(i => texto += `• ${i.promo} - ${i.local} $${Number(i.precio).toLocaleString('es-AR')}%0A`);
-    const total = carrito.reduce((a,b) => a + Number(b.precio), 0);
-    texto += `%0ATotal: $${total.toLocaleString('es-AR')}`;
-    window.open(`https://wa.me/5492983389710?text=${texto}`);
-    carrito = []; document.getElementById('contador').textContent = 0;
+    actualizarCarrito();
+    e.target.textContent = "✓ Agregado";
+    setTimeout(() => e.target.textContent = "+ Carrito", 1000);
   }
 });
-function mostrarItems() {
-  const div = document.getElementById('items-carrito');
-  if(carrito.length === 0) div.innerHTML = "<p style='color:#999'>Vacío</p>";
-  else div.innerHTML = carrito.map(i => `<p style="margin:8px 0; font-size:14px; border-bottom:1px solid #eee; padding-bottom:5px; color:#000;">${i.promo}<br><small style="color:#666;">${i.local} - $${Number(i.precio).toLocaleString('es-AR')}</small></p>`).join('');
+
+function agregarCarrito(btn) {
+  const item = {
+    local: btn.dataset.local, 
+    promo: btn.dataset.promo, 
+    precio: btn.dataset.precio
+  };
+  carrito.push(item);
+  actualizarCarrito();
+  btn.textContent = "✓ Agregado";
+  setTimeout(() => btn.textContent = "+ Carrito", 1000);
 }
+
+function actualizarCarrito() {
+  const carritoDiv = document.getElementById('carrito');
+  const contador = document.getElementById('contador');
+  const items = document.getElementById('items-carrito');
+  
+  if(carrito.length > 0) {
+    carritoDiv.classList.add('mostrar');
+    contador.textContent = `(${carrito.length} items)`;
+    items.innerHTML = carrito.map(i => `<p>${i.promo}<br><small>${i.local} - $${Number(i.precio).toLocaleString('es-AR')}</small></p>`).join('');
+  } else {
+    carritoDiv.classList.remove('mostrar');
+    items.innerHTML = "<p style='color:#999'>Agregá promos al carrito</p>";
+  }
+}
+
+document.getElementById('enviar-wsp').onclick = () => {
+  if(carrito.length === 0) return alert("El carrito está vacío");
+  let texto = "Hola! Quiero pedir:%0A%0A";
+  carrito.forEach(i => texto += `• ${i.promo} - ${i.local} $${Number(i.precio).toLocaleString('es-AR')}%0A`);
+  const total = carrito.reduce((a,b) => a + Number(b.precio), 0);
+  texto += `%0ATotal: $${total.toLocaleString('es-AR')}`;
+  window.open(`https://wa.me/5492983389710?text=${texto}`);
+  carrito = [];
+  actualizarCarrito();
+};
 
 document.addEventListener('DOMContentLoaded', () => {
   const btnTodos = document.querySelector('.filter-btn');
