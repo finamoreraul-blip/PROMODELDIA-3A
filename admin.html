@@ -85,18 +85,18 @@ body {background:#0a0a0a; color:#fff; padding:20px}
 // CAMBIÁ LA CONTRASEÑA ACÁ
 const PASSWORD = "BrunoEmma2026";
 
-// Firebase - Reemplazá con tus datos de Firebase Realtime Database
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getDatabase, ref, onValue, set, update, push } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+// ========== FIREBASE ==========
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, onValue, set, update, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "tu-proyecto.firebaseapp.com",
-  databaseURL: "https://tu-proyecto-default-rtdb.firebaseio.com",
-  projectId: "tu-proyecto",
-  storageBucket: "tu-proyecto.appspot.com",
-  messagingSenderId: "123456",
-  appId: "1:123456:web:abc123"
+  apiKey: "AIzaSyATSNj0I3Xz1_P0mT-4m4hbNfX8EpGuVTw",
+  authDomain: "promos-tresarroyos.firebaseapp.com",
+  databaseURL: "https://promos-tresarroyos-default-rtdb.firebaseio.com",
+  projectId: "promos-tresarroyos",
+  storageBucket: "promos-tresarroyos.firebasestorage.app",
+  messagingSenderId: "281112824412",
+  appId: "1:281112824412:web:ef7c517fde9ced87b83499"
 };
 
 const app = initializeApp(firebaseConfig);
