@@ -99,6 +99,8 @@ h1 {font-size:22px; color:#25D366}
   background: #1ebc57;
 }
 
+.btn-pedir:active {transform:scale(0.95);}
+
 /* MODAL ÚNICO */
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
 .modal-content {background:#1a1a1a; border-radius:15px; max-width:500px; width:90%; max-height:85vh; overflow-y:auto; border:1px solid #333}
@@ -454,7 +456,6 @@ h1 {font-size:22px; color:#25D366}
 </div>
 </div>
 </div>
-
 <!-- MODAL ÚNICO - EDITADO CON SELECT -->
 <div class="modal" id="modal">
   <div class="modal-content">
@@ -506,6 +507,16 @@ h1 {font-size:22px; color:#25D366}
   </div>
 </div>
 
+<!-- CARRITO FLOTANTE - AGREGADO NUEVO -->
+<div id="carrito" style="position:fixed; bottom:20px; right:20px; z-index:9999;">
+  <button id="btn-carrito">🛒 <span id="contador">0</span></button>
+  <div id="panel-carrito" style="display:none; background:white; padding:15px; border-radius:10px; box-shadow:0 4px 20px #0003; width:280px; max-height:400px; overflow-y:auto;">
+    <h3 style="margin:0 0 10px 0; color:#000;">Tu pedido</h3>
+    <div id="items-carrito"><p style="color:#999">Vacío</p></div>
+    <button id="enviar-wsp" style="background:#25D366; color:white; border:none; padding:10px; width:100%; border-radius:6px; margin-top:10px; cursor:pointer; font-weight:bold;">Enviar por WhatsApp</button>
+  </div>
+</div>
+
 </body>
 <script>
 const NUMERO = "5492983389710";
@@ -540,7 +551,7 @@ function abrirModalPromos(btn) {
             <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px">
               <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
-              <button class="btn-pedir-modal" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
+              <button class="btn-pedir-modal pedir-btn" data-local="${nombreEsc}" data-promo="${promoEsc}" data-precio="${p.precio}">Pedir</button>
             </div>
           </div>
         </div>
@@ -668,6 +679,41 @@ function filtrarCategoria(categoria, btn) {
   } catch(e) {
     console.error('Error filtrarCategoria:', e);
   }
+}
+
+// CÓDIGO CARRITO NUEVO
+let carrito = [];
+document.addEventListener('click', e => {
+  if(e.target.classList.contains('pedir-btn')) {
+    const item = {
+      local: e.target.dataset.local, 
+      promo: e.target.dataset.promo, 
+      precio: e.target.dataset.precio
+    };
+    carrito.push(item);
+    document.getElementById('contador').textContent = carrito.length;
+    e.target.textContent = "Agregado ✓";
+    setTimeout(() => e.target.textContent = `Pedir $${Number(item.precio).toLocaleString('es-AR')}`, 1000);
+  }
+  if(e.target.id === 'btn-carrito') {
+    const panel = document.getElementById('panel-carrito');
+    panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    mostrarItems();
+  }
+  if(e.target.id === 'enviar-wsp') {
+    if(carrito.length === 0) return alert("El carrito está vacío");
+    let texto = "Hola! Quiero pedir:%0A%0A";
+    carrito.forEach(i => texto += `• ${i.promo} - ${i.local} $${Number(i.precio).toLocaleString('es-AR')}%0A`);
+    const total = carrito.reduce((a,b) => a + Number(b.precio), 0);
+    texto += `%0ATotal: $${total.toLocaleString('es-AR')}`;
+    window.open(`https://wa.me/5492983389710?text=${texto}`);
+    carrito = []; document.getElementById('contador').textContent = 0;
+  }
+});
+function mostrarItems() {
+  const div = document.getElementById('items-carrito');
+  if(carrito.length === 0) div.innerHTML = "<p style='color:#999'>Vacío</p>";
+  else div.innerHTML = carrito.map(i => `<p style="margin:8px 0; font-size:14px; border-bottom:1px solid #eee; padding-bottom:5px; color:#000;">${i.promo}<br><small style="color:#666;">${i.local} - $${Number(i.precio).toLocaleString('es-AR')}</small></p>`).join('');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
