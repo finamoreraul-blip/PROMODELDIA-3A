@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Promos 24hs - Tres Arroyos</title>
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <style>
 * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif}
 body {background:#0a0a0a; color:#fff}
@@ -89,6 +89,11 @@ h1 {font-size:22px; color:#25D366}
 
 .btn-vaciar {background:#dc3545; border:none; color:white; padding:8px 12px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:bold; margin-bottom:10px}
 .btn-vaciar:hover {background:#c82333}
+
+.opcion-envio {display:flex; gap:10px; margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px}
+.opcion-envio label {flex:1; cursor:pointer; padding:10px; border:2px solid #444; border-radius:8px; text-align:center; transition:all 0.2s}
+.opcion-envio input[type="radio"] {display:none}
+.opcion-envio input[type="radio"]:checked + label {border-color:#25D366; background:#1a3d2a}
 </style>
 </head>
 <body>
@@ -207,13 +212,13 @@ h1 {font-size:22px; color:#25D366}
 </div>
 
 <!-- LOCAL 6 -->
-<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Provoleta + 2 chorizos","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"}]'>
+<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Provoleta + 2 chorizos","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&d30994b5?w=200&h=110&fit=crop"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
 <div class="bar-body">
 <h3>Parrilla La Estaca</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 20 a 00hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Tira + Vacío 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Tira+ Vacío 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Tira + Vacío 2 Personas" data-precio="25000">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Tira + Vacío 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Tira + Vacío 2 Personas" data-precio="25000">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"><div class="promo-nombre">Chori Pan Casero x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Chori Pan Casero x4',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Chori Pan Casero x4" data-precio="3200">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Costillar Completo 6kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Costillar Completo 6kg',38000)">Pedir $38000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Costillar Completo 6kg" data-precio="38000">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"><div class="promo-nombre">Provoleta + Chorizo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Provoleta + Chorizo',6500)">Pedir $6500</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Provoleta + Chorizo" data-precio="6500">+ Carrito</button></div></div>
@@ -330,9 +335,7 @@ h1 {font-size:22px; color:#25D366}
 <button class="btn-ver-promos" data-nombre="Carnicería La Ideal" data-direccion="Av. Sarmiento 741" data-img="https://images.unsplash.com/photo-1617714458886-ade68204c0d8?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
 </div>
 </div>
-</div>
-
-<!-- LOCAL 13 -->
+</div><!-- LOCAL 13 -->
 <div class="bar" id="bar-13" data-categoria="panaderia" data-nombre="Panadería El Horno" data-direccion="Calle Moreno 963" data-img="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pan Casero x3 Unidades","precio":2100,"desc":"3 unidades recién horneadas","img":"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"},{"nombre":"Factura Surtida x12","precio":3400,"desc":"Docena surtida","img":"https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"},{"nombre":"Chipa Queso x20","precio":2800,"desc":"20 unidades crocantes","img":"https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"},{"nombre":"Rosca de Reyes Grande","precio":5600,"desc":"Grande con crema","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" alt="Panadería El Horno">
 <div class="bar-body">
@@ -461,9 +464,11 @@ h1 {font-size:22px; color:#25D366}
       <h3 id="titulo-modal">Confirmar Pedido 📱</h3>
       <div id="resumen-pedido"></div>
       
+      <div id="opcion-envio-container"></div>
+
       <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
         <p style="font-size:18px; margin:10px 0; text-align:center">
-          Envío a domicilio: <b style="color:#25D366">$2.000</b><br>
+          <span id="texto-envio">Envío a domicilio: <b style="color:#25D366">$2.000</b></span><br>
           Total: <b id="pedido-total" style="color:#25D366; font-size:22px"></b>
         </p>
       </div>
@@ -486,6 +491,7 @@ h1 {font-size:22px; color:#25D366}
 const NUMERO = "5492983389710";
 let pedidoActual = {};
 let carrito = [];
+let tipoEntrega = 'envio'; // envio o retiro
 
 // CARGAR CARRITO DESDE LOCALSTORAGE AL INICIAR
 document.addEventListener('DOMContentLoaded', () => {
@@ -511,7 +517,7 @@ function guardarCarrito() {
   localStorage.setItem('carritoPromos24hs', JSON.stringify(carrito));
 }
 
-// CARRITO - AGREGAR
+// CARRITO - AGREGAR DESDE CUALQUIER BOTÓN .btn-carrito
 document.addEventListener('click', e => {
   if(e.target.classList.contains('btn-carrito')) {
     const item = {
@@ -541,13 +547,14 @@ function vaciarCarrito() {
   }
 }
 
-// ABRIR MODAL CARRITO
+// ABRIR MODAL CARRITO - SIEMPRE ENVÍO
 function abrirCarritoModal() {
   if(carrito.length === 0) {
     alert("El carrito está vacío. Agregá promos desde los botones + Carrito");
     return;
   }
   
+  tipoEntrega = 'envio';
   pedidoActual = {tipo: 'carrito'};
   document.getElementById('modal-nombre').textContent = 'Tu Carrito';
   document.getElementById('modal-direccion').textContent = '';
@@ -566,16 +573,21 @@ function abrirCarritoModal() {
   carrito.forEach(i => {
     resumen += `<p><b>${i.promo}</b><br><small>${i.local} - $${i.precio.toLocaleString('es-AR')}</small></p>`;
   });
-  resumen += `</div><p style="text-align:center; margin-top:10px">Subtotal: $${subtotal.toLocaleString('es-AR')}<br>Envío: $2.000</p>`;
+  resumen += `</div><p style="text-align:center; margin-top:10px">Subtotal: $${subtotal.toLocaleString('es-AR')}</p>`;
   
   document.getElementById('resumen-pedido').innerHTML = resumen;
+  document.getElementById('texto-envio').innerHTML = 'Envío a domicilio: <b style="color:#25D366">$2.000</b>';
+  document.getElementById('opcion-envio-container').innerHTML = '';
   document.getElementById('pedido-total').textContent = '$' + total.toLocaleString('es-AR');
+  document.getElementById('pedido-direccion').placeholder = 'Dirección para envío *';
+  document.getElementById('pedido-direccion').required = true;
   
   document.getElementById('modal').style.display = 'flex';
 }
 
-// PEDIR PROMO DIRECTO
+// PEDIR PROMO DIRECTO - AHORA PREGUNTA RETIRO O ENVÍO
 function abrirPedido(local, producto, precio) {
+  tipoEntrega = 'envio';
   pedidoActual = {tipo: 'individual', local, producto, precio};
   document.getElementById('modal-nombre').textContent = local;
   document.getElementById('modal-direccion').textContent = '';
@@ -592,11 +604,40 @@ function abrirPedido(local, producto, precio) {
   <div style="display:flex; justify-content:space-between; margin:10px 0">
     <b>${producto}</b>
     <span style="color:#25D366; font-weight:bold">$${precio.toLocaleString('es-AR')}</span>
-  </div>
-  <p style="text-align:center; margin-top:10px">Envío: $2.000</p>`;
+  </div>`;
+  
+  // OPCIONES RETIRO O ENVÍO SOLO PARA 1 PROMO
+  const opcionesEnvio = `
+    <div class="opcion-envio">
+      <input type="radio" id="retiro" name="entrega" value="retiro" checked onchange="cambiarTipoEntrega('retiro', ${precio})">
+      <label for="retiro">🏪 Retirar en local<br><small>Sin costo de envío</small></label>
+      
+      <input type="radio" id="envio" name="entrega" value="envio" onchange="cambiarTipoEntrega('envio', ${precio})">
+      <label for="envio">🚚 Envío a domicilio<br><small>+ $2.000</small></label>
+    </div>
+  `;
   
   document.getElementById('resumen-pedido').innerHTML = resumen;
-  document.getElementById('pedido-total').textContent = '$' + (precio + 2000).toLocaleString('es-AR');
+  document.getElementById('opcion-envio-container').innerHTML = opcionesEnvio;
+  document.getElementById('texto-envio').innerHTML = 'Retiro en local: <b style="color:#25D366">GRATIS</b>';
+  document.getElementById('pedido-total').textContent = '$' + precio.toLocaleString('es-AR');
+  document.getElementById('pedido-direccion').placeholder = 'Dirección del local';
+  document.getElementById('pedido-direccion').required = false;
+}
+
+function cambiarTipoEntrega(tipo, precio) {
+  tipoEntrega = tipo;
+  if(tipo === 'envio') {
+    document.getElementById('texto-envio').innerHTML = 'Envío a domicilio: <b style="color:#25D366">$2.000</b>';
+    document.getElementById('pedido-total').textContent = '$' + (precio + 2000).toLocaleString('es-AR');
+    document.getElementById('pedido-direccion').placeholder = 'Dirección para envío *';
+    document.getElementById('pedido-direccion').required = true;
+  } else {
+    document.getElementById('texto-envio').innerHTML = 'Retiro en local: <b style="color:#25D366">GRATIS</b>';
+    document.getElementById('pedido-total').textContent = '$' + precio.toLocaleString('es-AR');
+    document.getElementById('pedido-direccion').placeholder = 'Dirección del local';
+    document.getElementById('pedido-direccion').required = false;
+  }
 }
 
 function enviarWhatsApp() {
@@ -605,28 +646,42 @@ function enviarWhatsApp() {
   const direccion = document.getElementById('pedido-direccion').value;
   const nota = document.getElementById('pedido-nota').value;
   
-  if(!nombre || !tel || !direccion) {
-    alert('Completá nombre, teléfono y dirección. Son obligatorios para el envío');
+  if(!nombre || !tel) {
+    alert('Completá nombre y teléfono. Son obligatorios');
+    return;
+  }
+  
+  if(tipoEntrega === 'envio' && !direccion) {
+    alert('Completá la dirección para el envío');
     return;
   }
   
   let msg = `*NUEVO PEDIDO*%0A%0A`;
   
   if(pedidoActual.tipo === 'carrito') {
-    msg += `*Pedido desde CARRITO*%0A%0A`;
+    msg += `*Pedido desde CARRITO*%0A*Modalidad: ENVÍO OBLIGATORIO*%0A%0A`;
     carrito.forEach(i => msg += `• ${i.promo} - ${i.local} $${i.precio.toLocaleString('es-AR')}%0A`);
     const subtotal = carrito.reduce((a,b) => a + b.precio, 0);
     const total = subtotal + 2000;
     msg += `%0ASubtotal: $${subtotal.toLocaleString('es-AR')}%0AEnvío a domicilio: $2.000%0A*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
+    msg += `*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A*Dirección envío:* ${direccion}%0A*Nota:* ${nota}`;
     carrito = [];
     guardarCarrito();
     actualizarContadorCarrito();
   } else {
-    const total = pedidoActual.precio + 2000;
-    msg += `*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio.toLocaleString('es-AR')}%0AEnvío a domicilio: $2.000%0A*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
+    const total = tipoEntrega === 'envio' ? pedidoActual.precio + 2000 : pedidoActual.precio;
+    const modalidad = tipoEntrega === 'envio' ? 'ENVÍO A DOMICILIO' : 'RETIRO EN LOCAL';
+    msg += `*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio.toLocaleString('es-AR')}%0A*Modalidad:* ${modalidad}%0A`;
+    if(tipoEntrega === 'envio') {
+      msg += `Envío a domicilio: $2.000%0A`;
+    }
+    msg += `*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
+    msg += `*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A`;
+    if(tipoEntrega === 'envio') {
+      msg += `*Dirección envío:* ${direccion}%0A`;
+    }
+    msg += `*Nota:* ${nota}`;
   }
-  
-  msg += `*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A*Dirección:* ${direccion}%0A*Nota:* ${nota}`;
   
   window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
   cerrarModal();
@@ -640,9 +695,10 @@ function cerrarModal() {
   document.getElementById('pedido-tel').value = '';
   document.getElementById('pedido-direccion').value = '';
   document.getElementById('pedido-nota').value = '';
+  document.getElementById('opcion-envio-container').innerHTML = '';
 }
 
-// MODAL PROMOS POR LOCAL
+// MODAL PROMOS POR LOCAL - ARREGLADO PARA QUE + CARRITO FUNCIONE
 function abrirModalPromos(btn) {
   try {
     const nombre = btn.dataset.nombre;
@@ -674,7 +730,7 @@ function abrirModalPromos(btn) {
               <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
               <div style="display:flex; gap:5px">
                 <button class="btn-pedir-modal" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
-                <button class="btn-pedir-modal" style="background:#ff9800" data-local="${nombreEsc}" data-promo="${promoEsc}" data-precio="${p.precio}">+ Carrito</button>
+                <button class="btn-carrito" data-local="${nombreEsc}" data-promo="${promoEsc}" data-precio="${p.precio}">+ Carrito</button>
               </div>
             </div>
           </div>
