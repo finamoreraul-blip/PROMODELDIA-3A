@@ -20,7 +20,6 @@ h1 {font-size:22px; color:#25D366}
 #btn-carrito-filtros:hover {background:#e68900}
 
 .container {padding:12px; max-width:1200px; margin:auto}
-.grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:10px}
 
 .bar, .local-card {background:#1a1a1a; border-radius:12px; overflow:hidden; border:1px solid #333; margin-bottom:12px}
 .bar-img {width:100%; height:120px; object-fit:cover; border-radius:8px}
@@ -87,6 +86,9 @@ h1 {font-size:22px; color:#25D366}
 
 #items-carrito-modal {max-height:250px; overflow-y:auto; margin:10px 0}
 #items-carrito-modal p {margin:8px 0; padding-bottom:8px; border-bottom:1px solid #333; font-size:14px}
+
+.btn-vaciar {background:#dc3545; border:none; color:white; padding:8px 12px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:bold; margin-bottom:10px}
+.btn-vaciar:hover {background:#c82333}
 </style>
 </head>
 <body>
@@ -211,7 +213,7 @@ h1 {font-size:22px; color:#25D366}
 <h3>Parrilla La Estaca</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 20 a 00hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Tira + Vacío 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Tira + Vacío 2 Personas" data-precio="25000">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Tira + Vacío 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Tira+ Vacío 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Tira + Vacío 2 Personas',25000)">Pedir $25000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Tira + Vacío 2 Personas" data-precio="25000">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"><div class="promo-nombre">Chori Pan Casero x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Chori Pan Casero x4',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Chori Pan Casero x4" data-precio="3200">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Costillar Completo 6kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Costillar Completo 6kg',38000)">Pedir $38000</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Costillar Completo 6kg" data-precio="38000">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"><div class="promo-nombre">Provoleta + Chorizo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla La Estaca','Provoleta + Chorizo',6500)">Pedir $6500</button><button class="btn-carrito" data-local="Parrilla La Estaca" data-promo="Provoleta + Chorizo" data-precio="6500">+ Carrito</button></div></div>
@@ -485,6 +487,30 @@ const NUMERO = "5492983389710";
 let pedidoActual = {};
 let carrito = [];
 
+// CARGAR CARRITO DESDE LOCALSTORAGE AL INICIAR
+document.addEventListener('DOMContentLoaded', () => {
+  const guardado = localStorage.getItem('carritoPromos24hs');
+  if(guardado) {
+    carrito = JSON.parse(guardado);
+    actualizarContadorCarrito();
+  }
+  
+  const btnTodos = document.querySelector('.filter-btn');
+  if(btnTodos) btnTodos.classList.add('active');
+
+  const modal = document.getElementById('modal');
+  if(modal) {
+    modal.onclick = function(e) {
+      if(e.target.id === 'modal') cerrarModal();
+    }
+  }
+});
+
+// GUARDAR CARRITO EN LOCALSTORAGE
+function guardarCarrito() {
+  localStorage.setItem('carritoPromos24hs', JSON.stringify(carrito));
+}
+
 // CARRITO - AGREGAR
 document.addEventListener('click', e => {
   if(e.target.classList.contains('btn-carrito')) {
@@ -494,6 +520,7 @@ document.addEventListener('click', e => {
       precio: parseInt(e.target.dataset.precio)
     };
     carrito.push(item);
+    guardarCarrito();
     actualizarContadorCarrito();
     e.target.textContent = "✓ Agregado";
     setTimeout(() => e.target.textContent = "+ Carrito", 1000);
@@ -502,6 +529,16 @@ document.addEventListener('click', e => {
 
 function actualizarContadorCarrito() {
   document.getElementById('contador-carrito').textContent = `(${carrito.length})`;
+}
+
+// VACIAR CARRITO
+function vaciarCarrito() {
+  if(confirm('¿Seguro que querés vaciar el carrito?')) {
+    carrito = [];
+    guardarCarrito();
+    actualizarContadorCarrito();
+    cerrarModal();
+  }
 }
 
 // ABRIR MODAL CARRITO
@@ -520,7 +557,7 @@ function abrirCarritoModal() {
   const grid = document.getElementById('modal-promos-grid');
   grid.style.display = 'none';
   document.getElementById('modal-pedido').style.display = 'block';
-  document.getElementById('titulo-modal').textContent = 'Confirmar Pedido del Carrito 🛒';
+  document.getElementById('titulo-modal').innerHTML = 'Confirmar Pedido del Carrito 🛒 <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>';
   
   const subtotal = carrito.reduce((a,b) => a + b.precio, 0);
   const total = subtotal + 2000;
@@ -582,6 +619,7 @@ function enviarWhatsApp() {
     const total = subtotal + 2000;
     msg += `%0ASubtotal: $${subtotal.toLocaleString('es-AR')}%0AEnvío a domicilio: $2.000%0A*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
     carrito = [];
+    guardarCarrito();
     actualizarContadorCarrito();
   } else {
     const total = pedidoActual.precio + 2000;
@@ -615,7 +653,7 @@ function abrirModalPromos(btn) {
     const promosData = JSON.parse(local.dataset.promos);
     
     document.getElementById('modal-nombre').textContent = nombre;
-       document.getElementById('modal-direccion').textContent = direccion;
+    document.getElementById('modal-direccion').textContent = direccion;
     document.getElementById('modal-horario').textContent = horario;
     document.getElementById('modal-img').src = img;
     
@@ -666,17 +704,5 @@ function filtrarCategoria(categoria, btn) {
     }
   });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const btnTodos = document.querySelector('.filter-btn');
-  if(btnTodos) btnTodos.classList.add('active');
-
-  const modal = document.getElementById('modal');
-  if(modal) {
-    modal.onclick = function(e) {
-      if(e.target.id === 'modal') cerrarModal();
-    }
-  }
-});
 </script>
 </html>
