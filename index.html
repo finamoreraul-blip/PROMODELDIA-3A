@@ -22,7 +22,7 @@ h1 {font-size:22px; color:#25D366}
 .container {padding:12px; max-width:1200px; margin:auto}
 
 .bar, .local-card {background:#1a1a1a; border-radius:12px; overflow:hidden; border:1px solid #333; margin-bottom:12px}
-.bar-img {width:100%; height:120px; object-fit:cover; border-radius:8px}
+.bar-img {width:100%; height:120px; object-fit:cover; border-radius:8px; cursor:pointer}
 .bar-body, .local-info {padding:10px}
 .bar h3, .local-info h3 {font-size:17px; margin-bottom:5px; color:#25D366}
 .horario-local {font-size:12px; color:#aaa; margin-bottom:8px}
@@ -50,7 +50,7 @@ h1 {font-size:22px; color:#25D366}
   border:1px solid #333; border-radius:8px; overflow:hidden; background:#2a2a2a; display:flex; flex-direction:column;
 }
 
-.promo-item img {width:100%; height:110px; object-fit:cover; display:block; background:#1a1a1a}
+.promo-item img {width:100%; height:110px; object-fit:cover; display:block; background:#1a1a1a; cursor:pointer}
 
 .promo-nombre {
   font-size:13px; font-weight:600; padding:6px 4px; color:#fff; text-align:center; min-height:32px;
@@ -94,6 +94,33 @@ h1 {font-size:22px; color:#25D366}
 .opcion-envio label {flex:1; cursor:pointer; padding:10px; border:2px solid #444; border-radius:8px; text-align:center; transition:all 0.2s}
 .opcion-envio input[type="radio"] {display:none}
 .opcion-envio input[type="radio"]:checked + label {border-color:#25D366; background:#1a3d2a}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 50px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.9);
+}
+.lightbox img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+}
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 40px;
+  color: #fff; font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.lightbox .close:hover { color: #ccc; }
 </style>
 </head>
 <body>
@@ -139,6 +166,7 @@ h1 {font-size:22px; color:#25D366}
 </div>
 </div>
 
+<!-- LOCAL 2 al 14 = tu código anterior -->
 <!-- LOCAL 2 -->
 <div class="bar" id="bar-2" data-categoria="panaderia" data-nombre="Panadería La Espiga" data-direccion="Calle Rivadavia 456" data-img="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop" data-promos='[{"nombre":"Medialunas Manteca x12","precio":3600,"desc":"Recién horneadas","img":"https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"},{"nombre":"Pan de Miga Artesanal","precio":5200,"desc":"1kg artesanal","img":"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"},{"nombre":"Tarta Jamón y Queso","precio":4800,"desc":"Casera","img":"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"},{"nombre":"Tortas Fritas x6 Dulces","precio":1800,"desc":"Recién hechas","img":"https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop&crop=entropy"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1506459225024-1428097a7e18?w=400&h=300&fit=crop" alt="Panadería La Espiga">
@@ -212,7 +240,7 @@ h1 {font-size:22px; color:#25D366}
 </div>
 
 <!-- LOCAL 6 -->
-<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Provoleta + 2 chorizos","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&d30994b5?w=200&h=110&fit=crop"}]'>
+<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Provoleta + 2 chorizos","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
 <div class="bar-body">
 <h3>Parrilla La Estaca</h3>
@@ -335,7 +363,9 @@ h1 {font-size:22px; color:#25D366}
 <button class="btn-ver-promos" data-nombre="Carnicería La Ideal" data-direccion="Av. Sarmiento 741" data-img="https://images.unsplash.com/photo-1617714458886-ade68204c0d8?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
 </div>
 </div>
-</div><!-- LOCAL 13 -->
+</div>
+
+<!-- LOCAL 13 -->
 <div class="bar" id="bar-13" data-categoria="panaderia" data-nombre="Panadería El Horno" data-direccion="Calle Moreno 963" data-img="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pan Casero x3 Unidades","precio":2100,"desc":"3 unidades recién horneadas","img":"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"},{"nombre":"Factura Surtida x12","precio":3400,"desc":"Docena surtida","img":"https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"},{"nombre":"Chipa Queso x20","precio":2800,"desc":"20 unidades crocantes","img":"https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"},{"nombre":"Rosca de Reyes Grande","precio":5600,"desc":"Grande con crema","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" alt="Panadería El Horno">
 <div class="bar-body">
@@ -486,14 +516,19 @@ h1 {font-size:22px; color:#25D366}
   </div>
 </div>
 
+<!-- LIGHTBOX CONTAINER -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img id="lightbox-img">
+</div>
+
 </body>
 <script>
 const NUMERO = "5492983389710";
 let pedidoActual = {};
 let carrito = [];
-let tipoEntrega = 'envio'; // envio o retiro
+let tipoEntrega = 'envio';
 
-// CARGAR CARRITO DESDE LOCALSTORAGE AL INICIAR
 document.addEventListener('DOMContentLoaded', () => {
   const guardado = localStorage.getItem('carritoPromos24hs');
   if(guardado) {
@@ -510,14 +545,33 @@ document.addEventListener('DOMContentLoaded', () => {
       if(e.target.id === 'modal') cerrarModal();
     }
   }
+
+  // LIGHTBOX
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.querySelector('.lightbox .close');
+
+  document.querySelectorAll('.bar-img, .promo-item img').forEach(img => {
+    img.onclick = (e) => {
+      e.stopPropagation();
+      lightbox.style.display = 'block';
+      lightboxImg.src = img.src;
+    }
+  });
+
+  closeBtn.onclick = () => lightbox.style.display = 'none';
+  lightbox.onclick = (e) => { 
+    if(e.target == lightbox) lightbox.style.display = 'none'; 
+  }
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') lightbox.style.display = 'none';
+  });
 });
 
-// GUARDAR CARRITO EN LOCALSTORAGE
 function guardarCarrito() {
   localStorage.setItem('carritoPromos24hs', JSON.stringify(carrito));
 }
 
-// CARRITO - AGREGAR DESDE CUALQUIER BOTÓN .btn-carrito
 document.addEventListener('click', e => {
   if(e.target.classList.contains('btn-carrito')) {
     const item = {
@@ -537,7 +591,6 @@ function actualizarContadorCarrito() {
   document.getElementById('contador-carrito').textContent = `(${carrito.length})`;
 }
 
-// VACIAR CARRITO
 function vaciarCarrito() {
   if(confirm('¿Seguro que querés vaciar el carrito?')) {
     carrito = [];
@@ -547,7 +600,7 @@ function vaciarCarrito() {
   }
 }
 
-// ABRIR MODAL CARRITO - SIEMPRE ENVÍO
+// FIX ANTI-NaN
 function abrirCarritoModal() {
   if(carrito.length === 0) {
     alert("El carrito está vacío. Agregá promos desde los botones + Carrito");
@@ -566,7 +619,11 @@ function abrirCarritoModal() {
   document.getElementById('modal-pedido').style.display = 'block';
   document.getElementById('titulo-modal').innerHTML = 'Confirmar Pedido del Carrito 🛒 <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>';
   
-  const subtotal = carrito.reduce((a,b) => a + b.precio, 0);
+  const subtotal = carrito.reduce((a,b) => {
+    let precioLimpio = parseFloat(b.precio.toString().replace(/[^0-9]/g, ''));
+    return a + (isNaN(precioLimpio) ? 0 : precioLimpio);
+  }, 0);
+  
   const total = subtotal + 2000;
   
   let resumen = '<div id="items-carrito-modal">';
@@ -585,12 +642,11 @@ function abrirCarritoModal() {
   document.getElementById('modal').style.display = 'flex';
 }
 
-// PEDIR PROMO DIRECTO - AHORA PREGUNTA RETIRO O ENVÍO
 function abrirPedido(local, producto, precio) {
   tipoEntrega = 'envio';
   pedidoActual = {tipo: 'individual', local, producto, precio};
   document.getElementById('modal-nombre').textContent = local;
-  document.getElementById('modal-direccion').textContent = '';
+document.getElementById('modal-direccion').textContent = '';
   document.getElementById('modal-horario').textContent = '';
   
   const modal = document.getElementById('modal');
@@ -606,7 +662,6 @@ function abrirPedido(local, producto, precio) {
     <span style="color:#25D366; font-weight:bold">$${precio.toLocaleString('es-AR')}</span>
   </div>`;
   
-  // OPCIONES RETIRO O ENVÍO SOLO PARA 1 PROMO
   const opcionesEnvio = `
     <div class="opcion-envio">
       <input type="radio" id="retiro" name="entrega" value="retiro" checked onchange="cambiarTipoEntrega('retiro', ${precio})">
@@ -661,7 +716,10 @@ function enviarWhatsApp() {
   if(pedidoActual.tipo === 'carrito') {
     msg += `*Pedido desde CARRITO*%0A*Modalidad: ENVÍO OBLIGATORIO*%0A%0A`;
     carrito.forEach(i => msg += `• ${i.promo} - ${i.local} $${i.precio.toLocaleString('es-AR')}%0A`);
-    const subtotal = carrito.reduce((a,b) => a + b.precio, 0);
+    const subtotal = carrito.reduce((a,b) => {
+      let precioLimpio = parseFloat(b.precio.toString().replace(/[^0-9]/g, ''));
+      return a + (isNaN(precioLimpio) ? 0 : precioLimpio);
+    }, 0);
     const total = subtotal + 2000;
     msg += `%0ASubtotal: $${subtotal.toLocaleString('es-AR')}%0AEnvío a domicilio: $2.000%0A*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
     msg += `*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A*Dirección envío:* ${direccion}%0A*Nota:* ${nota}`;
@@ -698,7 +756,6 @@ function cerrarModal() {
   document.getElementById('opcion-envio-container').innerHTML = '';
 }
 
-// MODAL PROMOS POR LOCAL - ARREGLADO PARA QUE + CARRITO FUNCIONE
 function abrirModalPromos(btn) {
   try {
     const nombre = btn.dataset.nombre;
@@ -722,7 +779,7 @@ function abrirModalPromos(btn) {
       
       grid.innerHTML += `
         <div class="modal-promo-item">
-          <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px">
+          <img src="${p.img}" style="width:100%; height:120px; object-fit:cover; border-radius:8px; cursor:pointer">
           <div>
             <strong style="color:#25D366; font-size:16px">${p.nombre}</strong><br>
             <small style="color:#aaa; font-size:13px; line-height:1.4">${p.desc}</small><br>
@@ -746,7 +803,6 @@ function abrirModalPromos(btn) {
   }
 }
 
-// FILTROS
 function filtrarCategoria(categoria, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   if(btn) btn.classList.add('active');
