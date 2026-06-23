@@ -161,7 +161,7 @@ h1 {font-size:22px; color:#25D366}
   <button class="filter-btn" onclick="filtrarCategoria('cafeteria', this)">Cafeterías</button>
 </div>
 
-<!-- CARRITO DESPUÉS DE LOS FILTROS, ANTES DE LOS LOCALES -->
+<!-- CARRITO DESPUÉS DE LOS FILTROS -->
 <div id="carrito">
   <h3>🛒 Tu pedido <span id="contador">(0 items)</span></h3>
   <div id="items-carrito"><p style="color:#999">Agregá promos al carrito</p></div>
@@ -259,8 +259,7 @@ h1 {font-size:22px; color:#25D366}
 </div>
 
 <!-- LOCAL 6 -->
-<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Combo clásico de parrilla","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h"img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
+<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop<img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
 <div class="bar-body">
 <h3>Parrilla La Estaca</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 20 a 00hs</p>
@@ -382,16 +381,7 @@ h1 {font-size:22px; color:#25D366}
 <button class="btn-ver-promos" data-nombre="Carnicería La Ideal" data-direccion="Av. Sarmiento 741" data-img="https://images.unsplash.com/photo-1617714458886-ade68204c0d8?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
 </div>
 </div>
-</div>
-
-<!-- LOCAL 13 -->
-<div class="bar" id="bar-13" data-categoria="panaderia" data-nombre="Panadería El Horno" data-direccion="Calle Moreno 963" data-img="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pan Casero x3 Unidades","precio":2100,"desc":"3 unidades horno de barro","img":"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"},{"nombre":"Factura Surtida x12","precio":3400,"desc":"Docena surtida recién hecha","img":"https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"},{"nombre":"Chipa Queso x20","precio":2800,"desc":"20 unidades crocantes","img":"https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"},{"nombre":"Rosca de Reyes Grande","precio":5600,"desc":"Grande con crema pastelera","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" alt="Panadería El Horno">
-<div class="bar-body">
-<h3>Panadería El Horno</h3>
-<p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 5 a 19hs Lun a Dom</p>
-<div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan Casero x3 Unidades</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Pan Casero x3 Unidades',2100)">Pedir $2100</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Pan Casero x3 Unidades" data-precio="2100">+ Carrito</button></div></div>
+</div><div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan Casero x3 Unidades</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Pan Casero x3 Unidades',2100)">Pedir $2100</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Pan Casero x3 Unidades" data-precio="2100">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"><div class="promo-nombre">Factura Surtida x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Factura Surtida x12',3400)">Pedir $3400</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Factura Surtida x12" data-precio="3400">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"><div class="promo-nombre">Chipa Queso x20</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Chipa Queso x20',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Chipa Queso x20" data-precio="2800">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Rosca de Reyes Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Rosca de Reyes Grande',5600)">Pedir $5600</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Rosca de Reyes Grande" data-precio="5600">+ Carrito</button></div></div>
@@ -523,8 +513,8 @@ h1 {font-size:22px; color:#25D366}
     </select>
     <div id="errorEntrega" style="color:#ff4444;font-size:13px;margin-top:5px;display:none">Tenés que elegir una opción sí o sí</div>
     
-    <div id="direccionEnvio" style="display:none;margin-top:10px">
-      <input type="text" id="direccion" placeholder="Tu dirección para el envío" style="width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff">
+    <div id="direccionEnvio" style="display:block;margin-top:10px">
+      <input type="text" id="direccion" placeholder="Tu dirección para el envío" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff">
     </div>
   </div>
 
@@ -548,6 +538,136 @@ h1 {font-size:22px; color:#25D366}
 const NUMERO = "5492983389710";
 let pedidoActual = {};
 let carrito = [];
+
+// CAMBIO 1: abrirPedido abre DIRECTO el formulario
+function abrirPedido(local, producto, precio) {
+  pedidoActual = {local, producto, precio};
+  document.getElementById('pedido-local').textContent = local;
+  document.getElementById('pedido-producto').textContent = producto;
+  document.getElementById('pedido-precio').textContent = '$' + precio.toLocaleString('es-AR');
+  
+  const modal = document.getElementById('modal');
+  modal.style.display = 'flex';
+  
+  // Va directo al formulario, no muestra la grilla
+  document.getElementById('modal-promos-grid').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'block';
+  
+  document.getElementById('tipoEntrega').value = '';
+  document.getElementById('direccionEnvio').style.display = 'block'; // CAMBIO 2: Dirección siempre visible y obligatoria
+  document.getElementById('direccion').required = true;
+  document.getElementById('pedido-total').textContent = '$' + precio.toLocaleString('es-AR');
+}
+
+function calcularTotal() {
+  try {
+    const entrega = document.getElementById('tipoEntrega').value;
+    const totalEl = document.getElementById('pedido-total');
+    const errorEntrega = document.getElementById('errorEntrega');
+    
+    if(!totalEl || !pedidoActual.precio) return;
+    
+    let total = pedidoActual.precio;
+    if(entrega === 'envio') total += 2000;
+    totalEl.textContent = '$' + total.toLocaleString('es-AR');
+    
+    if(entrega) {
+      errorEntrega.style.display = 'none';
+      document.getElementById('tipoEntrega').style.border = '1px solid #333';
+    }
+  } catch(e) {
+    console.error('Error calcularTotal:', e);
+  }
+}
+
+function enviarWhatsApp() {
+  const nombre = document.getElementById('pedido-nombre').value;
+  const tel = document.getElementById('pedido-tel').value;
+  const nota = document.getElementById('pedido-nota').value;
+  const entrega = document.getElementById('tipoEntrega').value;
+  const direccionEnvio = document.getElementById('direccion').value;
+  const errorEntrega = document.getElementById('errorEntrega');
+  
+  if(!entrega) {
+    errorEntrega.style.display = 'block';
+    document.getElementById('tipoEntrega').style.border = '2px solid #ff4444';
+    return;
+  }
+  
+  if(!nombre || !tel || !direccionEnvio) {
+    alert('Completá nombre, teléfono y dirección');
+    return;
+  }
+  
+  let total = pedidoActual.precio;
+  if(entrega === 'envio') total += 2000;
+  
+  const textoEntrega = entrega === 'envio' ? 'Envío a domicilio + $2.000' : 'Retirar en local';
+  
+  const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Entrega:* ${textoEntrega}%0A*Dirección:* ${direccionEnvio}%0A*Total:* $${total.toLocaleString('es-AR')}%0A*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
+  
+  window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
+  cerrarModal();
+}
+
+function cerrarModal() {
+  document.getElementById('modal').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'none';
+  document.getElementById('modal-promos-grid').style.display = 'flex';
+}
+
+// CÓDIGO CARRITO
+document.addEventListener('click', e => {
+  if(e.target.classList.contains('btn-carrito')) {
+    const item = {
+      local: e.target.dataset.local, 
+      promo: e.target.dataset.promo, 
+      precio: e.target.dataset.precio
+    };
+    carrito.push(item);
+    actualizarCarrito();
+    e.target.textContent = "✓ Agregado";
+    setTimeout(() => e.target.textContent = "+ Carrito", 1000);
+  }
+});
+
+function agregarCarrito(btn) {
+  const item = {
+    local: btn.dataset.local, 
+    promo: btn.dataset.promo, 
+    precio: btn.dataset.precio
+  };
+  carrito.push(item);
+  actualizarCarrito();
+  btn.textContent = "✓ Agregado";
+  setTimeout(() => btn.textContent = "+ Carrito", 1000);
+}
+
+function actualizarCarrito() {
+  const carritoDiv = document.getElementBydocument.getElementById('carrito');
+  const contador = document.getElementById('contador');
+  const items = document.getElementById('items-carrito');
+  
+  if(carrito.length > 0) {
+    carritoDiv.classList.add('mostrar');
+    contador.textContent = `(${carrito.length} items)`;
+    items.innerHTML = carrito.map(i => `<p>${i.promo}<br><small>${i.local} - $${Number(i.precio).toLocaleString('es-AR')}</small></p>`).join('');
+  } else {
+    carritoDiv.classList.remove('mostrar');
+    items.innerHTML = "<p style='color:#999'>Agregá promos al carrito</p>";
+  }
+}
+
+document.getElementById('enviar-wsp').onclick = () => {
+  if(carrito.length === 0) return alert("El carrito está vacío");
+  let texto = "Hola! Quiero pedir:%0A%0A";
+  carrito.forEach(i => texto += `• ${i.promo} - ${i.local} $${Number(i.precio).toLocaleString('es-AR')}%0A`);
+  const total = carrito.reduce((a,b) => a + Number(b.precio), 0);
+  texto += `%0ATotal: $${total.toLocaleString('es-AR')}%0A%0A*Nota:* Pedido desde carrito. Contactar al cliente para dirección.`;
+  window.open(`https://wa.me/5492983389710?text=${texto}`);
+  carrito = [];
+  actualizarCarrito();
+};
 
 function abrirModalPromos(btn) {
   try {
@@ -597,96 +717,6 @@ function abrirModalPromos(btn) {
   }
 }
 
-function cerrarModal() {
-  document.getElementById('modal').style.display = 'none';
-  document.getElementById('modal-pedido').style.display = 'none';
-  document.getElementById('modal-promos-grid').style.display = 'flex';
-}
-
-function calcularTotal() {
-  try {
-    const entrega = document.getElementById('tipoEntrega').value;
-    const totalEl = document.getElementById('pedido-total');
-    const direccionEnvio = document.getElementById('direccionEnvio');
-    const errorEntrega = document.getElementById('errorEntrega');
-    
-    if(!totalEl || !pedidoActual.precio) return;
-    
-    if(entrega === 'envio') {
-      direccionEnvio.style.display = 'block';
-      document.getElementById('direccion').required = true;
-    } else {
-      direccionEnvio.style.display = 'none';
-      document.getElementById('direccion').required = false;
-    }
-    
-    let total = pedidoActual.precio;
-    if(entrega === 'envio') total += 2000;
-    totalEl.textContent = '$' + total.toLocaleString('es-AR');
-    
-    if(entrega) {
-      errorEntrega.style.display = 'none';
-      document.getElementById('tipoEntrega').style.border = '1px solid #333';
-    }
-  } catch(e) {
-    console.error('Error calcularTotal:', e);
-  }
-}
-
-function abrirPedido(local, producto, precio) {
-  pedidoActual = {local, producto, precio};
-  document.getElementById('pedido-local').textContent = local;
-  document.getElementById('pedido-producto').textContent = producto;
-  document.getElementById('pedido-precio').textContent = '$' + precio.toLocaleString('es-AR');
-  
-  const modal = document.getElementById('modal');
-  if(modal.style.display !== 'flex') {
-    modal.style.display = 'flex';
-  }
-  
-document.getElementById('modal-pedido').style.display = 'block';
-  
-  document.getElementById('tipoEntrega').value = '';
-  document.getElementById('direccionEnvio').style.display = 'none';
-  document.getElementById('pedido-total').textContent = '$' + precio.toLocaleString('es-AR');
-}
-
-function enviarWhatsApp() {
-  const nombre = document.getElementById('pedido-nombre').value;
-  const tel = document.getElementById('pedido-tel').value;
-  const nota = document.getElementById('pedido-nota').value;
-  const entrega = document.getElementById('tipoEntrega').value;
-  const direccionEnvio = document.getElementById('direccion').value;
-  const errorEntrega = document.getElementById('errorEntrega');
-  
-  if(!entrega) {
-    errorEntrega.style.display = 'block';
-    document.getElementById('tipoEntrega').style.border = '2px solid #ff4444';
-    return;
-  }
-  
-  if(!nombre || !tel) {
-    alert('Completá nombre y teléfono');
-    return;
-  }
-  
-  if(entrega === 'envio' && !direccionEnvio) {
-    alert('Completá tu dirección para el envío');
-    return;
-  }
-  
-  let total = pedidoActual.precio;
-  if(entrega === 'envio') total += 2000;
-  
-  const textoEntrega = entrega === 'envio' ? 'Envío a domicilio + $2.000' : 'Retirar en local';
-  const dirTexto = entrega === 'envio' ? direccionEnvio : 'Retira en local';
-  
-  const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Entrega:* ${textoEntrega}%0A*Total:* $${total.toLocaleString('es-AR')}%0A*Nombre:* ${nombre}%0A*Dirección:* ${dirTexto}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
-  
-  window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
-  cerrarModal();
-}
-
 function filtrarCategoria(categoria, btn) {
   try {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -709,59 +739,6 @@ function filtrarCategoria(categoria, btn) {
     console.error('Error filtrarCategoria:', e);
   }
 }
-
-// CÓDIGO CARRITO NUEVO
-document.addEventListener('click', e => {
-  if(e.target.classList.contains('btn-carrito')) {
-    const item = {
-      local: e.target.dataset.local, 
-      promo: e.target.dataset.promo, 
-      precio: e.target.dataset.precio
-    };
-    carrito.push(item);
-    actualizarCarrito();
-    e.target.textContent = "✓ Agregado";
-    setTimeout(() => e.target.textContent = "+ Carrito", 1000);
-  }
-});
-
-function agregarCarrito(btn) {
-  const item = {
-    local: btn.dataset.local, 
-    promo: btn.dataset.promo, 
-    precio: btn.dataset.precio
-  };
-  carrito.push(item);
-  actualizarCarrito();
-  btn.textContent = "✓ Agregado";
-  setTimeout(() => btn.textContent = "+ Carrito", 1000);
-}
-
-function actualizarCarrito() {
-  const carritoDiv = document.getElementById('carrito');
-  const contador = document.getElementById('contador');
-  const items = document.getElementById('items-carrito');
-  
-  if(carrito.length > 0) {
-    carritoDiv.classList.add('mostrar');
-    contador.textContent = `(${carrito.length} items)`;
-    items.innerHTML = carrito.map(i => `<p>${i.promo}<br><small>${i.local} - $${Number(i.precio).toLocaleString('es-AR')}</small></p>`).join('');
-  } else {
-    carritoDiv.classList.remove('mostrar');
-    items.innerHTML = "<p style='color:#999'>Agregá promos al carrito</p>";
-  }
-}
-
-document.getElementById('enviar-wsp').onclick = () => {
-  if(carrito.length === 0) return alert("El carrito está vacío");
-  let texto = "Hola! Quiero pedir:%0A%0A";
-  carrito.forEach(i => texto += `• ${i.promo} - ${i.local} $${Number(i.precio).toLocaleString('es-AR')}%0A`);
-  const total = carrito.reduce((a,b) => a + Number(b.precio), 0);
-  texto += `%0ATotal: $${total.toLocaleString('es-AR')}`;
-  window.open(`https://wa.me/5492983389710?text=${texto}`);
-  carrito = [];
-  actualizarCarrito();
-};
 
 document.addEventListener('DOMContentLoaded', () => {
   const btnTodos = document.querySelector('.filter-btn');
