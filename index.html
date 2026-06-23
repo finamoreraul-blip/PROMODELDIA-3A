@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Promos 24hs - Tres Arroyos</title>
-  <link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=2">
 <style>
 * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif}
 body {background:#0a0a0a; color:#fff}
@@ -12,14 +12,16 @@ header {background:#1a1a1a; padding:15px; text-align:center; position:sticky; to
 
 h1 {font-size:22px; color:#25D366}
 
-.filtros {display:flex; gap:8px; padding:12px; overflow-x:auto; background:#151515}
+.filtros {display:flex; gap:8px; padding:12px; overflow-x:auto; background:#151515; align-items:center}
 .filter-btn {padding:8px 14px; border:none; border-radius:20px; background:#2a2a2a; color:#fff; cursor:pointer; white-space:nowrap; font-size:14px}
 .filter-btn.active {background:#25D366; color:white}
+
+#btn-carrito-filtros {margin-left:auto; background:#ff9800; color:#fff; padding:8px 14px; border:none; border-radius:20px; font-weight:bold; cursor:pointer; font-size:14px}
+#btn-carrito-filtros:hover {background:#e68900}
 
 .container {padding:12px; max-width:1200px; margin:auto}
 .grid {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:10px}
 
-/* TARJETAS CHICAS */
 .bar, .local-card {background:#1a1a1a; border-radius:12px; overflow:hidden; border:1px solid #333; margin-bottom:12px}
 .bar-img {width:100%; height:120px; object-fit:cover; border-radius:8px}
 .bar-body, .local-info {padding:10px}
@@ -27,7 +29,6 @@ h1 {font-size:22px; color:#25D366}
 .horario-local {font-size:12px; color:#aaa; margin-bottom:8px}
 .estado-badge {background:#28a745; padding:3px 8px; border-radius:12px; font-size:10px; color:#fff}
 
-/* BOTÓN VER PROMOS CENTRADO VERDE */
 .btn-ver-promos {
   background: #25D366 !important;
   color: white !important;
@@ -44,80 +45,33 @@ h1 {font-size:22px; color:#25D366}
   text-align: center !important;
 }
 
-/* PROMOS OCULTAS POR DEFECTO */
-.grid-promos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-  margin: 12px 0;
-}
+.grid-promos {display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; margin:12px 0}
 
 .promo-item {
-  border: 1px solid #333;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #2a2a2a;
-  display: flex;
-  flex-direction: column;
+  border:1px solid #333; border-radius:8px; overflow:hidden; background:#2a2a2a; display:flex; flex-direction:column;
 }
 
-.promo-item img {
-  width: 100%;
-  height: 110px;
-  object-fit: cover;
-  display: block;
-  background: #1a1a1a;
-}
+.promo-item img {width:100%; height:110px; object-fit:cover; display:block; background:#1a1a1a}
 
 .promo-nombre {
-  font-size: 13px;
-  font-weight: 600;
-  padding: 6px 4px;
-  color: #fff;
-  text-align: center;
-  min-height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1.2;
+  font-size:13px; font-weight:600; padding:6px 4px; color:#fff; text-align:center; min-height:32px;
+  display:flex; align-items:center; justify-content:center; line-height:1.2;
 }
 
-/* BOTONES DOBLES */
-.btn-group {
-  display: flex;
-  gap: 4px;
-  margin-top: auto;
-}
+.btn-group {display:flex; gap:4px; margin-top:auto}
 
 .btn-pedir {
-  flex: 1;
-  background: #25D366;
-  color: white;
-  border: none;
-  padding: 8px;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 0 0 0 8px;
+  flex:1; background:#25D366; color:white; border:none; padding:8px; font-size:12px; font-weight:bold; cursor:pointer; border-radius:0 0 0 8px;
 }
 
 .btn-carrito {
-  flex: 1;
-  background: #ff9800;
-  color: white;
-  border: none;
-  padding: 8px;
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 0 0 8px 0;
+  flex:1; background:#ff9800; color:white; border:none; padding:8px; font-size:12px; font-weight:bold; cursor:pointer; border-radius:0 0 8px 0;
 }
 
-.btn-pedir:hover {background: #1ebc57;}
-.btn-carrito:hover {background: #e68900;}
+.btn-pedir:hover {background:#1ebc57;}
+.btn-carrito:hover {background:#e68900;}
 .btn-carrito:active {transform:scale(0.95);}
 
-/* MODAL ÚNICO */
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
 .modal-content {background:#1a1a1a; border-radius:15px; max-width:500px; width:90%; max-height:85vh; overflow-y:auto; border:1px solid #333}
 .modal-header {display:flex; gap:12px; padding:15px; border-bottom:1px solid #333; position:relative}
@@ -131,13 +85,8 @@ h1 {font-size:22px; color:#25D366}
 .modal-pedido input, .modal-pedido textarea {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #333; background:#2a2a2a; color:#fff}
 .btn-whatsapp {background:#25D366; border:none; color:#000; padding:12px; border-radius:8px; width:100%; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px}
 
-/* CARRITO DESPUÉS DE FILTROS */
-#carrito {background:#1a1a1a; margin:15px 12px; padding:15px; border-radius:12px; border:1px solid #333; display:none}
-#carrito.mostrar {display:block}
-#carrito h3 {color:#25D366; margin-bottom:10px}
-#items-carrito {margin:10px 0; max-height:300px; overflow-y:auto}
-#items-carrito p {margin:8px 0; padding-bottom:8px; border-bottom:1px solid #333; font-size:14px}
-#enviar-wsp {background:#25D366; color:white; border:none; padding:12px; width:100%; border-radius:8px; font-weight:bold; cursor:pointer; margin-top:10px}
+#items-carrito-modal {max-height:250px; overflow-y:auto; margin:10px 0}
+#items-carrito-modal p {margin:8px 0; padding-bottom:8px; border-bottom:1px solid #333; font-size:14px}
 </style>
 </head>
 <body>
@@ -146,8 +95,8 @@ h1 {font-size:22px; color:#25D366}
   <h1>Promos 24hs Tres Arroyos</h1>
 </div>
 
-<div style="display:flex; gap:8px; flex-wrap:wrap; margin:20px 0; justify-content:center">
-  <button class="filter-btn" onclick="filtrarCategoria('todos', this)">Todos</button>
+<div class="filtros">
+  <button class="filter-btn" onclick="filtrarCategoria('todos', this)">Todas</button>
   <button class="filter-btn" onclick="filtrarCategoria('bar', this)">Bares</button>
   <button class="filter-btn" onclick="filtrarCategoria('parrilla', this)">Parrillas</button>
   <button class="filter-btn" onclick="filtrarCategoria('pizzeria', this)">Pizzerías</button>
@@ -159,15 +108,12 @@ h1 {font-size:22px; color:#25D366}
   <button class="filter-btn" onclick="filtrarCategoria('panaderia', this)">Panaderías</button>
   <button class="filter-btn" onclick="filtrarCategoria('verduleria', this)">Verdulerías</button>
   <button class="filter-btn" onclick="filtrarCategoria('cafeteria', this)">Cafeterías</button>
+  
+  <button id="btn-carrito-filtros" onclick="abrirCarritoModal()">🛒 Carrito <span id="contador-carrito">(0)</span></button>
 </div>
 
-<!-- CARRITO DESPUÉS DE LOS FILTROS -->
-<div id="carrito">
-  <h3>🛒 Tu pedido <span id="contador">(0 items)</span></h3>
-  <div id="items-carrito"><p style="color:#999">Agregá promos al carrito</p></div>
-  <button id="enviar-wsp">Enviar pedido por WhatsApp</button>
-</div>
-  
+<div class="container">
+
 <!-- LOCAL 1 -->
 <div class="bar" id="bar-1" data-categoria="carniceria" data-nombre="Carnicería Don José" data-direccion="Av. Belgrano 123" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Asado 3kg Premium","precio":16500,"desc":"Tira, vacío, matambre premium","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Milanesas x8 Ternera","precio":8900,"desc":"Ternera especial para milanesas","img":"https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"},{"nombre":"Costilla 2kg Parrilla","precio":12800,"desc":"Costilla ancha para parrilla","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"},{"nombre":"Combo Familia 5kg","precio":22500,"desc":"5kg mixto para toda la familia","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" alt="Carnicería Don José">
@@ -259,7 +205,8 @@ h1 {font-size:22px; color:#25D366}
 </div>
 
 <!-- LOCAL 6 -->
-<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop<img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
+<div class="bar" id="bar-6" data-categoria="parrilla" data-nombre="Parrilla La Estaca" data-direccion="Av. San Martín 456" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Tira + Vacío 2 Personas","precio":25000,"desc":"Para 2 personas, bien jugosa","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chori Pan Casero x4","precio":3200,"desc":"4 unidades con pan casero","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo 6kg","precio":38000,"desc":"6kg para toda la familia","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Provoleta + Chorizo","precio":6500,"desc":"Provoleta + 2 chorizos","img":"https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" alt="Parrilla La Estaca">
 <div class="bar-body">
 <h3>Parrilla La Estaca</h3>
 <p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 20 a 00hs</p>
@@ -381,7 +328,16 @@ h1 {font-size:22px; color:#25D366}
 <button class="btn-ver-promos" data-nombre="Carnicería La Ideal" data-direccion="Av. Sarmiento 741" data-img="https://images.unsplash.com/photo-1617714458886-ade68204c0d8?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button>
 </div>
 </div>
-</div><div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan Casero x3 Unidades</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Pan Casero x3 Unidades',2100)">Pedir $2100</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Pan Casero x3 Unidades" data-precio="2100">+ Carrito</button></div></div>
+</div>
+
+<!-- LOCAL 13 -->
+<div class="bar" id="bar-13" data-categoria="panaderia" data-nombre="Panadería El Horno" data-direccion="Calle Moreno 963" data-img="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pan Casero x3 Unidades","precio":2100,"desc":"3 unidades recién horneadas","img":"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"},{"nombre":"Factura Surtida x12","precio":3400,"desc":"Docena surtida","img":"https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"},{"nombre":"Chipa Queso x20","precio":2800,"desc":"20 unidades crocantes","img":"https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"},{"nombre":"Rosca de Reyes Grande","precio":5600,"desc":"Grande con crema","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=400&h=300&fit=crop" alt="Panadería El Horno">
+<div class="bar-body">
+<h3>Panadería El Horno</h3>
+<p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 6 a 21hs Lun a Dom</p>
+<div class="grid-promos">
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Pan Casero x3 Unidades</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Pan Casero x3 Unidades',2100)">Pedir $2100</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Pan Casero x3 Unidades" data-precio="2100">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db8e?w=200&h=110&fit=crop"><div class="promo-nombre">Factura Surtida x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Factura Surtida x12',3400)">Pedir $3400</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Factura Surtida x12" data-precio="3400">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1611992421050-254ab1f8d741?w=200&h=110&fit=crop"><div class="promo-nombre">Chipa Queso x20</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Chipa Queso x20',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Chipa Queso x20" data-precio="2800">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Rosca de Reyes Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Horno','Rosca de Reyes Grande',5600)">Pedir $5600</button><button class="btn-carrito" data-local="Panadería El Horno" data-promo="Rosca de Reyes Grande" data-precio="5600">+ Carrito</button></div></div>
@@ -482,7 +438,9 @@ h1 {font-size:22px; color:#25D366}
 </div>
 </div>
 
-<!-- MODAL ÚNICO - EDITADO CON SELECT -->
+</div>
+
+<!-- MODAL ÚNICO -->
 <div class="modal" id="modal">
   <div class="modal-content">
     <div class="modal-header">
@@ -496,40 +454,28 @@ h1 {font-size:22px; color:#25D366}
     </div>
     
     <div id="modal-promos-grid" class="modal-promos-grid"></div>
-  <div class="modal-pedido" id="modal-pedido">
-  <h3>Confirmar Pedido 📱</h3>
-  <p style="color:#aaa">Local: <b id="pedido-local"></b></p>
-  <div style="display:flex; justify-content:space-between; margin:10px 0">
-    <b id="pedido-producto"></b>
-    <span id="pedido-precio" style="color:#25D366; font-weight:bold"></span>
-  </div>
-  
-  <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
-    <label for="tipoEntrega" style="display:block;margin-bottom:8px;font-weight:bold">Forma de entrega:</label>
-    <select id="tipoEntrega" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:15px" onchange="calcularTotal()">
-      <option value="" selected disabled>Elegir opción</option>
-      <option value="envio">Envío a domicilio - $2.000</option>
-      <option value="retiro">Retirar en local</option>
-    </select>
-    <div id="errorEntrega" style="color:#ff4444;font-size:13px;margin-top:5px;display:none">Tenés que elegir una opción sí o sí</div>
     
-    <div id="direccionEnvio" style="display:block;margin-top:10px">
-      <input type="text" id="direccion" placeholder="Tu dirección para el envío" required style="width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff">
+    <div class="modal-pedido" id="modal-pedido">
+      <h3 id="titulo-modal">Confirmar Pedido 📱</h3>
+      <div id="resumen-pedido"></div>
+      
+      <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
+        <p style="font-size:18px; margin:10px 0; text-align:center">
+          Envío a domicilio: <b style="color:#25D366">$2.000</b><br>
+          Total: <b id="pedido-total" style="color:#25D366; font-size:22px"></b>
+        </p>
+      </div>
+
+      <input type="text" id="pedido-nombre" placeholder="Tu nombre *" required>
+      <input type="tel" id="pedido-tel" placeholder="Tu teléfono *" required>
+      <input type="text" id="pedido-direccion" placeholder="Dirección para envío *" required>
+      <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
+      
+      <div style="display:flex; gap:8px; margin-top:10px">
+        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+      </div>
     </div>
-  </div>
-
-  <p style="font-size:18px; margin:15px 0; text-align:center">
-    Total: <b id="pedido-total" style="color:#25D366; font-size:22px"></b>
-  </p>
-
-  <input type="text" id="pedido-nombre" placeholder="Tu nombre" required>
-  <input type="tel" id="pedido-tel" placeholder="Tu teléfono" required>
-  <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
-  <div style="display:flex; gap:8px; margin-top:10px">
-    <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
-    <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
-  </div>
-</div>
   </div>
 </div>
 
@@ -539,72 +485,110 @@ const NUMERO = "5492983389710";
 let pedidoActual = {};
 let carrito = [];
 
-// CAMBIO 1: abrirPedido abre DIRECTO el formulario
+// CARRITO - AGREGAR
+document.addEventListener('click', e => {
+  if(e.target.classList.contains('btn-carrito')) {
+    const item = {
+      local: e.target.dataset.local, 
+      promo: e.target.dataset.promo, 
+      precio: parseInt(e.target.dataset.precio)
+    };
+    carrito.push(item);
+    actualizarContadorCarrito();
+    e.target.textContent = "✓ Agregado";
+    setTimeout(() => e.target.textContent = "+ Carrito", 1000);
+  }
+});
+
+function actualizarContadorCarrito() {
+  document.getElementById('contador-carrito').textContent = `(${carrito.length})`;
+}
+
+// ABRIR MODAL CARRITO
+function abrirCarritoModal() {
+  if(carrito.length === 0) {
+    alert("El carrito está vacío. Agregá promos desde los botones + Carrito");
+    return;
+  }
+  
+  pedidoActual = {tipo: 'carrito'};
+  document.getElementById('modal-nombre').textContent = 'Tu Carrito';
+  document.getElementById('modal-direccion').textContent = '';
+  document.getElementById('modal-horario').textContent = '';
+  document.getElementById('modal-img').src = 'https://cdn-icons-png.flaticon.com/512/3144/3144456.png';
+  
+  const grid = document.getElementById('modal-promos-grid');
+  grid.style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'block';
+  document.getElementById('titulo-modal').textContent = 'Confirmar Pedido del Carrito 🛒';
+  
+  const subtotal = carrito.reduce((a,b) => a + b.precio, 0);
+  const total = subtotal + 2000;
+  
+  let resumen = '<div id="items-carrito-modal">';
+  carrito.forEach(i => {
+    resumen += `<p><b>${i.promo}</b><br><small>${i.local} - $${i.precio.toLocaleString('es-AR')}</small></p>`;
+  });
+  resumen += `</div><p style="text-align:center; margin-top:10px">Subtotal: $${subtotal.toLocaleString('es-AR')}<br>Envío: $2.000</p>`;
+  
+  document.getElementById('resumen-pedido').innerHTML = resumen;
+  document.getElementById('pedido-total').textContent = '$' + total.toLocaleString('es-AR');
+  
+  document.getElementById('modal').style.display = 'flex';
+}
+
+// PEDIR PROMO DIRECTO
 function abrirPedido(local, producto, precio) {
-  pedidoActual = {local, producto, precio};
-  document.getElementById('pedido-local').textContent = local;
-  document.getElementById('pedido-producto').textContent = producto;
-  document.getElementById('pedido-precio').textContent = '$' + precio.toLocaleString('es-AR');
+  pedidoActual = {tipo: 'individual', local, producto, precio};
+  document.getElementById('modal-nombre').textContent = local;
+  document.getElementById('modal-direccion').textContent = '';
+  document.getElementById('modal-horario').textContent = '';
   
   const modal = document.getElementById('modal');
   modal.style.display = 'flex';
   
-  // Va directo al formulario, no muestra la grilla
   document.getElementById('modal-promos-grid').style.display = 'none';
   document.getElementById('modal-pedido').style.display = 'block';
+  document.getElementById('titulo-modal').textContent = 'Confirmar Pedido 📱';
   
-  document.getElementById('tipoEntrega').value = '';
-  document.getElementById('direccionEnvio').style.display = 'block'; // CAMBIO 2: Dirección siempre visible y obligatoria
-  document.getElementById('direccion').required = true;
-  document.getElementById('pedido-total').textContent = '$' + precio.toLocaleString('es-AR');
-}
-
-function calcularTotal() {
-  try {
-    const entrega = document.getElementById('tipoEntrega').value;
-    const totalEl = document.getElementById('pedido-total');
-    const errorEntrega = document.getElementById('errorEntrega');
-    
-    if(!totalEl || !pedidoActual.precio) return;
-    
-    let total = pedidoActual.precio;
-    if(entrega === 'envio') total += 2000;
-    totalEl.textContent = '$' + total.toLocaleString('es-AR');
-    
-    if(entrega) {
-      errorEntrega.style.display = 'none';
-      document.getElementById('tipoEntrega').style.border = '1px solid #333';
-    }
-  } catch(e) {
-    console.error('Error calcularTotal:', e);
-  }
+  let resumen = `<p style="color:#aaa">Local: <b>${local}</b></p>
+  <div style="display:flex; justify-content:space-between; margin:10px 0">
+    <b>${producto}</b>
+    <span style="color:#25D366; font-weight:bold">$${precio.toLocaleString('es-AR')}</span>
+  </div>
+  <p style="text-align:center; margin-top:10px">Envío: $2.000</p>`;
+  
+  document.getElementById('resumen-pedido').innerHTML = resumen;
+  document.getElementById('pedido-total').textContent = '$' + (precio + 2000).toLocaleString('es-AR');
 }
 
 function enviarWhatsApp() {
   const nombre = document.getElementById('pedido-nombre').value;
   const tel = document.getElementById('pedido-tel').value;
+  const direccion = document.getElementById('pedido-direccion').value;
   const nota = document.getElementById('pedido-nota').value;
-  const entrega = document.getElementById('tipoEntrega').value;
-  const direccionEnvio = document.getElementById('direccion').value;
-  const errorEntrega = document.getElementById('errorEntrega');
   
-  if(!entrega) {
-    errorEntrega.style.display = 'block';
-    document.getElementById('tipoEntrega').style.border = '2px solid #ff4444';
+  if(!nombre || !tel || !direccion) {
+    alert('Completá nombre, teléfono y dirección. Son obligatorios para el envío');
     return;
   }
   
-  if(!nombre || !tel || !direccionEnvio) {
-    alert('Completá nombre, teléfono y dirección');
-    return;
+  let msg = `*NUEVO PEDIDO*%0A%0A`;
+  
+  if(pedidoActual.tipo === 'carrito') {
+    msg += `*Pedido desde CARRITO*%0A%0A`;
+    carrito.forEach(i => msg += `• ${i.promo} - ${i.local} $${i.precio.toLocaleString('es-AR')}%0A`);
+    const subtotal = carrito.reduce((a,b) => a + b.precio, 0);
+    const total = subtotal + 2000;
+    msg += `%0ASubtotal: $${subtotal.toLocaleString('es-AR')}%0AEnvío a domicilio: $2.000%0A*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
+    carrito = [];
+    actualizarContadorCarrito();
+  } else {
+    const total = pedidoActual.precio + 2000;
+    msg += `*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio.toLocaleString('es-AR')}%0AEnvío a domicilio: $2.000%0A*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
   }
   
-  let total = pedidoActual.precio;
-  if(entrega === 'envio') total += 2000;
-  
-  const textoEntrega = entrega === 'envio' ? 'Envío a domicilio + $2.000' : 'Retirar en local';
-  
-  const msg = `*NUEVO PEDIDO*%0A%0A*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio}%0A*Entrega:* ${textoEntrega}%0A*Dirección:* ${direccionEnvio}%0A*Total:* $${total.toLocaleString('es-AR')}%0A*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A*Nota:* ${nota}`;
+  msg += `*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A*Dirección:* ${direccion}%0A*Nota:* ${nota}`;
   
   window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
   cerrarModal();
@@ -614,61 +598,13 @@ function cerrarModal() {
   document.getElementById('modal').style.display = 'none';
   document.getElementById('modal-pedido').style.display = 'none';
   document.getElementById('modal-promos-grid').style.display = 'flex';
+  document.getElementById('pedido-nombre').value = '';
+  document.getElementById('pedido-tel').value = '';
+  document.getElementById('pedido-direccion').value = '';
+  document.getElementById('pedido-nota').value = '';
 }
 
-// CÓDIGO CARRITO
-document.addEventListener('click', e => {
-  if(e.target.classList.contains('btn-carrito')) {
-    const item = {
-      local: e.target.dataset.local, 
-      promo: e.target.dataset.promo, 
-      precio: e.target.dataset.precio
-    };
-    carrito.push(item);
-    actualizarCarrito();
-    e.target.textContent = "✓ Agregado";
-    setTimeout(() => e.target.textContent = "+ Carrito", 1000);
-  }
-});
-
-function agregarCarrito(btn) {
-  const item = {
-    local: btn.dataset.local, 
-    promo: btn.dataset.promo, 
-    precio: btn.dataset.precio
-  };
-  carrito.push(item);
-  actualizarCarrito();
-  btn.textContent = "✓ Agregado";
-  setTimeout(() => btn.textContent = "+ Carrito", 1000);
-}
-
-function actualizarCarrito() {
-  const carritoDiv = document.getElementBydocument.getElementById('carrito');
-  const contador = document.getElementById('contador');
-  const items = document.getElementById('items-carrito');
-  
-  if(carrito.length > 0) {
-    carritoDiv.classList.add('mostrar');
-    contador.textContent = `(${carrito.length} items)`;
-    items.innerHTML = carrito.map(i => `<p>${i.promo}<br><small>${i.local} - $${Number(i.precio).toLocaleString('es-AR')}</small></p>`).join('');
-  } else {
-    carritoDiv.classList.remove('mostrar');
-    items.innerHTML = "<p style='color:#999'>Agregá promos al carrito</p>";
-  }
-}
-
-document.getElementById('enviar-wsp').onclick = () => {
-  if(carrito.length === 0) return alert("El carrito está vacío");
-  let texto = "Hola! Quiero pedir:%0A%0A";
-  carrito.forEach(i => texto += `• ${i.promo} - ${i.local} $${Number(i.precio).toLocaleString('es-AR')}%0A`);
-  const total = carrito.reduce((a,b) => a + Number(b.precio), 0);
-  texto += `%0ATotal: $${total.toLocaleString('es-AR')}%0A%0A*Nota:* Pedido desde carrito. Contactar al cliente para dirección.`;
-  window.open(`https://wa.me/5492983389710?text=${texto}`);
-  carrito = [];
-  actualizarCarrito();
-};
-
+// MODAL PROMOS POR LOCAL
 function abrirModalPromos(btn) {
   try {
     const nombre = btn.dataset.nombre;
@@ -679,7 +615,7 @@ function abrirModalPromos(btn) {
     const promosData = JSON.parse(local.dataset.promos);
     
     document.getElementById('modal-nombre').textContent = nombre;
-    document.getElementById('modal-direccion').textContent = direccion;
+       document.getElementById('modal-direccion').textContent = direccion;
     document.getElementById('modal-horario').textContent = horario;
     document.getElementById('modal-img').src = img;
     
@@ -700,7 +636,7 @@ function abrirModalPromos(btn) {
               <span style="font-weight:bold; font-size:18px; color:#25D366">$${p.precio.toLocaleString('es-AR')}</span>
               <div style="display:flex; gap:5px">
                 <button class="btn-pedir-modal" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
-                <button class="btn-pedir-modal" style="background:#ff9800" data-local="${nombreEsc}" data-promo="${promoEsc}" data-precio="${p.precio}" onclick="agregarCarrito(this)">+ Carrito</button>
+                <button class="btn-pedir-modal" style="background:#ff9800" data-local="${nombreEsc}" data-promo="${promoEsc}" data-precio="${p.precio}">+ Carrito</button>
               </div>
             </div>
           </div>
@@ -713,31 +649,22 @@ function abrirModalPromos(btn) {
     grid.style.display = 'flex';
   } catch(e) {
     console.error('Error abrirModalPromos:', e);
-    alert('Error cargando promos. Revisá el data-promos del local.');
   }
 }
 
+// FILTROS
 function filtrarCategoria(categoria, btn) {
-  try {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    if(btn) btn.classList.add('active');
-    
-    const locales = document.querySelectorAll('.bar, .local-card');
-    locales.forEach(local => {
-      try {
-        if(categoria === 'todos' || local.dataset.categoria === categoria) {
-          local.style.display = 'block';
-        } else {
-          local.style.display = 'none';
-        }
-      } catch(e) {
-        console.error('Error en local:', local.dataset.nombre, e);
-        local.style.display = 'block';
-      }
-    });
-  } catch(e) {
-    console.error('Error filtrarCategoria:', e);
-  }
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  
+  const locales = document.querySelectorAll('.bar, .local-card');
+  locales.forEach(local => {
+    if(categoria === 'todos' || local.dataset.categoria === categoria) {
+      local.style.display = 'block';
+    } else {
+      local.style.display = 'none';
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
