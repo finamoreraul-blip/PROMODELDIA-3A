@@ -539,7 +539,8 @@ h1 {font-size:22px; color:#25D366}
 
 </body>
 <script>
-const NUMERO = "5492983389710";
+const ORIGEN = "Escobar";
+  const NUMERO = "5492983389710";
 let pedidoActual = {};
 let carrito = [];
 let tipoEntrega = 'envio';
@@ -725,7 +726,7 @@ function enviarWhatsApp() {
     return;
   }
   
-  let msg = `*NUEVO PEDIDO*%0A%0A`;
+let msg = `*NUEVO PEDIDO - ${ORIGEN}*%0A%0A`;
   
   if(pedidoActual.tipo === 'carrito') {
     msg += `*Pedido desde CARRITO*%0A*Modalidad: ENVÍO OBLIGATORIO*%0A%0A`;
@@ -744,6 +745,7 @@ function enviarWhatsApp() {
     const total = tipoEntrega === 'envio' ? pedidoActual.precio + 2000 : pedidoActual.precio;
     const modalidad = tipoEntrega === 'envio' ? 'ENVÍO A DOMICILIO' : 'RETIRO EN LOCAL';
     msg += `*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio.toLocaleString('es-AR')}%0A*Modalidad:* ${modalidad}%0A`;
+    msg += `*Origen:* ${ORIGEN}%0A`;
     if(tipoEntrega === 'envio') {
       msg += `Envío a domicilio: $2.000%0A`;
     }
