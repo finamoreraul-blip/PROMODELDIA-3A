@@ -9,68 +9,28 @@
 * {margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif}
 body {background:#0a0a0a; color:#fff}
 header {background:#1a1a1a; padding:15px; text-align:center; position:sticky; top:0; z-index:100}
-
 h1 {font-size:22px; color:#25D366}
-
 .filtros {display:flex; gap:8px; padding:12px; overflow-x:auto; background:#151515; align-items:center}
 .filter-btn {padding:8px 14px; border:none; border-radius:20px; background:#2a2a2a; color:#fff; cursor:pointer; white-space:nowrap; font-size:14px}
 .filter-btn.active {background:#25D366; color:white}
-
 #btn-carrito-filtros {margin-left:auto; background:#ff9800; color:#fff; padding:8px 14px; border:none; border-radius:20px; font-weight:bold; cursor:pointer; font-size:14px}
 #btn-carrito-filtros:hover {background:#e68900}
-
 .container {padding:12px; max-width:1200px; margin:auto}
-
 .bar, .local-card {background:#1a1a1a; border-radius:12px; overflow:hidden; border:1px solid #333; margin-bottom:12px}
 .bar-img {width:100%; height:120px; object-fit:cover; border-radius:8px; cursor:pointer}
 .bar-body, .local-info {padding:10px}
 .bar h3, .local-info h3 {font-size:17px; margin-bottom:5px; color:#25D366}
 .horario-local {font-size:12px; color:#aaa; margin-bottom:8px}
 .estado-badge {background:#28a745; padding:3px 8px; border-radius:12px; font-size:10px; color:#fff}
-
-.btn-ver-promos {
-  background: #25D366 !important;
-  color: white !important;
-  border: none !important;
-  padding: 12px 24px !important;
-  font-size: 15px !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-  border-radius: 8px !important;
-  width: 100% !important;
-  max-width: 280px !important;
-  display: block !important;
-  margin: 12px auto 0 auto !important;
-  text-align: center !important;
-}
-
+.btn-ver-promos {background: #25D366 !important; color: white !important; border: none !important; padding: 12px 24px !important; font-size: 15px !important; font-weight: bold !important; cursor: pointer !important; border-radius: 8px !important; width: 100% !important; max-width: 280px !important; display: block !important; margin: 12px auto 0 auto !important; text-align: center !important;}
 .grid-promos {display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; margin:12px 0}
-
-.promo-item {
-  border:1px solid #333; border-radius:8px; overflow:hidden; background:#2a2a2a; display:flex; flex-direction:column;
-}
-
+.promo-item {border:1px solid #333; border-radius:8px; overflow:hidden; background:#2a2a2a; display:flex; flex-direction:column;}
 .promo-item img {width:100%; height:110px; object-fit:cover; display:block; background:#1a1a1a; cursor:pointer}
-
-.promo-nombre {
-  font-size:13px; font-weight:600; padding:6px 4px; color:#fff; text-align:center; min-height:32px;
-  display:flex; align-items:center; justify-content:center; line-height:1.2;
-}
-
+.promo-nombre {font-size:13px; font-weight:600; padding:6px 4px; color:#fff; text-align:center; min-height:32px; display:flex; align-items:center; justify-content:center; line-height:1.2;}
 .btn-group {display:flex; gap:4px; margin-top:auto}
-
-.btn-pedir {
-  flex:1; background:#25D366; color:white; border:none; padding:8px; font-size:12px; font-weight:bold; cursor:pointer; border-radius:0 0 0 8px;
-}
-
-.btn-carrito {
-  flex:1; background:#ff9800; color:white; border:none; padding:8px; font-size:12px; font-weight:bold; cursor:pointer; border-radius:0 0 8px 0;
-}
-
-.btn-pedir:hover {background:#1ebc57;}
-.btn-carrito:hover {background:#e68900;}
-.btn-carrito:active {transform:scale(0.95);}
-
+.btn-pedir {flex:1; background:#25D366; color:white; border:none; padding:8px; font-size:12px; font-weight:bold; cursor:pointer; border-radius:0 0 0 8px;}
+.btn-carrito {flex:1; background:#ff9800; color:white; border:none; padding:8px; font-size:12px; font-weight:bold; cursor:pointer; border-radius:0 0 8px 0;}
+.btn-pedir:hover {background:#1ebc57;} .btn-carrito:hover {background:#e68900;} .btn-carrito:active {transform:scale(0.95);}
 .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center}
 .modal-content {background:#1a1a1a; border-radius:15px; max-width:500px; width:90%; max-height:85vh; overflow-y:auto; border:1px solid #333}
 .modal-header {display:flex; gap:12px; padding:15px; border-bottom:1px solid #333; position:relative}
@@ -83,84 +43,29 @@ h1 {font-size:22px; color:#25D366}
 .modal-pedido h3 {color:#25D366; margin-bottom:15px}
 .modal-pedido input, .modal-pedido textarea {width:100%; padding:10px; margin:8px 0; border-radius:8px; border:1px solid #333; background:#2a2a2a; color:#fff}
 .btn-whatsapp {background:#25D366; border:none; color:#000; padding:12px; border-radius:8px; width:100%; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px}
-
 #items-carrito-modal {max-height:250px; overflow-y:auto; margin:10px 0}
 #items-carrito-modal p {margin:8px 0; padding-bottom:8px; border-bottom:1px solid #333; font-size:14px}
-
 .btn-vaciar {background:#dc3545; border:none; color:white; padding:8px 12px; border-radius:6px; cursor:pointer; font-size:13px; font-weight:bold; margin-bottom:10px}
 .btn-vaciar:hover {background:#c82333}
-
 .opcion-envio {display:flex; gap:10px; margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px}
 .opcion-envio label {flex:1; cursor:pointer; padding:10px; border:2px solid #444; border-radius:8px; text-align:center; transition:all 0.2s}
 .opcion-envio input[type="radio"] {display:none}
 .opcion-envio input[type="radio"]:checked + label {border-color:#25D366; background:#1a3d2a}
-
-/* LIGHTBOX */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  padding-top: 50px;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background: rgba(0,0,0,0.9);
-}
-.lightbox img {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 85vh;
-  border-radius: 8px;
-}
-.lightbox .close {
-  position: absolute;
-  top: 20px; right: 40px;
-  color: #fff; font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
+.lightbox {display: none; position: fixed; z-index: 9999; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background: rgba(0,0,0,0.9);}
+.lightbox img {margin: auto; display: block; max-width: 90%; max-height: 85vh; border-radius: 8px;}
+.lightbox .close {position: absolute; top: 20px; right: 40px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;}
 .lightbox .close:hover { color: #ccc; }
-
-/* CARRITO FLOTANTE - AGREGADO */
-.cart-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 50px;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  z-index: 9999;
-  text-decoration: none;
-  transition: transform 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.cart-float:hover {
-  transform: scale(1.05);
-}
-.cart-count {
-  background: #E63946;
-  border-radius: 50%;
-  padding: 2px 8px;
-  font-size: 12px;
-  margin-left: 5px;
-}
+.cart-float {position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; font-size: 26px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 99999; text-decoration: none; display: flex; align-items: center; justify-content: center; transition: transform 0.2s;}
+.cart-float:hover {transform: scale(1.05);}
+.cart-count {position: absolute; top: -5px; right: -5px; background: #E63946; border-radius: 50%; width: 24px; height: 24px; font-size: 12px; font-weight: bold; display: flex; align-items: center; justify-content: center; border: 2px solid #0a0a0a;}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>Promos 24hs Tres Arroyos</h1>
-</div>
+<div class="header"><h1>Promos 24hs Tres Arroyos</h1></div>
 
 <div class="filtros">
-  <button class="filter-btn" onclick="filtrarCategoria('todos', this)">Todas</button>
+  <button class="filter-btn active" onclick="filtrarCategoria('todos', this)">Todas</button>
   <button class="filter-btn" onclick="filtrarCategoria('bar', this)">Bares</button>
   <button class="filter-btn" onclick="filtrarCategoria('parrilla', this)">Parrillas</button>
   <button class="filter-btn" onclick="filtrarCategoria('pizzeria', this)">Pizzerías</button>
@@ -172,7 +77,6 @@ h1 {font-size:22px; color:#25D366}
   <button class="filter-btn" onclick="filtrarCategoria('panaderia', this)">Panaderías</button>
   <button class="filter-btn" onclick="filtrarCategoria('verduleria', this)">Verdulerías</button>
   <button class="filter-btn" onclick="filtrarCategoria('cafeteria', this)">Cafeterías</button>
-  
   <button id="btn-carrito-filtros" onclick="abrirCarritoModal()">🛒 Carrito <span id="contador-carrito">(0)</span></button>
 </div>
 
@@ -506,7 +410,57 @@ h1 {font-size:22px; color:#25D366}
 
 <!-- MODAL ÚNICO -->
 <div class="modal" id="modal">
-  [TODO TU MODAL SIN CAMBIOS]
+  <div class="modal-content">
+    <div class="modal-header">
+      <img id="modal-img" src="" alt="">
+      <div style="flex:1">
+        <h3 id="modal-nombre"></h3>
+        <p id="modal-direccion"></p>
+        <p id="modal-horario"></p>
+      </div>
+      <span class="modal-close" onclick="cerrarModal()">&times;</span>
+    </div>
+    
+    <div id="modal-promos-grid" class="modal-promos-grid"></div>
+    
+    <div class="modal-pedido" id="modal-pedido">
+      <h3 id="titulo-modal">Confirmar Pedido 📱</h3>
+      <div id="resumen-pedido"></div>
+      
+      <div id="opcion-envio-container"></div>
+
+      <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
+        <p style="font-weight:bold; margin-bottom:8px; color:#25D366">Método de pago *</p>
+        <div class="opcion-envio">
+          <input type="radio" id="pago-efectivo" name="pago" value="Efectivo" checked>
+          <label for="pago-efectivo">💵 Efectivo<br><small>Contra entrega</small></label>
+          
+          <input type="radio" id="pago-transfer" name="pago" value="Transferencia">
+          <label for="pago-transfer">🏦 Transferencia<br><small>Te pasamos CBU</small></label>
+          
+          <input type="radio" id="pago-mp" name="pago" value="Mercado Pago">
+          <label for="pago-mp">📱 Mercado Pago<br><small>Te mandamos link</small></label>
+        </div>
+      </div>
+
+      <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
+        <p style="font-size:18px; margin:10px 0; text-align:center">
+          <span id="texto-envio">Envío a domicilio: <b style="color:#25D366">$2.000</b></span><br>
+          Total: <b id="pedido-total" style="color:#25D366; font-size:22px"></b>
+        </p>
+      </div>
+
+      <input type="text" id="pedido-nombre" placeholder="Tu nombre *" required>
+      <input type="tel" id="pedido-tel" placeholder="Tu teléfono *" required>
+      <input type="text" id="pedido-direccion" placeholder="Dirección para envío *" required>
+      <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
+      
+      <div style="display:flex; gap:8px; margin-top:10px">
+        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
+        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- LIGHTBOX CONTAINER -->
@@ -515,17 +469,15 @@ h1 {font-size:22px; color:#25D366}
   <img id="lightbox-img">
 </div>
 
-<!-- BOTÓN CARRITO FLOTANTE - AGREGADO -->
-<a href="https://wa.me/5492983389710?text=Hola! Quiero pedir la promo de hoy desde Promos-3A" 
-   target="_blank" 
-   class="cart-float">
-  🛒 Pedir Promo <span class="cart-count" id="cart-count-float">0</span>
+<!-- CARRITO FLOTANTE SOLO ÍCONO -->
+<a href="#" onclick="abrirCarritoModal(); return false;" class="cart-float">
+  🛒 <span class="cart-count" id="cart-count-float">0</span>
 </a>
 
 </body>
 <script>
-const ORIGEN = "Escobar";
-  const NUMERO = "5492983389710";
+const ORIGEN = "Tres Arroyos";
+const NUMERO = "5492983389710";
 let pedidoActual = {};
 let carrito = [];
 let tipoEntrega = 'envio';
@@ -537,9 +489,6 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarContadorCarrito();
   }
   
-  const btnTodos = document.querySelector('.filter-btn');
-  if(btnTodos) btnTodos.classList.add('active');
-
   const modal = document.getElementById('modal');
   if(modal) {
     modal.onclick = function(e) {
@@ -602,7 +551,6 @@ function vaciarCarrito() {
   }
 }
 
-// FIX ANTI-NaN
 function abrirCarritoModal() {
   if(carrito.length === 0) {
     alert("El carrito está vacío. Agregá promos desde los botones + Carrito");
@@ -632,7 +580,9 @@ function abrirCarritoModal() {
   carrito.forEach(i => {
     resumen += `<p><b>${i.promo}</b><br><small>${i.local} - $${i.precio.toLocaleString('es-AR')}</small></p>`;
   });
-  resumen += `</div><p style="text-align:center; margin-top:10px">Subtotal: $${subtotal.toLocaleString('es-AR')}</p>`;document.getElementById('resumen-pedido').innerHTML = resumen;
+  resumen += `</div><p style="text-align:center; margin-top:10px">Subtotal: $${subtotal.toLocaleString('es-AR')}</p>`;
+  
+  document.getElementById('resumen-pedido').innerHTML = resumen;
   document.getElementById('texto-envio').innerHTML = 'Envío a domicilio: <b style="color:#25D366">$2.000</b>';
   document.getElementById('opcion-envio-container').innerHTML = '';
   document.getElementById('pedido-total').textContent = '$' + total.toLocaleString('es-AR');
@@ -712,7 +662,7 @@ function enviarWhatsApp() {
     return;
   }
   
-let msg = `*NUEVO PEDIDO - ${ORIGEN}*%0A%0A`;
+  let msg = `*NUEVO PEDIDO - ${ORIGEN}*%0A%0A`;
   
   if(pedidoActual.tipo === 'carrito') {
     msg += `*Pedido desde CARRITO*%0A*Modalidad: ENVÍO OBLIGATORIO*%0A%0A`;
@@ -817,6 +767,8 @@ function filtrarCategoria(categoria, btn) {
       local.style.display = 'none';
     }
   });
+  
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 </script>
 </html>
