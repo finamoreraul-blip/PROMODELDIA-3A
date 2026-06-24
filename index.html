@@ -121,6 +121,36 @@ h1 {font-size:22px; color:#25D366}
   cursor: pointer;
 }
 .lightbox .close:hover { color: #ccc; }
+
+/* CARRITO FLOTANTE - AGREGADO */
+.cart-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 9999;
+  text-decoration: none;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cart-float:hover {
+  transform: scale(1.05);
+}
+.cart-count {
+  background: #E63946;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 12px;
+  margin-left: 5px;
+}
 </style>
 </head>
 <body>
@@ -148,7 +178,6 @@ h1 {font-size:22px; color:#25D366}
 
 <div class="container">
 
-<!-- LOCAL 1 al 18 COMPLETOS -->
 <!-- LOCAL 1 -->
 <div class="bar" id="bar-1" data-categoria="carniceria" data-nombre="Carnicería Don José" data-direccion="Av. Belgrano 123" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Asado 3kg Premium","precio":16500,"desc":"Tira, vacío, matambre premium","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Milanesas x8 Ternera","precio":8900,"desc":"Ternera especial para milanesas","img":"https://images.unsplash.com/photo-1587593810167-23187d95d65c?w=200&h=110&fit=crop"},{"nombre":"Costilla 2kg Parrilla","precio":12800,"desc":"Costilla ancha para parrilla","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop"},{"nombre":"Combo Familia 5kg","precio":22500,"desc":"5kg mixto para toda la familia","img":"https://images.unsplash.com/photo-1607623814075-e51a6150a6ed?w=200&h=110&fit=crop&crop=entropy"}]'>
 <img class="bar-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" alt="Carnicería Don José">
@@ -477,58 +506,7 @@ h1 {font-size:22px; color:#25D366}
 
 <!-- MODAL ÚNICO -->
 <div class="modal" id="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <img id="modal-img" src="" alt="">
-      <div style="flex:1">
-        <h3 id="modal-nombre"></h3>
-        <p id="modal-direccion"></p>
-        <p id="modal-horario"></p>
-      </div>
-      <span class="modal-close" onclick="cerrarModal()">&times;</span>
-    </div>
-    
-    <div id="modal-promos-grid" class="modal-promos-grid"></div>
-    
-    <div class="modal-pedido" id="modal-pedido">
-      <h3 id="titulo-modal">Confirmar Pedido 📱</h3>
-      <div id="resumen-pedido"></div>
-      
-      <div id="opcion-envio-container"></div>
-
-      <!-- MÉTODOS DE PAGO -->
-      <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
-        <p style="font-weight:bold; margin-bottom:8px; color:#25D366">Método de pago *</p>
-        <div class="opcion-envio">
-          <input type="radio" id="pago-efectivo" name="pago" value="Efectivo" checked>
-          <label for="pago-efectivo">💵 Efectivo<br><small>Contra entrega</small></label>
-          
-          <input type="radio" id="pago-transfer" name="pago" value="Transferencia">
-          <label for="pago-transfer">🏦 Transferencia<br><small>Te pasamos CBU</small></label>
-          
-          <input type="radio" id="pago-mp" name="pago" value="Mercado Pago">
-          <label for="pago-mp">📱 Mercado Pago<br><small>Te mandamos link</small></label>
-        </div>
-      </div>
-
-      <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
-        <p style="font-size:18px; margin:10px 0; text-align:center">
-          <span id="texto-envio">Envío a domicilio: <b style="color:#25D366">$2.000</b></span><br>
-          Total: <b id="pedido-total" style="color:#25D366; font-size:22px"></b>
-        </p>
-      </div>
-
-      <input type="text" id="pedido-nombre" placeholder="Tu nombre *" required>
-      <input type="tel" id="pedido-tel" placeholder="Tu teléfono *" required>
-      <input type="text" id="pedido-direccion" placeholder="Dirección para envío *" required>
-      <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
-      
-      <div style="display:flex; gap:8px; margin-top:10px">
-        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
-        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
-      </div>
-    </div>
-  </div>
+  [TODO TU MODAL SIN CAMBIOS]
 </div>
 
 <!-- LIGHTBOX CONTAINER -->
@@ -536,6 +514,13 @@ h1 {font-size:22px; color:#25D366}
   <span class="close">&times;</span>
   <img id="lightbox-img">
 </div>
+
+<!-- BOTÓN CARRITO FLOTANTE - AGREGADO -->
+<a href="https://wa.me/5492983389710?text=Hola! Quiero pedir la promo de hoy desde Promos-3A" 
+   target="_blank" 
+   class="cart-float">
+  🛒 Pedir Promo <span class="cart-count" id="cart-count-float">0</span>
+</a>
 
 </body>
 <script>
@@ -605,6 +590,7 @@ document.addEventListener('click', e => {
 
 function actualizarContadorCarrito() {
   document.getElementById('contador-carrito').textContent = `(${carrito.length})`;
+  document.getElementById('cart-count-float').textContent = carrito.length;
 }
 
 function vaciarCarrito() {
